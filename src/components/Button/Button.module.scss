@@ -1,0 +1,35 @@
+.button {
+  /*box model*/
+  height: 40px;
+  padding: 6px 0;
+  border-radius: 50px;
+  border: 1px solid#ff6600;
+  /*other*/
+  line-height: 100%;
+  font-size: 16px;
+  color: #ff6600;
+  background-color: white;
+  font-family: 'Noto Sans TC', sans-serif;
+  cursor: pointer;
+}
+.small {
+  width: 64px;
+}
+.middle {
+  width: 96px;
+}
+.navTweet {
+  height: 46px;
+  width: 178px;
+  font-size: 20px;
+}
+.large {
+  height: 46px;
+  width: 356px;
+  font-size: 20px;
+}
+.action {
+  border: none;
+  color: white;
+  background-color: #ff6600;
+}
