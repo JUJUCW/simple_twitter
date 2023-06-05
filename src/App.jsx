@@ -1,6 +1,6 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import LoginPage from './pages/LoginPage.jsx'
+import LoginPage from './pages/LoginPage/LoginPage.jsx'
 
 export default function App() {
   return (

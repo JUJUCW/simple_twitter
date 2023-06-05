@@ -1,0 +1,55 @@
+
+.container {
+  /*display*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*box model*/
+  margin-top: 64px;
+}
+.logo {
+  /*box model*/
+  height: 50px;
+  width: 50px;
+}  
+.title {
+  /*box model*/
+  margin: 24px 0 40px 0;
+}
+.AuthInputContainer {
+  /*box model*/
+  width: 356px;
+}
+.button {
+  /*box model*/
+  width: 356px;
+  padding: 6px 0;
+  margin: 16 0;
+  border-radius: 30px;
+  border: none;
+  /*other*/
+  font-size: 20px;
+  color: white;
+  background-color: #ff6600;
+  font-family: 'Noto Sans TC', sans-serif;
+  cursor: pointer;
+}
+.link {
+  /*display*/
+  display: flex;
+  justify-content: end;
+  /*box model*/
+  height: 18px;
+  width: 356px;
+  margin: 22px 0;
+}
+.span {
+  /*box model*/
+  margin: 0 12px;
+  border-bottom: 1px solid #0062ff;
+  /*other*/
+  color: #0062ff;
+  font-size: 16px;
+  cursor: pointer;
+}
