@@ -1,4 +1,3 @@
-
 .container {
   /*display*/
   display: flex;
@@ -8,19 +7,23 @@
   /*box model*/
   margin-top: 64px;
 }
+
 .logo {
   /*box model*/
   height: 50px;
   width: 50px;
-}  
+}
+
 .title {
   /*box model*/
   margin: 24px 0 40px 0;
 }
+
 .AuthInputContainer {
   /*box model*/
   width: 356px;
 }
+
 .button {
   /*box model*/
   width: 356px;
@@ -35,14 +38,16 @@
   font-family: 'Noto Sans TC', sans-serif;
   cursor: pointer;
 }
+
 .link {
   /*display*/
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   /*box model*/
   height: 18px;
   margin: 22px 0;
 }
+
 .span {
   /*box model*/
   margin: 0 12px;
