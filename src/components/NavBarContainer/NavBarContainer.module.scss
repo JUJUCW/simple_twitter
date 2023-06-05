@@ -1,0 +1,146 @@
+@use '/src/components/styles/color' as color;
+@use '/src/components/styles/mixin';
+
+.navBarContainer {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 56px;
+    margin-top: 12px;
+}
+.btnLink{
+  top: 16px;
+  left: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+.logo {
+    display: block;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        display: block;
+    }
+}
+
+.menu {
+    position: unset;
+    background-color: unset;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 39.8px 0 35.6px;
+    gap: 45.6px;
+}
+
+.btnTweet {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: color.$brand-color;
+    cursor: pointer;
+    overflow: hidden;
+    &:hover {
+        box-shadow: 0px 10px 20px -13px rgb(172, 63, 1);
+        transition: 0.3s 0s ease-out box-shadow;
+    }
+
+    img {
+        position: relative;
+        height: 24px;
+        width: 24px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        display: block;
+    }
+
+    .btnTweet {
+        display: none;
+    }
+}
+
+.logOut {
+    display: block;
+    margin-bottom: 16px;
+    cursor: pointer;
+
+    img {
+      
+        width: 24px;
+        height: 24px;
+        display: block;
+    }
+
+    // .btnName {
+
+    // }
+}
+
+@media screen and (min-width: 1200px) {
+    .navBarContainer {
+        align-items: flex-start;
+
+        .main {
+            align-items: flex-start;
+            width: 178px;
+
+            .logo {
+                margin-left: 13px;
+            }
+            .menu {
+                margin-left: 16.9px;
+            }
+
+            .tweet {
+                width: 100%;
+                height: 46px;
+                border-radius: 50px;
+                img {
+                    display: none;
+                }
+
+                .btnTweet {
+                    @include mixin.font-setting(1.25rem, 400, #fff);
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: color.$brand-color;
+                    line-height: 46px;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .logOut {
+            display: flex;
+            margin-left: 16px;
+            align-items: center;
+            gap: 16px;
+            .btnName {
+                display: block;
+                width: inherit;
+                @include mixin.font-setting(1.125rem, 700, #444f);
+            }
+        }
+    }
+}
