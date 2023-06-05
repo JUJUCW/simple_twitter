@@ -21,11 +21,11 @@ export default function LoginPage () {
           notification='字數超出上限!' wordsLimit={20}
           />
           <button className={styles.button}>登入</button>
-        </div>
-        <div className={styles.link}>
-          <span className={styles.span}>註冊</span>
-          <span>・</span>
-          <span className={styles.span}>後台登入</span>
+          <div className={styles.link}>
+            <span className={styles.span}>註冊</span>
+            <span>・</span>
+            <span className={styles.span}>後台登入</span>
+          </div>
         </div>
       </div>
   );
