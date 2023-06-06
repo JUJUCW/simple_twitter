@@ -2,6 +2,7 @@
 
 import Button from '../../components/Button/Button.jsx'
 import styles from './ButtonShowCasePage.module.scss'
+import TweetModal from '../../components/Modal/TweetModal/TweetModal.jsx'
 
 export default function ButtonShowCasePage () {
 
@@ -22,6 +23,8 @@ export default function ButtonShowCasePage () {
       <div className={styles.container}>
         <Button title='推文' size='small' isAction></Button>
       </div>
+
+      <TweetModal/>
     </div>
   );
 }
