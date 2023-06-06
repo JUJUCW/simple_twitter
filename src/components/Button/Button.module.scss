@@ -13,23 +13,31 @@
   cursor: pointer;
 }
 .small {
+  /*box model*/
   width: 64px;
 }
 .middle {
+  /*box model*/
   width: 96px;
 }
 .navTweet {
+  /*box model*/
   height: 46px;
   width: 178px;
+  /*other*/
   font-size: 20px;
 }
 .large {
+  /*box model*/
   height: 46px;
   width: 356px;
+  /*other*/
   font-size: 20px;
 }
 .action {
+  /*box model*/
   border: none;
+  /*other*/
   color: white;
   background-color: #ff6600;
 }

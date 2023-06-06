@@ -1,0 +1,36 @@
+.headerContainer {
+  /*box model*/
+  border-bottom: 1px solid#e6ecf0;
+  padding: 17px 24px;
+}
+.container {
+  /*display*/
+  display: flex;
+  align-items: center;
+}
+.arrow {
+  /*display*/
+  display: flex;
+  /*box model*/
+  height: 14px;
+  width: 17px;
+  margin-right: 19px;
+}
+.smallTitle {
+  /*display*/
+  display: flex;
+  align-items: center;
+  /*box model*/
+  height: 24px;
+  
+}
+.tweetCount {
+  /*display*/
+  display: flex;
+  align-items: center;
+  /*box model*/
+  height: 18px;
+  /*other*/
+  font-size: 13px;
+  color: #6c757d;
+}
