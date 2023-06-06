@@ -4,7 +4,6 @@ export default function Button ({ title, size, isAction }) {
   const buttonClassName = clsx(
     styles.button,
     {
-      [styles.circle]: size === 'circle',
       [styles.small]: size === 'small',
       [styles.middle]: size === 'middle',
       [styles.navTweet]: size === 'navTweet',
