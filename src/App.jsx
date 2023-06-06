@@ -14,35 +14,23 @@ import ButtonShowCasePage from './pages/ButtonShowCasePage/ButtonShowCasePage.js
 
 export default function App() {
 
-        <div className="app">
-            <BrowserRouter>
-                <Routes>
-                    <Route path="UserId/tweet" element={<CurrentUserTweetPage />} />
-                    <Route path="main" element={<MainPage />} />
-                    <Route path="login" element={<LoginPage />} />
-                    <Route path="signup" element={<SignUpPage />} />
-                    <Route path="admin/login" element={<AdminLoginPage />} />
-                    <Route path="show" element={<ButtonShowCasePage />} />
-                </Routes>
-            </BrowserRouter>
-        </div>
-    
 
   return (
-    <div className="app">
-      <BrowserRouter>
-        <Routes>
-          <Route path="login" element={<LoginPage />} />
-          <Route path="signup" element={<SignUpPage />} />
-          <Route path="main" element={<MainPage />} />
-          <Route path="admin/login" element={<AdminLoginPage />} />
-          <Route path="setting" element={<SettingPage />} />
-          <Route path="admin/users" element={<AdminUserPage />} />
-          <Route path="show" element={<ButtonShowCasePage />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
-  )
+      <div className="app">
+          <BrowserRouter>
+              <Routes>
+                  <Route path="login" element={<LoginPage />} />
+                  <Route path="signup" element={<SignUpPage />} />
+                  <Route path="main" element={<MainPage />} />
+                  <Route path="UserId/tweet" element={<CurrentUserTweetPage />} />
+                  <Route path="admin/login" element={<AdminLoginPage />} />
+                  <Route path="setting" element={<SettingPage />} />
+                  <Route path="admin/users" element={<AdminUserPage />} />
+                  <Route path="show" element={<ButtonShowCasePage />} />
+              </Routes>
+          </BrowserRouter>
+      </div>
+  );
 
 }
 

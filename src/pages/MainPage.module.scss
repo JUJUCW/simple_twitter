@@ -5,7 +5,7 @@
     display: flex;
     overflow: hidden;
     width: 90%;
-    gap: 1.5rem;
+    gap: 24px;
     // max-width: 992px;
 
 }
@@ -24,8 +24,8 @@
 
 .suggestFollowContainer {
     display: block;
-    width: 18.5rem;
-    padding: 1rem 0;
+    width: 296px;
+    padding: 16px 0;
     border: 1px solid pink;
 }
 
@@ -35,7 +35,7 @@
     }
 
     .navBarContainer {
-        width: 11.125rem;
+        width: 180px;
     }
 
     .mainContainer {
@@ -44,7 +44,7 @@
 
     .suggestFollowContainer {
         display: block;
-        width: 17.06rem;
-        margin-top: 1rem;
+        width: 273px;
+        margin-top: 16px;
     }
 }

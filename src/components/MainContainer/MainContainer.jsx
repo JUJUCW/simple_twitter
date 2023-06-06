@@ -1,16 +1,16 @@
 import TweetListItem from 'components/UIComponents/NavItem/ListItem/TweetListItem';
-import style from './MainContainer.module.scss';
+import styles from './MainContainer.module.scss';
 import TweetInput from './TweetInput/TweetInput';
 
 export default function MainContainer() {
     return (
-        <div className={style.mainContainer}>
-            <div className={style.position}>
-                <div className={style.tweetInput}>
+        <div className={styles.mainContainer}>
+            <div className={styles.position}>
+                <div className={styles.tweetInput}>
                     <TweetInput />
                 </div>
             </div>
-            <div className={style.tweetItem}>
+            <div className={styles.tweetItem}>
                 <TweetListItem />
             </div>
         </div>
