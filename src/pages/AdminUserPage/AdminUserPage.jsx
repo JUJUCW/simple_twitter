@@ -12,6 +12,10 @@ export default function AdminUserPage () {
         <Header title='使用者列表' />
         <div className={styles.cardContainer}>
           <AdminUserCard/>
+          <AdminUserCard/>
+          <AdminUserCard/>
+          <AdminUserCard/>
+          <AdminUserCard/>
         </div>
       </div>
     </div>
