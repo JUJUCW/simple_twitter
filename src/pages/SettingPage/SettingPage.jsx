@@ -15,7 +15,7 @@ export default function SettingPage () {
     <div className={styles.adminContainer}>
       <div className={styles.navBar}>NavBar</div>
       <div className={styles.middleContainer}>
-        <Header title='帳戶設定' tweetCount={25}/>
+        <Header title='帳戶設定'/>
         <div className={styles.inputContainer}>
           <AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
           notification='字數超出上限!' wordsLimit={20}
