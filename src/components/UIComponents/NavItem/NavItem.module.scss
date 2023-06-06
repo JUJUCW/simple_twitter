@@ -8,45 +8,55 @@
     width: 100%;
     margin: 20px 0;
     /*other*/
-    font-size: 16px;
-    font-weight: 700;
     color: black;
     cursor: pointer;
-    // .title,
-    // .titleAction {
-    //     display: none;
-    // }
+    &:hover .iconHome {
+        content: url('../../../assets/icons/nav/nav_home_action.png');
+    }
+    &:hover .iconUser {
+        content: url('../../../assets/icons/nav/nav_user_action.png');
+    }
+    &:hover .iconSetting {
+        content: url('../../../assets/icons/nav/nav_set_action.png');
+    }
+    &:hover .title {
+        color:color.$brand-color;
+    }
 }
+
 .iconStyle {
-    margin: 0 17px;
+    margin: 0 15px;
     width: 20px;
     height: 20px;
 }
 
-// .title {
-//     display: none;
-// }
+.title {
+    /*other*/
+    font-size: 16px;
+    font-weight: 700;
+}
 
 .iconHome {
     content: url('../../../assets/icons/nav/nav_home.png');
     height: 100%;
     display: block;
     cursor: pointer;
+    
 }
 
-.iconHomeAction {
-    content: url('../../../assets/icons/nav/nav_home_action.png');
-    height: 100%;
-    display: block;
-    cursor: pointer;
-}
+// .iconHomeAction {
+//     content: url('../../../assets/icons/nav/nav_home_action.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
 
-.iconTweet {
-    content: url('../../../assets/icons/nav/nav_btn.png');
-    height: 100%;
-    display: block;
-    cursor: pointer;
-}
+// .iconTweet {
+//     content: url('../../../assets/icons/nav/nav_btn.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
 
 .iconUser {
     content: url('../../../assets/icons/nav/nav_user.png');
@@ -55,12 +65,12 @@
     cursor: pointer;
 }
 
-.iconUserAction {
-    content: url('../../../assets/icons/nav/nav_user_action.png');
-    height: 100%;
-    display: block;
-    cursor: pointer;
-}
+// .iconUserAction {
+//     content: url('../../../assets/icons/nav/nav_user_action.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
 
 .iconSetting {
     content: url('../../../assets/icons/nav/nav_set.png');
@@ -69,12 +79,12 @@
     cursor: pointer;
 }
 
-.iconSettingAction {
-    content: url('../../../assets/icons/nav/nav_set_action.png');
-    height: 100%;
-    display: block;
-    cursor: pointer;
-}
+// .iconSettingAction {
+//     content: url('../../../assets/icons/nav/nav_set_action.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
 
 // @media screen and (min-width: 1200px) {
 //     .container {

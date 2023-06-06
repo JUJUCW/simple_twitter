@@ -9,7 +9,7 @@ export default function NavItem({ iconStyle, textStyle, altName, title }) {
                 <div className={styles.iconStyle}>
                     <img className={styles[iconStyle]} alt={altName} />
                 </div>
-                <div className={styles[textStyle]}>{title}</div>
+                <div className={styles.title}>{title}</div>
             </div>
         </>
     );
