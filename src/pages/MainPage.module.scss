@@ -1,0 +1,50 @@
+@use '/src/components/styles/color' as color;
+.container {
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    overflow: hidden;
+    width: 90%;
+    gap: 1.5rem;
+    // max-width: 992px;
+
+}
+
+.navBarContainer {
+    width: 178px;
+    display: block;
+    // border: 1px solid red;
+}
+
+.mainContainer {
+    flex: 1;
+    overflow: hidden;
+    border: 1px solid solid color.$assistant-gray;
+}
+
+.suggestFollowContainer {
+    display: block;
+    width: 18.5rem;
+    padding: 1rem 0;
+    border: 1px solid pink;
+}
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 80%;
+    }
+
+    .navBarContainer {
+        width: 11.125rem;
+    }
+
+    .mainContainer {
+        flex: 1;
+    }
+
+    .suggestFollowContainer {
+        display: block;
+        width: 17.06rem;
+        margin-top: 1rem;
+    }
+}
