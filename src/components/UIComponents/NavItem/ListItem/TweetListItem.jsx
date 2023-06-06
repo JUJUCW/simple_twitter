@@ -54,7 +54,7 @@ export default function TweetListItem() {
                 {/* <Link to="/"> */}
                 <div className={styles.itemAvatar}>
                     <div className={styles.avatarImage}>
-                        <img src={logo} alt="avatar" />
+                        <img className={styles.img} src={logo} alt="avatar" />
                     </div>
                 </div>
                 <div className={styles.container}>
@@ -99,7 +99,7 @@ export default function TweetListItem() {
                 {/* <Link to="/"> */}
                 <div className={styles.itemAvatar}>
                     <div className={styles.avatarImage}>
-                        <img src={logo} alt="avatar" />
+                        <img className={styles.img} src={logo} alt="avatar" />
                     </div>
                 </div>
                 <div className={styles.container}>
@@ -143,7 +143,7 @@ export default function TweetListItem() {
                 {/* <Link to="/"> */}
                 <div className={styles.itemAvatar}>
                     <div className={styles.avatarImage}>
-                        <img src={logo} alt="avatar" />
+                        <img className={styles.img} src={logo} alt="avatar" />
                     </div>
                 </div>
                 <div className={styles.container}>
@@ -187,7 +187,7 @@ export default function TweetListItem() {
                 {/* <Link to="/"> */}
                 <div className={styles.itemAvatar}>
                     <div className={styles.avatarImage}>
-                        <img src={logo} alt="avatar" />
+                        <img className={styles.img} src={logo} alt="avatar" />
                     </div>
                 </div>
                 <div className={styles.container}>
