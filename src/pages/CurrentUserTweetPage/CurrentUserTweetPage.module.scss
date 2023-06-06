@@ -8,7 +8,6 @@
     width: 90%;
     gap: 24px;
     // max-width: 992px;
-
 }
 
 .navBarContainer {
@@ -20,7 +19,7 @@
 .mainContainer {
     flex: 1;
     overflow: hidden;
-    border: 1px solid solid color.$assistant-gray;
+    border: 1px solid color.$assistant-gray;
 }
 
 .suggestFollowContainer {
@@ -29,22 +28,22 @@
     padding: 16px 0;
 }
 
-@media screen and (max-width: 1200px) {
-    .container {
-        width: 80%;
-    }
+// @media screen and (max-width: 1200px) {
+//     .container {
+//         width: 80%;
+//     }
 
-    .navBarContainer {
-        width: 180px;
-    }
+//     .navBarContainer {
+//         width: 180px;
+//     }
 
-    .mainContainer {
-        flex: 1;
-    }
+//     .mainContainer {
+//         flex: 1;
+//     }
 
-    .suggestFollowContainer {
-        display: block;
-        width: 273px;
-        margin-top: 16px;
-    }
-}
+//     .suggestFollowContainer {
+//         display: block;
+//         width: 273px;
+//         margin-top: 16px;
+//     }
+// }
