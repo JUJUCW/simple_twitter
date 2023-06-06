@@ -23,7 +23,9 @@
         color:color.$brand-color;
     }
 }
-
+.action {
+    color: color.$brand-color;
+}
 .iconStyle {
     margin: 0 15px;
     width: 20px;
@@ -41,7 +43,9 @@
     height: 100%;
     display: block;
     cursor: pointer;
-    
+    &.activeIcon {
+        content: url('../../../assets/icons/nav/nav_home_action.png');
+    }
 }
 
 // .iconHomeAction {

@@ -8,6 +8,13 @@ import logo from '../../assets/icons/logo.png';
 import logout from '../../assets/icons/nav/nav_signout.png';
 
 export default function NavBarContainer({role}) {
+    // const [isActive, setIsActive] = useState(false);
+    // const navigate = useNavigate();
+    // const handleNavLinkClick = () => {
+    //     setIsActive(true);
+    //     navigate('/main');
+    // };
+
     return (
         <>
             <div className={styles.navBarContainer}>
@@ -19,7 +26,7 @@ export default function NavBarContainer({role}) {
                 <div className={styles.main}>
                     {role ==='user' && 
                     <>
-                        <NavLink to="/main">
+                        <NavLink  to="/main">
                             <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
                         </NavLink>
 

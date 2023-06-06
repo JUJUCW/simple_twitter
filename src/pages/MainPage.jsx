@@ -8,7 +8,7 @@ export default function MainPage() {
     return (
         <div className={style.container}>
             <div className={style.navBarContainer}>
-                <NavBarContainer />
+                <NavBarContainer role='user'/>
             </div>
             <div className={style.mainContainer}>
                 <MainContainer />
