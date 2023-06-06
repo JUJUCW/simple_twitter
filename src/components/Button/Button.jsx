@@ -9,6 +9,7 @@ export default function Button ({ title, size, isAction }) {
       [styles.navTweet]: size === 'navTweet',
       [styles.large]: size === 'large',
       [styles.action]: isAction,
+      [styles.edit]:size==='edit'
     }
   );
   return (
