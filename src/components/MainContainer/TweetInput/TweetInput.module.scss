@@ -47,7 +47,7 @@
 }
 
 .text {
-    @include mixin.font-setting(1.125rem, 700, color.$secondary-color);
+    @include mixin.font-setting(18px, 700, color.$secondary-color);
     line-height: 26px;
     display: block;
     padding-top: 12px;

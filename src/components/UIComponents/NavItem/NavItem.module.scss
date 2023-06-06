@@ -15,8 +15,8 @@
     }
 }
 .iconStyle {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 24px;
+    height: 24px;
 }
 
 .title {
@@ -79,12 +79,12 @@
         .title {
             width: 100%;
             display: block;
-            @include mixin.font-setting(1.125rem, 700, color.$gray-9);
+            @include mixin.font-setting(18px, 700, color.$gray-9);
         }
         .titleAction {
             width: 100%;
             display: block;
-            @include mixin.font-setting(1.125rem, 700, color.$brand-color);
+            @include mixin.font-setting(18px, 700, color.$brand-color);
         }
     }
 }

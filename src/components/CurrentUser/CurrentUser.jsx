@@ -5,12 +5,13 @@ import logo from 'assets/icons/logo_gray.png';
 import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
 import TweetListItem from 'components/UIComponents/NavItem/ListItem/TweetListItem';
+import UserToggleMenu from 'components/UIComponents/ToggleMenu/UserToggleMenu';
 
 export default function CurrentUser() {
     return (
         <div className={styles.container}>
             <div className={styles.header}>
-                <Header arrow title="John Doe" tweetCount="25" />
+                <Header title="John Doe" arrow tweetCount="25" />
             </div>
             <div className={styles.userCard}>
                 <div className={styles.cover}>
@@ -49,13 +50,13 @@ export default function CurrentUser() {
                         </Link>
                     </div>
                 </div>
-        </div>
-        <div className={styles.userToggleMenu}>
-kkkkkkk
-        </div>
-        <div className={styles.tweetListItem}>
-          <TweetListItem/>
-        </div>
+            </div>
+            <div className={styles.userToggleMenu}>
+                <UserToggleMenu />
+            </div>
+            <div className={styles.tweetListItem}>
+                <TweetListItem />
+            </div>
         </div>
     );
 }
