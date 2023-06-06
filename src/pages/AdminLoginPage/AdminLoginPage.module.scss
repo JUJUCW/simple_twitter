@@ -1,0 +1,18 @@
+.link {
+  /*display*/
+  display: flex;
+  justify-content: center;
+  /*box model*/
+  height: 18px;
+  margin: 22px 0;
+}
+
+.span {
+  /*box model*/
+  margin: 0 12px;
+  border-bottom: 1px solid #0062ff;
+  /*other*/
+  color: #0062ff;
+  font-size: 16px;
+  cursor: pointer;
+}

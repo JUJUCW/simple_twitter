@@ -1,6 +1,6 @@
 import style from './TweetInput.module.scss';
 
-import logo from 'assets/icons/nav/nav_home@2x.png';
+import logo from 'assets/icons/nav/nav_home.png';
 
 export default function TweetInput() {
     return (

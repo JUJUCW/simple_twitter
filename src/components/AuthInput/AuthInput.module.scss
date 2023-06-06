@@ -1,0 +1,72 @@
+.container {
+  /*display*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /*box model*/
+  height: 54px;
+  width: 100%;
+  border-radius: 2px;
+  /*others*/
+  background-color: #f5f8fa;
+}
+.label {
+  /*display*/
+  display: flex;
+  align-items: center;
+  /*box model*/
+  height: 100%;
+  padding: 0 10px;
+  /*others*/
+  font-size: 14px;
+  color: #696974;
+}
+.input {
+  /*box model*/
+  border: none;
+  height: 100%;
+  padding: 0 10px;
+  border-radius: 2px;
+  border-bottom: 2px solid #657786;
+  &:focus, 
+  &:hover {
+    border-color: #50b5ff;
+  }
+  &.active {
+    border-color: #fc5a5a;
+  }
+  /*others*/
+  font-size: 16px;
+  outline: none;
+  background-color: #f5f8fa;
+}
+.noteBox {
+  /*display*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*box model*/
+  height: 24px;
+}
+.notification {
+  /*display*/
+  visibility: hidden;
+  align-items: center;
+  /*others*/
+  font-size: 10px;
+  &.active {
+    visibility: visible;
+    color: #fc5a5a;
+  }
+}
+.count {
+  /*display*/
+  display: none;
+  align-items: center;
+  /*others*/
+  font-size: 10px;
+  color: #696974;
+  &.active {
+    display: flex;
+  }
+}

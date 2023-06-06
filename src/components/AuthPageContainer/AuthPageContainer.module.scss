@@ -1,0 +1,25 @@
+.container {
+  /*display*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*box model*/
+  margin-top: 64px;
+}
+
+.logo {
+  /*box model*/
+  height: 50px;
+  width: 50px;
+}
+
+.title {
+  /*box model*/
+  margin: 24px 0 40px 0;
+}
+
+.AuthInputContainer {
+  /*box model*/
+  width: 356px;
+}

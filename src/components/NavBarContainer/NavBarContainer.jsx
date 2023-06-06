@@ -3,8 +3,8 @@ import NavItem from 'components/UIComponents/NavItem/NavItem';
 
 import style from './NavBarContainer.module.scss';
 
-import logo from '../../assets/icons/logo@2x.png';
-import logout from '../../assets/icons/nav/nav_signout@2x.png';
+import logo from '../../assets/icons/logo.png';
+import logout from '../../assets/icons/nav/nav_signout.png';
 
 export default function NavBarContainer() {
     return (
