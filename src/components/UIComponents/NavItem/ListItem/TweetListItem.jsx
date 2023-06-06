@@ -1,48 +1,48 @@
 // import { Link } from 'react-router-dom';
-import style from './TweetListItem.module.scss';
+import styles from './TweetListItem.module.scss';
 import logo from '../../../../assets/icons/nav/nav_home.png';
 
 export default function TweetListItem() {
     return (
         <>
-            <div className={style.itemContainer}>
+            <div className={styles.itemContainer}>
                 {/* <Link to="/"> */}
-                <div className={style.itemAvatar}>
-                    <div className={style.avatarImage}>
-                        <img className={style.img} src={logo} alt="avatar" />
+                <div className={styles.itemAvatar}>
+                    <div className={styles.avatarImage}>
+                        <img className={styles.img} src={logo} alt="avatar" />
                     </div>
                 </div>
-                <div className={style.container}>
+                <div className={styles.container}>
                     {/* </Link> */}
-                    <div className={style.itemInfo}>
-                        <div className={style.accountInfo}>
+                    <div className={styles.itemInfo}>
+                        <div className={styles.accountInfo}>
                             <p>Apple</p>
-                            <div className={style.accountInfoAccount}>
-                                <span className={style.accountTitle}>@apple</span>
-                                <span className={style.spot}></span>
-                                <span className={style.tweetTime}>3 小時</span>
+                            <div className={styles.accountInfoAccount}>
+                                <span className={styles.accountTitle}>@apple</span>
+                                <span className={styles.spot}></span>
+                                <span className={styles.tweetTime}>3 小時</span>
                             </div>
                         </div>
                     </div>
 
                     {/* <Link to="/"> */}
-                    <div className={style.tweetContext}>
+                    <div className={styles.tweetContext}>
                         <p>
                             Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
                             exercitation incididunt aliquip deserunt reprehenderit elit laborum.
                         </p>
                     </div>
                     {/* </Link> */}
-                    <div className={style.infoIcons}>
-                        <div className={style.iconReply}>
-                            <div className={style.cursor}>
+                    <div className={styles.infoIcons}>
+                        <div className={styles.iconReply}>
+                            <div className={styles.cursor}>
                                 <img src={logo} alt="reply button" />
                             </div>
                             <span>13</span>
                         </div>
-                        <div className={style.iconLike}>
-                            <div className={style.cursor}>
-                                <img className={style.likeBtn} src={logo} alt="like button" />
+                        <div className={styles.iconLike}>
+                            <div className={styles.cursor}>
+                                <img className={styles.likeBtn} src={logo} alt="like button" />
                             </div>
                             <span>76</span>
                         </div>
@@ -50,44 +50,44 @@ export default function TweetListItem() {
                 </div>
             </div>
 
-            <div className={style.itemContainer}>
+            <div className={styles.itemContainer}>
                 {/* <Link to="/"> */}
-                <div className={style.itemAvatar}>
-                    <div className={style.avatarImage}>
+                <div className={styles.itemAvatar}>
+                    <div className={styles.avatarImage}>
                         <img src={logo} alt="avatar" />
                     </div>
                 </div>
-                <div className={style.container}>
+                <div className={styles.container}>
                     {/* </Link> */}
-                    <div className={style.itemInfo}>
-                        <div className={style.accountInfo}>
+                    <div className={styles.itemInfo}>
+                        <div className={styles.accountInfo}>
                             <p>Apple</p>
-                            <div className={style.accountInfoAccount}>
-                                <span className={style.accountTitle}>@apple</span>
-                                <span className={style.spot}></span>
-                                <span className={style.tweetTime}>3 小時</span>
+                            <div className={styles.accountInfoAccount}>
+                                <span className={styles.accountTitle}>@apple</span>
+                                <span className={styles.spot}></span>
+                                <span className={styles.tweetTime}>3 小時</span>
                             </div>
                         </div>
                     </div>
 
                     {/* <Link to="/"> */}
-                    <div className={style.tweetContext}>
+                    <div className={styles.tweetContext}>
                         <p>
                             Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
                             exercitation incididunt aliquip deserunt reprehenderit elit laborum.
                         </p>
                     </div>
                     {/* </Link> */}
-                    <div className={style.infoIcons}>
-                        <div className={style.iconReply}>
-                            <div className={style.cursor}>
+                    <div className={styles.infoIcons}>
+                        <div className={styles.iconReply}>
+                            <div className={styles.cursor}>
                                 <img src={logo} alt="reply button" />
                             </div>
                             <span>13</span>
                         </div>
-                        <div className={style.iconLike}>
-                            <div className={style.cursor}>
-                                <img className={style.likeBtn} src={logo} alt="like button" />
+                        <div className={styles.iconLike}>
+                            <div className={styles.cursor}>
+                                <img className={styles.likeBtn} src={logo} alt="like button" />
                             </div>
                             <span>76</span>
                         </div>
@@ -95,132 +95,132 @@ export default function TweetListItem() {
                 </div>
             </div>
 
-            <div className={style.itemContainer}>
+            <div className={styles.itemContainer}>
                 {/* <Link to="/"> */}
-                <div className={style.itemAvatar}>
-                    <div className={style.avatarImage}>
+                <div className={styles.itemAvatar}>
+                    <div className={styles.avatarImage}>
                         <img src={logo} alt="avatar" />
                     </div>
                 </div>
-                <div className={style.container}>
+                <div className={styles.container}>
                     {/* </Link> */}
-                    <div className={style.itemInfo}>
-                        <div className={style.accountInfo}>
+                    <div className={styles.itemInfo}>
+                        <div className={styles.accountInfo}>
                             <p>Apple</p>
-                            <div className={style.accountInfoAccount}>
-                                <span className={style.accountTitle}>@apple</span>
-                                <span className={style.spot}></span>
-                                <span className={style.tweetTime}>3 小時</span>
+                            <div className={styles.accountInfoAccount}>
+                                <span className={styles.accountTitle}>@apple</span>
+                                <span className={styles.spot}></span>
+                                <span className={styles.tweetTime}>3 小時</span>
                             </div>
                         </div>
                     </div>
 
                     {/* <Link to="/"> */}
-                    <div className={style.tweetContext}>
+                    <div className={styles.tweetContext}>
                         <p>
                             Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
                             exercitation incididunt aliquip deserunt reprehenderit elit laborum.
                         </p>
                     </div>
                     {/* </Link> */}
-                    <div className={style.infoIcons}>
-                        <div className={style.iconReply}>
-                            <div className={style.cursor}>
+                    <div className={styles.infoIcons}>
+                        <div className={styles.iconReply}>
+                            <div className={styles.cursor}>
                                 <img src={logo} alt="reply button" />
                             </div>
                             <span>13</span>
                         </div>
-                        <div className={style.iconLike}>
-                            <div className={style.cursor}>
-                                <img className={style.likeBtn} src={logo} alt="like button" />
+                        <div className={styles.iconLike}>
+                            <div className={styles.cursor}>
+                                <img className={styles.likeBtn} src={logo} alt="like button" />
                             </div>
                             <span>76</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={style.itemContainer}>
+            <div className={styles.itemContainer}>
                 {/* <Link to="/"> */}
-                <div className={style.itemAvatar}>
-                    <div className={style.avatarImage}>
+                <div className={styles.itemAvatar}>
+                    <div className={styles.avatarImage}>
                         <img src={logo} alt="avatar" />
                     </div>
                 </div>
-                <div className={style.container}>
+                <div className={styles.container}>
                     {/* </Link> */}
-                    <div className={style.itemInfo}>
-                        <div className={style.accountInfo}>
+                    <div className={styles.itemInfo}>
+                        <div className={styles.accountInfo}>
                             <p>Apple</p>
-                            <div className={style.accountInfoAccount}>
-                                <span className={style.accountTitle}>@apple</span>
-                                <span className={style.spot}></span>
-                                <span className={style.tweetTime}>3 小時</span>
+                            <div className={styles.accountInfoAccount}>
+                                <span className={styles.accountTitle}>@apple</span>
+                                <span className={styles.spot}></span>
+                                <span className={styles.tweetTime}>3 小時</span>
                             </div>
                         </div>
                     </div>
 
                     {/* <Link to="/"> */}
-                    <div className={style.tweetContext}>
+                    <div className={styles.tweetContext}>
                         <p>
                             Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
                             exercitation incididunt aliquip deserunt reprehenderit elit laborum.
                         </p>
                     </div>
                     {/* </Link> */}
-                    <div className={style.infoIcons}>
-                        <div className={style.iconReply}>
-                            <div className={style.cursor}>
+                    <div className={styles.infoIcons}>
+                        <div className={styles.iconReply}>
+                            <div className={styles.cursor}>
                                 <img src={logo} alt="reply button" />
                             </div>
                             <span>13</span>
                         </div>
-                        <div className={style.iconLike}>
-                            <div className={style.cursor}>
-                                <img className={style.likeBtn} src={logo} alt="like button" />
+                        <div className={styles.iconLike}>
+                            <div className={styles.cursor}>
+                                <img className={styles.likeBtn} src={logo} alt="like button" />
                             </div>
                             <span>76</span>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className={style.itemContainer}>
+            <div className={styles.itemContainer}>
                 {/* <Link to="/"> */}
-                <div className={style.itemAvatar}>
-                    <div className={style.avatarImage}>
+                <div className={styles.itemAvatar}>
+                    <div className={styles.avatarImage}>
                         <img src={logo} alt="avatar" />
                     </div>
                 </div>
-                <div className={style.container}>
+                <div className={styles.container}>
                     {/* </Link> */}
-                    <div className={style.itemInfo}>
-                        <div className={style.accountInfo}>
+                    <div className={styles.itemInfo}>
+                        <div className={styles.accountInfo}>
                             <p>Apple</p>
-                            <div className={style.accountInfoAccount}>
-                                <span className={style.accountTitle}>@apple</span>
-                                <span className={style.spot}></span>
-                                <span className={style.tweetTime}>3 小時</span>
+                            <div className={styles.accountInfoAccount}>
+                                <span className={styles.accountTitle}>@apple</span>
+                                <span className={styles.spot}></span>
+                                <span className={styles.tweetTime}>3 小時</span>
                             </div>
                         </div>
                     </div>
 
                     {/* <Link to="/"> */}
-                    <div className={style.tweetContext}>
+                    <div className={styles.tweetContext}>
                         <p>
                             Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
                             exercitation incididunt aliquip deserunt reprehenderit elit laborum.
                         </p>
                     </div>
                     {/* </Link> */}
-                    <div className={style.infoIcons}>
-                        <div className={style.iconReply}>
-                            <div className={style.cursor}>
+                    <div className={styles.infoIcons}>
+                        <div className={styles.iconReply}>
+                            <div className={styles.cursor}>
                                 <img src={logo} alt="reply button" />
                             </div>
                             <span>13</span>
                         </div>
-                        <div className={style.iconLike}>
-                            <div className={style.cursor}>
-                                <img className={style.likeBtn} src={logo} alt="like button" />
+                        <div className={styles.iconLike}>
+                            <div className={styles.cursor}>
+                                <img className={styles.likeBtn} src={logo} alt="like button" />
                             </div>
                             <span>76</span>
                         </div>

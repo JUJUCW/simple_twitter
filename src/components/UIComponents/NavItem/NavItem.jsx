@@ -1,15 +1,15 @@
 import React from 'react';
 
-import style from './NavItem.module.scss';
+import styles from './NavItem.module.scss';
 
 export default function NavItem({ iconStyle, textStyle, altName, title }) {
     return (
         <>
-            <div className={style.container}>
-                <div className={style.iconStyle}>
-                    <img className={style[iconStyle]} alt={altName} />
+            <div className={styles.container}>
+                <div className={styles.iconStyle}>
+                    <img className={styles[iconStyle]} alt={altName} />
                 </div>
-                <div className={style[textStyle]}>{title}</div>
+                <div className={styles[textStyle]}>{title}</div>
             </div>
         </>
     );
