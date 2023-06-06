@@ -1,15 +1,18 @@
-import React from 'react';
 
-import style from './NavItem.module.scss';
+import clsx from 'clsx'
 
-export default function NavItem({ iconStyle, textStyle, altName, title }) {
+import styles from './NavItem.module.scss';
+
+export default function NavItem({ iconStyle, altName, title, isActive }) {
+    const iconClasses = clsx(styles[iconStyle], { [styles.activeIcon]: isActive });
+    const titleClasses = clsx(styles.title, { [styles.activeTitle]: isActive });
     return (
         <>
-            <div className={style.container}>
-                <div className={style.iconStyle}>
-                    <img className={style[iconStyle]} alt={altName} />
+            <div className={styles.container} >
+                <div className={styles.iconStyle}>
+                    <img className={iconClasses} alt={altName} />
                 </div>
-                <div className={style[textStyle]}>{title}</div>
+                <div className={titleClasses}>{title}</div>
             </div>
         </>
     );

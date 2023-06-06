@@ -1,4 +1,5 @@
 import styles from './Header.module.scss'
+import arrowIcon from '../../assets/icons/arrow.png'
 
 export default function Header ({title, arrow, tweetCount}) {
   return (
@@ -7,7 +8,7 @@ export default function Header ({title, arrow, tweetCount}) {
       <div >
         <div className={styles.container}>
           <div className={styles.arrow}>
-            <img src={arrow} alt="arrow" />
+            <img src={arrowIcon} alt="arrow" />
           </div>
           <div >
             <h5 className={styles.smallTitle}>{title}</h5>

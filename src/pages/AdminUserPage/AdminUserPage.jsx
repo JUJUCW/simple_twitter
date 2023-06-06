@@ -2,12 +2,13 @@
 
 import Header from '../../components/Header/Header.jsx'
 import AdminUserCard from '../../components/AdminUserCard/AdminUserCard.jsx'
+import NavBarContainer from '../../components/NavBarContainer/NavBarContainer.jsx'
 import styles from './AdminUserPage.module.scss'
 
 export default function AdminUserPage () {
   return (
     <div className={styles.adminContainer}>
-      <div className={styles.navBar}>NavBar</div>
+      <NavBarContainer role='admin'/>
       <div className={styles.middleContainer}>
         <Header title='使用者列表' />
         <div className={styles.cardContainer}>
