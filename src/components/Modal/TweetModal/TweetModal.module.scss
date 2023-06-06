@@ -7,7 +7,7 @@
   height: 300px;
   width: 634px;
   border-radius: 14px;
-  border:1px solid black;
+  border:1px solid #E6ECF0;
 }
 .header {
   /*display*/
@@ -24,11 +24,6 @@
   width: 20px;
   margin-left: 20px;
 }
-.body {
-  all: unset;
-  /*box model*/
-  height: 100%;
-}
 .info {
   /*display*/
   position: absolute;
@@ -37,6 +32,7 @@
   display: flex;
   align-items: center;
 }
+
 .avatar {
   /*box model*/
   height: 50px;
@@ -50,9 +46,36 @@
   font-size: 16px;
   color: #6C757D;
 }
-.button {
+.body {
+  all: unset;
+  word-wrap: break-word;
+  /*box model*/
+  height: 245px;
+  margin: 20px;
+  &:focus+.info {
+    display: none;
+  }
+  &.active+.info {
+    display: none;
+  }
+}
+.footer {
   /*display*/
   position: absolute;
   bottom: 16px;
   right: 16px;
+  display: flex;
+  align-items: center;
+}
+.waring {
+  /*display*/
+  display: none;
+  /*box model*/
+  margin-right: 20px;
+  /*other*/
+  font-size: 15px;
+  color: #FC5A5A;
+  &.active {
+    display: flex;
+  }
 }
