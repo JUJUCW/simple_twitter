@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from '../../components/Header/Header.jsx'
 import AuthInput from '../../components/AuthInput/AuthInput.jsx'
 import Button from '../../components/Button/Button.jsx'
+import NavBarContainer from '../../components/NavBarContainer/NavBarContainer.jsx'
 import styles from './SettingPage.module.scss'
 
 export default function SettingPage () {
@@ -13,7 +14,7 @@ export default function SettingPage () {
   const [checkPassword, setCheckPassword] = useState("");
   return (
     <div className={styles.adminContainer}>
-      <div className={styles.navBar}>NavBar</div>
+      <NavBarContainer role='user'page='setting'/>
       <div className={styles.middleContainer}>
         <Header title='帳戶設定'/>
         <div className={styles.inputContainer}>

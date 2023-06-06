@@ -6,9 +6,11 @@ import SuggestFollowContainer from 'components/SuggestFollowContainer/SuggestFol
 
 export default function MainPage() {
     return (
+
         <div className={styles.container}>
             <div className={styles.navBarContainer}>
-                <NavBarContainer />
+                <NavBarContainer role='user'page='main'/>
+
             </div>
             <div className={styles.mainContainer}>
                 <MainContainer />

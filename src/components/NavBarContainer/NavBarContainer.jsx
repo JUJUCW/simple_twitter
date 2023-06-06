@@ -7,34 +7,83 @@ import styles from './NavBarContainer.module.scss';
 import logo from '../../assets/icons/logo.png';
 import logout from '../../assets/icons/nav/nav_signout.png';
 
-export default function NavBarContainer() {
+export default function NavBarContainer({ role, page }) {
+    // const [isActive, setIsActive] = useState(false);
+    // const navigate = useNavigate();
+    // const handleNavLinkClick = () => {
+    //     setIsActive(true);
+    //     navigate('/main');
+    // };
+
     return (
         <>
             <div className={styles.navBarContainer}>
+                <Link to="/homePage">
+                    <img className={styles.img} src={logo} alt="logo" />
+                </Link>
                 <div className={styles.main}>
-                    <Link to="/homePage">
-                        <div className={styles.logo}>
-                            <img className={styles.img} src={logo} alt="logo" />
-                        </div>
-                    </Link>
-                    <div className={styles.menu}>
-                        <NavLink to="/homePage" className={styles.btnLink}>
-                            <NavItem iconStyle={'iconHomeAction'} altName="home" title="首頁" />
-                        </NavLink>
+                    {role === 'user' && (
+                        <>
+                            {page === 'main' && (
+                                <>
+                                    <NavLink to="/main">
+                                        <NavItem iconStyle={'iconHome'} altName="main" title="首頁" isActive />
+                                    </NavLink>
 
-                        <NavLink to="/TweetPage" className={styles.btnLink}>
-                            <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
-                        </NavLink>
+                                    <NavLink to="/TweetPage">
+                                        <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
+                                    </NavLink>
 
-                        <NavLink to="/SettingPage" className={styles.btnLink}>
-                            <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" />
-                        </NavLink>
-                    </div>
-                    <div className={styles.tweet}>
-                        <div className={styles.btnTweet}>
+                                    <NavLink to="/setting">
+                                        <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" />
+                                    </NavLink>
+                                </>
+                            )}
+                            {page === 'tweet' && (
+                                <>
+                                    <NavLink to="/main">
+                                        <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
+                                    </NavLink>
+
+                                    <NavLink to="/TweetPage">
+                                        <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" isActive />
+                                    </NavLink>
+
+                                    <NavLink to="/setting">
+                                        <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" />
+                                    </NavLink>
+                                </>
+                            )}
+                            {page === 'setting' && (
+                                <>
+                                    <NavLink to="/main">
+                                        <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
+                                    </NavLink>
+
+                                    <NavLink to="/TweetPage">
+                                        <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
+                                    </NavLink>
+
+                                    <NavLink to="/setting">
+                                        <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" isActive />
+                                    </NavLink>
+                                </>
+                            )}
+
                             <Button title="推文" size="navTweet" isAction></Button>
-                        </div>
-                    </div>
+                        </>
+                    )}
+                    {role === 'admin' && (
+                        <>
+                            <NavLink to="/admin/tweets">
+                                <NavItem iconStyle={'iconHome'} altName="home" title="推文清單" />
+                            </NavLink>
+
+                            <NavLink to="/admin/users">
+                                <NavItem iconStyle={'iconUser'} altName="user" title="使用者列表" />
+                            </NavLink>
+                        </>
+                    )}
                 </div>
                 <div className={styles.logOut}>
                     <img className={styles.img} src={logout} alt="log-out" />
