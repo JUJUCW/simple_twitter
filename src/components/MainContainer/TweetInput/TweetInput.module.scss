@@ -2,12 +2,10 @@
 @use '/src/components/styles/mixin';
 
 .tweetInputContainer {
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     height: 221px;
-    
 }
 .title {
     width: 100%;
@@ -16,9 +14,8 @@
     align-items: center;
     margin-bottom: 16px;
     border-bottom: 1px solid color.$assistant-gray;
-
 }
-p {
+.p {
     margin-left: 24px;
     font-size: 24px;
 }
@@ -29,21 +26,19 @@ p {
     gap: 8px;
     padding: 16px 24px 0 24px;
     height: 130px;
-
 }
 
 .avatarContainer {
     width: inherit;
     height: 100%;
 }
-img {
+.img {
     display: block;
 }
 .avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-
 }
 .inputContainerContext {
     flex: 1;
@@ -58,13 +53,8 @@ img {
     padding-top: 12px;
 }
 
-button {
+.btn {
     position: absolute;
     bottom: 16px;
     right: calc(24.69px - 24px);
-    width: 64px;
-    height: 40px;
-    background-color: color.$brand-color;
-    color: color.$gray-1;
-    border-radius: 50px;
 }
