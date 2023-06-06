@@ -7,7 +7,7 @@ import styles from './NavBarContainer.module.scss';
 import logo from '../../assets/icons/logo.png';
 import logout from '../../assets/icons/nav/nav_signout.png';
 
-export default function NavBarContainer({role}) {
+export default function NavBarContainer({role, page}) {
     // const [isActive, setIsActive] = useState(false);
     // const navigate = useNavigate();
     // const handleNavLinkClick = () => {
@@ -26,17 +26,51 @@ export default function NavBarContainer({role}) {
                 <div className={styles.main}>
                     {role ==='user' && 
                     <>
-                        <NavLink  to="/main">
-                            <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
-                        </NavLink>
+                        {page ==='main' &&
+                           <> 
+                                <NavLink  to="/main">
+                                    <NavItem iconStyle={'iconHome'} altName="main" title="首頁" isActive/>
+                                </NavLink>
 
-                        <NavLink to="/TweetPage" >
-                            <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
-                        </NavLink>
+                                <NavLink to="/TweetPage" >
+                                    <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
+                                </NavLink>
 
-                        <NavLink to="/setting" >
-                            <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" />
-                        </NavLink>
+                                <NavLink to="/setting" >
+                                    <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" />
+                                </NavLink>
+                            </>
+                        }
+                        {page ==='tweet' &&
+                           <> 
+                                <NavLink  to="/main">
+                                    <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
+                                </NavLink>
+
+                                <NavLink to="/TweetPage" >
+                                    <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" isActive/>
+                                </NavLink>
+
+                                <NavLink to="/setting" >
+                                    <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" />
+                                </NavLink>
+                            </>
+                        }
+                        {page ==='setting' &&
+                           <> 
+                                <NavLink  to="/main">
+                                    <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
+                                </NavLink>
+
+                                <NavLink to="/TweetPage" >
+                                    <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
+                                </NavLink>
+
+                                <NavLink to="/setting" >
+                                    <NavItem iconStyle={'iconSetting'} altName="setting" title="設定" isActive/>
+                                </NavLink>
+                            </>
+                        }
                     
                         <Button title="推文" size="navTweet" isAction></Button>
                        

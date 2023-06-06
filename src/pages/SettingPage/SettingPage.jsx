@@ -14,7 +14,7 @@ export default function SettingPage () {
   const [checkPassword, setCheckPassword] = useState("");
   return (
     <div className={styles.adminContainer}>
-      <NavBarContainer role='user'/>
+      <NavBarContainer role='user'page='setting'/>
       <div className={styles.middleContainer}>
         <Header title='帳戶設定'/>
         <div className={styles.inputContainer}>
