@@ -1,5 +1,5 @@
-
 @use '/src/components/styles/color' as color;
+
 .container {
     height: 100vh;
     margin: 0 auto;
@@ -27,7 +27,6 @@
     display: block;
     width: 296px;
     padding: 16px 0;
-    border: 1px solid pink;
 }
 
 @media screen and (max-width: 1200px) {
