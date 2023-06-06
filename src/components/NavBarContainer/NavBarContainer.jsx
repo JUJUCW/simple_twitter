@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import NavItem from 'components/UIComponents/NavItem/NavItem';
+import Button from 'components/Button/Button';
 
 import style from './NavBarContainer.module.scss';
 
@@ -28,8 +29,10 @@ export default function NavBarContainer() {
                         </NavLink>
                     </div>
                     <div className={style.tweet}>
-                        <img alt="tweet" />
-                        <div className={style.btnTweet}>推文</div>
+                        {/* <img alt="tweet" /> */}
+                        <div className={style.btnTweet}>
+                            <Button title="推文" size="navTweet" isAction></Button>
+                        </div>
                     </div>
                 </div>
                 <div className={style.logOut}>
