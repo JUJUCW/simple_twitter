@@ -3,7 +3,7 @@
 import Button from '../../components/Button/Button.jsx'
 import styles from './ButtonShowCasePage.module.scss'
 import TweetModal from '../../components/Modal/TweetModal/TweetModal.jsx'
-
+import ReplyModal from '../../components/Modal/ReplyModel/ReplyModal.jsx'
 export default function ButtonShowCasePage () {
 
   return (
@@ -25,6 +25,7 @@ export default function ButtonShowCasePage () {
       </div>
 
       <TweetModal/>
+      <ReplyModal/>
     </div>
   );
 }
