@@ -1,22 +1,23 @@
 @use '/src/components/styles/color' as color;
 
 .container {
-    height: 100vh;
-    margin: 0 auto;
+    // height: 100vh;
+    // margin: 0 auto;
     display: flex;
-    overflow: hidden;
-    width: 90%;
-    gap: 24px;
+    justify-content: center;
+    // overflow: hidden;
+    // width: 90%;
+    // gap: 24px;
     // max-width: 992px;
-
-
 }
 
-.navBarContainer {
-    width: 178px;
-    display: block;
-    // border: 1px solid red;
-}
+// .navBarContainer {
+//     // width: 178px;
+//     // display: block;
+//     // border: 1px solid red;
+    
+// }
+
 
 // .mainContainer {
 //     flex: 1;
@@ -25,12 +26,12 @@
 
 // }
 
-.suggestFollowContainer {
-    display: block;
-    width: 296px;
-    padding: 16px 0;
-    // border: 1px solid pink;
-}
+// .suggestFollowContainer {
+//     display: block;
+//     width: 296px;
+//     padding: 16px 0;
+//     // border: 1px solid pink;
+// }
 
 // @media screen and (max-width: 1200px) {
 //     .container {
