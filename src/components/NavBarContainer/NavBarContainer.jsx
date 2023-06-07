@@ -39,7 +39,7 @@ export default function NavBarContainer({ role, page }) {
                                     </NavLink>
                                 </>
                             )}
-                            {page === 'tweet' && (
+                            {page === 'tweetpage' && (
                                 <>
                                     <NavLink to="/main">
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />

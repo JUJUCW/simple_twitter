@@ -8,7 +8,7 @@
     height: 136px;
     padding-left: 24px;
     border-bottom: 1px solid #e6ecf0;
-    
+
     margin: 16px 0;
     // border: 1px solid #000;
 }
@@ -45,7 +45,7 @@
     gap: 8px;
 }
 
-.accountInfo >p {
+.accountInfo > p {
     text-overflow: ellipsis;
     @include mixin.font-setting(16px, 700, color.$gray-10);
 }
