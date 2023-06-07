@@ -1,14 +1,14 @@
 import styles from './TweetInput.module.scss';
 import Button from 'components/Button/Button';
 import logo from 'assets/icons/nav/nav_home.png';
-import Header from 'components/Header/Header';
+// import Header from 'components/Header/Header';
 
 export default function TweetInput() {
     return (
         <div className={styles.tweetInputContainer}>
-            <div className={styles.title}>
+            {/* <div className={styles.title}>
                 <Header title="首頁"/>
-            </div>
+            </div> */}
             <div className={styles.inputContainer}>
                 <div className={styles.inputContainerInput}>
                     <div className={styles.avatarContainer}>
