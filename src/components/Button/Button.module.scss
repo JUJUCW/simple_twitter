@@ -1,43 +1,55 @@
+@use '../styles/color' as color;
 .button {
-  /*box model*/
-  height: 40px;
-  padding: 6px 0;
-  border-radius: 50px;
-  border: 1px solid#ff6600;
-  /*other*/
-  line-height: 100%;
-  font-size: 16px;
-  color: #ff6600;
-  background-color: white;
-  font-family: 'Noto Sans TC', sans-serif;
-  cursor: pointer;
+    /*box model*/
+    height: 40px;
+    padding: 6px 0;
+    border-radius: 50px;
+    border: 1px solid color.$brand-color;
+    /*other*/
+    line-height: 100%;
+    font-size: 16px;
+    color: color.$brand-color;
+    background-color: color.$gray-1;
+    font-family: 'Noto Sans TC', sans-serif;
+    cursor: pointer;
 }
 .small {
-  /*box model*/
-  width: 64px;
+    /*box model*/
+    width: 64px;
 }
 .middle {
-  /*box model*/
-  width: 96px;
+    /*box model*/
+    width: 96px;
 }
 .navTweet {
-  /*box model*/
-  height: 46px;
-  width: 178px;
-  /*other*/
-  font-size: 20px;
+    /*box model*/
+    height: 46px;
+    width: 178px;
+    /*other*/
+    font-size: 20px;
 }
 .large {
-  /*box model*/
-  height: 46px;
-  width: 356px;
-  /*other*/
-  font-size: 20px;
+    /*box model*/
+    height: 46px;
+    width: 356px;
+    /*other*/
+    font-size: 20px;
 }
 .action {
-  /*box model*/
-  border: none;
-  /*other*/
-  color: white;
-  background-color: #ff6600;
+    /*box model*/
+    border: none;
+    /*other*/
+    color: color.$gray-1;
+    background-color: color.$brand-color;
+}
+
+.edit {
+    /*box model*/
+    border: none;
+    height: 40px;
+    width: 128px;
+    /*other*/
+    color: color.$brand-color;
+    background-color: color.$gray-1;
+    border: 1px solid color.$brand-color;
 }

@@ -1,5 +1,6 @@
 @use '../../styles/color' as color;
 @use '../../styles/mixin';
+
 .container {
     /*display*/
     display: flex;
@@ -20,7 +21,7 @@
         content: url('../../../assets/icons/nav/nav_set_action.png');
     }
     &:hover .title {
-        color:color.$brand-color;
+        color: color.$brand-color;
     }
 }
 .iconStyle {
@@ -84,6 +85,7 @@
     height: 100%;
     display: block;
     cursor: pointer;
+
     &.activeIcon {
         content: url('../../../assets/icons/nav/nav_set_action.png');
     }
