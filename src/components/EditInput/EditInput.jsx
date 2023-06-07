@@ -1,7 +1,7 @@
-import styles from './AuthInput.module.scss'
+import styles from './EditInput.module.scss'
 import clsx from "clsx";
 
-export default function AuthInput ({ label, type, value, placeholder, onChange, notification, wordsLimit }) {
+export default function EditInput ({ label, type, value, placeholder, onChange, notification, wordsLimit }) {
   const inputClassName = clsx(styles.input, { [styles.active]: value.length > wordsLimit})
   const noteClassName = clsx(styles.notification, { [styles.active]: value.length > wordsLimit })
   const countClassName = clsx(styles.count, { [styles.active]: value.length > 0 })
@@ -9,7 +9,7 @@ export default function AuthInput ({ label, type, value, placeholder, onChange, 
     <>
       <div className={styles.container}>
         <label className={styles.label}>{label}</label>
-        <input
+        <textarea
           className={inputClassName}
           type={type || 'text'}
           value={value}
