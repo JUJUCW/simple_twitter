@@ -1,4 +1,11 @@
-.mainContainer{
-  display: flex;
-  flex-direction: column; 
+.middleContainer {
+  /*box model*/
+    width: 639px;
+    margin: 0 24px;
+    border-left: 1px solid#e6ecf0;
+    border-right: 1px solid#e6ecf0;
 }
+// .mainContainer {
+//   display: flex;
+//   flex-direction: column;
+// }
