@@ -1,7 +1,7 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import MainPage from 'pages/MainPage';
+import MainPage from './pages/MainPage/MainPage.jsx';
 import CurrentUserTweetPage from 'pages/CurrentUserTweetPage/CurrentUserTweetPage'
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import SignUpPage from './pages/SignUpPage/SignUpPage.jsx';
