@@ -8,9 +8,15 @@ import TweetListItem from 'components/UIComponents/NavItem/ListItem/TweetListIte
 import UserToggleMenu from 'components/UIComponents/ToggleMenu/UserToggleMenu';
 import msg from 'assets/icons/user/user_msg.png';
 import notify from 'assets/icons/user/user_notfi.png';
+import notifyAction from 'assets/icons/user/user_notfi_action.png';
 import logo from 'assets/icons/symbol/danger.png';
+import { useState } from 'react';
 
 export default function CurrentUser() {
+    const [isClicked, setIsClicked] = useState(false);
+    const handleClick = () => {
+        setIsClicked(!isClicked);
+    };
     return (
         <div className={styles.container}>
             <div className={styles.header}>
@@ -34,8 +40,12 @@ export default function CurrentUser() {
                     <div className={styles.msgIcon}>
                         <img src={msg} alt="msg" className={styles.msgImg} />
                     </div>
-                    <div className={styles.notifyIcon}>
-                        <img src={notify} alt="" className={styles.notifyImg} />
+                    <div className={styles.notifyIcon} onClick={handleClick}>
+                        {isClicked ? (
+                            <img src={notify} alt="" className={styles.notifyImg} />
+                        ) : (
+                            <img src={notifyAction} alt="" className={styles.notifyImg} />
+                        )}
                     </div>
                     <Button title="正在跟隨" size="middle" isAction />
                 </div>
