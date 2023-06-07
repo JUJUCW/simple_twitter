@@ -15,7 +15,10 @@
     display: block;
     // border: 1px solid red;
 }
-
+.currentContainer {
+    overflow: hidden;
+    overflow-y: scroll;
+}
 .mainContainer {
     flex: 1;
     overflow: hidden;
@@ -26,6 +29,9 @@
     display: block;
     width: 296px;
     padding: 16px 0;
+}
+.userToggleMenu {
+    display: flex;
 }
 
 // @media screen and (max-width: 1200px) {

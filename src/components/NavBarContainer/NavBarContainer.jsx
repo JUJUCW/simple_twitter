@@ -30,7 +30,7 @@ export default function NavBarContainer({ role, page }) {
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" isActive />
                                     </NavLink>
 
-                                    <NavLink to="/TweetPage">
+                                    <NavLink to="/tweetpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 
@@ -39,13 +39,13 @@ export default function NavBarContainer({ role, page }) {
                                     </NavLink>
                                 </>
                             )}
-                            {page === 'tweet' && (
+                            {page === 'tweetpage' && (
                                 <>
                                     <NavLink to="/main">
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
                                     </NavLink>
 
-                                    <NavLink to="/TweetPage">
+                                    <NavLink to="/tweetpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" isActive />
                                     </NavLink>
 
@@ -60,7 +60,7 @@ export default function NavBarContainer({ role, page }) {
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
                                     </NavLink>
 
-                                    <NavLink to="/TweetPage">
+                                    <NavLink to="/tweetpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 

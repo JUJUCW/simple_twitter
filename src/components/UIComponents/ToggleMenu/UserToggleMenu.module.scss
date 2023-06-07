@@ -1,39 +1,43 @@
 @use '/src/components/styles/color' as color;
 @use '/src/components/styles/mixin';
 
-.container {
+.toggleMenu {
     margin-top: 16px;
     width: 100%;
     display: flex;
     gap: 16px;
-    border-bottom: 1px solid color.$assistant-gray;
 }
 .active {
-    
-    width: 130px;
-    height: 52px;
-    // padding: 0 1px 13px 1px;
-
+    /*display*/
     display: flex;
     position: relative;
     justify-content: center;
     align-items: center;
-    border-bottom: 2px solid color.$brand-color;
-
-    color: color.$brand-color;
-    @include mixin.font-setting(15px, 700, color.$brand-color);
-}
-
-.inactive {
-    position: relative;
+    /*box model*/
     width: 130px;
     height: 52px;
+    border-bottom: 2px solid color.$brand-color;
+    /*other*/
+    @include mixin.font-setting(15px, 700, orange);
+}
+
+.navLink {
+    /*display*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*box model*/
+    width: 130px;
+    height: 52px;
+    /*other*/
     @include mixin.font-setting(15px, 700, #657786);
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    &.active {
+        @include mixin.font-setting(15px, 700, color.$brand-color);
+    }
 }
-.inactive:hover {
+
+.navLink:hover {
     border-bottom: 2px solid color.$brand-color;
+    @include mixin.font-setting(15px, 700, color.$brand-color);
 }
