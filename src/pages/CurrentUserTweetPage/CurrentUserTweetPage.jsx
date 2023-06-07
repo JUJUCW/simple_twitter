@@ -1,14 +1,12 @@
-import CurrentUser from 'components/CurrentUser/CurrentUser';
+import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
+import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
+import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
+import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
+
+import TweetItemList from '../../components/Main/TweetItemList/TweetItemList.jsx';
+import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
+import Header from '../../components/Header/Header.jsx'
 import styles from './CurrentUserTweetPage.module.scss';
-import OtherUser from 'components/CurrentUser/OtherUser';
-
-import NavBarContainer from 'components/NavBarContainer/NavBarContainer';
-import SuggestFollowContainer from 'components/SuggestFollowContainer/SuggestFollowContainer';
-import MainContainer from 'components/MainContainer/MainContainer';
-import Header from 'components/Header/Header';
-
-import TweetListItem from 'components/UIComponents/NavItem/ListItem/TweetListItem';
-import UserToggleMenu from 'components/UIComponents/ToggleMenu/UserToggleMenu';
 
 export default function CurrentUserTweetPage() {
     return (
@@ -27,11 +25,11 @@ export default function CurrentUserTweetPage() {
                             <UserToggleMenu linkName="回覆" />
                             <UserToggleMenu linkName="喜歡的內容" />
                         </div>
-                        <TweetListItem />
+                        <TweetItemList />
                     </div>
                 </MainContainer>
                 <div className={styles.suggestFollowContainer}>
-                    <SuggestFollowContainer />
+                    <SuggestUserContainer />
                 </div>
             </div>
         </>

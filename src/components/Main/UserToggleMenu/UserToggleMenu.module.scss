@@ -1,0 +1,43 @@
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
+
+.toggleMenu {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    gap: 16px;
+}
+.active {
+    /*display*/
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    /*box model*/
+    width: 130px;
+    height: 52px;
+    border-bottom: 2px solid color.$brand-color;
+    /*other*/
+    @include mixin.font-setting(15px, 700, orange);
+}
+
+.navLink {
+    /*display*/
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*box model*/
+    width: 130px;
+    height: 52px;
+    /*other*/
+    @include mixin.font-setting(15px, 700, #657786);
+    &.active {
+        @include mixin.font-setting(15px, 700, color.$brand-color);
+    }
+}
+
+.navLink:hover {
+    border-bottom: 2px solid color.$brand-color;
+    @include mixin.font-setting(15px, 700, color.$brand-color);
+}

@@ -1,9 +1,12 @@
 
 
 import Button from '../../components/Button/Button.jsx'
-import styles from './ButtonShowCasePage.module.scss'
+
 import TweetModal from '../../components/Modal/TweetModal/TweetModal.jsx'
-import ReplyModal from '../../components/Modal/ReplyModel/ReplyModal.jsx'
+import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx'
+// import UserEditModal from '../../components/Modal/UserEditModal/UserEditModal.jsx'
+
+import styles from './ButtonShowCasePage.module.scss'
 export default function ButtonShowCasePage () {
 
   return (
@@ -26,6 +29,7 @@ export default function ButtonShowCasePage () {
 
       <TweetModal/>
       <ReplyModal/>
+      {/* <UserEditModal/> */}
     </div>
   );
 }

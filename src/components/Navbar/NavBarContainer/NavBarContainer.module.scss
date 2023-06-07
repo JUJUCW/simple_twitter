@@ -1,0 +1,113 @@
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
+
+.navBarContainer {
+    /*display*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    /*box model*/
+    width: 178px;
+    height: 100vh;
+}
+.main {
+    /*display*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    align-items: flex-start;
+    /*box model*/
+    width: 100%;
+    height: 100%;
+}
+.img {
+    /*box model*/
+    width: 32px;
+    height: 32px;
+    margin: 13px;
+}
+// .menu {
+//     display: flex;
+//     flex-direction: column;
+//     width: 100%;
+//     margin-top: 8px;
+// }
+
+// .btnTweet {
+//     display: block;
+//     width: 40px;
+//     height: 40px;
+//     border-radius: 50px;
+//     background-color: color.$brand-color;
+
+//     cursor: pointer;
+//     overflow: hidden;
+//     &:hover {
+//         box-shadow: 0px 10px 20px -13px rgb(172, 63, 1);
+//         transition: 0.3s 0s ease-out box-shadow;
+//     }
+// }
+
+.logOut {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    cursor: pointer;
+    .img {
+        width: 18px;
+        height: 18px;
+        display: block;
+    }
+    .btnName {
+        font-size: 18px;
+    }
+}
+
+// @media screen and (min-width: 1200px) {
+//     .navBarContainer {
+//         align-items: flex-start;
+
+//         .main {
+//             align-items: flex-start;
+//             width: 178px;
+
+//             .logo {
+//                 margin-left: 13px;
+//             }
+
+//             .tweet {
+//                 width: 100%;
+//                 height: 46px;
+//                 border-radius: 50%;
+//                 .img {
+//                     display: none;
+//                 }
+
+//                 .btnTweet {
+//                     @include mixin.font-setting(20px, 400, color.$gray-1);
+//                     width: 100%;
+//                     display: flex;
+//                     justify-content: center;
+//                     align-items: center;
+//                     background-color: color.$brand-color;
+//                     line-height: 46px;
+//                     cursor: pointer;
+//                 }
+//             }
+//         }
+
+//         .logOut {
+//             display: flex;
+//             margin-left: 16px;
+//             align-items: center;
+//             gap: 16px;
+//             .btnName {
+//                 display: block;
+//                 width: inherit;
+//                 @include mixin.font-setting(18px, 700, color.$gray-9);
+//             }
+//         }
+//     }
+// }

@@ -1,0 +1,116 @@
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
+
+.container {
+    /*display*/
+    display: flex;
+    align-items: center;
+    /*box model*/
+    width: 100%;
+    margin: 20px 0;
+    /*other*/
+    color: black;
+    cursor: pointer;
+    &:hover .iconHome {
+        content: url('../../../assets/icons/nav/nav_home_action.png');
+    }
+    &:hover .iconUser {
+        content: url('../../../assets/icons/nav/nav_user_action.png');
+    }
+    &:hover .iconSetting {
+        content: url('../../../assets/icons/nav/nav_set_action.png');
+    }
+    &:hover .title {
+        color: color.$brand-color;
+    }
+}
+.iconStyle {
+    margin: 0 15px;
+    width: 20px;
+    height: 20px;
+}
+
+.title {
+    /*other*/
+    font-size: 16px;
+    font-weight: 700;
+    &.activeTitle {
+        color: color.$brand-color;
+    }
+}
+
+.iconHome {
+    content: url('../../../assets/icons/nav/nav_home.png');
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    &.activeIcon {
+        content: url('../../../assets/icons/nav/nav_home_action.png');
+    }
+}
+
+// .iconHomeAction {
+//     content: url('../../../assets/icons/nav/nav_home_action.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
+
+// .iconTweet {
+//     content: url('../../../assets/icons/nav/nav_btn.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
+
+.iconUser {
+    content: url('../../../assets/icons/nav/nav_user.png');
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    &.activeIcon {
+        content: url('../../../assets/icons/nav/nav_user_action.png');
+    }
+}
+
+// .iconUserAction {
+//     content: url('../../../assets/icons/nav/nav_user_action.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
+
+.iconSetting {
+    content: url('../../../assets/icons/nav/nav_set.png');
+    height: 100%;
+    display: block;
+    cursor: pointer;
+
+    &.activeIcon {
+        content: url('../../../assets/icons/nav/nav_set_action.png');
+    }
+}
+
+// .iconSettingAction {
+//     content: url('../../../assets/icons/nav/nav_set_action.png');
+//     height: 100%;
+//     display: block;
+//     cursor: pointer;
+// }
+
+// @media screen and (min-width: 1200px) {
+//     .container {
+//         flex-direction: row;
+//         justify-content: center;
+//         .title {
+//             width: 100%;
+//             display: block;
+//             @include mixin.font-setting(1.125rem, 700, color.$gray-9);
+//         }
+//         .titleAction {
+//             width: 100%;
+//             display: block;
+//             @include mixin.font-setting(1.125rem, 700, color.$brand-color);
+//         }
+//     }
+// }

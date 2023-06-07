@@ -1,0 +1,131 @@
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
+
+.itemContainer {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 136px;
+    padding-left: 24px;
+    border-bottom: 1px solid #e6ecf0;
+
+    margin: 16px 0;
+    // border: 1px solid #000;
+}
+
+.itemAvatar {
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+.avatarImage {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.img {
+    width: 100%;
+    display: block;
+}
+
+.itemInfo {
+    display: flex;
+    flex-direction: column;
+    // align-content: flex-start;
+    gap: 8px;
+    width: 85%;
+    height: 100%;
+    line-height: 26px;
+    // border: 1px solid red;
+}
+.accountInfo {
+    width: 100%;
+    display: flex;
+    gap: 8px;
+}
+
+.accountInfo > p {
+    text-overflow: ellipsis;
+    @include mixin.font-setting(16px, 700, color.$gray-10);
+}
+.accountInfoAccount {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.accountTitle,
+.tweetTime {
+    text-overflow: ellipsis;
+    @include mixin.font-setting(14px, 400, color.$secondary-color);
+}
+.accountTitle {
+    max-width: 35%;
+    text-overflow: ellipsis;
+}
+.spot {
+    width: 4px;
+    height: 4px;
+    background-color: color.$secondary-color;
+    border-radius: 50%;
+}
+
+.tweetContext {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 8px;
+}
+.tweetContext > p {
+    @include mixin.font-setting(16px, 400, color.$gray-10);
+    width: 100%;
+    line-height: 22px;
+    max-height: 110px;
+    overflow: hidden;
+    word-break: break-word;
+}
+.infoIcons {
+    display: flex;
+    gap: 40px;
+    .iconReply {
+        display: flex;
+        gap: 8px;
+        width: 38px;
+        height: 16px;
+        .cursor {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            img {
+                content: url('../../../assets/icons/tweet/tweet_reply.png');
+                width: 100%;
+                display: block;
+            }
+        }
+
+        span {
+            @include mixin.font-setting(14px, 600, color.$secondary-color);
+        }
+    }
+}
+.iconLike {
+    display: flex;
+    gap: 8px;
+    width: 38px;
+    height: 16px;
+    .cursor {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        img {
+            content: url('../../../assets/icons/tweet/tweet_like.png');
+            width: 100%;
+            display: block;
+        }
+    }
+    span {
+        @include mixin.font-setting(14px, 600, color.$secondary-color);
+    }
+}

@@ -1,0 +1,64 @@
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
+
+.userItem {
+    width: 273px;
+    // height: 82px;
+    margin: 16px;
+    display: flex;
+    align-items: center;
+    // border: 1px solid #000;
+}
+
+.userAvatar {
+    width: 50px;
+    height: 50px;
+    // border-radius: 50px;
+    // overflow: hidden;
+    // border: 1px solid #000;
+
+}
+
+// .userAvatar > .img {
+//     width: 100%;
+//     display: block;
+//     width: 50px;
+//     height: 50px;
+
+// }
+
+.userInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 13px 0 8px;
+    // border: 1px solid #000;
+}
+.userInfoName {
+    @include mixin.font-setting(16px, 700, color.$gray-10);
+    width: 71px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 26px;
+    line-height: 26px;
+
+    // border: 1px solid #000;
+}
+
+.userInfoAccount {
+    @include mixin.font-setting(14px, 500, color.$gray-7);
+    width: 71px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 22px;
+    line-height: 22px;
+}
+
+// .btnFollow {
+//     width: 96px;
+//     display: flex;
+//     justify-content: flex-end;
+// }
+// .btnFollow > .btn {
+//     display: flex;
+// }
