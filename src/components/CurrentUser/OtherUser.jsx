@@ -1,5 +1,5 @@
 import Header from 'components/Header/Header';
-import styles from './CurrentUser.module.scss';
+import styles from './OtherUser.module.scss';
 import bgImg from 'assets/images/default_background.png';
 
 import Button from 'components/Button/Button';
@@ -31,7 +31,7 @@ export default function CurrentUser() {
                 </div>
 
                 <div className={styles.btnContainer}>
-                    <div className={styles.emailIcon}>
+                    <div className={styles.msgIcon}>
                         <img src={msg} alt="msg" className={styles.msgImg} />
                     </div>
                     <div className={styles.notifyIcon}>

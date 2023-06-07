@@ -56,20 +56,26 @@
     @include mixin.font-setting(14px, 700, color.$secondary-color);
 }
 
-.msgImg {
-    display: flex;
-    margin-left: 16px;
-}
 .btnContainer {
     display: flex;
-    padding: 0 24px;
     justify-content: flex-end;
-    margin: 16px 0px 64px 24px;
+    margin: 16px 24px 64px 24px;
+    gap: 16px;
 }
-
+.msgIcon,
+.notifyIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.msgImg,
+.notifyImg {
+    width: 100%;
+    display: block;
+}
 .userDescription {
     padding: 0 24px;
-
     display: flex;
     flex-direction: column;
     gap: 16px;
