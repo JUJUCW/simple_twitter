@@ -1,14 +1,18 @@
 @use '../styles/color' as color;
 @use '../styles/mixin';
 
-.container {
-    height: 100vh;
+// .container {
+//     height: 100vh;
+//     display: flex;
+//     flex-direction: column;
+// }
+.userCard {
+    position: relative;
+    // height: 100vh;
     display: flex;
     flex-direction: column;
 }
-.userCard {
-    position: relative;
-}
+
 .cover {
     width: 100%;
     height: 200px;
