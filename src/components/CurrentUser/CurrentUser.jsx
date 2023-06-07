@@ -26,10 +26,10 @@ export default function CurrentUser() {
                         <div className={styles.userInfoAccount}>{`@johndoe`}</div>
                     </div>
                 </div>
-                <div className={styles.btnEdit}>
+                {/* <div className={styles.btnEdit}> */}
                     <div className={styles.btnContainer}>
                         <Button title="編輯個人資料" size="edit" />
-                    </div>
+                    {/* </div> */}
                 </div>
                 <div className={styles.userDescription}>
                     <div className={styles.descriptionContext}>

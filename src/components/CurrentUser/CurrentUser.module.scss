@@ -56,14 +56,18 @@
     @include mixin.font-setting(14px, 700, color.$secondary-color);
 }
 
-.btnEdit {
+// .btnEdit {
+//     display: flex;
+//     padding: 0 24px;
+//     justify-content: flex-end;
+//     margin: 16px 0px 64px 24px;
+// }
+.btnContainer {
+    // width: inherit;
     display: flex;
     padding: 0 24px;
     justify-content: flex-end;
     margin: 16px 0px 64px 24px;
-}
-.btnContainer {
-    width: inherit;
 }
 
 .userDescription {
