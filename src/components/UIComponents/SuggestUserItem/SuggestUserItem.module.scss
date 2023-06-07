@@ -3,8 +3,8 @@
 
 .userItem {
     width: 273px;
-    height: 82px;
-    padding: 16px;
+    // height: 82px;
+    margin: 16px;
     display: flex;
     align-items: center;
     // border: 1px solid #000;
@@ -14,18 +14,18 @@
     width: 50px;
     height: 50px;
     // border-radius: 50px;
-    overflow: hidden;
-    border: 1px solid #000;
+    // overflow: hidden;
+    // border: 1px solid #000;
 
 }
 
-.userAvatar > .img {
-    width: 100%;
-    display: block;
-    width: 50px;
-    height: 50px;
+// .userAvatar > .img {
+//     width: 100%;
+//     display: block;
+//     width: 50px;
+//     height: 50px;
 
-}
+// }
 
 .userInfo {
     display: flex;
@@ -36,7 +36,7 @@
 }
 .userInfoName {
     @include mixin.font-setting(16px, 700, color.$gray-10);
-    width: 74px;
+    width: 71px;
     overflow: hidden;
     text-overflow: ellipsis;
     height: 26px;
@@ -54,11 +54,11 @@
     line-height: 22px;
 }
 
-.btnFollow {
-    width: 96px;
-    display: flex;
-    justify-content: flex-end;
-}
-.btnFollow > .btn {
-    display: flex;
-}
+// .btnFollow {
+//     width: 96px;
+//     display: flex;
+//     justify-content: flex-end;
+// }
+// .btnFollow > .btn {
+//     display: flex;
+// }

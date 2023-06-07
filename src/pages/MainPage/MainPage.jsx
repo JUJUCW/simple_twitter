@@ -10,9 +10,9 @@ import TweetListItem from '../../components/UIComponents/NavItem/ListItem/TweetL
 export default function MainPage() {
     return (
         <div className={styles.container}>
-            <div className={styles.navBarContainer}>
-                <NavBarContainer role="user" page="main" />
-            </div>
+            {/* <div className={styles.navBarContainer}> */}
+            <NavBarContainer role="user" page="main" />
+            {/* </div> */}
 
             <MainContainer>
                 <Header title="首頁" />
@@ -20,9 +20,9 @@ export default function MainPage() {
                 <TweetListItem />
             </MainContainer>
 
-            <div className={styles.suggestFollowContainer}>
-                <SuggestFollowContainer />
-            </div>
+            {/* <div className={styles.suggestFollowContainer}> */}
+            <SuggestFollowContainer />
+            {/* </div> */}
         </div>
     );
 }
