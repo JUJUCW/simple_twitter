@@ -1,5 +1,5 @@
 
-import logo from '../../assets/icons/logo.png'
+import logo from '../../../assets/icons/logo.png'
 
 import styles from './AuthPageContainer.module.scss'
 

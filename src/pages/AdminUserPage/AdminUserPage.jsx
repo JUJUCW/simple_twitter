@@ -2,7 +2,7 @@
 
 import Header from '../../components/Header/Header.jsx'
 import AdminUserCard from '../../components/AdminUserCard/AdminUserCard.jsx'
-import NavBarContainer from '../../components/NavBarContainer/NavBarContainer.jsx'
+import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
 import styles from './AdminUserPage.module.scss'
 
 export default function AdminUserPage () {

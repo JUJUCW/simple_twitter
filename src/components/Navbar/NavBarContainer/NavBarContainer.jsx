@@ -1,20 +1,13 @@
 import { Link, NavLink } from 'react-router-dom';
-import NavItem from 'components/UIComponents/NavItem/NavItem';
-import Button from 'components/Button/Button';
+import NavItem from '../NavItem/NavItem.jsx';
+import Button from '../../Button/Button.jsx';
 
 import styles from './NavBarContainer.module.scss';
 
-import logo from '../../assets/icons/logo.png';
-import logout from '../../assets/icons/nav/nav_signout.png';
+import logo from '../../../assets/icons/logo.png';
+import logout from '../../../assets/icons/nav/nav_signout.png';
 
 export default function NavBarContainer({ role, page }) {
-    // const [isActive, setIsActive] = useState(false);
-    // const navigate = useNavigate();
-    // const handleNavLinkClick = () => {
-    //     setIsActive(true);
-    //     navigate('/main');
-    // };
-
     return (
         <>
             <div className={styles.navBarContainer}>

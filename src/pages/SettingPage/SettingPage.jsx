@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import Header from '../../components/Header/Header.jsx'
-import AuthInput from '../../components/AuthInput/AuthInput.jsx'
+import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import Button from '../../components/Button/Button.jsx'
-import NavBarContainer from '../../components/NavBarContainer/NavBarContainer.jsx'
+import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
 import styles from './SettingPage.module.scss'
 
 export default function SettingPage () {

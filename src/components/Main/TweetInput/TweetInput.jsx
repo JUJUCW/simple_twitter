@@ -1,6 +1,6 @@
 import styles from './TweetInput.module.scss';
-import Button from 'components/Button/Button';
-import logo from 'assets/icons/nav/nav_home.png';
+import Button from '../../Button/Button.jsx';
+import logo from '../../../assets/icons/nav/nav_home.png';
 // import Header from 'components/Header/Header';
 
 export default function TweetInput() {

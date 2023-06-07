@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import AuthInput from '../../components/AuthInput/AuthInput.jsx'
-import AuthPageContainer from '../../components/AuthPageContainer/AuthPageContainer.jsx'
+import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
+import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
 
 import styles from './AdminLoginPage.module.scss'

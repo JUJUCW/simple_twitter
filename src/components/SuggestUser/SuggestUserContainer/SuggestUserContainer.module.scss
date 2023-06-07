@@ -1,5 +1,5 @@
-@use '/src/components/styles/color' as color;
-@use '/src/components/styles/mixin';
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
 
 .SuggestFollowContainer {
     display: flex;

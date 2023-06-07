@@ -1,11 +1,13 @@
-import Header from 'components/Header/Header';
-import styles from './CurrentUser.module.scss';
-import bgImg from 'assets/images/default_background.png';
-import logo from 'assets/icons/logo_gray.png';
-import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
-import TweetListItem from 'components/UIComponents/NavItem/ListItem/TweetListItem';
-import UserToggleMenu from 'components/UIComponents/ToggleMenu/UserToggleMenu';
+
+import Header from '../../Header/Header.jsx';
+import Button from '../../Button/Button.jsx';
+import TweetItemList from '../TweetItemList/TweetItemList.jsx';
+import UserToggleMenu from '../../Main/UserToggleMenu/UserToggleMenu.jsx';
+
+import bgImg from '../../../assets/images/default_background.png';
+import logo from '../../../assets/icons/logo_gray.png';
+import styles from './CurrentUser.module.scss';
 
 export default function CurrentUser() {
     return (
@@ -59,7 +61,7 @@ export default function CurrentUser() {
                     <UserToggleMenu linkName="喜歡的內容" />
                 </div>
                 <div className={styles.tweetListItem}>
-                    <TweetListItem />
+                    <TweetItemList />
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 // import { Link } from 'react-router-dom';
-import styles from './TweetListItem.module.scss';
-import logo from '../../../../assets/icons/nav/nav_home.png';
+import styles from './TweetItemList.module.scss';
+import logo from '../../../assets/icons/logo_gray.png';
 
-export default function TweetListItem() {
+export default function TweetItemList () {
     return (
         <>
             <div className={styles.itemContainer}>

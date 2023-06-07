@@ -1,18 +1,18 @@
-@use '../styles/color' as color;
-@use '../styles/mixin';
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
 
-.container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    
-}
-.container_scroll{
-    overflow-y: scroll;
-}
+// .container {
+//     height: 100vh;
+//     display: flex;
+//     flex-direction: column;
+// }
 .userCard {
     position: relative;
+    // height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
+
 .cover {
     width: 100%;
     height: 200px;
@@ -60,27 +60,29 @@
     @include mixin.font-setting(14px, 700, color.$secondary-color);
 }
 
-// .btnEdit {
-//     display: flex;
-//     padding: 0 24px;
-//     justify-content: flex-end;
-//     margin: 16px 0px 64px 24px;
-// }
 .btnContainer {
-    // width: inherit;
     display: flex;
-    padding: 0 24px;
     justify-content: flex-end;
-    margin: 16px 0px 64px 24px;
+    margin: 16px 24px 64px 24px;
+    gap: 16px;
 }
-
+.msgIcon,
+.notifyIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.msgImg,
+.notifyImg {
+    width: 100%;
+    display: block;
+}
 .userDescription {
     padding: 0 24px;
-
     display: flex;
     flex-direction: column;
     gap: 16px;
-
 }
 
 .descriptionContext {
@@ -104,7 +106,7 @@
 .followingType {
     @include mixin.font-setting(14px, 400, color.$secondary-color);
 }
-.userToggleMenu{
+.userToggleMenu {
     display: flex;
 }
 .tweetListItem {

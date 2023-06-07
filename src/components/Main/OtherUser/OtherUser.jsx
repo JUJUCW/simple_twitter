@@ -1,15 +1,15 @@
-import styles from './OtherUser.module.scss';
-import bgImg from 'assets/images/default_background.png';
-
-import Button from 'components/Button/Button';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+
+import Button from '../../../components/Button/Button.jsx';
 // import TweetListItem from 'components/UIComponents/NavItem/ListItem/TweetListItem';
 // import UserToggleMenu from 'components/UIComponents/ToggleMenu/UserToggleMenu';
-import msg from 'assets/icons/user/user_msg.png';
-import notify from 'assets/icons/user/user_notfi.png';
-import notifyAction from 'assets/icons/user/user_notfi_action.png';
-import logo from 'assets/icons/symbol/danger.png';
-import { useState } from 'react';
+import msg from '../../../assets/icons/user/user_msg.png';
+import notify from '../../../assets/icons/user/user_notfi.png';
+import notifyAction from '../../../assets/icons/user/user_notfi_action.png';
+import logo from '../../../assets/icons/symbol/danger.png';
+import bgImg from '../../../assets/images/default_background.png';
+import styles from './OtherUser.module.scss';
 
 export default function CurrentUser() {
     const [isClicked, setIsClicked] = useState(false);

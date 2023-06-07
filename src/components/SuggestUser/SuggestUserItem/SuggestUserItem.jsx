@@ -1,6 +1,6 @@
 import styles from './SuggestUserItem.module.scss';
-import Button from 'components/Button/Button';
-import logo from 'assets/icons/logo.png';
+import Button from '../../Button/Button.jsx';
+import logo from '../../../assets/icons/logo.png'
 
 export default function SuggestUserItem() {
     return (
