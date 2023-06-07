@@ -1,0 +1,103 @@
+@use '../../styles/color' as color;
+@use '../../styles/mixin';
+
+.modalContainer {
+  /*display*/
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  /*box model*/
+  height: 300px;
+  width: 634px;
+  border-radius: 14px;
+  border:1px solid color.$assistant-gray;
+}
+.header {
+  /*display*/
+  display: flex;
+  align-items: center;
+  /*box model*/
+  height: 56px;
+  width: 100%;
+  border-bottom: 1px solid color.$assistant-gray;
+  .modalEsc {
+    /*box model*/
+    height: 20px;
+    width: 20px;
+    margin-left: 20px;
+  }
+}
+
+.info {
+  /*display*/
+  position: absolute;
+  top: 73px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  z-index: -1;
+  .avatar {
+    /*box model*/
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+  }
+
+  .placeHolder {
+    /*box model*/
+    margin-left: 8px;
+    /*other*/
+    font-size: 16px;
+    color: color.$secondary-color;
+  }
+}
+
+.body {
+  all: unset;
+  word-wrap: break-word;
+  /*box model*/
+  height: 245px;
+  margin: 20px;
+  line-height: 30px;
+  &:focus+.info {
+    display: none;
+  }
+  &.active+.info {
+    display: none;
+  }
+}
+.footer {
+  /*display*/
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  .waring {
+    /*display*/
+    display: none;
+    /*box model*/
+    margin-right: 20px;
+    /*other*/
+    font-size: 15px;
+    color: color.$error-color;
+
+    &.active {
+      display: flex;
+    }
+  }
+
+  .headsUp {
+    /*display*/
+    display: none;
+    /*box model*/
+    margin-right: 20px;
+    /*other*/
+    font-size: 15px;
+    color: color.$error-color;
+
+    &.active {
+      display: flex;
+    }
+  }
+}
