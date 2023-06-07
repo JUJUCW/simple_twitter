@@ -27,8 +27,8 @@ export default function CurrentUser() {
                     </div>
                 </div>
                 {/* <div className={styles.btnEdit}> */}
-                    <div className={styles.btnContainer}>
-                        <Button title="編輯個人資料" size="edit" />
+                <div className={styles.btnContainer}>
+                    <Button title="編輯個人資料" size="edit" />
                     {/* </div> */}
                 </div>
                 <div className={styles.userDescription}>
@@ -52,7 +52,9 @@ export default function CurrentUser() {
                 </div>
             </div>
             <div className={styles.userToggleMenu}>
-                <UserToggleMenu />
+                <UserToggleMenu linkName="推文" isActive />
+                <UserToggleMenu linkName="回覆"  />
+                <UserToggleMenu linkName="喜歡的內容" />
             </div>
             <div className={styles.tweetListItem}>
                 <TweetListItem />
