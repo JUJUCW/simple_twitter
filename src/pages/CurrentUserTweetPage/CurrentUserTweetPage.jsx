@@ -1,6 +1,6 @@
 import CurrentUser from 'components/CurrentUser/CurrentUser';
 import styles from './CurrentUserTweetPage.module.scss';
-import OtherUser from 'components/CurrentUser/OtherUser';
+// import OtherUser from 'components/CurrentUser/OtherUser';
 
 import NavBarContainer from 'components/NavBarContainer/NavBarContainer';
 import SuggestFollowContainer from 'components/SuggestFollowContainer/SuggestFollowContainer';
