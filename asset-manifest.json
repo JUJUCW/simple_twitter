@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.e11c42aa.css",
-    "main.js": "/static/js/main.949c1609.js",
-    "static/js/787.aa94361f.chunk.js": "/static/js/787.aa94361f.chunk.js",
-    "static/media/default_background.png": "/static/media/default_background.3b69e33184de873fe267.png",
-    "static/media/admin_background.png": "/static/media/admin_background.3de3922a7a16410192b8.png",
-    "index.html": "/index.html",
-    "main.e11c42aa.css.map": "/static/css/main.e11c42aa.css.map",
-    "main.949c1609.js.map": "/static/js/main.949c1609.js.map",
-    "787.aa94361f.chunk.js.map": "/static/js/787.aa94361f.chunk.js.map"
+    "main.css": "/simple_twitter/static/css/main.e11c42aa.css",
+    "main.js": "/simple_twitter/static/js/main.7e253e40.js",
+    "static/js/787.aa94361f.chunk.js": "/simple_twitter/static/js/787.aa94361f.chunk.js",
+    "static/media/default_background.png": "/simple_twitter/static/media/default_background.3b69e33184de873fe267.png",
+    "static/media/admin_background.png": "/simple_twitter/static/media/admin_background.3de3922a7a16410192b8.png",
+    "index.html": "/simple_twitter/index.html",
+    "main.e11c42aa.css.map": "/simple_twitter/static/css/main.e11c42aa.css.map",
+    "main.7e253e40.js.map": "/simple_twitter/static/js/main.7e253e40.js.map",
+    "787.aa94361f.chunk.js.map": "/simple_twitter/static/js/787.aa94361f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e11c42aa.css",
-    "static/js/main.949c1609.js"
+    "static/js/main.7e253e40.js"
   ]
 }
