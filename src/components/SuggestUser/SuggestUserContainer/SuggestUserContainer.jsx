@@ -3,7 +3,7 @@ import styles from './SuggestUserContainer.module.scss';
 
 export default function SuggestUserContainer() {
     return (
-        <div className={styles.SuggestFollowContainer}>
+        <div className={styles.suggestFollowContainer}>
             <h4 className={styles.suggestUserTitle}>推薦跟隨</h4>
             {/* <div className={styles.line}></div> */}
             <div className={styles.suggestUserCard}>
