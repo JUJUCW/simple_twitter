@@ -151,7 +151,7 @@ textarea:focus-visible {
 }
 
 body {
-  font-family: 'Noto Sans TC', 'Montserrat', sans-serif;
+  font-family: 'Noto Sans TC', 'Montserrat', sans-serif;  
 }
 h1 {
   font-size: 68px;
@@ -172,4 +172,16 @@ h4 {
 h5 {
   font-size: 18px;
   font-weight: 700;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+::-webkit-scrollbar-track {
+  background-color: #FAFAFA;
+  border-left: 1px solid #e6ecf0;
+  border-right: 1px solid #e6ecf0;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: #C1C1C1;
 }
