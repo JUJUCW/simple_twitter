@@ -6,6 +6,7 @@ import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContai
 import Header from '../../components/Header/Header.jsx';
 import TweetInput from '../../components/Main/TweetInput/TweetInput.jsx';
 import TweetItemList from '../../components/Main/TweetItemList/TweetItemList.jsx';
+import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 
 export default function MainPage() {
     return (
@@ -16,7 +17,8 @@ export default function MainPage() {
 
             <MainContainer>
                 <Header title="首頁" />
-                <TweetInput />
+                {/* <TweetInput /> */}
+                <SingleTweet/>
                 <TweetItemList />
             </MainContainer>
 
