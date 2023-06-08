@@ -89,3 +89,40 @@
   margin: 80px 16px 0 16px;
 }
 
+.upload,
+.cancel {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 90px;
+  z-index: 3;
+  overflow: hidden;
+}
+.upload {
+  left: 279px;
+}
+.cancel {
+  left: 338px;
+}
+
+.uploadImg, 
+.cancelImg {
+  height: 100%;
+}
+.cancelImg {
+  width: 15px;
+  height: 15px;
+}
+.avatarUpload {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 184px;
+  left: 76px;
+  z-index: 3;
+  overflow: hidden;
+}

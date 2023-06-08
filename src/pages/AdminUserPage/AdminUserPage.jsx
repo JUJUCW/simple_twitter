@@ -42,7 +42,6 @@ export default function AdminUserPage () {
           <AdminUserCard/>
           <AdminUserCard/>
           <AdminUserCard/>
-
         </div>
       </div>
     </div>

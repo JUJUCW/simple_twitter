@@ -11,7 +11,7 @@ import logo from '../../../assets/icons/symbol/danger.png';
 import bgImg from '../../../assets/images/default_background.png';
 import styles from './OtherUser.module.scss';
 
-export default function CurrentUser() {
+export default function OtherUser() {
     const [isClicked, setIsClicked] = useState(false);
     const handleClick = () => {
         setIsClicked(!isClicked);

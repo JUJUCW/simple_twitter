@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
@@ -20,7 +21,9 @@ export default function AdminLoginPage () {
       />
       <Button title='登入' size='large' isAction></Button>
       <div className={styles.link}>
-        <span className={styles.span}>前台登入</span>
+        <Link to="/login">
+          <span className={styles.span}>前台登入</span>
+        </Link>
       </div>
     </AuthPageContainer>
   );
