@@ -1,11 +1,11 @@
 
 
 import Button from '../../components/Button/Button.jsx'
-
+import AdminTweetItem from '../../components/AdminTweetItem/AdminTweetItem.jsx'
 // import TweetModal from '../../components/Modal/TweetModal/TweetModal.jsx'
-import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx'
+// import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx'
 // import UserEditModal from '../../components/Modal/UserEditModal/UserEditModal.jsx'
-import UserEditModal from '../../components/Modal/UserEditModal/UserEditModal.jsx'
+// import UserEditModal from '../../components/Modal/UserEditModal/UserEditModal.jsx'
 import TweetInput from "../../components/Main/TweetInput/TweetInput.jsx"
 import TweetItem from "../../components/Main/TweetItem/TweetItem.jsx"
 
@@ -14,6 +14,7 @@ export default function ButtonShowCasePage () {
 
   return (
     <div>
+      <AdminTweetItem/>
       <TweetItem></TweetItem>
       <div className={styles.container}>
         <Button title='登入' size='large' isAction></Button>
@@ -32,7 +33,7 @@ export default function ButtonShowCasePage () {
       </div>
       
       <TweetInput/>
-      <UserEditModal/>
+      {/* <UserEditModal/> */}
       {/* <TweetModal/> */}
       {/* <ReplyModal/> */}
       {/* <UserEditModal/> */}
