@@ -1,6 +1,7 @@
 import './App.scss';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
+import HomePage from 'pages/HomePage';
 import MainPage from './pages/MainPage/MainPage.jsx';
 import CurrentUserTweetPage from 'pages/CurrentUserTweetPage/CurrentUserTweetPage'
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
@@ -19,6 +20,7 @@ export default function App() {
       <div className="app">
           <BrowserRouter basename={basename}>
               <Routes>
+                  <Route path="*" element={<HomePage />} />
                   <Route path="login" element={<LoginPage />} />
                   <Route path="signup" element={<SignUpPage />} />
                   <Route path="main" element={<MainPage />} />
