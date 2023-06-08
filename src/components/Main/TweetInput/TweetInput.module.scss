@@ -1,59 +1,149 @@
 @use '../../../assets/styles/color' as color;
 @use '../../../assets/styles/mixin';
 
-.tweetInputContainer {
+
+.modalContainer {
+    /*display*/
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    height: 221px;
-border-bottom: 10px solid color.$assistant-gray;
-}
-.title {
-    width: 100%;
-    display: flex;
-    height: 75px;
-    align-items: center;
-    margin-bottom: 16px;
-    border-bottom: 1px solid color.$assistant-gray;
-
-}
-
-.inputContainer {
-    flex: 1;
-    width: 100%;
-    display: flex;
-    gap: 8px;
-    padding: 16px 24px 0 24px;
-    height: 130px;
-}
-
-.avatarContainer {
-    width: inherit;
-    height: 100%;
-}
-.img {
-    display: block;
-}
-.avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-}
-.inputContainerContext {
-    flex: 1;
-    height: 100%;
     position: relative;
+    /*box model*/
+    height: 136px;
+    width: 100%;
+    border-bottom: 10px solid color.$assistant-gray;
 }
 
-.text {
-    @include mixin.font-setting(18px, 700, color.$secondary-color);
-    line-height: 26px;
-    display: block;
-    padding-top: 12px;
+.info {
+    /*display*/
+    position: absolute;
+    top: 16px;
+    left: 26px;
+    display: flex;
+    align-items: center;
+    z-index: -1;
+
+    .avatar {
+        /*box model*/
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+    }
+
+    .placeHolder {
+        /*box model*/
+        margin-left: 8px;
+        /*other*/
+        font-size: 16px;
+        color: color.$secondary-color;
+    }
 }
 
-.btn {
+.body {
+    all: unset;
+    word-wrap: break-word;
+    /*box model*/
+    height: 245px;
+    margin: 20px;
+    line-height: 30px;
+
+    &:focus+.info {
+        display: none;
+    }
+
+    &.active+.info {
+        display: none;
+    }
+}
+
+.footer {
+    /*display*/
     position: absolute;
     bottom: 16px;
-    right: calc(24.69px - 24px);
+    right: 16px;
+    display: flex;
+    align-items: center;
+
+    .waring {
+        /*display*/
+        display: none;
+        /*box model*/
+        margin-right: 20px;
+        /*other*/
+        font-size: 15px;
+        color: color.$error-color;
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    .headsUp {
+        /*display*/
+        display: none;
+        /*box model*/
+        margin-right: 20px;
+        /*other*/
+        font-size: 15px;
+        color: color.$error-color;
+
+        &.active {
+            display: flex;
+        }
+    }
 }
+// .tweetInputContainer {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: flex-start;
+//     height: 136px;
+    // border-bottom: 10px solid color.$assistant-gray;
+// }
+// .title {
+//     width: 100%;
+//     display: flex;
+//     height: 75px;
+//     align-items: center;
+//     margin-bottom: 16px;
+//     border-bottom: 1px solid color.$assistant-gray;
+
+// }
+
+// .inputContainer {
+//     flex: 1;
+//     width: 100%;
+//     display: flex;
+//     gap: 8px;
+//     padding: 16px 24px 0 24px;
+//     height: 130px;
+// }
+
+// .avatarContainer {
+//     width: inherit;
+//     height: 100%;
+// }
+// .img {
+//     display: block;
+// }
+// .avatar {
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 50%;
+// }
+// .inputContainerContext {
+//     flex: 1;
+//     height: 100%;
+//     position: relative;
+// }
+
+// .text {
+//     @include mixin.font-setting(18px, 700, color.$secondary-color);
+//     line-height: 26px;
+//     display: block;
+//     padding-top: 12px;
+// }
+
+// .btn {
+//     position: absolute;
+//     bottom: 16px;
+//     right: calc(24.69px - 24px);
+// }
