@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import {Link} from 'react-router-dom'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
@@ -32,7 +32,9 @@ export default function SignUpPage () {
       />
       <Button title='註冊' size='large' isAction></Button>
       <div className={styles.link}>
-        <span className={styles.span}>取消</span>
+        <Link to="/login">
+          <span className={styles.span}>取消</span>
+        </Link>
       </div>
     </AuthPageContainer>
   );

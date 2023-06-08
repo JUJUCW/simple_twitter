@@ -36,6 +36,7 @@ export default function SettingPage () {
           <Button title='儲存' size='small' isAction></Button>
         </div>
       </div>
+      <div className={styles.placeHolder}></div>
     </div>
   )
 }

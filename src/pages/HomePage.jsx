@@ -1,3 +1,4 @@
+
 const { useEffect } = require("react")
 const { useNavigate } = require("react-router-dom")
 
@@ -9,3 +10,4 @@ const HomePage = () => {
 }
 
 export default HomePage
+

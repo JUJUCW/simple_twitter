@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Header from '../../Header/Header.jsx';
+// import Header from '../../Header/Header.jsx';
 import Button from '../../Button/Button.jsx';
 import TweetItemList from '../TweetItemList/TweetItemList.jsx';
 import UserToggleMenu from '../../Main/UserToggleMenu/UserToggleMenu.jsx';

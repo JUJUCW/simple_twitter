@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import NavItem from '../NavItem/NavItem.jsx';
 import Button from '../../Button/Button.jsx';
+import TweetModal from '../../../components/Modal/TweetModal/TweetModal.jsx';
 
 import styles from './NavBarContainer.module.scss';
 
@@ -8,6 +10,17 @@ import logo from '../../../assets/icons/logo.png';
 import logout from '../../../assets/icons/nav/nav_signout.png';
 
 export default function NavBarContainer({ role, page }) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        console.log('123')
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        console.log('456')
+        setIsModalOpen(false);
+    };
     return (
         <>
             <div className={styles.navBarContainer}>
@@ -63,7 +76,7 @@ export default function NavBarContainer({ role, page }) {
                                 </>
                             )}
 
-                            <Button title="推文" size="navTweet" isAction></Button>
+                            <Button title="推文" size="navTweet" isAction onClick={handleOpenModal}></Button>
                         </>
                     )}
                     {role === 'admin' && (
@@ -97,6 +110,11 @@ export default function NavBarContainer({ role, page }) {
                     <img className={styles.img} src={logout} alt="log-out" />
                     <h5 className={styles.btnName}>登出</h5>
                 </div>
+                {isModalOpen && 
+                    // <div className={styles.modalContainer}>
+                        <TweetModal isModalOpen={isModalOpen} handleCloseModal={handleCloseModal}/>
+                    // </div>
+                }
             </div>
         </>
     );
