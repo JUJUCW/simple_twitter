@@ -1,6 +1,16 @@
 @use '../../../assets/styles/color' as color;
 @use '../../../assets/styles/mixin';
 
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
 .container {
   /*display*/
   display: flex;
@@ -8,7 +18,9 @@
   /*box model*/
   height: 634px;
   width: 610px;
+  margin: 56px auto;
   border-radius: 14px;
+  background-color: white;
 }
 
 .userCard {
@@ -32,6 +44,7 @@
     height: 20px;
     width: 20px;
     margin-right: 36px;
+    cursor: pointer;
   }
 }
 
@@ -110,6 +123,7 @@
 .uploadImg, 
 .cancelImg {
   height: 100%;
+  cursor: pointer;
 }
 .cancelImg {
   width: 15px;
@@ -125,4 +139,5 @@
   left: 76px;
   z-index: 3;
   overflow: hidden;
+  cursor: pointer;
 }
