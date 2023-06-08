@@ -6,7 +6,7 @@ import logo_gray from 'assets/icons/logo_gray.png';
 import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 import likeIcon from 'assets/icons/tweet/tweet_like.png';
 import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
-import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
+// import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
 export default function SingleTweet() {
     const [isClicked, setIsClicked] = useState(false);
