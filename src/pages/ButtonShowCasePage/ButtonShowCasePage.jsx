@@ -5,6 +5,7 @@ import Button from '../../components/Button/Button.jsx'
 import TweetModal from '../../components/Modal/TweetModal/TweetModal.jsx'
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx'
 // import UserEditModal from '../../components/Modal/UserEditModal/UserEditModal.jsx'
+import UserEditModal from '../../components/Modal/UserEditModal/UserEditModal.jsx'
 
 import styles from './ButtonShowCasePage.module.scss'
 export default function ButtonShowCasePage () {
@@ -26,7 +27,7 @@ export default function ButtonShowCasePage () {
       <div className={styles.container}>
         <Button title='推文' size='small' isAction></Button>
       </div>
-
+      <UserEditModal/>
       <TweetModal/>
       <ReplyModal/>
       {/* <UserEditModal/> */}

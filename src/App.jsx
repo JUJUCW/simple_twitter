@@ -22,7 +22,7 @@ export default function App() {
                   <Route path="login" element={<LoginPage />} />
                   <Route path="signup" element={<SignUpPage />} />
                   <Route path="main" element={<MainPage />} />
-                  <Route path="tweetpage" element={<CurrentUserTweetPage />} />
+                  <Route path="userpage" element={<CurrentUserTweetPage />} />
                   <Route path="admin/login" element={<AdminLoginPage />} />
                   <Route path="setting" element={<SettingPage />} />
                   <Route path="admin/users" element={<AdminUserPage />} />

@@ -2,37 +2,42 @@
 
 .container {
     height: 100vh;
-    margin: 0 auto;
-    display: flex;
     overflow: hidden;
-    width: 90%;
-    gap: 24px;
+    // margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    // width: 90%;
+    // gap: 24px;
     // max-width: 992px;
 }
 
-.navBarContainer {
-    width: 178px;
-    display: block;
-    // border: 1px solid red;
-}
-.currentContainer {
-    overflow: hidden;
-    overflow-y: scroll;
-}
-.mainContainer {
-    flex: 1;
-    overflow: hidden;
-    border: 1px solid color.$assistant-gray;
-}
+// .navBarContainer {
+//     width: 178px;
+//     display: block;
+//     // border: 1px solid red;
+// // }
+// .currentContainer {
+//     overflow: hidden;
+//     overflow-y: scroll;
+// }
+// .mainContainer {
+//     flex: 1;
+//     overflow: hidden;
+//     border: 1px solid color.$assistant-gray;
+// }
 
-.suggestFollowContainer {
-    display: block;
-    width: 296px;
-    padding: 16px 0;
-}
+// .suggestFollowContainer {
+//     display: block;
+//     width: 296px;
+//     padding: 16px 0;
+// }
 .userToggleMenu {
     display: flex;
 }
+// .tweetItemList {
+//     height: 100vh;
+//     overflow: hidden;
+// }
 
 // @media screen and (max-width: 1200px) {
 //     .container {

@@ -23,7 +23,7 @@ export default function NavBarContainer({ role, page }) {
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" isActive />
                                     </NavLink>
 
-                                    <NavLink to="/tweetpage">
+                                    <NavLink to="/userpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 
@@ -32,13 +32,13 @@ export default function NavBarContainer({ role, page }) {
                                     </NavLink>
                                 </>
                             )}
-                            {page === 'tweetpage' && (
+                            {page === 'userpage' && (
                                 <>
                                     <NavLink to="/main">
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
                                     </NavLink>
 
-                                    <NavLink to="/tweetpage">
+                                    <NavLink to="/userpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" isActive />
                                     </NavLink>
 
@@ -53,7 +53,7 @@ export default function NavBarContainer({ role, page }) {
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
                                     </NavLink>
 
-                                    <NavLink to="/tweetpage">
+                                    <NavLink to="/userpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 
@@ -68,13 +68,28 @@ export default function NavBarContainer({ role, page }) {
                     )}
                     {role === 'admin' && (
                         <>
-                            <NavLink to="/admin/tweets">
-                                <NavItem iconStyle={'iconHome'} altName="home" title="推文清單" />
-                            </NavLink>
+                            {page === 'admintweet' && (
+                                <>
+                                    <NavLink to="/admin/tweets">
+                                        <NavItem iconStyle={'iconHome'} altName="main" title="推文清單" isActive/>
+                                    </NavLink>
 
-                            <NavLink to="/admin/users">
-                                <NavItem iconStyle={'iconUser'} altName="user" title="使用者列表" />
-                            </NavLink>
+                                    <NavLink to="/admin/users">
+                                        <NavItem iconStyle={'iconUser'} altName="user" title="使用者列表" />
+                                    </NavLink>
+                                </>
+                            )}
+                            {page === 'adminuser' && (
+                                <>
+                                    <NavLink to="/admin/tweets">
+                                        <NavItem iconStyle={'iconHome'} altName="main" title="推文清單" />
+                                    </NavLink>
+
+                                    <NavLink to="/admin/users">
+                                        <NavItem iconStyle={'iconUser'} altName="user" title="使用者列表" isActive/>
+                                    </NavLink>
+                                </>
+                            )}
                         </>
                     )}
                 </div>

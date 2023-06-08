@@ -13,9 +13,9 @@ export default function CurrentUserTweetPage() {
     return (
         <>
             <div className={styles.container}>
-                <div className={styles.navBarContainer}>
-                    <NavBarContainer role="user" page="main" />
-                </div>
+                {/* <div className={styles.navBarContainer}> */}
+                <NavBarContainer role="user" page="userpage" />
+                {/* </div> */}
                 <MainContainer>
                     <Header title="Jane Cathy" arrow tweetCount="66" />
                     <div className={styles.currentContainer}>
@@ -25,13 +25,16 @@ export default function CurrentUserTweetPage() {
                             <UserToggleMenu linkName="推文" isActive />
                             <UserToggleMenu linkName="回覆" />
                             <UserToggleMenu linkName="喜歡的內容" />
+                        </div >
+                        <div className={styles.tweetItemList}>
+                            <TweetItemList className={styles.tweetItemList}/>
                         </div>
-                        <TweetItemList />
+                        
                     </div>
                 </MainContainer>
-                <div className={styles.suggestFollowContainer}>
-                    <SuggestUserContainer />
-                </div>
+                {/* <div className={styles.suggestFollowContainer}> */}
+                <SuggestUserContainer />
+                {/* </div> */}
             </div>
         </>
     );

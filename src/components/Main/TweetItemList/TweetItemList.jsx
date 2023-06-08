@@ -4,7 +4,7 @@ import logo from '../../../assets/icons/logo_gray.png';
 
 export default function TweetItemList () {
     return (
-        <>
+        <div className={styles.container}>
             <div className={styles.itemContainer}>
                 {/* <Link to="/"> */}
                 <div className={styles.itemAvatar}>
@@ -315,6 +315,6 @@ export default function TweetItemList () {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
