@@ -5,6 +5,7 @@ import HomePage from 'pages/HomePage';
 import MainPage from './pages/MainPage/MainPage.jsx';
 import CurrentUserTweetPage from 'pages/CurrentUserTweetPage/CurrentUserTweetPage'
 import UserFollowerPage from './pages/UserFollowerPage/UserFollowerPage'
+import UserFollowingPage from 'pages/UserFollowingPage/UserFollowingPage';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
 import SignUpPage from './pages/SignUpPage/SignUpPage.jsx';
 import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage.jsx'
@@ -30,7 +31,8 @@ export default function App() {
                   <Route path="setting" element={<SettingPage />} />
                   <Route path="admin/users" element={<AdminUserPage />} />
                   <Route path="show" element={<ButtonShowCasePage />} />
-                  <Route path="follower" element={ <UserFollowerPage/>} />
+                  <Route path="follower" element={<UserFollowerPage />} />
+                  <Route path="following" element={<UserFollowingPage />} />
               </Routes>
           </BrowserRouter>
       </div>

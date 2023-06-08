@@ -19,7 +19,7 @@ export default function FollowTypeCard() {
                     {isClicked ? (
                         <Button title="正在跟隨" size="middle" isAction />
                     ) : (
-                        <Button title="跟隨" size="middle" />
+                        <Button title="跟隨" size="small" />
                     )}
                 </div>
             </div>
