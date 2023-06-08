@@ -13,9 +13,9 @@ export default function CurrentUser() {
     return (
         <div className={styles.container}>
             {/* 改參數帶入後再刪掉 Header */}
-            <div className={styles.header}>
+            {/* <div className={styles.header}>
                 <Header title="John Doe" arrow tweetCount="25" />
-            </div>
+            </div> */}
             <div className={styles.container_scroll}>
                 <div className={styles.userCard}>
                     <div className={styles.cover}>
