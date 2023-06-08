@@ -13,12 +13,10 @@ export default function NavBarContainer({ role, page }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpenModal = () => {
-        console.log('123')
         setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        console.log('456')
         setIsModalOpen(false);
     };
     return (
@@ -111,9 +109,7 @@ export default function NavBarContainer({ role, page }) {
                     <h5 className={styles.btnName}>登出</h5>
                 </div>
                 {isModalOpen && 
-                    // <div className={styles.modalContainer}>
-                        <TweetModal isModalOpen={isModalOpen} handleCloseModal={handleCloseModal}/>
-                    // </div>
+                    <TweetModal handleCloseModal={handleCloseModal}/>
                 }
             </div>
         </>

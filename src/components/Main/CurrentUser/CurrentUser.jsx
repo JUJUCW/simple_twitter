@@ -1,15 +1,25 @@
 import { Link } from 'react-router-dom';
-
+import { useState } from 'react';
 // import Header from '../../Header/Header.jsx';
 import Button from '../../Button/Button.jsx';
-import TweetItemList from '../TweetItemList/TweetItemList.jsx';
+import TweetItem from '../TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../Main/UserToggleMenu/UserToggleMenu.jsx';
+import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
 
 import bgImg from '../../../assets/images/default_background.png';
 import logo from '../../../assets/icons/logo_gray.png';
 import styles from './CurrentUser.module.scss';
 
 export default function CurrentUser() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
     return (
         <div className={styles.container}>
             {/* 改參數帶入後再刪掉 Header */}
@@ -32,7 +42,7 @@ export default function CurrentUser() {
                     </div>
                     {/* <div className={styles.btnEdit}> */}
                     <div className={styles.btnContainer}>
-                        <Button title="編輯個人資料" size="edit" />
+                        <Button title="編輯個人資料" size="edit" onClick={handleOpenModal}/>
                         {/* </div> */}
                     </div>
                     <div className={styles.userDescription}>
@@ -61,8 +71,9 @@ export default function CurrentUser() {
                     <UserToggleMenu linkName="喜歡的內容" />
                 </div>
                 <div className={styles.tweetListItem}>
-                    <TweetItemList />
+                    <TweetItem />
                 </div>
+                {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal}/>}
             </div>
         </div>
     );
