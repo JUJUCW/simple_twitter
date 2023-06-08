@@ -1,32 +1,40 @@
 @use '../../../assets/styles/color' as color;
 @use '../../../assets/styles/mixin';
 
-.SuggestFollowContainer {
+.suggestFollowContainer {
+    /*display*/
     display: flex;
     flex-direction: column;
+    /*box model*/
     width: 273px;
     // height: 100%;
+    height: 731px;
     border-radius: 16px;
+    /*other*/
     background-color: color.$gray-2;
     margin-top: 16px;
 }
 
 .suggestUserTitle {
-    // @include mixin.font-setting(24px, 700, color.$gray-10);
+    /*display*/
     display: flex;
     align-items: center;
+    /*box model*/
     height: 74px;
-    line-height: 100%;
     margin-left: 24px;
-    
+    /*other*/
+    line-height: 100%;
+    // @include mixin.font-setting(24px, 700, color.$gray-10);
 }
 // .line {
 //     border-bottom: 1px solid #e6ecf0;
 // }
 
 .suggestUserCard {
+    /*display*/
     display: flex;
     flex-direction: column;
+    /*other*/
     border-top: 1px solid #e6ecf0;
     // overflow-y: scroll;
     // overflow-x: hidden;

@@ -1,0 +1,13 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    .userToggleMenu {
+        display: flex;
+    }
+}
