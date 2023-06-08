@@ -1,5 +1,8 @@
 // import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
+
 import OtherUser from '../../components/Main/OtherUser/OtherUser.jsx'
+
+
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
