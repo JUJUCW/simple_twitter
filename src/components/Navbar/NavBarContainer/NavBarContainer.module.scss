@@ -63,6 +63,13 @@
     .btnName {
         font-size: 18px;
     }
+    &:hover .img {
+        content: url('../../../assets/icons/nav/nav_signout_action.png');
+    }
+
+    &:hover .btnName {
+        color: color.$brand-color;
+    }
 }
 
 // @media screen and (min-width: 1200px) {
