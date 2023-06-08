@@ -1,6 +1,14 @@
 @use '../../../assets/styles/color' as color;
 @use '../../../assets/styles/mixin';
 
+.container {
+    display: flex;
+    flex-direction: column;
+    // height: 100vh;
+    // overflow-y: scroll;
+    // overflow: hidden;
+}
+
 .itemContainer {
     display: flex;
     align-items: flex-start;
@@ -11,6 +19,8 @@
 
     margin: 16px 0;
     // border: 1px solid #000;
+    // height: 100vh;
+    overflow: hidden;
 }
 
 .itemAvatar {

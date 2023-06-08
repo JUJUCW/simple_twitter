@@ -8,7 +8,7 @@ import styles from './AdminUserPage.module.scss'
 export default function AdminUserPage () {
   return (
     <div className={styles.adminContainer}>
-      <NavBarContainer role='admin'/>
+      <NavBarContainer role='admin' page="adminuser"/>
       <div className={styles.middleContainer}>
         <Header title='使用者列表' />
         <div className={styles.cardContainer}>

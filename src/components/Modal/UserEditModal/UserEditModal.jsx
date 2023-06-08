@@ -1,67 +1,40 @@
-// import Header from 'components/Header/Header';
-// import styles from './CurrentUser.module.scss';
-// import bgImg from 'assets/images/default_background.png';
-// import logo from 'assets/icons/logo_gray.png';
-// import Button from 'components/Button/Button';
-// import { Link } from 'react-router-dom';
-// import TweetListItem from 'components/UIComponents/NavItem/ListItem/TweetListItem';
-// import UserToggleMenu from 'components/UIComponents/ToggleMenu/UserToggleMenu';
+import { useState } from 'react';
 
-// export default function UserEditModal () {
-//     return (
-//         <div className={styles.container}>
-//             {/* 改參數帶入後再刪掉 Header */}
-//             <div className={styles.header}>
-//                 <Header title="John Doe" arrow tweetCount="25" />
-//             </div>
-//             <div className={styles.container_scroll}>
-//                 <div className={styles.userCard}>
-//                     <div className={styles.cover}>
-//                         <img src={bgImg} alt="cover" className={styles.bgImg} />
-//                     </div>
-//                     <div className={styles.userInfo}>
-//                         <div className={styles.userInfoAvatar}>
-//                             <img src={logo} alt="avatar" className={styles.img} />
-//                         </div>
-//                         <div className={styles.userInfoCard}>
-//                             <div className={styles.userInfoName}>John Doe</div>
-//                             <div className={styles.userInfoAccount}>{`@johndoe`}</div>
-//                         </div>
-//                     </div>
-//                     {/* <div className={styles.btnEdit}> */}
-//                     <div className={styles.btnContainer}>
-//                         <Button title="編輯個人資料" size="edit" />
-//                         {/* </div> */}
-//                     </div>
-//                     <div className={styles.userDescription}>
-//                         <div className={styles.descriptionContext}>
-//                             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-//                         </div>
-//                         <div className={styles.follows}>
-//                             <Link className={styles.routeLink} to={`/:UserId/following`}>
-//                                 <div className={styles.followsFollower}>
-//                                     <span className={styles.followsCount}>34個</span>
-//                                     <span className={styles.followsType}>跟隨中</span>
-//                                 </div>
-//                             </Link>
-//                             <Link className={styles.routeLink} to={`/:UserId/following`}>
-//                                 <div className={styles.followingFollower}>
-//                                     <span className={styles.followingCount}>59位</span>
-//                                     <span className={styles.followingType}>跟隨者</span>
-//                                 </div>
-//                             </Link>
-//                         </div>
-//                     </div>
-//                 </div>
-//                 <div className={styles.userToggleMenu}>
-//                     <UserToggleMenu linkName="推文" isActive />
-//                     <UserToggleMenu linkName="回覆" />
-//                     <UserToggleMenu linkName="喜歡的內容" />
-//                 </div>
-//                 <div className={styles.tweetListItem}>
-//                     <TweetListItem />
-//                 </div>
-//             </div>
-//         </div>
-//     );
-// }
+import Button from '../../Button/Button.jsx';
+import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
+import EditInput from '../../EditInput/EditInput.jsx'
+
+import bgImg from '../../../assets/images/default_background.png';
+import logo from '../../../assets/icons/logo_gray.png';
+import modal_esc from '../../../assets/icons/modal/modal_esc.png'
+import styles from './UserEditModal.module.scss';
+
+export default function UserEditModal () {
+  const [name, setName] = useState("");
+  const [introduction, setIntroduction] = useState("");
+    return (
+        <div className={styles.container}>
+          <div className={styles.header}>
+            <div className={styles.left}>
+              <img className={styles.modalEsc} src={modal_esc} alt="modal esc" />
+              <h5>編輯個人資料</h5>
+            </div>
+            <Button title='推文' size='small' isAction></Button>
+          </div>
+          <div className={styles.userCard}>
+            <div className={styles.cover}>
+                <img src={bgImg} alt="cover" className={styles.bgImg} />
+            </div>
+            <div className={styles.userInfoAvatar}>
+                <img src={logo} alt="avatar" className={styles.img} />
+            </div>
+          </div> 
+          <div className={styles.infoEdit}>
+            <AuthInput label='名稱' value={name} onChange={(nameInputValue) => setName(nameInputValue)} notification='字數超出上限!' wordsLimit={50}
+            />
+            <EditInput label='自我介紹' value={introduction} onChange={(introInputValue) => setIntroduction(introInputValue)} notification='字數超出上限!' wordsLimit={160}
+            />
+          </div>       
+      </div>
+    );
+}
