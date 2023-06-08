@@ -34,7 +34,7 @@ export default function ButtonShowCasePage () {
       <TweetInput/>
       <UserEditModal/>
       {/* <TweetModal/> */}
-      <ReplyModal/>
+      {/* <ReplyModal/> */}
       {/* <UserEditModal/> */}
     </div>
   );
