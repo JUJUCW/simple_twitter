@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    position: relative;
     /*box model*/
     width: 178px;
     height: 100vh;
@@ -71,6 +72,14 @@
         color: color.$brand-color;
     }
 }
+
+// .modalContainer {
+//     position:absolute;
+//     top: 56px;
+//     left: 204px;
+//     z-index: 2;
+//     // background-color: rgba(0, 0, 0, 0.5);
+// }
 
 // @media screen and (min-width: 1200px) {
 //     .navBarContainer {
