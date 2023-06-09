@@ -9,7 +9,7 @@ import Header from '../../components/Header/Header.jsx';
 // import TweetInput from '../../components/Main/TweetInput/TweetInput.jsx';
 import TweetInput from 'components/Main/TweetInput/TweetInput';
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
-import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
+// import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
 
 export default function MainPage() {
