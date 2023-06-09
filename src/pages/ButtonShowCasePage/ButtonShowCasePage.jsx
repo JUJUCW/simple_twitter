@@ -8,12 +8,14 @@ import AdminTweetItem from '../../components/AdminTweetItem/AdminTweetItem.jsx'
 // import UserEditModal from '../../components/Modal/UserEditModal/UserEditModal.jsx'
 import TweetInput from "../../components/Main/TweetInput/TweetInput.jsx"
 import TweetItem from "../../components/Main/TweetItem/TweetItem.jsx"
+import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx'
 
 import styles from './ButtonShowCasePage.module.scss'
 export default function ButtonShowCasePage () {
 
   return (
     <div>
+      <ReplyItem/>
       <AdminTweetItem/>
       <TweetItem></TweetItem>
       <div className={styles.container}>
