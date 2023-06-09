@@ -7,19 +7,22 @@
     display: flex;
     flex-direction: column;
     /*box model*/
-
     height: 335px;
     width: 634px;
+
     .tweetContent {
         /*box model*/
         // height: 50%;
         height: 108px;
         line-height: 36px;
+        /*display*/
         margin: 0 15px;
+        /*other*/
         @include mixin.font-setting(24px, 400, color.$gray-10);
     }
     .time {
         @include mixin.font-setting(14px, 400, color.$secondary-color);
+        /*display*/
         margin: 16px 16px 8px;
     }
     .userInfo {
@@ -30,26 +33,33 @@
         margin: 16px 0 8px 16px;
     }
     .tweetAvatar {
+        /*box model*/
         width: 50px;
         height: 50px;
         border-radius: 50%;
     }
     .userInfoCard {
+        /*display*/
         display: flex;
         flex-direction: column;
         gap: 8px;
     }
     .userInfoName {
+        /*box model*/
         width: 200px;
+        /*display*/
         text-overflow: ellipsis;
         @include mixin.font-setting(16px, 700, color.$gray-10);
     }
     .userInfoAccount {
+        /*box model*/
         width: 200px;
+        /*display*/
         text-overflow: ellipsis;
         @include mixin.font-setting(14px, 400, color.$secondary-color);
     }
     .icons {
+        /*display*/
         display: flex;
         margin: 19px 0 19px 16px;
         .iconReply {
@@ -57,20 +67,24 @@
         }
         .replyBtn,
         .likeBtn {
+            /*box model*/
             height: 30px;
             width: 30px;
         }
     }
 }
 .line {
+    /*display*/
     border-bottom: 1px solid color.$assistant-gray;
     margin: 0 16px;
 }
 .lineBottom {
     width: 100%;
+    /*display*/
     border-bottom: 1px solid color.$assistant-gray;
 }
 .follows {
+    /*display*/
     gap: 24px;
     margin: 16px 0 16px 16px;
 
@@ -86,5 +100,6 @@
 
 .follows,
 .following {
+    /*display*/
     display: flex;
 }

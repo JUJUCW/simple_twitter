@@ -11,15 +11,15 @@ export default function SuggestUserItem() {
     return (
         <>
             <div className={styles.userItem}>
-                {/* <div className={styles.userAvatar}> */}
-                <img className={styles.userAvatar} src={logo} alt="avatar" />
-                {/* </div> */}
-                <div className={styles.userInfo}>
-                    <p className={styles.userInfoName}>PizzaHut</p>
-                    <p className={styles.userInfoAccount}>{`@pizzahut...............`}</p>
+                <div className={styles.container}>
+                    <img className={styles.userAvatar} src={logo} alt="avatar" />
+                    <div className={styles.userInfo}>
+                        {/* When text becomes too long, it automatically turns into "..."" */}
+                        <p className={styles.userInfoName}>Pizza HutPizza Hut</p>
+                        <p className={styles.userInfoAccount}>{`@pizzahut`}</p>
+                    </div>
                 </div>
-                {/* <div className={styles.btnFollow}> */}
-                {/* <div className={styles.btn}> */}
+
                 <div className={styles.btn} onClick={handleClick}>
                     {isClicked ? (
                         <Button title="正在跟隨" size="middle" isAction />
@@ -27,8 +27,6 @@ export default function SuggestUserItem() {
                         <Button title="跟隨" size="small" />
                     )}
                 </div>
-                {/* </div> */}
-                {/* </div> */}
             </div>
         </>
     );

@@ -70,7 +70,7 @@ export default function CurrentUser() {
                     <UserToggleMenu linkName="回覆" />
                     <UserToggleMenu linkName="喜歡的內容" />
                 </div>
-                <div className={styles.tweetListItem}>
+                <div className={styles.tweetItem}>
                     <TweetItem />
                 </div>
                 {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal}/>}

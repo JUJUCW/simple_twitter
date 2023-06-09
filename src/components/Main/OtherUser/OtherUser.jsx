@@ -7,7 +7,7 @@ import Button from '../../../components/Button/Button.jsx';
 import msg from '../../../assets/icons/user/user_msg.png';
 import notify from '../../../assets/icons/user/user_notfi.png';
 import notifyAction from '../../../assets/icons/user/user_notfi_action.png';
-import logo from '../../../assets/icons/symbol/danger.png';
+import logo from '../../../assets/icons/logo_gray.png';
 import bgImg from '../../../assets/images/default_background.png';
 import styles from './OtherUser.module.scss';
 

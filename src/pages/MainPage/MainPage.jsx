@@ -7,20 +7,21 @@ import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarConta
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import Header from '../../components/Header/Header.jsx';
 // import TweetInput from '../../components/Main/TweetInput/TweetInput.jsx';
+import TweetInput from 'components/Main/TweetInput/TweetInput';
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
-import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx'
+import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
 
 export default function MainPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpenModal = () => {
-        console.log('123')
+        console.log('123');
         setIsModalOpen(true);
     };
 
     const handleCloseModal = () => {
-        console.log('456')
+        console.log('456');
         setIsModalOpen(false);
     };
 
@@ -29,26 +30,27 @@ export default function MainPage() {
             {/* <div className={styles.navBarContainer}> */}
             <NavBarContainer role="user" page="main" />
             {/* </div> */}
+            <div className={styles.navBarContainer}>
+                <MainContainer>
+                    <Header title="首頁" />
 
-            <MainContainer>
-                <Header title="首頁" />
-                {/* <TweetInput /> */}
-                <SingleTweet/>
-                <TweetItem handleOpenModal={handleOpenModal}/>
-                <TweetItem />
-                <TweetItem />
-                <TweetItem />
-                <TweetItem />
-                <TweetItem />
-                <TweetItem />
-                <TweetItem />
-                <TweetItem />
-            </MainContainer>
-
+                    <TweetInput />
+                    {/* <SingleTweet /> */}
+                    <TweetItem handleOpenModal={handleOpenModal} />
+                    <TweetItem />
+                    <TweetItem />
+                    <TweetItem />
+                    <TweetItem />
+                    <TweetItem />
+                    <TweetItem />
+                    <TweetItem />
+                    <TweetItem />
+                </MainContainer>
+            </div>
             {/* <div className={styles.suggestFollowContainer}> */}
             <SuggestUserContainer />
             {/* </div> */}
-            { isModalOpen && <ReplyModal handleCloseModal={handleCloseModal}/>}
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
         </div>
     );
 }
