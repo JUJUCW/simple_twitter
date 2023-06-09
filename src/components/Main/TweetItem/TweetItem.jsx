@@ -2,9 +2,13 @@
 import {useState} from 'react'
 import clsx from 'clsx'
 import styles from './TweetItem.module.scss';
+
+import like from 'api/like';
+
 import logo from '../../../assets/icons/logo_gray.png';
-import reply from '../../../assets/icons/tweet/tweet_reply.png'
-import like from '../../../assets/icons/tweet/tweet_like.png'
+import replyIcon from '../../../assets/icons/tweet/tweet_reply.png'
+import likeIcon from '../../../assets/icons/tweet/tweet_like.png'
+
 
 export default function TweetItem ({handleOpenModal}) {
     const [isLiked, setIsLiked] = useState(false)
@@ -32,13 +36,13 @@ export default function TweetItem ({handleOpenModal}) {
                 <div className={styles.icons}>
                     <div className={styles.iconReply}>
                         <div className={styles.cursor} onClick={handleOpenModal}>
-                            <img className={styles.replyBtn} src={reply} alt="reply button" />
+                            <img className={styles.replyBtn} src={replyIcon} alt="reply button" />
                         </div>
                         <span>13</span>
                     </div>
                     <div className={styles.iconLike}>
                         <div className={styles.cursor} onClick={handleLike}>
-                            <img className={likeClassName} src={like} alt="like button" />
+                            <img className={likeClassName} src={likeIcon} alt="like button" />
                         </div>
                         <span>76</span>
                     </div>
