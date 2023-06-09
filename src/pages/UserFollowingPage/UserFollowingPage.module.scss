@@ -2,12 +2,15 @@
 @use '/src/assets/styles/mixin';
 
 .container {
+    /*box model*/
     height: 100vh;
+    /*display*/
     display: flex;
     justify-content: center;
     overflow: hidden;
 
     .userToggleMenu {
+        /*display*/
         display: flex;
     }
 }

@@ -8,7 +8,7 @@ const titleClasses = clsx(styles.navLink, { [styles.active]: isActive })
 
     return (
         <div className={styles.container}>
-            <NavLink to="/TweetListItem" className={styles.toggleMenu}>
+            <NavLink to="/main" className={styles.toggleMenu}>
                 <div className={titleClasses}>{linkName}</div>
             </NavLink>
             

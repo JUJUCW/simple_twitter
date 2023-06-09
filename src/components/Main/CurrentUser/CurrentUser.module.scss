@@ -2,112 +2,129 @@
 @use '../../../assets/styles/mixin';
 
 .container {
+    /*box model*/
     height: 100vh;
+    /*display*/
     display: flex;
     flex-direction: column;
-    
+
+    .userCard {
+        /*display*/
+        position: relative;
+
+        .cover {
+            /*box model*/
+            width: 100%;
+            height: 200px;
+            /*display*/
+            overflow: hidden;
+
+            .bgImg {
+                /*box model*/
+                width: 100%;
+                height: 100%;
+                /*display*/
+                display: block;
+                object-fit: cover;
+            }
+        }
+        .userInfo {
+            /*box model*/
+            top: 124px;
+            left: 24px;
+            /*display*/
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .userInfoAvatar {
+                /*box model*/
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                /*display*/
+                overflow: hidden;
+                border: 4px solid color.$gray-1;
+
+                .img {
+                    /*box model*/
+                    width: 100%;
+                    /*display*/
+                    display: block;
+                }
+            }
+            .userInfoCard {
+                /*display*/
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+
+                .userInfoName {
+                    /*box model*/
+                    width: 200px;
+                    /*display*/
+                    text-overflow: ellipsis;
+                    /*other*/
+                    @include mixin.font-setting(18px, 700, color.$gray-10);
+                }
+                .userInfoAccount {
+                    /*box model*/
+                    width: 200px;
+                    /*display*/
+                    text-overflow: ellipsis;
+                    /*other*/
+                    @include mixin.font-setting(14px, 700, color.$secondary-color);
+                }
+            }
+        }
+        .btnContainer {
+            // width: inherit;
+            /*display*/
+            display: flex;
+            padding: 0 24px;
+            justify-content: flex-end;
+            margin: 16px 0px 64px 24px;
+        }
+        .userDescription {
+            /*display*/
+            padding: 0 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            .descriptionContext {
+                @include mixin.font-setting(14px, 400, color.$gray-10);
+                /*display*/
+                line-height: 22px;
+            }
+
+            .follows {
+                /*display*/
+                gap: 20px;
+                display: flex;
+
+                .followsCount,
+                .followingCount {
+                    @include mixin.font-setting(14px, 400, color.$gray-10);
+                }
+                .followsType,
+                .followingType {
+                    @include mixin.font-setting(14px, 400, color.$secondary-color);
+                }
+            }
+        }
+    }
+    .userToggleMenu {
+        /*display*/
+        display: flex;
+    }
+    .tweetItem {
+        /*display*/
+        flex: 1;
+        padding-bottom: 52px;
+    }
 }
 // .container_scroll{
 //     overflow-y: scroll;
 // }
-.userCard {
-    position: relative;
-}
-.cover {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-}
-.bgImg {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-}
-.userInfo {
-    position: absolute;
-    top: 124px;
-    left: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.userInfoAvatar {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid color.$gray-1;
-}
-.img {
-    width: 100%;
-    display: block;
-}
-
-.userInfoCard {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.userInfoName {
-    width: 200px;
-    text-overflow: ellipsis;
-    @include mixin.font-setting(18px, 700, color.$gray-10);
-}
-.userInfoAccount {
-    width: 200px;
-    text-overflow: ellipsis;
-    @include mixin.font-setting(14px, 700, color.$secondary-color);
-}
-
-// .btnEdit {
-//     display: flex;
-//     padding: 0 24px;
-//     justify-content: flex-end;
-//     margin: 16px 0px 64px 24px;
-// }
-.btnContainer {
-    // width: inherit;
-    display: flex;
-    padding: 0 24px;
-    justify-content: flex-end;
-    margin: 16px 0px 64px 24px;
-}
-
-.userDescription {
-    padding: 0 24px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-
-}
-
-.descriptionContext {
-    @include mixin.font-setting(14px, 400, color.$gray-10);
-    line-height: 22px;
-}
-.follows {
-    gap: 20px;
-}
-
-.follows,
-.following {
-    display: flex;
-}
-
-.followsCount,
-.followingCount {
-    @include mixin.font-setting(14px, 400, color.$gray-10);
-}
-.followsType,
-.followingType {
-    @include mixin.font-setting(14px, 400, color.$secondary-color);
-}
-.userToggleMenu{
-    display: flex;
-}
-.tweetListItem {
-    flex: 1;
-    padding-bottom: 52px;
-}
