@@ -5,6 +5,8 @@ import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
 
+import userLogin from '../../api/user.js'
+
 import styles from './LoginPage.module.scss'
 
 export default function LoginPage () {
