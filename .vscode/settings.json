@@ -1,3 +1,14 @@
 {
-    "cSpell.words": ["Alphitter", "clsx", "heyjohn", "signout", "signup", "tweetpage", "webfonts"]
+  "cSpell.words": [
+    "Alphitter",
+    "clsx",
+    "heyjohn",
+    "signin",
+    "signout",
+    "signup",
+    "Swal",
+    "sweetalert",
+    "tweetpage",
+    "webfonts"
+  ]
 }
