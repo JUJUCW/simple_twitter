@@ -8,6 +8,7 @@ import styles from './NavBarContainer.module.scss';
 
 import logo from '../../../assets/icons/logo.png';
 import logout from '../../../assets/icons/nav/nav_signout.png';
+import tweetIcon from '../../../assets/icons/nav/nav_btn.png'
 
 export default function NavBarContainer({ role, page }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,6 +35,10 @@ export default function NavBarContainer({ role, page }) {
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" isActive />
                                     </NavLink>
 
+                                    <div className={styles.tweetBtn}>
+                                        <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
+                                    </div>
+
                                     <NavLink to="/userpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
@@ -48,6 +53,10 @@ export default function NavBarContainer({ role, page }) {
                                     <NavLink to="/main">
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
                                     </NavLink>
+
+                                    <div className={styles.tweetBtn}>
+                                        <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
+                                    </div>
 
                                     <NavLink to="/userpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" isActive />
@@ -64,6 +73,10 @@ export default function NavBarContainer({ role, page }) {
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
                                     </NavLink>
 
+                                    <div className={styles.tweetBtn}>
+                                        <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
+                                    </div>
+
                                     <NavLink to="/userpage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
@@ -73,8 +86,10 @@ export default function NavBarContainer({ role, page }) {
                                     </NavLink>
                                 </>
                             )}
-
-                            <Button title="推文" size="navTweet" isAction onClick={handleOpenModal}></Button>
+                            <div className={styles.btn}>
+                                <Button title="推文" size="navTweet" isAction onClick={handleOpenModal}></Button>
+                            </div>
+                            
                         </>
                     )}
                     {role === 'admin' && (
