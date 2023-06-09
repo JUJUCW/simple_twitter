@@ -90,6 +90,11 @@
         content: url('../../../assets/icons/nav/nav_set_action.png');
     }
 }
+@media screen and (max-width: 991px) {
+    .title {
+        display: none;
+    }
+}
 
 // .iconSettingAction {
 //     content: url('../../../assets/icons/nav/nav_set_action.png');
