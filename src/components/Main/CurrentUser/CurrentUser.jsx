@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 // import Header from '../../Header/Header.jsx';
 import Button from '../../Button/Button.jsx';
-import TweetItem from '../TweetItem/TweetItem.jsx';
-import UserToggleMenu from '../../Main/UserToggleMenu/UserToggleMenu.jsx';
 import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
 
 import bgImg from '../../../assets/images/default_background.png';
@@ -50,13 +48,13 @@ export default function CurrentUser() {
                             Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
                         </div>
                         <div className={styles.follows}>
-                            <Link className={styles.routeLink} to={`/:UserId/following`}>
+                            <Link className={styles.routeLink} to={`/follower`}>
                                 <div className={styles.followsFollower}>
                                     <span className={styles.followsCount}>34個</span>
                                     <span className={styles.followsType}>跟隨中</span>
                                 </div>
                             </Link>
-                            <Link className={styles.routeLink} to={`/:UserId/following`}>
+                            <Link className={styles.routeLink} to={`/following`}>
                                 <div className={styles.followingFollower}>
                                     <span className={styles.followingCount}>59位</span>
                                     <span className={styles.followingType}>跟隨者</span>
@@ -64,14 +62,6 @@ export default function CurrentUser() {
                             </Link>
                         </div>
                     </div>
-                </div>
-                <div className={styles.userToggleMenu}>
-                    <UserToggleMenu linkName="推文" isActive />
-                    <UserToggleMenu linkName="回覆" />
-                    <UserToggleMenu linkName="喜歡的內容" />
-                </div>
-                <div className={styles.tweetItem}>
-                    <TweetItem />
                 </div>
                 {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal}/>}
             </div>

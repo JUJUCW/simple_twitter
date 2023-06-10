@@ -3,7 +3,6 @@
 
 .container {
     /*box model*/
-    height: 100vh;
     /*display*/
     display: flex;
     flex-direction: column;
@@ -114,10 +113,6 @@
                 }
             }
         }
-    }
-    .userToggleMenu {
-        /*display*/
-        display: flex;
     }
     .tweetItem {
         /*display*/

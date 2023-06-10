@@ -21,10 +21,38 @@ export const userLogin = async ({ account, password }) => {
                 icon: 'error',
             });
         }
-
         return data;
-    } catch (error) {
-        console.log('[Login Failed]:', error);
-        return error;
+  } catch (error) {
+    console.log('[Login Failed]:', error)
+    return error
+  }
+}
+
+//admin login
+
+export const adminLogin = async ({ account, password }) => {
+  try {
+    const {data} = await axios.post(`${baseURL}/signin`, {
+      account, password
+    })
+
+    const { token, role } = data.data;
+
+    if ( token && role === "admin") {
+      return { success: true, ...data }
     }
-};
+    if ( token && role === "user") {
+      Toast.fire({
+      title: "帳號不存在！",
+      icon: "error"
+      })
+    }
+    
+    return data
+
+  } catch (error) {
+    console.log('[Login Failed]:', error)
+    return error
+  }
+}
+

@@ -18,7 +18,7 @@ export default function TweetItem(props) {
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
     // const updatedAt = props.updatedAt;
-    const handleOpenModal = props.handleOpenModal;
+    const handleOpenModal = props.onClick;
 
     const [showLiked, setShowLiked] = useState(props.isLiked);
     const [likedCount, setLikeCount] = useState(props.likedCount);

@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import clsx from "clsx";
+import {Toast} from '../../../utility/helper.js'
+
+import {postTweet} from '../../../api/tweet.js'
 
 import styles from './TweetInput.module.scss';
 import Button from '../../Button/Button.jsx';
@@ -11,6 +14,42 @@ export default function TweetInput() {
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 })
     // const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 })
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 })
+
+    const handlePostTweet = async () => {
+    if (textInput.trim().length === 0) {
+      setTextInput("")
+      Toast.fire({
+            title: "內容不可為空白",
+            icon: "error",
+          });
+      return
+    }
+    if (textInput.length > 140) return
+
+    try {
+      const res = await postTweet(textInput.trim());
+        if (res.id) {
+            setTextInput("");
+            Toast.fire({
+                title: "推文發送成功",
+                icon: "success",
+            });
+          
+        } else {
+          Toast.fire({
+            title: "推文發送失敗",
+            icon: "error",
+          });
+        }
+        } catch (error) {
+          console.error(error);
+          Toast.fire({
+            title: "推文發送失敗",
+            icon: "error",
+          });
+        }
+  }
+
     return (
         <div className={styles.modalContainer}>
             <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} >
@@ -22,7 +61,10 @@ export default function TweetInput() {
             <div className={styles.footer}>
                 <span className={warningClassName}>字數不可超過 140 字</span>
                 {/* <span className={headsUpClassName}>內容不可為空白</span> */}
-                <Button title='推文' size='small' isAction></Button>
+                <div className={styles.btn}>
+                    <Button title='推文' size='small' isAction onClick={handlePostTweet}></Button>
+                </div>
+                
             </div>
         </div>
         // <div className={styles.tweetInputContainer}>

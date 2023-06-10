@@ -20,7 +20,7 @@
     left: 26px;
     display: flex;
     align-items: center;
-    z-index: -1;
+    z-index: 1;
 
     .avatar {
         /*box model*/
@@ -45,7 +45,7 @@
     height: 245px;
     margin: 20px;
     line-height: 30px;
-
+    z-index: 2;
     &:focus+.info {
         display: none;
     }
@@ -90,7 +90,11 @@
             display: flex;
         }
     }
+    .btn {
+        z-index: 2;
+    }
 }
+
 // .tweetInputContainer {
 //     display: flex;
 //     flex-direction: column;

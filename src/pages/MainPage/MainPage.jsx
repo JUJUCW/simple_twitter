@@ -8,7 +8,8 @@ import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContai
 import Header from '../../components/Header/Header.jsx';
 // import TweetInput from '../../components/Main/TweetInput/TweetInput.jsx';
 import TweetInput from 'components/Main/TweetInput/TweetInput';
-import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
+import TweetList from '../../components/Main/TweetList/TweetList.jsx'
+// import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 // import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
 
@@ -41,25 +42,27 @@ export default function MainPage() {
         getAllTweet();
     }, []);
 
-    const tweetList = tweets.map((tweet) => {
-        return (
-            <TweetItem
-                key={tweet.id}
-                tweetId={tweet.id}
-                userId={tweet.UserId}
-                userName={tweet.User.name}
-                account={tweet.User.account}
-                avatar={tweet.User.avatar}
-                description={tweet.description}
-                likedCount={tweet.likedCount}
-                replyCount={tweet.replyCount}
-                isLiked={tweet.isLiked}
-                createdAt={tweet.createdAt}
-                // updatedAt={tweet.updatedAt}
-                handleOpenModal={handleOpenModal}
-            />
-        );
-    });
+
+    //  const tweetList = tweets.map((tweet) => {
+    //     return (
+    //     <TweetItem
+    //         key={tweet.id}
+    //         tweetId={tweet.id}
+    //         userId={tweet.UserId}
+    //         userName={tweet.User.name}
+    //         account={tweet.User.account}
+    //         avatar={tweet.User.avatar}
+    //         description={tweet.description}
+    //         likedCount={tweet.likedCount}
+    //         replyCount={tweet.replyCount}
+    //         isLiked={tweet.isLiked}
+    //         createdAt={tweet.createdAt}
+    //         // updatedAt={tweet.updatedAt}
+    //         handleOpenModal={handleOpenModal}
+    //     />
+    //     );
+    // });
+
 
     return (
         <div className={styles.container}>
@@ -69,10 +72,9 @@ export default function MainPage() {
             <div className={styles.navBarContainer}>
                 <MainContainer>
                     <Header title="首頁" />
-
                     <TweetInput />
                     {/* <SingleTweet /> */}
-                    {tweetList}
+                    <TweetList tweets={tweets} onClick={handleOpenModal}/>
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

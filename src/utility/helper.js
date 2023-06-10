@@ -19,6 +19,7 @@ axiosInstance.interceptors.request.use(
 
 export const apiHelper = axiosInstance;
 
+// pop up notification
 export const Toast = Swal.mixin({
     toast: true,
     position: 'top',
@@ -32,6 +33,7 @@ export const Toast = Swal.mixin({
 //   title: 'Signed in successfully'
 // })
 
+// get relative time
 export const getRelativeTime = (createdAt) => {
     if (!createdAt) return;
 

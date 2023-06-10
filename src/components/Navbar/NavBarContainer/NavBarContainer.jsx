@@ -58,7 +58,7 @@ export default function NavBarContainer({ role, page }) {
                                         <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
                                     </div>
 
-                                    <NavLink to="/userpage">
+                                    <NavLink to="/userPage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" isActive />
                                     </NavLink>
 
