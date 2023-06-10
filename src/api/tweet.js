@@ -1,28 +1,28 @@
-import axios from 'axios'
-import {/*Toast,*/ baseURL /*,apiHelper*/} from '../utility/helper.js'
+// import axios from 'axios'
+import {/*Toast,*/ /*baseURL,*/ apiHelper} from '../utility/helper.js'
 
-const axiosInstance = axios.create({
-  baseURL: baseURL,
-}) 
+// const axiosInstance = axios.create({
+//   baseURL: baseURL,
+// }) 
 
-// add token to every request
-axiosInstance.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => {
-    console.error(error);
-  },
-);
+// // add token to every request
+// axiosInstance.interceptors.request.use(
+//   (config) => {
+//     const token = localStorage.getItem('authToken');
+//     if (token) {
+//       config.headers['Authorization'] = `Bearer ${token}`;
+//     }
+//     return config;
+//   },
+//   (error) => {
+//     console.error(error);
+//   },
+// );
 
 // get all tweets
 export const getAllTweets = async () => {
   try{
-    const {data} = await axiosInstance.get(`${baseURL}/tweets`)
+    const {data} = await apiHelper.get(`/tweets`)
     console.log(data)
     return data
   } catch (error) {
@@ -34,7 +34,7 @@ export const getAllTweets = async () => {
 // post tweet
 export const  postTweet = async (description) => {
   try {
-    const { data } = await axiosInstance.post(`${baseURL}/tweets`, {
+    const { data } = await apiHelper.post(`/tweets`, {
       description,
     });
     return data;
