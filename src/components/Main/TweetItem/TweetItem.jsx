@@ -1,9 +1,11 @@
 // import { Link } from 'react-router-dom';
 import {useState} from 'react'
 import clsx from 'clsx'
+import {Link} from 'react-router-dom'
 import styles from './TweetItem.module.scss';
 import reply from '../../../assets/icons/tweet/tweet_reply.png'
 import like from '../../../assets/icons/tweet/tweet_like.png'
+import {getRelativeTime} from '../../../utility/helper.js'
 
 export default function TweetItem (props) {
     const tweetId = props.tweetId;
@@ -16,11 +18,12 @@ export default function TweetItem (props) {
     const replyCount = props.replyCount;
     const isLiked = props.isLiked;
     const createdAt = props.createdAt;
-    const updatedAt = props.updatedAt;
+    // const updatedAt = props.updatedAt;
     const handleOpenModal = props.handleOpenModal;
 
     const [showLiked, setShowLiked] = useState(isLiked)
-    const likeClassName = clsx(styles.likeBtn, { [styles.active]: isLiked })
+
+    const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked })
 
     const handleLike = () => {
         setShowLiked(!showLiked);
@@ -28,18 +31,24 @@ export default function TweetItem (props) {
 
     return (
         <div className={styles.container}>
-            <div className={styles.avatar}>
-                <img className={styles.avatarImg} src={avatar} alt="avatar" />
-            </div>
+            <Link to={`/${userId}/tweet`}>
+                <div className={styles.avatar}>
+                    <img className={styles.avatarImg} src={avatar} alt="avatar" />
+                </div>
+            </Link>
             <div className={styles.infoContainer}>
-                <div className={styles.userInfo}>
-                    <h5 className={styles.name}>{userName}</h5>
-                    <span className={styles.account}>@{account}</span>
-                    <span className={styles.tweetTime}>&#xb7;3 小時</span>
-                </div>
-                <div className={styles.tweetContent}>
-                    {description}
-                </div>
+                <Link to={`/${userId}/tweet`}>
+                    <div className={styles.userInfo}>
+                        <h5 className={styles.name}>{userName}</h5>
+                        <span className={styles.account}>@{account}</span>
+                        <span className={styles.tweetTime}>&#xb7;{getRelativeTime(createdAt)}</span>
+                    </div>
+                </Link>
+                <Link to={`/${tweetId}`}>
+                    <div className={styles.tweetContent}>
+                        {description}
+                    </div>
+                </Link>
                 <div className={styles.icons}>
                     <div className={styles.iconReply}>
                         <div className={styles.cursor} onClick={handleOpenModal}>

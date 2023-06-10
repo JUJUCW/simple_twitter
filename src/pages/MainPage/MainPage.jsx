@@ -56,7 +56,7 @@ export default function MainPage() {
             replyCount={tweet.replyCount}
             isLiked={tweet.isLiked}
             createdAt={tweet.createdAt}
-            updatedAt={tweet.updatedAt}
+            // updatedAt={tweet.updatedAt}
             handleOpenModal={handleOpenModal}
         />
         );
