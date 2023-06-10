@@ -8,7 +8,7 @@ import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContai
 import Header from '../../components/Header/Header.jsx';
 // import TweetInput from '../../components/Main/TweetInput/TweetInput.jsx';
 import TweetInput from 'components/Main/TweetInput/TweetInput';
-import TweetList from '../../components/Main/TweetList/TweetList.jsx'
+import TweetList from '../../components/Main/TweetList/TweetList.jsx';
 // import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 // import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
@@ -42,7 +42,6 @@ export default function MainPage() {
         getAllTweet();
     }, []);
 
-
     //  const tweetList = tweets.map((tweet) => {
     //     return (
     //     <TweetItem
@@ -63,7 +62,6 @@ export default function MainPage() {
     //     );
     // });
 
-
     return (
         <div className={styles.container}>
             {/* <div className={styles.navBarContainer}> */}
@@ -74,7 +72,7 @@ export default function MainPage() {
                     <Header title="首頁" />
                     <TweetInput />
                     {/* <SingleTweet /> */}
-                    <TweetList tweets={tweets} onClick={handleOpenModal}/>
+                    <TweetList tweets={tweets} onClick={handleOpenModal} />
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

@@ -39,7 +39,7 @@ export default function NavBarContainer({ role, page }) {
                                         <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
                                     </div>
 
-                                    <NavLink to="/userpage">
+                                    <NavLink to="/userPage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 
@@ -48,7 +48,7 @@ export default function NavBarContainer({ role, page }) {
                                     </NavLink>
                                 </>
                             )}
-                            {page === 'userpage' && (
+                            {page === 'userPage' && (
                                 <>
                                     <NavLink to="/main">
                                         <NavItem iconStyle={'iconHome'} altName="main" title="首頁" />
@@ -77,7 +77,7 @@ export default function NavBarContainer({ role, page }) {
                                         <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
                                     </div>
 
-                                    <NavLink to="/userpage">
+                                    <NavLink to="/userPage">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 

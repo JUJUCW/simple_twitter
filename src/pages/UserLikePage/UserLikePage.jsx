@@ -15,7 +15,7 @@ export default function UserLikePage() {
         <>
             <div className={styles.container}>
             
-                <NavBarContainer role="user" page="userpage" />
+                <NavBarContainer role="user" page="userPage" />
              
                 <MainContainer>
                     <Header title="Jane Cathy" arrow tweetCount="66" />
@@ -26,7 +26,7 @@ export default function UserLikePage() {
                           <Link to="/userPage">
                             <UserToggleMenu linkName="推文"  />
                           </Link>
-                          <Link to="/userreply">
+                          <Link to="/userReply">
                             <UserToggleMenu linkName="回覆" />
                           </Link>                
                             <UserToggleMenu linkName="喜歡的內容" isActive/>

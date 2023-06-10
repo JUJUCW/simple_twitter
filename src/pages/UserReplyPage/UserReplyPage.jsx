@@ -15,7 +15,7 @@ export default function UserReplyPage() {
         <>
             <div className={styles.container}>
             
-                <NavBarContainer role="user" page="userpage" />
+                <NavBarContainer role="user" page="userPage" />
              
                 <MainContainer>
                     <Header title="Jane Cathy" arrow tweetCount="66" />
