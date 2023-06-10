@@ -15,6 +15,7 @@ import AdminTweetPage from './pages/AdminTweetPage/AdminTweetPage.jsx'
 import UserReplyPage from './pages/UserReplyPage/UserReplyPage.jsx'
 import UserLikePage from './pages/UserLikePage/UserLikePage.jsx'
 import ButtonShowCasePage from './pages/ButtonShowCasePage/ButtonShowCasePage.jsx'
+import TweetPage from 'pages/TweetPage/TweetPage';
 
 
 const basename = process.env.PUBLIC_URL
@@ -39,6 +40,7 @@ export default function App() {
                   <Route path="show" element={<ButtonShowCasePage />} />
                   <Route path="follower" element={<UserFollowerPage />} />
                   <Route path="following" element={<UserFollowingPage />} />
+                  <Route path="tweetPage" element={<TweetPage />} />
               </Routes>
           </BrowserRouter>
       </div>
