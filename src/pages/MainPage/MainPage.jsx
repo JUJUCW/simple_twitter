@@ -12,7 +12,7 @@ import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 // import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
 
-import {getAllTweets} from '../../api/tweet.js'
+import { getAllTweets } from '../../api/tweet.js';
 
 export default function MainPage() {
     const [tweets, setTweets] = useState([]);
@@ -29,36 +29,35 @@ export default function MainPage() {
     useEffect(() => {
         async function getAllTweet() {
             const data = await getAllTweets();
-            if (data.status ==="error") {
-                console.log(data.message)
-                return
+            if (data.status === 'error') {
+                console.log(data.message);
+                return;
             }
             if (data) {
-            // update data
-            setTweets(data);
+                // update data
+                setTweets(data);
             }
         }
         getAllTweet();
-       
     }, []);
 
-     const tweetList = tweets.map((tweet) => {
+    const tweetList = tweets.map((tweet) => {
         return (
-        <TweetItem
-            key={tweet.id}
-            tweetId={tweet.id}
-            userId={tweet.UserId}
-            userName={tweet.User.name}
-            account={tweet.User.account}
-            avatar={tweet.User.avatar}
-            description={tweet.description}
-            likedCount={tweet.likedCount}
-            replyCount={tweet.replyCount}
-            isLiked={tweet.isLiked}
-            createdAt={tweet.createdAt}
-            // updatedAt={tweet.updatedAt}
-            handleOpenModal={handleOpenModal}
-        />
+            <TweetItem
+                key={tweet.id}
+                tweetId={tweet.id}
+                userId={tweet.UserId}
+                userName={tweet.User.name}
+                account={tweet.User.account}
+                avatar={tweet.User.avatar}
+                description={tweet.description}
+                likedCount={tweet.likedCount}
+                replyCount={tweet.replyCount}
+                isLiked={tweet.isLiked}
+                createdAt={tweet.createdAt}
+                // updatedAt={tweet.updatedAt}
+                handleOpenModal={handleOpenModal}
+            />
         );
     });
 
