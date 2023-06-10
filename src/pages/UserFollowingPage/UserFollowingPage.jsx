@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import Header from 'components/Header/Header';
 import styles from './UserFollowingPage.module.scss';
 import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
@@ -14,7 +16,9 @@ export default function UserFollowingPage() {
             <MainContainer>
                 <Header title="John Doe" arrow tweetCount="25" />
                 <div className={styles.userToggleMenu}>
+                <Link to="/follower">
                     <UserToggleMenu linkName="追隨者"  />
+                </Link> 
                     <UserToggleMenu linkName="正在追蹤" isActive/>
                 </div>
                 <FollowTypeCard />

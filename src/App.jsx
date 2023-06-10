@@ -12,6 +12,7 @@ import AdminLoginPage from './pages/AdminLoginPage/AdminLoginPage.jsx'
 import SettingPage from './pages/SettingPage/SettingPage.jsx'
 import AdminUserPage from './pages/AdminUserPage/AdminUserPage.jsx'
 import AdminTweetPage from './pages/AdminTweetPage/AdminTweetPage.jsx'
+import UserReplyPage from './pages/UserReplyPage/UserReplyPage.jsx'
 import ButtonShowCasePage from './pages/ButtonShowCasePage/ButtonShowCasePage.jsx'
 
 
@@ -27,7 +28,9 @@ export default function App() {
                   <Route path="login" element={<LoginPage />} />
                   <Route path="signup" element={<SignUpPage />} />
                   <Route path="main" element={<MainPage />} />
-                  <Route path="userpage" element={<CurrentUserTweetPage />} />
+                  <Route path="userPage" element={<CurrentUserTweetPage />} />
+                  <Route path="userReply" element={<UserReplyPage />} />
+
                   <Route path="admin/login" element={<AdminLoginPage />} />
                   <Route path="setting" element={<SettingPage />} />
                   <Route path="admin/users" element={<AdminUserPage />} />
