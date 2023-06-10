@@ -19,7 +19,7 @@ export default function TweetItem (props) {
     const isLiked = props.isLiked;
     const createdAt = props.createdAt;
     // const updatedAt = props.updatedAt;
-    const handleOpenModal = props.handleOpenModal;
+    const handleOpenModal = props.onClick;
 
     const [showLiked, setShowLiked] = useState(isLiked)
 
