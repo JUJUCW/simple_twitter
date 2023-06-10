@@ -1,47 +1,43 @@
 import { Link } from 'react-router-dom';
 
 import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
-
-// import OtherUser from '../../components/Main/OtherUser/OtherUser.jsx'
-
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
 
-// import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
+import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import Header from '../../components/Header/Header.jsx';
-import styles from './CurrentUserTweetPage.module.scss';
+import styles from './UserLikePage.module.scss';
 
-export default function CurrentUserTweetPage() {
+export default function UserLikePage() {
     return (
         <>
             <div className={styles.container}>
-                {/* <div className={styles.navBarContainer}> */}
+            
                 <NavBarContainer role="user" page="userpage" />
-                {/* </div> */}
+             
                 <MainContainer>
                     <Header title="Jane Cathy" arrow tweetCount="66" />
                     <div className={styles.currentContainer}>
                         <CurrentUser />
 
-                        {/* <OtherUser /> */}
                         <div className={styles.userToggleMenu}>
-                            <UserToggleMenu linkName="推" isActive />
-                        <Link to="/userReply">
+                          <Link to="/userPage">
+                            <UserToggleMenu linkName="推文"  />
+                          </Link>
+                          <Link to="/userreply">
                             <UserToggleMenu linkName="回覆" />
-                        </Link>
-                            <UserToggleMenu linkName="喜歡的內容" />
+                          </Link>                
+                            <UserToggleMenu linkName="喜歡的內容" isActive/>
                         </div>
-                        {/* <div className={styles.tweetItemList}> */}
-                        {/* <TweetItem className={styles.tweetItemList} />
-                        <TweetItem className={styles.tweetItemList} /> */}
-                        {/* </div> */}
+                        <TweetItem/>
+                        
                     </div>
                 </MainContainer>
-                {/* <div className={styles.suggestFollowContainer}> */}
+              
                 <SuggestUserContainer />
-                {/* </div> */}
+            
             </div>
         </>
     );

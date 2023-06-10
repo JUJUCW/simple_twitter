@@ -1,0 +1,12 @@
+@use '../../assets/styles/color' as color;
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.userToggleMenu {
+  display: flex;
+}

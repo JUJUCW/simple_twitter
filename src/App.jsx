@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import HomePage from 'pages/HomePage';
 import MainPage from './pages/MainPage/MainPage.jsx';
-import CurrentUserTweetPage from 'pages/CurrentUserTweetPage/CurrentUserTweetPage'
+import UserTweetPage from './pages/UserTweetPage/UserTweetPage.jsx'
 import UserFollowerPage from './pages/UserFollowerPage/UserFollowerPage'
 import UserFollowingPage from 'pages/UserFollowingPage/UserFollowingPage';
 import LoginPage from './pages/LoginPage/LoginPage.jsx';
@@ -13,6 +13,7 @@ import SettingPage from './pages/SettingPage/SettingPage.jsx'
 import AdminUserPage from './pages/AdminUserPage/AdminUserPage.jsx'
 import AdminTweetPage from './pages/AdminTweetPage/AdminTweetPage.jsx'
 import UserReplyPage from './pages/UserReplyPage/UserReplyPage.jsx'
+import UserLikePage from './pages/UserLikePage/UserLikePage.jsx'
 import ButtonShowCasePage from './pages/ButtonShowCasePage/ButtonShowCasePage.jsx'
 
 
@@ -28,9 +29,9 @@ export default function App() {
                   <Route path="login" element={<LoginPage />} />
                   <Route path="signup" element={<SignUpPage />} />
                   <Route path="main" element={<MainPage />} />
-                  <Route path="userPage" element={<CurrentUserTweetPage />} />
+                  <Route path="userPage" element={<UserTweetPage />} />
                   <Route path="userReply" element={<UserReplyPage />} />
-
+                  <Route path="userLike" element={<UserLikePage />} />
                   <Route path="admin/login" element={<AdminLoginPage />} />
                   <Route path="setting" element={<SettingPage />} />
                   <Route path="admin/users" element={<AdminUserPage />} />
