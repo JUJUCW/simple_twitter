@@ -11,7 +11,6 @@ import TweetInput from 'components/Main/TweetInput/TweetInput';
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 // import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
-import Test from 'components/Main/TweetItem/Test.jsx';
 
 import { getAllTweets } from '../../api/tweet.js';
 

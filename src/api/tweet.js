@@ -23,7 +23,7 @@ axiosInstance.interceptors.request.use(
 export const getAllTweets = async () => {
   try{
     const {data} = await axiosInstance.get(`${baseURL}/tweets`)
-    console.log(data)
+    // console.log(data)
     return data
   } catch (error) {
     console.error('[getAllTweets Failed]:', error)
