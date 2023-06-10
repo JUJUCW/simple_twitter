@@ -19,24 +19,6 @@ axiosInstance.interceptors.request.use(
 
 export const apiHelper = axiosInstance;
 
-const axiosInstance = axios.create({ baseURL });
-
-axiosInstance.interceptors.request.use(
-    (config) => {
-        const token = localStorage.getItem('token');
-
-        // If the token exists, bring in headers.
-        if (token) {
-            config.headers['Authorization'] = `Bearer ${token}`;
-        }
-        return config;
-    },
-    (err) => Promise.reject(err)
-);
-
-export const apiHelper = axiosInstance;
-
-
 // pop up notification
 export const Toast = Swal.mixin({
     toast: true,
