@@ -10,18 +10,21 @@ export const userLogin = async ({ account, password }) => {
             password,
         });
 
-        const { token } = data.data;
-        const { role } = data.data;
+        const { token, role } = data.data;
 
         if (token && role === 'user') {
             return { success: true, ...data };
         }
+        if (token && role === 'admin') {
+            Toast.fire({
+                title: '帳號不存在！',
+                icon: 'error',
+            });
+        }
+
         return data;
     } catch (error) {
-        console.error('[Login Failed]:', error);
-        Toast.fire({
-            title: error.response.data.message,
-            icon: 'error',
-        });
+        console.log('[Login Failed]:', error);
+        return error;
     }
 };

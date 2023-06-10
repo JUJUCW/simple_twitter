@@ -1,23 +1,61 @@
 // import { Link } from 'react-router-dom';
-import {useState} from 'react'
-import clsx from 'clsx'
+import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 import styles from './TweetItem.module.scss';
+import { postTweetLike, postTweetUnlike, getATweet } from 'api/like';
 
-import like from 'api/like';
+// import like from 'api/like';
 
 import logo from '../../../assets/icons/logo_gray.png';
-import replyIcon from '../../../assets/icons/tweet/tweet_reply.png'
-import likeIcon from '../../../assets/icons/tweet/tweet_like.png'
+import replyIcon from '../../../assets/icons/tweet/tweet_reply.png';
+import likeIcon from '../../../assets/icons/tweet/tweet_like.png';
+
+export default function TweetItem({
+    handleOpenModal,
+    // tweetId
+    // isLiked,
+    // likeCount
+}) {
+    const [isLiked, setIsLiked] = useState(false);
+    const [likeCount, setLikeCount] = useState(0);
+    useEffect(() => {
+        console.log('useEffect');
+        postTweetLike(4)
+            .then((data) => {
+                console.log('postTweetLike_data', data);
+                setIsLiked(true);
+            })
+            .catch((error) => {
+                console.error(error); // 處理錯誤
+            });
+    });
 
 
-export default function TweetItem ({handleOpenModal}) {
-    const [isLiked, setIsLiked] = useState(false)
-    const likeClassName = clsx(styles.likeBtn, { [styles.active]: isLiked })
+
     const handleLike = () => {
-        console.log('123')
-        setIsLiked(!isLiked);
-    };
+        getATweet(4);
 
+        if (isLiked === true) {
+            postTweetUnlike(4)
+                .then(() => {
+                    setIsLiked(false);
+                    setLikeCount(likeCount - 1);
+                })
+                .catch((error) => {
+                    console.log('取消按讚失敗', error);
+                });
+        } else {
+            postTweetLike(4)
+                .then(() => {
+                    setIsLiked(true);
+                    setLikeCount(likeCount + 1);
+                })
+                .catch((error) => {
+                    console.log('按讚失敗', error);
+                });
+        }
+    };
+    const likeClassName = clsx(styles.likeBtn, { [styles.active]: isLiked });
     return (
         <div className={styles.container}>
             <div className={styles.avatar}>
@@ -31,7 +69,7 @@ export default function TweetItem ({handleOpenModal}) {
                 </div>
                 <div className={styles.tweetContent}>
                     Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
-                    exercitation incididunt aliquip deserunt reprehenderit elit laborumexercitation incididunt 
+                    exercitation incididunt aliquip deserunt reprehenderit elit laborumexercitation incididunt
                 </div>
                 <div className={styles.icons}>
                     <div className={styles.iconReply}>
@@ -44,7 +82,7 @@ export default function TweetItem ({handleOpenModal}) {
                         <div className={styles.cursor} onClick={handleLike}>
                             <img className={likeClassName} src={likeIcon} alt="like button" />
                         </div>
-                        <span>76</span>
+                        <span>{likeCount}</span>
                     </div>
                 </div>
             </div>

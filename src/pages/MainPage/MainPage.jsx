@@ -11,6 +11,7 @@ import TweetInput from 'components/Main/TweetInput/TweetInput';
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 // import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
+import Test from 'components/Main/TweetItem/Test.jsx';
 
 export default function MainPage() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,7 +37,9 @@ export default function MainPage() {
 
                     <TweetInput />
                     {/* <SingleTweet /> */}
-                    <TweetItem handleOpenModal={handleOpenModal} />
+                    {/* <TweetItem handleOpenModal={handleOpenModal} /> */}
+                    <Test/>
+                    {/* <TweetItem />
                     <TweetItem />
                     <TweetItem />
                     <TweetItem />
@@ -44,7 +47,7 @@ export default function MainPage() {
                     <TweetItem />
                     <TweetItem />
                     <TweetItem />
-                    <TweetItem />
+                     */}
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}
