@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {/*Toast,*/ baseURL} from '../utility/helper.js'
+import {/*Toast,*/ baseURL /*,apiHelper*/} from '../utility/helper.js'
 
 const axiosInstance = axios.create({
   baseURL: baseURL,
@@ -30,3 +30,16 @@ export const getAllTweets = async () => {
     return error
   }
 } 
+
+// post tweet
+export const  postTweet = async (description) => {
+  try {
+    const { data } = await axiosInstance.post(`${baseURL}/tweets`, {
+      description,
+    });
+    return data;
+  } catch (error) {
+    console.error('[postTweet Failed]:', error)
+    return error
+  }
+}
