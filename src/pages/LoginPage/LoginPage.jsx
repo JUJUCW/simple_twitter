@@ -19,7 +19,7 @@ export default function LoginPage () {
         notification='字數超出上限!' wordsLimit={20}
         />
         <AuthInput label='密碼' value={password} placeholder='請輸入密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
-        notification='字數超出上限!' wordsLimit={20}
+        notification='字數超出上限!' wordsLimit={20} type='password'
         />
         <Link to="/main">
           <Button title='登入' size='large' isAction></Button>
