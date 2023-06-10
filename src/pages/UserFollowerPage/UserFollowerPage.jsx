@@ -11,20 +11,24 @@ import FollowTypeCard from 'components/Main/FollowTypeCard/FollowTypeCard';
 export default function UserFollowerPage() {
     return (
         <div className={styles.container}>
-            <NavBarContainer role="user" page="main" />
-            {/* </div> */}
-
-            <MainContainer>
-                <Header title="John Doe" arrow tweetCount="25" />
-                <div className={styles.userToggleMenu}>
-                    <UserToggleMenu linkName="追隨者" isActive />
-                    <Link to="/following">
-                        <UserToggleMenu linkName="正在追蹤" />
-                    </Link>
-                </div>
-                <FollowTypeCard />
-            </MainContainer>
-
+            <NavBarContainer role="user" page="main" />       
+                <MainContainer>
+                    <Header title="John Doe" arrow tweetCount="25" />
+                    <div className={styles.userToggleMenu}>
+                        <UserToggleMenu linkName="追隨者" isActive />
+                        <Link to="/following">
+                          <UserToggleMenu linkName="正在追蹤" />
+                        </Link>
+                    </div>
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                </MainContainer>    
             <SuggestUserContainer />
         </div>
     );

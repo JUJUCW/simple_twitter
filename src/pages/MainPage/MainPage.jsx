@@ -13,7 +13,7 @@ import TweetList from '../../components/Main/TweetList/TweetList.jsx'
 // import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
 
-import {getAllTweets} from '../../api/tweet.js'
+import { getAllTweets } from '../../api/tweet.js';
 
 export default function MainPage() {
     const [tweets, setTweets] = useState([]);
@@ -30,18 +30,18 @@ export default function MainPage() {
     useEffect(() => {
         async function getAllTweet() {
             const data = await getAllTweets();
-            if (data.status ==="error") {
-                console.log(data.message)
-                return
+            if (data.status === 'error') {
+                console.log(data.message);
+                return;
             }
             if (data) {
-            // update data
-            setTweets(data);
+                // update data
+                setTweets(data);
             }
         }
         getAllTweet();
-       
     }, []);
+
 
     //  const tweetList = tweets.map((tweet) => {
     //     return (
@@ -62,6 +62,7 @@ export default function MainPage() {
     //     />
     //     );
     // });
+
 
     return (
         <div className={styles.container}>

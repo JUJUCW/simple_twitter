@@ -13,16 +13,25 @@ export default function UserFollowingPage() {
     return (
         <div className={styles.container}>
             <NavBarContainer role="user" page="main" />
-            <MainContainer>
-                <Header title="John Doe" arrow tweetCount="25" />
-                <div className={styles.userToggleMenu}>
-                <Link to="/follower">
-                    <UserToggleMenu linkName="追隨者"  />
-                </Link> 
-                    <UserToggleMenu linkName="正在追蹤" isActive/>
-                </div>
-                <FollowTypeCard />
-            </MainContainer>
+
+                <MainContainer>
+                    <Header title="John Doe" arrow tweetCount="25" />
+                    <div className={styles.userToggleMenu}>
+                      <Link to="/follower">
+                        <UserToggleMenu linkName="追隨者" />
+                      </Link> 
+                        <UserToggleMenu linkName="正在追蹤" isActive />
+                    </div>
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                    <FollowTypeCard />
+                </MainContainer>
+   
             <SuggestUserContainer />
         </div>
     );
