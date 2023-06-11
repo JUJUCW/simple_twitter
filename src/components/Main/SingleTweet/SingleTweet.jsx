@@ -18,9 +18,11 @@ export default function SingleTweet({props}) {
     // };
 // console.log(props)
     const tweetId = props.id;
-    // const userName = props.User.name;
 
+    // const userName = props.User.name;
+    // console.log(userName)
     // const account = props.User.account;
+    // console.log(account)
     // const avatar = props.User.avatar;
     const description = props.description;
     const replyCount = props.replyCount;
@@ -28,6 +30,7 @@ export default function SingleTweet({props}) {
     const handleOpenModal = props.onClick;
     const [showLiked, setShowLiked] = useState(props.isLiked);
     const [likedCount, setLikeCount] = useState(props.likedCount);
+
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
 
     const handleLike = () => {
@@ -52,20 +55,23 @@ export default function SingleTweet({props}) {
         }
     };
 
-
     return (
         <div className={styles.tweet}>
             <div className={styles.userInfo}>
                 <div className={styles.userInfoAvatar}>
                     <img
                         // src={ }
-                        alt="avatar" className={styles.tweetAvatar} />
+                        alt="avatar"
+                        className={styles.tweetAvatar}
+                    />
                 </div>
                 <div className={styles.userInfoCard}>
-                    <div className={styles.userInfoName}>{/*userName*/}</div>
-                    <div className={styles.userInfoAccount}>
-                        {/* @{account} */}
+                    <div className={styles.userInfoName}>
+                        {
+                            // userName
+                        }
                     </div>
+                    <div className={styles.userInfoAccount}>{/* @{account} */}</div>
                 </div>
             </div>
 
@@ -81,7 +87,10 @@ export default function SingleTweet({props}) {
                 </Link>
                 <Link className={styles.routeLink} to={`/`}>
                     <div className={styles.followingFollower}>
-                        <span className={styles.followingCount}>{replyCount}&nbsp;</span>
+                        <span className={styles.followingCount} onClick={handleLike}>
+                            {/* {likeCount} */}
+                            &nbsp;
+                        </span>
                         <span className={styles.followingType}>喜歡次數</span>
                     </div>
                 </Link>
