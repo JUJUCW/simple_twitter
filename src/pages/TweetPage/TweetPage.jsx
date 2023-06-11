@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import styles from './TweetPage.module.scss';
 import MainContainer from 'components/Main/MainContainer/MainContainer';
 import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
@@ -11,14 +11,14 @@ import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
 // import TweetList from 'components/Main/TweetList/TweetList';
 import { getTweet } from 'api/tweet';
-import { getReplies } from 'api/reply';
+// import { getReplies } from 'api/reply';
 
 export default function TweetPage() {
     const param = useParams();
     const [tweet, setTweet] = useState({});
     const [user, setUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [replies, setReplies] = useState([]);
+    // const [replies, setReplies] = useState([]);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -31,7 +31,6 @@ export default function TweetPage() {
         const fetchData = async () => {
             try {
                 const res = await getTweet(param.tweetId);
-                console.log(param.tweetId)
                 const data = res.data;
                 setTweet(data);
                 setUser(data.User);
@@ -41,24 +40,22 @@ export default function TweetPage() {
         };
 
         fetchData();
-    }, [param.tweetId]);
+    }, []);
 
-    useEffect(() => {
-        const fetchReplies = async () => {
-            try {
-                const res = await getReplies(param.tweetId);
-                const data = res.data;
-                if (res.status !== 200) {
-                    throw new Error(data.message);
-                }
-                setReplies(data.replies);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+    // useEffect(() => {
+    //     const fetchReplies = async () => {
+    //         try {
+    //             const res = await getReplies(param.tweetId);
+    //             const data = res.data;
+            
+    //             setReplies(data.replies);
+    //         } catch (error) {
+    //             console.error(error);
+    //         }
+    //     };
 
-        fetchReplies();
-    }, [param.tweetId]);
+    //     fetchReplies();
+    // }, []);
 
     return (
         <div className={styles.container}>
@@ -68,8 +65,7 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-
-                    <SingleTweet props={tweet} onClick={handleOpenModal} />
+                    <SingleTweet props={tweet} onClick={handleOpenModal} userName={user.name} />
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

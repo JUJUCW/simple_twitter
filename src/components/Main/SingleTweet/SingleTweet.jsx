@@ -5,28 +5,33 @@ import { getRelativeTime } from 'utility/helper.js';
 import { postTweetUnlike, postTweetLike } from 'api/like.js';
 
 import { Link } from 'react-router-dom';
-import {tweet} from 'TweetPage.jsx';
 import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 // import likeIcon from 'assets/icons/tweet/tweet_like.png';
 import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
-// import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
+import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
-export default function SingleTweet({ props, onClick }) {
+export default function SingleTweet({ props }) {
     // const [isClicked, setIsClicked] = useState(false);
     // const handleClick = () => {
     //     setIsClicked(!isClicked);
     // };
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
     const tweetId = props.id;
-    // const userName = props.User.name;
-    // console.log(userName);
-    // const account = props.User.account;
-    // console.log(account)
-    // const avatar = props.User.avatar;
+    const userName = 'User' in props ? props.User.name : '';
+    const account = 'User' in props ? props.User.account : '';
+    const avatar = 'User' in props ? props.User.avatar : '';
     const description = props.description;
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
-    const handleOpenModal = props.onClick;
+    // const handleOpenModal = props.onClick;
     const [showLiked, setShowLiked] = useState(props.isLiked);
     const [likedCount, setLikeCount] = useState(props.likedCount);
 
@@ -58,19 +63,11 @@ export default function SingleTweet({ props, onClick }) {
         <div className={styles.tweet}>
             <div className={styles.userInfo}>
                 <div className={styles.userInfoAvatar}>
-                    <img
-                        // src={ }
-                        alt="avatar"
-                        className={styles.tweetAvatar}
-                    />
+                    <img src={avatar} alt="avatar" className={styles.tweetAvatar} />
                 </div>
                 <div className={styles.userInfoCard}>
-                    <div className={styles.userInfoName}>
-                        {
-                            // userName
-                        }
-                    </div>
-                    <div className={styles.userInfoAccount}>{/* @{account} */}</div>
+                    <div className={styles.userInfoName}>{userName}</div>
+                    <div className={styles.userInfoAccount}>@{account}</div>
                 </div>
             </div>
 
@@ -87,8 +84,7 @@ export default function SingleTweet({ props, onClick }) {
                 <Link className={styles.routeLink} to={`/`}>
                     <div className={styles.followingFollower}>
                         <span className={styles.followingCount} onClick={handleLike}>
-                            {/* {likeCount} */}
-                            &nbsp;
+                            0 &nbsp;
                         </span>
                         <span className={styles.followingType}>喜歡次數</span>
                     </div>
@@ -97,14 +93,13 @@ export default function SingleTweet({ props, onClick }) {
             <div className={styles.line}></div>
             <div className={styles.icons}>
                 <div className={styles.iconReply} onClick={handleOpenModal}>
-                    {/* <ReplyModal /> */}
-
                     <img className={styles.replyBtn} src={replyIcon} alt="reply button" />
                 </div>
                 <div className={styles.iconLike} onClick={handleLike}>
                     <img className={likeClassName} src={likeIconAction} alt="like button" />
                 </div>
             </div>
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
             <div className={styles.lineBottom}></div>
         </div>
     );

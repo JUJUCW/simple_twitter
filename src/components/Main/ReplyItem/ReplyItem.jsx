@@ -1,4 +1,3 @@
-
 import logo_gray from '../../../assets/icons/logo_gray.png'
 import styles from './ReplyItem.module.scss'
 

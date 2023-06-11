@@ -23,7 +23,6 @@ export default function App() {
         <div className="app">
             <BrowserRouter basename={basename}>
                 <Routes>
-                    <Route path="*" element={<HomePage />} />
                     <Route path="login" element={<LoginPage />} />
                     <Route path="signup" element={<SignUpPage />} />
                     <Route path="main" element={<MainPage />} />
@@ -38,6 +37,7 @@ export default function App() {
                     <Route path="follower" element={<UserFollowerPage />} />
                     <Route path="following" element={<UserFollowingPage />} />
                     <Route path="tweets/:tweetId" element={<TweetPage />} />
+                    <Route path="*" element={<HomePage />} />
                 </Routes>
             </BrowserRouter>
         </div>
