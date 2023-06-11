@@ -17,7 +17,7 @@ export default function SingleTweet(props) {
     //     setIsClicked(!isClicked);
     // };
     const tweetId = props.tweetId;
-    // const userId = props.userId;
+    const User = props.UserId;
     const userName = props.userName;
     const account = props.account;
     const avatar = props.avatar;
@@ -51,6 +51,8 @@ export default function SingleTweet(props) {
                 });
         }
     };
+
+
     return (
         <div className={styles.tweet}>
             <div className={styles.userInfo}>
@@ -69,13 +71,13 @@ export default function SingleTweet(props) {
             <div className={styles.follows}>
                 <Link className={styles.routeLink} to={`/`}>
                     <div className={styles.followsFollower}>
-                        <span className={styles.followsCount}>{replyCount}&#xb7;</span>
+                        <span className={styles.followsCount}>{replyCount}&nbsp;</span>
                         <span className={styles.followsType}>回覆</span>
                     </div>
                 </Link>
                 <Link className={styles.routeLink} to={`/`}>
                     <div className={styles.followingFollower}>
-                        <span className={styles.followingCount}>{replyCount}&#xb7;</span>
+                        <span className={styles.followingCount}>{replyCount}&nbsp;</span>
                         <span className={styles.followingType}>喜歡次數</span>
                     </div>
                 </Link>

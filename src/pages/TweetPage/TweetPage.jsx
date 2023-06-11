@@ -7,13 +7,14 @@ import SuggestUserContainer from 'components/SuggestUser/SuggestUserContainer/Su
 import Header from 'components/Header/Header';
 import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
+import ATweet from 'components/Main/TweetList/ATweet';
 
 // import TweetList from 'components/Main/TweetList/TweetList';
-import tweet from 'api/tweet';
+import { getTweet } from 'api/tweet';
 import { getReplies } from 'api/reply';
 
 export default function TweetPage() {
-  const param = useParams();
+    const param = useParams();
     const navigate = useNavigate();
     const [tweet, setTweet] = useState({});
     const [user, setUser] = useState({});
@@ -28,10 +29,9 @@ export default function TweetPage() {
     };
 
     useEffect(() => {
-        tweet
-            .getTweet(param.tweet_id)
+        getTweet(param.tweetId)
             .then((res) => {
-                const { data } = res;
+              const data = res.data;
                 if (res.status !== 200) {
                     throw new Error(data.message);
                 }
@@ -40,27 +40,22 @@ export default function TweetPage() {
             })
             .catch((error) => {
                 console.error(error);
-                navigate('/login');
             });
     }, [param.tweetId]);
-  
-  useEffect(() => {
-      getReplies
-          .getReplies(param.tweet_id)
-          .then((res) => {
-              const { data } = res;
-              if (res.status !== 200) {
-                  throw new Error(data.message);
-              }
-              setReplies(data.replies);
-          })
-          .catch((error) => {
-              console.error(error);
-              navigate('/login');
-          });
-  }, [param.tweetId]);
 
-
+    useEffect(() => {
+        getReplies(param.tweetId)
+            .then((res) => {
+                const data  = res.data;
+                if (res.status !== 200) {
+                    throw new Error(data.message);
+                }
+                setReplies(data.replies);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, [param.tweetId]);
 
     return (
         <div className={styles.container}>
@@ -71,7 +66,9 @@ export default function TweetPage() {
                 <MainContainer>
                     <Header title="推文" arrow />
 
-                    {/* <SingleTweet tweets={tweets} onClick={handleOpenModal} /> */}
+                    <ATweet
+                        tweet={tweet}
+                        onClick={handleOpenModal} />
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

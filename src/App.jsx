@@ -37,7 +37,7 @@ export default function App() {
                     <Route path="show" element={<ButtonShowCasePage />} />
                     <Route path="follower" element={<UserFollowerPage />} />
                     <Route path="following" element={<UserFollowingPage />} />
-                    <Route path=":tweet_id" element={<TweetPage />} />
+                    <Route path="tweets/:tweetId" element={<TweetPage />} />
                 </Routes>
             </BrowserRouter>
         </div>

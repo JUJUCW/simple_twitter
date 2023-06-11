@@ -4,9 +4,8 @@ import { /*Toast,*/ /*baseURL,*/ apiHelper } from '../utility/helper.js';
 // get all tweets
 export const getAllTweets = async () => {
     try {
-        const { data } = await apiHelper.get(`/tweets`,{});
-        // console.log(data);
-        return data;
+        const { res } = await apiHelper.get(`/tweets`,{});
+        return res;
     } catch (error) {
         console.error('[getAllTweets Failed]:', error);
         return error;
@@ -14,9 +13,8 @@ export const getAllTweets = async () => {
 };
 export const getTweet = async (TweetId) => {
     try {
-        await apiHelper.get(`/tweets/${TweetId}`,{});
-        // console.log(data);
-        // return data;
+        const res = await apiHelper.get(`/tweets/${TweetId}`,{});
+        return res;
     } catch (error) {
         console.error('[getTweet Failed]:', error);
         return error;
