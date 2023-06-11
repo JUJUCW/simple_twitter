@@ -64,7 +64,36 @@ export const getUser = async(userId) => {
     if (data.id) return data
     return data
   } catch (error) {
-    console.log('[Login Failed]:', error)
+    console.log('[Get user profile Failed]:', error)
     return error
   }
 }
+
+// get user tweets
+
+export const getUserTweets = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/tweets`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.log('[Get user tweets Failed]:', error)
+    return error
+  }
+}
+
+
+// get user replies
+
+export const getUserReplies = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/replied_tweets`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.log('[Get user replies Failed]:', error)
+    return error
+  }
+}
+
+

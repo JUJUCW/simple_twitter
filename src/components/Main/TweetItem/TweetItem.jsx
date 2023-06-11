@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 // import { Link } from 'react-router-dom';
+import ReplyModal from '../../Modal/ReplyModal/ReplyModal.jsx';
 import styles from './TweetItem.module.scss';
 import replyIcon from '../../../assets/icons/tweet/tweet_reply.png';
 import likeIcon from '../../../assets/icons/tweet/tweet_like.png';
@@ -18,11 +19,20 @@ export default function TweetItem(props) {
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
     // const updatedAt = props.updatedAt;
-    const handleOpenModal = props.onClick;
 
     const [showLiked, setShowLiked] = useState(props.isLiked);
     const [likedCount, setLikeCount] = useState(props.likedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
 
     const handleLike = async () => {
     try {
@@ -97,6 +107,7 @@ export default function TweetItem(props) {
                     </div>
                 </div>
             </div>
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
         </div>
     );
 }

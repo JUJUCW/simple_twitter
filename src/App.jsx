@@ -30,7 +30,7 @@ export default function App() {
                   <Route path="signup" element={<SignUpPage />} />
                   <Route path="main" element={<MainPage />} />
                   <Route path="user/:UserId/tweet" element={<UserTweetPage />} />
-                  <Route path="userReply" element={<UserReplyPage />} />
+                  <Route path="user/:UserId/reply" element={<UserReplyPage />} />
                   <Route path="userLike" element={<UserLikePage />} />
                   <Route path="admin/login" element={<AdminLoginPage />} />
                   <Route path="setting" element={<SettingPage />} />
