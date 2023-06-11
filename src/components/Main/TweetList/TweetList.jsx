@@ -2,7 +2,7 @@ import TweetItem from "../TweetItem/TweetItem.jsx";
 
 
 
-export default function tweetList ({tweets, onClick} ) {
+export default function tweetList ({tweets}) {
   return (
     tweets.map((tweet) => {
       return (
@@ -19,7 +19,6 @@ export default function tweetList ({tweets, onClick} ) {
           isLiked={tweet.isLiked}
           createdAt={tweet.createdAt}
           // updatedAt={tweet.updatedAt}
-          onClick={onClick}
         />
       )
     })
