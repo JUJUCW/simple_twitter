@@ -96,4 +96,17 @@ export const getUserReplies = async(userId) => {
   }
 }
 
+// get user likes
+
+export const getUserLikes = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/likes`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.log('[Get user likes Failed]:', error)
+    return error
+  }
+}
+
 

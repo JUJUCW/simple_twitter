@@ -31,7 +31,7 @@ export default function App() {
                   <Route path="main" element={<MainPage />} />
                   <Route path="user/:UserId/tweet" element={<UserTweetPage />} />
                   <Route path="user/:UserId/reply" element={<UserReplyPage />} />
-                  <Route path="userLike" element={<UserLikePage />} />
+                  <Route path="user/:UserId/like" element={<UserLikePage />} />
                   <Route path="admin/login" element={<AdminLoginPage />} />
                   <Route path="setting" element={<SettingPage />} />
                   <Route path="admin/users" element={<AdminUserPage />} />
