@@ -28,37 +28,37 @@ export default function TweetPage() {
     };
 
     useEffect(() => {
-         tweet
-      .getTweet(param.tweet_id)
-      .then((res) => {
-        const { data } = res
-        if (res.status !== 200) {
-          throw new Error(data.message)
-        }
-        setTweet(data)
-        setUser(data.User)
-      })
-      .catch((error) => {
-        console.error(error)
-        navigate('/login')
-      })
-    }, [])
+        tweet
+            .getTweet(param.tweet_id)
+            .then((res) => {
+                const { data } = res;
+                if (res.status !== 200) {
+                    throw new Error(data.message);
+                }
+                setTweet(data);
+                setUser(data.User);
+            })
+            .catch((error) => {
+                console.error(error);
+                navigate('/login');
+            });
+    }, [param.tweetId]);
   
   useEffect(() => {
-    getReplies
-        .getReplies(param.tweet_id)
-        .then((res) => {
-            const { data } = res;
-            if (res.status !== 200) {
-                throw new Error(data.message);
-            }
-            setReplies(data.replies);
-        })
-        .catch((error) => {
-            console.error(error);
-            navigate('/login');
-        });
-  }, [])
+      getReplies
+          .getReplies(param.tweet_id)
+          .then((res) => {
+              const { data } = res;
+              if (res.status !== 200) {
+                  throw new Error(data.message);
+              }
+              setReplies(data.replies);
+          })
+          .catch((error) => {
+              console.error(error);
+              navigate('/login');
+          });
+  }, [param.tweetId]);
 
 
 
@@ -71,7 +71,7 @@ export default function TweetPage() {
                 <MainContainer>
                     <Header title="推文" arrow />
 
-                    <SingleTweet tweets={tweets} onClick={handleOpenModal} />
+                    {/* <SingleTweet tweets={tweets} onClick={handleOpenModal} /> */}
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}
