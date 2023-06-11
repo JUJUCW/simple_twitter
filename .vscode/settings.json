@@ -1,14 +1,15 @@
 {
-  "cSpell.words": [
-    "Alphitter",
-    "clsx",
-    "heyjohn",
-    "signin",
-    "signout",
-    "signup",
-    "Swal",
-    "sweetalert",
-    "tweetpage",
-    "webfonts"
-  ]
+    "cSpell.words": [
+        "Alphitter",
+        "clsx",
+        "heyjohn",
+        "signin",
+        "signout",
+        "signup",
+        "Swal",
+        "sweetalert",
+        "tweetpage",
+        "webfonts"
+    ],
+    "workbench.activityBar.iconClickBehavior": "toggle"
 }
