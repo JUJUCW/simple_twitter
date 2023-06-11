@@ -3,6 +3,7 @@
         "Alphitter",
         "clsx",
         "heyjohn",
+        "repiled",
         "signin",
         "signout",
         "signup",
@@ -10,6 +11,5 @@
         "sweetalert",
         "tweetpage",
         "webfonts"
-    ],
-    "workbench.activityBar.iconClickBehavior": "toggle"
+    ]
 }

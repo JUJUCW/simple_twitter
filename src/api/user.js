@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Toast, baseURL } from '../utility/helper.js';
+import { Toast, baseURL, apiHelper } from '../utility/helper.js';
 
 //user login
 
@@ -55,4 +55,58 @@ export const adminLogin = async ({ account, password }) => {
     return error
   }
 }
+
+// get user profile
+
+export const getUser = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}`)
+    if (data.id) return data
+    return data
+  } catch (error) {
+    console.log('[Get user profile Failed]:', error)
+    return error
+  }
+}
+
+// get user tweets
+
+export const getUserTweets = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/tweets`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.log('[Get user tweets Failed]:', error)
+    return error
+  }
+}
+
+
+// get user replies
+
+export const getUserReplies = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/replied_tweets`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.log('[Get user replies Failed]:', error)
+    return error
+  }
+}
+
+// get user likes
+
+export const getUserLikes = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/likes`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.log('[Get user likes Failed]:', error)
+    return error
+  }
+}
+
 

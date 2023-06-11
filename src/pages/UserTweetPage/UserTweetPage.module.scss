@@ -10,12 +10,10 @@
     // gap: 24px;
     // max-width: 992px;
 }
-
 // .navBarContainer {
-//     width: 178px;
-//     display: block;
-//     // border: 1px solid red;
-// // }
+//     height: 100vh;
+//     overflow-y: scroll;
+// }
 // .currentContainer {
 //     overflow: hidden;
 //     overflow-y: scroll;
@@ -33,6 +31,11 @@
 // }
 .userToggleMenu {
     display: flex;
+}
+
+.tweetList {
+    height: 100vh;
+    overflow-y: scroll;
 }
 // .tweetItemList {
 //     height: 100vh;

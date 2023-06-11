@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-
+import { Link, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react'
 import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
@@ -8,9 +8,75 @@ import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import Header from '../../components/Header/Header.jsx';
+import { getUser, getUserLikes } from '../../api/user.js'
+
 import styles from './UserLikePage.module.scss';
 
 export default function UserLikePage() {
+    const URL = useParams();
+    const[userLikes, setUserLikes] = useState([])
+    const [userProfile, setUserProfile] = useState('')
+
+    useEffect(() => {
+    const getUserInfo = async () => {
+        try {
+            const data = await getUser(URL.UserId);
+            if (data.status === 'error') {
+                console.log(data.message);
+                return;
+            }
+            if (data) {
+                // update data
+                setUserProfile(data);
+                console.log(data)
+            }
+        } catch (error) {
+            console.log('獲取使用者資料失敗', error);
+        }
+        }
+        getUserInfo();
+    }, [URL.UserId]);
+
+    useEffect(() => {
+    const getUserLike = async () => {
+        try {
+            const data = await getUserLikes(URL.UserId);
+            if (data.status === 'error') {
+                console.log(data.message);
+                return;
+            }
+            if (data) {
+                // update data
+                setUserLikes(data);
+                console.log(data)
+            }
+        } catch (error) {
+            console.log('獲取使用者推文失敗', error);
+        }
+        }
+        getUserLike();
+    }, [URL.UserId]);
+
+
+    const likeTweetList = userLikes.map((tweet) => {
+        return (
+        <TweetItem
+            key={tweet.id}
+            tweetId={tweet.TweetId}
+            userId={userProfile.id}
+            userName={tweet.tweet_user_data.name}
+            account={tweet.tweet_user_data.account}
+            avatar={tweet.tweet_user_data.avatar}
+            description={tweet.description}
+            likedCount={tweet.liked_Count}
+            replyCount={tweet.reply_Count}
+            isLiked={tweet.isLiked}
+            // createdAt={tweet.createdAt}
+            // updatedAt={tweet.updatedAt}
+        />
+        );
+    });
+
     return (
         <>
             <div className={styles.container}>
@@ -18,9 +84,9 @@ export default function UserLikePage() {
                 <NavBarContainer role="user" page="userPage" />
              
                 <MainContainer>
-                    <Header title="Jane Cathy" arrow tweetCount="66" />
+                    <Header title={userProfile.name} arrow tweetCount="66" />
                     <div className={styles.currentContainer}>
-                        <CurrentUser />
+                        <CurrentUser userInfo={userProfile}/>
 
                         <div className={styles.userToggleMenu}>
                           <Link to="/userPage">
@@ -31,7 +97,7 @@ export default function UserLikePage() {
                           </Link>                
                             <UserToggleMenu linkName="喜歡的內容" isActive/>
                         </div>
-                        <TweetItem/>
+                        {likeTweetList}
                         
                     </div>
                 </MainContainer>

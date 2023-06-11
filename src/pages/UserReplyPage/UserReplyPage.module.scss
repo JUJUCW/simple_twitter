@@ -9,4 +9,7 @@
 .userToggleMenu {
   display: flex;
 }
-
+.replyList {
+  height: 100vh;
+  overflow-y: scroll;
+}
