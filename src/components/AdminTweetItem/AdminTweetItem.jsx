@@ -1,26 +1,28 @@
 
 
 import styles from './AdminTweetItem.module.scss';
-import logo from '../../assets/icons/logo_gray.png';
 import admin_delete from '../../assets/icons/admin/admin_delete.png'
+import { getRelativeTime } from '../../utility/helper.js';
 
-
-export default function AdminTweetItem () {
-  
+export default function AdminTweetItem (props) {
+            const avatar=props.avatar
+            const userName=props.userName
+            const account=props.account
+            const createdAt=props.createdAt
+            const description=props.description
     return (
         <div className={styles.container}>
             <div className={styles.avatar}>
-                <img className={styles.avatarImg} src={logo} alt="avatar" />
+                <img className={styles.avatarImg} src={avatar} alt="avatar" />
             </div>
             <div className={styles.infoContainer}>
                 <div className={styles.userInfo}>
-                    <h5 className={styles.name}>Apple</h5>
-                    <span className={styles.account}>@apple</span>
-                    <span className={styles.tweetTime}>&#xb7;3 小時</span>
+                    <h5 className={styles.name}>{userName}</h5>
+                    <span className={styles.account}>@{account}</span>
+                    <span className={styles.tweetTime}>&#xb7;{getRelativeTime(createdAt)}</span>
                 </div>
                 <div className={styles.tweetContent}>
-                    Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
-                    exercitation incididunt aliquip deserunt reprehenderit elit laborumexercitation incididunt 
+                    {description}
                 </div>
             </div>
             <div className={styles.adminDelete}>

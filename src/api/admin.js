@@ -1,12 +1,12 @@
 import { apiHelper } from '../utility/helper.js'
 
-export const getAllTweets = async () => {
+export const adminGetAllTweets = async () => {
   try{
-    const {data} = await apiHelper.get(`/tweets`)
+    const {data} = await apiHelper.get(`/admin/tweets`)
     console.log(data)
     return data
   } catch (error) {
-    console.error('[getAllTweets Failed]:', error)
+    console.error('[Admin get all tweets Failed]:', error)
     return error
   }
 } 
