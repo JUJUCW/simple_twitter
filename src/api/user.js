@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Toast, baseURL } from '../utility/helper.js';
+import { Toast, baseURL, apiHelper } from '../utility/helper.js';
 
 //user login
 
@@ -56,3 +56,15 @@ export const adminLogin = async ({ account, password }) => {
   }
 }
 
+// get user profile
+
+export const getUser = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}`)
+    if (data.id) return data
+    return data
+  } catch (error) {
+    console.log('[Login Failed]:', error)
+    return error
+  }
+}
