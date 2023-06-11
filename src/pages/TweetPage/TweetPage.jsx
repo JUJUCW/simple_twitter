@@ -15,7 +15,6 @@ import { getReplies } from 'api/reply';
 
 export default function TweetPage() {
     const param = useParams();
-    const navigate = useNavigate();
     const [tweet, setTweet] = useState({});
     const [user, setUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,7 +30,7 @@ export default function TweetPage() {
     useEffect(() => {
         getTweet(param.tweetId)
             .then((res) => {
-              const data = res.data;
+                const data = res.data;
                 if (res.status !== 200) {
                     throw new Error(data.message);
                 }
@@ -66,9 +65,10 @@ export default function TweetPage() {
                 <MainContainer>
                     <Header title="推文" arrow />
 
-                    <ATweet
-                        tweet={tweet}
+                    <SingleTweet
+                        props={tweet}
                         onClick={handleOpenModal} />
+                    
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

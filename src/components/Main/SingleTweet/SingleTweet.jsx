@@ -11,20 +11,20 @@ import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
 // import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
-export default function SingleTweet(props) {
+export default function SingleTweet({props}) {
     // const [isClicked, setIsClicked] = useState(false);
     // const handleClick = () => {
     //     setIsClicked(!isClicked);
     // };
-    const tweetId = props.tweetId;
-    const User = props.UserId;
-    const userName = props.userName;
-    const account = props.account;
-    const avatar = props.avatar;
+// console.log(props)
+    const tweetId = props.id;
+    // const userName = props.User.name;
+
+    // const account = props.User.account;
+    // const avatar = props.User.avatar;
     const description = props.description;
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
-    // const updatedAt = props.updatedAt;
     const handleOpenModal = props.onClick;
     const [showLiked, setShowLiked] = useState(props.isLiked);
     const [likedCount, setLikeCount] = useState(props.likedCount);
@@ -57,11 +57,15 @@ export default function SingleTweet(props) {
         <div className={styles.tweet}>
             <div className={styles.userInfo}>
                 <div className={styles.userInfoAvatar}>
-                    <img src={avatar} alt="avatar" className={styles.tweetAvatar} />
+                    <img
+                        // src={ }
+                        alt="avatar" className={styles.tweetAvatar} />
                 </div>
                 <div className={styles.userInfoCard}>
-                    <div className={styles.userInfoName}>{userName}</div>
-                    <div className={styles.userInfoAccount}>@{account}</div>
+                    <div className={styles.userInfoName}>{/*userName*/}</div>
+                    <div className={styles.userInfoAccount}>
+                        {/* @{account} */}
+                    </div>
                 </div>
             </div>
 
