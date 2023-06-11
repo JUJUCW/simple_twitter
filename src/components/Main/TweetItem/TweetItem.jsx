@@ -24,27 +24,43 @@ export default function TweetItem(props) {
     const [likedCount, setLikeCount] = useState(props.likedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
 
-    const handleLike = () => {
+    const handleLike = async () => {
+    try {
         if (showLiked === true) {
-            postTweetUnlike(tweetId)
-                .then(() => {
-                    setShowLiked(false);
-                    setLikeCount(likedCount - 1);
-                })
-                .catch((error) => {
-                    console.log('取消按讚失敗', error);
-                });
+            await postTweetUnlike(tweetId);
+            setShowLiked(false);
+            setLikeCount(likedCount - 1);
         } else {
-            postTweetLike(tweetId)
-                .then(() => {
-                    setShowLiked(true);
-                    setLikeCount(likedCount + 1);
-                })
-                .catch((error) => {
-                    console.log('按讚失敗', error);
-                });
+            await postTweetLike(tweetId);
+            setShowLiked(true);
+            setLikeCount(likedCount + 1);
         }
-    };
+    } catch (error) {
+        console.log('操作失敗', error);
+    }
+};
+
+    // const handleLike = () => {
+    //     if (showLiked === true) {
+    //         postTweetUnlike(tweetId)
+    //             .then(() => {
+    //                 setShowLiked(false);
+    //                 setLikeCount(likedCount - 1);
+    //             })
+    //             .catch((error) => {
+    //                 console.log('取消按讚失敗', error);
+    //             });
+    //     } else {
+    //         postTweetLike(tweetId)
+    //             .then(() => {
+    //                 setShowLiked(true);
+    //                 setLikeCount(likedCount + 1);
+    //             })
+    //             .catch((error) => {
+    //                 console.log('按讚失敗', error);
+    //             });
+    //     }
+    // };
 
     return (
         <div className={styles.container}>
