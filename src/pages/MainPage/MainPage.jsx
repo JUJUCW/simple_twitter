@@ -28,7 +28,8 @@ export default function MainPage() {
     };
 
     useEffect(() => {
-        async function getAllTweet() {
+    const getAllTweet = async () => {
+        try {
             const data = await getAllTweets();
             if (data.status === 'error') {
                 console.log(data.message);
@@ -38,6 +39,9 @@ export default function MainPage() {
                 // update data
                 setTweets(data);
             }
+        } catch (error) {
+            console.log('獲取推文失敗', error);
+        }
         }
         getAllTweet();
     }, []);
