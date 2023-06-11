@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './TweetPage.module.scss';
 import MainContainer from 'components/Main/MainContainer/MainContainer';
 import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
@@ -7,7 +7,7 @@ import SuggestUserContainer from 'components/SuggestUser/SuggestUserContainer/Su
 import Header from 'components/Header/Header';
 import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
-import ATweet from 'components/Main/TweetList/ATweet';
+// import ATweet from 'components/Main/TweetList/ATweet';
 
 // import TweetList from 'components/Main/TweetList/TweetList';
 import { getTweet } from 'api/tweet';
@@ -28,32 +28,36 @@ export default function TweetPage() {
     };
 
     useEffect(() => {
-        getTweet(param.tweetId)
-            .then((res) => {
+        const fetchData = async () => {
+            try {
+                const res = await getTweet(param.tweetId);
+                console.log(param.tweetId)
+                const data = res.data;
+                setTweet(data);
+                setUser(data.User);
+            } catch (error) {
+                throw new Error(error);
+            }
+        };
+
+        fetchData();
+    }, [param.tweetId]);
+
+    useEffect(() => {
+        const fetchReplies = async () => {
+            try {
+                const res = await getReplies(param.tweetId);
                 const data = res.data;
                 if (res.status !== 200) {
                     throw new Error(data.message);
                 }
-                setTweet(data);
-                setUser(data.User);
-            })
-            .catch((error) => {
-                console.error(error);
-            });
-    }, [param.tweetId]);
-
-    useEffect(() => {
-        getReplies(param.tweetId)
-            .then((res) => {
-                const data  = res.data;
-                if (res.status !== 200) {
-                    throw new Error(data.message);
-                }
                 setReplies(data.replies);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error(error);
-            });
+            }
+        };
+
+        fetchReplies();
     }, [param.tweetId]);
 
     return (
@@ -65,10 +69,7 @@ export default function TweetPage() {
                 <MainContainer>
                     <Header title="推文" arrow />
 
-                    <SingleTweet
-                        props={tweet}
-                        onClick={handleOpenModal} />
-                    
+                    <SingleTweet props={tweet} onClick={handleOpenModal} />
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

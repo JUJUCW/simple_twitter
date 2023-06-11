@@ -5,22 +5,21 @@ import { getRelativeTime } from 'utility/helper.js';
 import { postTweetUnlike, postTweetLike } from 'api/like.js';
 
 import { Link } from 'react-router-dom';
-
+import {tweet} from 'TweetPage.jsx';
 import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 // import likeIcon from 'assets/icons/tweet/tweet_like.png';
 import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
 // import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
-export default function SingleTweet({props}) {
+export default function SingleTweet({ props, onClick }) {
     // const [isClicked, setIsClicked] = useState(false);
     // const handleClick = () => {
     //     setIsClicked(!isClicked);
     // };
-// console.log(props)
-    const tweetId = props.id;
 
+    const tweetId = props.id;
     // const userName = props.User.name;
-    // console.log(userName)
+    // console.log(userName);
     // const account = props.User.account;
     // console.log(account)
     // const avatar = props.User.avatar;
