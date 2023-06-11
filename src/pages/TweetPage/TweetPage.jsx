@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import styles from './TweetPage.module.scss';
 import MainContainer from 'components/Main/MainContainer/MainContainer';
 import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
@@ -8,34 +9,58 @@ import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
 // import TweetList from 'components/Main/TweetList/TweetList';
-import { getTweet } from 'api/tweet';
+import tweet from 'api/tweet';
+import { getReplies } from 'api/reply';
 
 export default function TweetPage() {
-    const [tweets, setTweets] = useState([]);
+  const param = useParams();
+    const navigate = useNavigate();
+    const [tweet, setTweet] = useState({});
+    const [user, setUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [replies, setReplies] = useState([]);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
-
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
 
     useEffect(() => {
-        async function getATweet() {
-            const data = await getTweet();
-            if (data.status === 'error') {
-                console.log(data.message);
-                return;
-            }
-            if (data) {
-                // update data
-                setTweets(data);
-            }
+         tweet
+      .getTweet(param.tweet_id)
+      .then((res) => {
+        const { data } = res
+        if (res.status !== 200) {
+          throw new Error(data.message)
         }
-        getATweet();
-    }, []);
+        setTweet(data)
+        setUser(data.User)
+      })
+      .catch((error) => {
+        console.error(error)
+        navigate('/login')
+      })
+    }, [])
+  
+  useEffect(() => {
+    getReplies
+        .getReplies(param.tweet_id)
+        .then((res) => {
+            const { data } = res;
+            if (res.status !== 200) {
+                throw new Error(data.message);
+            }
+            setReplies(data.replies);
+        })
+        .catch((error) => {
+            console.error(error);
+            navigate('/login');
+        });
+  }, [])
+
+
 
     return (
         <div className={styles.container}>
