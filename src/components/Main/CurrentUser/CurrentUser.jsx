@@ -13,7 +13,7 @@ export default function CurrentUser({userInfo}) {
     const avatar = userInfo.avatar
     const name = userInfo.name
     const account = userInfo.account
-    // const userId = userInfo.id;
+    const userId = userInfo.id;
     const introduction = userInfo.introduction
     const followerCount = userInfo.Follower_Count
     const followingCount = userInfo.Following_Count
@@ -74,7 +74,7 @@ export default function CurrentUser({userInfo}) {
                         </div>
                     </div>
                 </div>
-                {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal}/>}
+                {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal} id={userId} oriName={name} oriIntroduction={introduction} oriAvatar={avatar} oriCoverImg={coverImg}/>}
             </div>
         </div>
     );

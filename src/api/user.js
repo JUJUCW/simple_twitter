@@ -154,5 +154,25 @@ export const getTopTenUsers = async() => {
   }
 }
 
+// setting user profile
+
+export const setUserProfile = async (formData, userId) => {
+  try {
+    const {data} = await apiHelper.put(`/users/${userId}`,
+      formData ,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    if (data.status === 'success') return data
+    return data
+  } catch (error) {
+    console.log("[Set user profile Failed]:", error);
+    return error
+  }
+};
+
 
 

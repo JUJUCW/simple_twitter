@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { Toast } from '../../utility/helper.js'
 import Header from '../../components/Header/Header.jsx'
 import AdminTweetItem from '../../components/AdminTweetItem/AdminTweetItem.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
@@ -15,6 +15,7 @@ export default function AdminTweetPage () {
       setTweets((preTweets) => {
         return preTweets.filter((tweet) => tweet.id !== id);
       });
+      
     } catch (error) {
       console.error(error);
     }

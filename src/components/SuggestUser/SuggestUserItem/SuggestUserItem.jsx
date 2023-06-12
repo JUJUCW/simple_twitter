@@ -15,20 +15,27 @@ export default function SuggestUserItem(props) {
     const [isClicked, setIsClicked] = useState(isFollowed);
 
     const handleClick = async() => {
-        if (isClicked === false) {
-            const data = await followUser(userId)
-            if (data.followingId) {
+        try{
+            if (isClicked === false) {
+                const data = await followUser(userId)
+                if (data.followingId) {
+                console.log(data.followingId)
                 setIsClicked(true)
             }
         }
-        if (isClicked === true) {
-            const data = await unFollowUser(userId)
-            if (data.followingId) {
+            if (isClicked === true) {
+                const data = await unFollowUser(userId)
+                if (data.followingId) {
+                console.log(data.followingId)
                 setIsClicked(false)
             }
+        } 
+        } catch (error){
+            console.error(error)
         }
         
     };
+
     return (
         <>
             <div className={styles.userItem}>
