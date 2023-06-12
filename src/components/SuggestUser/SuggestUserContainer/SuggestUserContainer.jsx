@@ -31,6 +31,7 @@ export default function SuggestUserContainer() {
         return (
         <SuggestUserItem
             key={user.id}
+            userId={user.id}
             avatar={user.avatar}
             name={user.name}
             account={user.account}

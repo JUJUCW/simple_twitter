@@ -1,4 +1,7 @@
 import { useState } from 'react';
+
+import { followUser, unFollowUser } from '../../../api/followship.js'
+// import {Toast} from '../../../utility/helper.js'
 import styles from './SuggestUserItem.module.scss';
 import Button from '../../Button/Button.jsx';
 import logo from '../../../assets/icons/logo.png';
@@ -7,10 +10,24 @@ export default function SuggestUserItem(props) {
     const avatar=props.avatar
     const name=props.name
     const account=props.account
+    const userId=props.userId
     const isFollowed=props.isFollowed
     const [isClicked, setIsClicked] = useState(isFollowed);
-    const handleClick = () => {
-        setIsClicked(!isClicked);
+
+    const handleClick = async() => {
+        if (isClicked === false) {
+            const data = await followUser(userId)
+            if (data.followingId) {
+                setIsClicked(true)
+            }
+        }
+        if (isClicked === true) {
+            const data = await unFollowUser(userId)
+            if (data.followingId) {
+                setIsClicked(false)
+            }
+        }
+        
     };
     return (
         <>
