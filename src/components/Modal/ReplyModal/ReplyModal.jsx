@@ -44,7 +44,7 @@ export default function ReplyModal ({handleCloseModal}) {
           </textarea>
           <div className={styles.info}>
             <img className={styles.avatar} src={logo_gray} alt="logo_gray" />
-            <span className={styles.placeHolder}>有什麼新鮮事？</span>
+            <span className={styles.placeHolder}>推你的回覆</span>
           </div>
           <div className={styles.footer}>
             <span className={warningClassName}>字數不可超過 140 字</span>

@@ -50,28 +50,7 @@ export default function TweetItem(props) {
     }
 };
 
-    // const handleLike = () => {
-    //     if (showLiked === true) {
-    //         postTweetUnlike(tweetId)
-    //             .then(() => {
-    //                 setShowLiked(false);
-    //                 setLikeCount(likedCount - 1);
-    //             })
-    //             .catch((error) => {
-    //                 console.log('取消按讚失敗', error);
-    //             });
-    //     } else {
-    //         postTweetLike(tweetId)
-    //             .then(() => {
-    //                 setShowLiked(true);
-    //                 setLikeCount(likedCount + 1);
-    //             })
-    //             .catch((error) => {
-    //                 console.log('按讚失敗', error);
-    //             });
-    //     }
-    // };
-
+    
     return (
         <div className={styles.container}>
             {/* <Link to={`/${userId}/tweet`}> */}

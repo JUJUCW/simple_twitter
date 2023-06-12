@@ -16,47 +16,44 @@ import { getAllTweets } from '../../api/tweet.js';
 
 export default function MainPage() {
     const [tweets, setTweets] = useState([]);
-    
 
     useEffect(() => {
-    const getAllTweet = async () => {
-        try {
-            const data = await getAllTweets();
-            if (data.status === 'error') {
-                console.log(data.message);
-                return;
+        const getAllTweet = async () => {
+            try {
+                const data = await getAllTweets();
+                if (data.status === 'error') {
+                    console.log(data.message);
+                    return;
+                }
+                if (data) {
+                    // update data
+                    setTweets(data);
+                }
+            } catch (error) {
+                console.log('獲取推文失敗', error);
             }
-            if (data) {
-                // update data
-                setTweets(data);
-            }
-        } catch (error) {
-            console.log('獲取推文失敗', error);
-        }
-        }
+        };
         getAllTweet();
     }, []);
 
-
-     const tweetList = tweets.map((tweet) => {
+    const tweetList = tweets.map((tweet) => {
         return (
-        <TweetItem
-            key={tweet.id}
-            tweetId={tweet.id}
-            userId={tweet.UserId}
-            userName={tweet.User.name}
-            account={tweet.User.account}
-            avatar={tweet.User.avatar}
-            description={tweet.description}
-            likedCount={tweet.likedCount}
-            replyCount={tweet.replyCount}
-            isLiked={tweet.isLiked}
-            createdAt={tweet.createdAt}
-            // updatedAt={tweet.updatedAt}
-        />
+            <TweetItem
+                key={tweet.id}
+                tweetId={tweet.id}
+                userId={tweet.UserId}
+                userName={tweet.User.name}
+                account={tweet.User.account}
+                avatar={tweet.User.avatar}
+                description={tweet.description}
+                likedCount={tweet.likedCount}
+                replyCount={tweet.replyCount}
+                isLiked={tweet.isLiked}
+                createdAt={tweet.createdAt}
+                // updatedAt={tweet.updatedAt}
+            />
         );
     });
-
 
     return (
         <div className={styles.container}>
@@ -68,13 +65,13 @@ export default function MainPage() {
                     <Header title="首頁" />
                     <TweetInput />
                     {/* <SingleTweet /> */}
+
                     {tweetList}
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}
             <SuggestUserContainer />
             {/* </div> */}
-            
         </div>
     );
 }
