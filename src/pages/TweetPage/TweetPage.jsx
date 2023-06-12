@@ -1,3 +1,23 @@
+
+//     return (
+//         <div className={styles.container}>
+//             {/* <div className={styles.navBarContainer}> */}
+//             <NavBarContainer role="user" page="main" />
+//             {/* </div> */}
+//             <div className={styles.mainContainer}>
+//                 <MainContainer>
+//                     <Header title="推文" arrow />
+//                     <SingleTweet props={tweet} onClick={handleOpenModal} userName={user.name} />
+//                     {/* {repliesList} */}
+//                 </MainContainer>
+//             </div>
+//             {/* <div className={styles.suggestFollowContainer}> */}
+//             <SuggestUserContainer />
+//             {/* </div> */}
+//             {isModalOpen}
+//         </div>
+//     );
+// }
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './TweetPage.module.scss';
@@ -6,19 +26,17 @@ import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
 import SuggestUserContainer from 'components/SuggestUser/SuggestUserContainer/SuggestUserContainer';
 import Header from 'components/Header/Header';
 import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
-// import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
-// import ATweet from 'components/Main/TweetList/ATweet';
+import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
+import ReplyItem from 'components/Main/ReplyItem/ReplyItem';
 
-// import TweetList from 'components/Main/TweetList/TweetList';
-import { getTweet } from 'api/tweet';
-// import { getReplies } from 'api/reply';
+import { getTweet, getTweetReplies } from 'api/tweet';
 
 export default function TweetPage() {
     const param = useParams();
     const [tweet, setTweet] = useState({});
     const [user, setUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
-    // const [replies, setReplies] = useState([]);
+    const [replies, setReplies] = useState([]);
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -28,35 +46,45 @@ export default function TweetPage() {
     };
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchTweet = async () => {
             try {
-                const res = await getTweet(param.tweetId);
-                const data = res.data;
-                setTweet(data);
-                setUser(data.User);
+                const data = await getTweet(param.TweetId);
+
+                if (data && data.User) {
+                    setTweet(data);
+                    setUser(data.User);
+                }
             } catch (error) {
                 throw new Error(error);
             }
         };
+        const fetchReplies = async () => {
+            try {
+                const replies = await getTweetReplies(param.TweetId);
+                if (replies) {
+                    setReplies(replies);
+                }
+            } catch (error) {
+                throw new Error(error);
+            }
+        };
+        fetchReplies();
+        fetchTweet();
+    }, []);
 
-        fetchData();
-    }, [param.tweetId]);
 
-    // useEffect(() => {
-    //     const fetchReplies = async () => {
-    //         try {
-    //             const res = await getReplies(param.tweetId);
-    //             const data = res.data;
 
-    //             setReplies(data.replies);
-    //         } catch (error) {
-    //             console.error(error);
-    //         }
-    //     };
-
-    //     fetchReplies();
-    // }, []);
-
+    const repliesList = replies.map((reply) => {
+        return (
+            <ReplyItem
+                avatar={reply.User.avatar}
+                account={reply.User.account}
+                userName={reply.User.name}
+                createdAt={reply.createdAt}
+                comment={reply.comment}
+            />
+        );
+    });
     return (
         <div className={styles.container}>
             {/* <div className={styles.navBarContainer}> */}
@@ -65,13 +93,14 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-                    <SingleTweet props={tweet} onClick={handleOpenModal} userName={user.name} />
+                    <SingleTweet props={tweet} onClick={handleOpenModal} userName={user.name} User={user} />
+                    {repliesList}
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}
             <SuggestUserContainer />
             {/* </div> */}
-            {isModalOpen}
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
         </div>
     );
 }

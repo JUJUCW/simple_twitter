@@ -5,10 +5,9 @@ export default function ReplyItem(props) {
     const account = props.account;
     const userName = props.name;
     const createdAt = props.createdAt;
-    // const tweetId=props.tweetId
-    // const userId=props.UserId
-    // const tweetAccount=props.tweetAccount
     const comment = props.comment;
+
+
     return (
         <div className={styles.modalContainer}>
             <div className={styles.tweet}>
