@@ -23,7 +23,7 @@ export const userLogin = async ({ account, password }) => {
         }
         return data;
   } catch (error) {
-    console.log('[Login Failed]:', error)
+    console.error('[Login Failed]:', error)
     return error
   }
 }
@@ -51,10 +51,42 @@ export const adminLogin = async ({ account, password }) => {
     return data
 
   } catch (error) {
-    console.log('[Login Failed]:', error)
+    console.error('[Login Failed]:', error)
     return error
   }
 }
+
+// user signup
+
+export const userSignup = async ({
+  name,
+  account,
+  email,
+  password,
+  checkPassword,
+}) => {
+  try {
+    const { data } = await axios.post(`${baseURL}/users`, {
+      name,
+      account,
+      email,
+      password,
+      checkPassword,
+    });
+    return data;
+  } catch (error) {
+    console.error('[Signup Failed]:', error)
+    return error
+  }
+};
+
+
+
+
+
+
+
+
 
 // get user profile
 
