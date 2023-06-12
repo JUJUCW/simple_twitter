@@ -13,7 +13,7 @@ export default function ReplyModal({ handleCloseModal, props }) {
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
-    const TweetId = props.TweetId;
+    const tweetId = props.tweetId;
     // const userId = props.userId;
     const userName = props.userName;
     const account = props.account;
@@ -21,7 +21,8 @@ export default function ReplyModal({ handleCloseModal, props }) {
     const description = props.description;
     const createdAt = props.createdAt;
 
-    const handlePostReply = async () => {
+  const handlePostReply = async () => {
+      
         if (textInput.trim().length === 0) {
             setTextInput('');
             Toast.fire({
@@ -32,8 +33,9 @@ export default function ReplyModal({ handleCloseModal, props }) {
         }
         if (textInput.length > 140) return;
         try {
-            console.log('tweetId', TweetId);
-            const res = await postReply(textInput.trim());
+          console.log('tweetId', tweetId);
+          // const tweetId = Number(localStorage.getItem('tweetId'));
+            const res = await postReply(textInput.trim(), tweetId);
 
             if (res.id) {
                 setTextInput('');
