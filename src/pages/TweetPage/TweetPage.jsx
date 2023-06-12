@@ -40,7 +40,7 @@ export default function TweetPage() {
         };
 
         fetchData();
-    }, []);
+    }, [param.tweetId]);
 
     // useEffect(() => {
     //     const fetchReplies = async () => {
