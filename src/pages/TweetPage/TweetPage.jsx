@@ -73,7 +73,6 @@ export default function TweetPage() {
     }, []);
 
 
-
     const repliesList = replies.map((reply) => {
         return (
             <ReplyItem
@@ -93,7 +92,7 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-                    <SingleTweet props={tweet} onClick={handleOpenModal} userName={user.name} User={user} />
+                    <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />
                     {repliesList}
                 </MainContainer>
             </div>
