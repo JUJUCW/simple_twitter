@@ -141,4 +141,18 @@ export const getUserLikes = async(userId) => {
   }
 }
 
+// get top ten users
+
+export const getTopTenUsers = async() => {
+  try{
+    const{data} = await apiHelper.get(`/users/topTen`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('[Get top ten users Failed]:', error)
+    return error
+  }
+}
+
+
 
