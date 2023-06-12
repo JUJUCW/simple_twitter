@@ -1,25 +1,61 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-
+import { Toast } from '../../../utility/helper.js';
+import { postReply } from 'api/reply.js';
 import Button from '../../Button/Button.jsx';
 import { getRelativeTime } from 'utility/helper.js';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png';
 import styles from './ReplyModal.module.scss';
 // import TweetItem from 'components/Main/TweetItem/TweetItem.jsx';
+
 export default function ReplyModal({ handleCloseModal, props }) {
     const [textInput, setTextInput] = useState('');
-
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
-    // const tweetId = props.tweetId;
+    const TweetId = props.TweetId;
     // const userId = props.userId;
     const userName = props.userName;
     const account = props.account;
     const avatar = props.avatar;
     const description = props.description;
-
     const createdAt = props.createdAt;
+
+    const handlePostReply = async () => {
+        if (textInput.trim().length === 0) {
+            setTextInput('');
+            Toast.fire({
+                title: '內容不可為空白',
+                icon: 'error',
+            });
+            return;
+        }
+        if (textInput.length > 140) return;
+        try {
+            console.log('tweetId', TweetId);
+            const res = await postReply(textInput.trim());
+
+            if (res.id) {
+                setTextInput('');
+                Toast.fire({
+                    title: '回覆發送成功',
+                    icon: 'success',
+                });
+            } else {
+                Toast.fire({
+                    title: '回覆發送失敗',
+                    icon: 'error',
+                });
+            }
+        } catch (error) {
+            console.error(error);
+            Toast.fire({
+                title: '回覆發送失敗',
+                icon: 'error',
+            });
+        }
+    };
+
     return (
         <div className={styles.modalOverlay}>
             <div className={styles.modalContainer}>
@@ -30,7 +66,7 @@ export default function ReplyModal({ handleCloseModal, props }) {
                 </div>
                 <div className={styles.tweet}>
                     <div className={styles.left}>
-                        <img className={styles.tweetAvatar} src={avatar} alt="avatar" />
+                        <img className={styles.avatar} src={avatar} alt="avatar" />
                         <span className={styles.line}></span>
                     </div>
                     <div className={styles.right}>
@@ -50,18 +86,22 @@ export default function ReplyModal({ handleCloseModal, props }) {
                     </div>
                 </div>
                 <div className={styles.positionAnchor}>
-                    <textarea
-                        className={bodyClassName}
-                        onChange={(event) => setTextInput(event.target.value)}
-                    ></textarea>
                     <div className={styles.info}>
-                        <img className={styles.avatar} src={avatar} alt="logo_gray" />
-                        <span className={styles.placeHolder}>推你的回覆</span>
+                        <img className={styles.avatar} src={avatar} alt="avatar" />
+
+                        <div className={styles.replyContainer}>
+                            <textarea
+                                className={bodyClassName}
+                                onChange={(event) => setTextInput(event.target.value)}
+                                placeholder="推你的回覆"
+                                value={textInput}
+                            />
+                        </div>
                     </div>
                     <div className={styles.footer}>
                         <span className={warningClassName}>字數不可超過 140 字</span>
                         <span className={headsUpClassName}>內容不可為空白</span>
-                        <Button title="回覆" size="small" isAction></Button>
+                        <Button title="回覆" size="small" isAction onClick={handlePostReply}></Button>
                     </div>
                 </div>
             </div>

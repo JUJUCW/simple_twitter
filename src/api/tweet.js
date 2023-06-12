@@ -38,12 +38,15 @@ export const postTweet = async (description) => {
         const { data } = await apiHelper.post(`/tweets`, {
             description,
         });
+        console.log('tweet', data)
         return data;
     } catch (error) {
         console.error('[postTweet Failed]:', error);
         return error;
     }
 };
+
+
 
 // const axiosInstance = axios.create({
 //   baseURL: baseURL,
