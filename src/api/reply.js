@@ -10,14 +10,15 @@ export const getReplies = async (TweetId) => {
     }
 };
 // todo add params about payload  to postReply
-export const postReply = async (comment) => {
-
+export const postReply = async (comment, TweedId) => {
     try {
-        const {data} = await apiHelper.post(`/tweets/4/replies`, {
+        const { data } = await apiHelper.post(`/tweets/${TweedId}/replies`, {
             // TweetId,
             comment,
             // UserId,
         });
+
+        console.log('TweetId',TweedId)
         console.log('postReply_api');
         console.log('data', data);
         return data;
