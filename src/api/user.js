@@ -174,5 +174,31 @@ export const setUserProfile = async (formData, userId) => {
   }
 };
 
+// get user followers
+
+export const getUserFollowers = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/followers`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('[Get user followers Failed]:', error)
+    return error
+  }
+}
+
+// get user followers
+
+export const getUserFollowings = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/followings`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('[Get user followings Failed]:', error)
+    return error
+  }
+}
+
 
 

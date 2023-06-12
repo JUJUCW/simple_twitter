@@ -15,6 +15,10 @@ export default function AdminTweetPage () {
       setTweets((preTweets) => {
         return preTweets.filter((tweet) => tweet.id !== id);
       });
+      Toast.fire({
+        title: "刪除推文成功",
+        icon: "success",
+      });
       
     } catch (error) {
       console.error(error);
