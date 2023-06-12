@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 import clsx from 'clsx';
 import { Toast } from '../../../utility/helper.js';
 import { postReply } from 'api/reply.js';
@@ -13,7 +13,8 @@ export default function ReplyModal({ handleCloseModal, props }) {
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
-    const tweetId = props.tweetId;
+    const TweetId = props.TweetId;
+    // console.log(TweetId)
     // const userId = props.userId;
     const userName = props.userName;
     const account = props.account;
@@ -33,9 +34,9 @@ export default function ReplyModal({ handleCloseModal, props }) {
         }
         if (textInput.length > 140) return;
         try {
-          console.log('tweetId', tweetId);
+        //   console.log('tweetId', TweetId);
           // const tweetId = Number(localStorage.getItem('tweetId'));
-            const res = await postReply(textInput.trim(), tweetId);
+            const res = await postReply(textInput.trim(), TweetId);
 
             if (res.id) {
                 setTextInput('');

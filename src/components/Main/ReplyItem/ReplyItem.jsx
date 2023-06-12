@@ -7,7 +7,6 @@ export default function ReplyItem(props) {
     const createdAt = props.createdAt;
     const comment = props.comment;
 
-
     return (
         <div className={styles.modalContainer}>
             <div className={styles.tweet}>
@@ -23,7 +22,7 @@ export default function ReplyItem(props) {
                     </div>
                     <div className={styles.replyAddress}>
                         <span className={styles.replyWord}>回覆給</span>
-                        <span className={styles.replyAccount}> @apple</span>
+                        <span className={styles.replyAccount}> @{userName}</span>
                     </div>
                     <div className={styles.tweetContent}>{comment}</div>
                 </div>

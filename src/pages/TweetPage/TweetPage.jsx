@@ -70,7 +70,7 @@ export default function TweetPage() {
         };
         fetchReplies();
         fetchTweet();
-    }, []);
+    }, [param.TweetId]);
 
 
     const repliesList = replies.map((reply) => {
