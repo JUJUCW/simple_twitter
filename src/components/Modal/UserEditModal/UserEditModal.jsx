@@ -3,19 +3,22 @@ import { useState } from 'react';
 import Button from '../../Button/Button.jsx';
 import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
 import EditInput from '../../EditInput/EditInput.jsx'
-
+import { setUserProfile } from '../../../api/user.js'
+import { Toast } from '../../../utility/helper.js'
 import bgImg from '../../../assets/images/default_background.png';
-import logo from '../../../assets/icons/logo_gray.png';
+// import logo from '../../../assets/icons/logo_gray.png';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png'
 import modal_upload from '../../../assets/icons/modal/modal_upload.png'
 import modal_cancel from '../../../assets/icons/modal/modal_cancel.png'
 import styles from './UserEditModal.module.scss';
 
-export default function UserEditModal ({handleCloseModal}) {
-  const [coverImg, setCoverImg] = useState(bgImg)
-  const [avatarImg, setAvatarImg] = useState(logo)
-  const [name, setName] = useState("");
-  const [introduction, setIntroduction] = useState("");
+export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverImg, oriIntroduction, oriAvatar}) {
+  const [coverPhoto, setCoverPhoto] = useState(oriCoverImg)
+  const [upCoverPhoto, setUpCoverPhoto] = useState(coverPhoto)
+  const [avatar, setAvatar] = useState(oriAvatar)
+  const [upAvatar, setUpAvatar] = useState(avatar)
+  const [name, setName] = useState(oriName);
+  const [introduction, setIntroduction] = useState(oriIntroduction);
 
   const handleImgChange = (e, type) => {
     if (!e.target.files[0]) {
@@ -23,16 +26,42 @@ export default function UserEditModal ({handleCloseModal}) {
     }
     const selectedFile = e.target.files[0];
     const objectUrl = URL.createObjectURL(selectedFile);
-    console.log(objectUrl);
     if (type === "cover") {
-      setCoverImg(objectUrl);
+      setUpCoverPhoto(selectedFile)
+      console.log(selectedFile)
+      setCoverPhoto(objectUrl);
     } else if (type === "avatar") {
-      setAvatarImg(objectUrl);
+      setUpAvatar(selectedFile)
+      console.log(selectedFile)
+      setAvatar(objectUrl);
     }
   };
 
   const handleCancelImg = () => {
-    setCoverImg(bgImg);
+    setCoverPhoto(bgImg);
+  }
+
+  const handleSubmit = async() => {
+    const formData = new FormData();
+          formData.append("coverPhoto", upCoverPhoto);
+          formData.append("avatar", upAvatar);
+          formData.append("name", name);
+          formData.append("introduction", introduction);
+    console.log(formData)
+
+    const data = await setUserProfile(formData ,id)
+    if (data.status==="success") {
+      Toast.fire({
+        title: "修改個人資料成功",
+        icon: "success",
+      });
+    }
+    if (data.status==="error") {
+      Toast.fire({
+        title: "修改個人資料失敗",
+        icon: "error",
+      });
+    }
   }
 
     return (
@@ -45,14 +74,14 @@ export default function UserEditModal ({handleCloseModal}) {
               </div>
               <h5>編輯個人資料</h5>
             </div>
-            <Button title='推文' size='small' isAction></Button>
+            <Button title='儲存' size='small' isAction onClick={handleSubmit}></Button>
             </div>
             <div className={styles.userCard}>
               <div className={styles.cover}>
-                  <img src={coverImg} alt="cover" className={styles.bgImg} />
+                  <img src={coverPhoto} alt="cover" className={styles.bgImg} />
               </div>
               <div className={styles.userInfoAvatar}>
-                  <img src={avatarImg} alt="avatar" className={styles.img} />
+                  <img src={avatar} alt="avatar" className={styles.img} />
               </div>
               <label className={styles.upload} htmlFor="coverInput">
                 <img className={styles.uploadImg} src={modal_upload} alt="modal_upload" />

@@ -10,7 +10,7 @@ export const userLogin = async ({ account, password }) => {
             password,
         });
 
-        const { token, role } = data.data;
+        const { token, role } = data;
 
         if (token && role === 'user') {
             return { success: true, ...data };
@@ -23,38 +23,36 @@ export const userLogin = async ({ account, password }) => {
         }
         return data;
   } catch (error) {
-    console.log('[Login Failed]:', error)
+    console.error('[Login Failed]:', error)
     return error
   }
 }
 
-//admin login
 
-export const adminLogin = async ({ account, password }) => {
+// user signup
+
+export const userSignup = async ({
+  name,
+  account,
+  email,
+  password,
+  checkPassword,
+}) => {
   try {
-    const {data} = await axios.post(`${baseURL}/signin`, {
-      account, password
-    })
-
-    const { token, role } = data.data;
-
-    if ( token && role === "admin") {
-      return { success: true, ...data }
-    }
-    if ( token && role === "user") {
-      Toast.fire({
-      title: "帳號不存在！",
-      icon: "error"
-      })
-    }
-    
-    return data
-
+    const { data } = await axios.post(`${baseURL}/users`, {
+      name,
+      account,
+      email,
+      password,
+      checkPassword,
+    });
+    return data;
   } catch (error) {
-    console.log('[Login Failed]:', error)
+    console.error('[Signup Failed]:', error)
     return error
   }
-}
+};
+
 
 // get user profile
 
@@ -108,5 +106,65 @@ export const getUserLikes = async(userId) => {
     return error
   }
 }
+
+// get top ten users
+
+export const getTopTenUsers = async() => {
+  try{
+    const{data} = await apiHelper.get(`/users/topTen`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('[Get top ten users Failed]:', error)
+    return error
+  }
+}
+
+// setting user profile
+
+export const setUserProfile = async (formData, userId) => {
+  try {
+    const {data} = await apiHelper.put(`/users/${userId}`,
+      formData ,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    if (data.status === 'success') return data
+    return data
+  } catch (error) {
+    console.log("[Set user profile Failed]:", error);
+    return error
+  }
+};
+
+// get user followers
+
+export const getUserFollowers = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/followers`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('[Get user followers Failed]:', error)
+    return error
+  }
+}
+
+// get user followings
+
+export const getUserFollowings = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/followings`)
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error('[Get user followings Failed]:', error)
+    return error
+  }
+}
+
 
 

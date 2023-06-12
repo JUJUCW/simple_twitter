@@ -26,16 +26,16 @@ export default function App() {
                     <Route path="login" element={<LoginPage />} />
                     <Route path="signup" element={<SignUpPage />} />
                     <Route path="main" element={<MainPage />} />
-                    <Route path="userPage" element={<UserTweetPage />} />
-                    <Route path="userReply" element={<UserReplyPage />} />
-                    <Route path="userLike" element={<UserLikePage />} />
+                    <Route path="user/:UserId/tweet" element={<UserTweetPage />} />
+                    <Route path="user/:UserId/reply" element={<UserReplyPage />} />
+                    <Route path="user/:UserId/like" element={<UserLikePage />} />
                     <Route path="admin/login" element={<AdminLoginPage />} />
                     <Route path="setting" element={<SettingPage />} />
                     <Route path="admin/users" element={<AdminUserPage />} />
                     <Route path="admin/tweets" element={<AdminTweetPage />} />
                     <Route path="show" element={<ButtonShowCasePage />} />
-                    <Route path="follower" element={<UserFollowerPage />} />
-                    <Route path="following" element={<UserFollowingPage />} />
+                    <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
+                    <Route path="user/:UserId/following" element={<UserFollowingPage />} />
                     <Route path="tweets/:tweetId" element={<TweetPage />} />
                     <Route path="*" element={<HomePage />} />
                 </Routes>
