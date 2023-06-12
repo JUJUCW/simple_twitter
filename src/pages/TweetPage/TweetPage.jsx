@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import {  useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import styles from './TweetPage.module.scss';
 import MainContainer from 'components/Main/MainContainer/MainContainer';
 import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
 import SuggestUserContainer from 'components/SuggestUser/SuggestUserContainer/SuggestUserContainer';
 import Header from 'components/Header/Header';
 import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
-import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
+// import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 // import ATweet from 'components/Main/TweetList/ATweet';
 
 // import TweetList from 'components/Main/TweetList/TweetList';
@@ -47,7 +47,7 @@ export default function TweetPage() {
     //         try {
     //             const res = await getReplies(param.tweetId);
     //             const data = res.data;
-            
+
     //             setReplies(data.replies);
     //         } catch (error) {
     //             console.error(error);
@@ -71,7 +71,7 @@ export default function TweetPage() {
             {/* <div className={styles.suggestFollowContainer}> */}
             <SuggestUserContainer />
             {/* </div> */}
-            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
+            {isModalOpen}
         </div>
     );
 }

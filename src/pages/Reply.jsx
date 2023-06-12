@@ -8,7 +8,7 @@ export default function Reply() {
     const [atweet, setATweet] = useState({});
     const [replies, setReplies] = useState([]);
     const param = useParams();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     useEffect(() => {
         tweet
@@ -22,7 +22,7 @@ export default function Reply() {
             })
             .catch((err) => {
                 console.log(err);
-                navigate('/login');
+                // navigate('/login');
             });
     }, []);
     return <div></div>;
