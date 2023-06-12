@@ -23,15 +23,14 @@ export default function SingleTweet({ props }) {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
-    const tweetId = props.id;
-    const userName = 'User' in props ? props.User.name : '';
-    const account = 'User' in props ? props.User.account : '';
-    const avatar = 'User' in props ? props.User.avatar : '';
-    const description = props.description;
-    const replyCount = props.replyCount;
-    const createdAt = props.createdAt;
-    const isLiked = props.isLiked;
-    const likedCount = props.likedCount;
+    const { id, User, description, replyCount, createdAt, isLiked, likedCount } = props;
+
+    const tweetId = id;
+    const userName = User?.name || '';
+    const account = User?.account || '';
+    const avatar = User?.avatar || '';
+
+
     // const handleOpenModal = props.onClick;
     const [showLiked, setShowLiked] = useState(isLiked);
     const [likedCounts, setLikeCounts] = useState(likedCount);

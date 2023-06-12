@@ -35,22 +35,21 @@ export default function TweetItem(props) {
     };
 
     const handleLike = async () => {
-    try {
-        if (showLiked === true) {
-            await postTweetUnlike(tweetId);
-            setShowLiked(false);
-            setLikeCount(likedCount - 1);
-        } else {
-            await postTweetLike(tweetId);
-            setShowLiked(true);
-            setLikeCount(likedCount + 1);
+        try {
+            if (showLiked === true) {
+                await postTweetUnlike(tweetId);
+                setShowLiked(false);
+                setLikeCount(likedCount - 1);
+            } else {
+                await postTweetLike(tweetId);
+                setShowLiked(true);
+                setLikeCount(likedCount + 1);
+            }
+        } catch (error) {
+            console.log('操作失敗', error);
         }
-    } catch (error) {
-        console.log('操作失敗', error);
-    }
-};
+    };
 
-    
     return (
         <div className={styles.container}>
             {/* <Link to={`/${userId}/tweet`}> */}
@@ -86,7 +85,7 @@ export default function TweetItem(props) {
                     </div>
                 </div>
             </div>
-            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} props={props} />}
         </div>
     );
 }
