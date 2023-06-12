@@ -73,7 +73,7 @@ export default function SignUpPage () {
       checkPassword,
     });
     // signup success
-    if (data.status==='success') {
+    if (data==="註冊成功") {
       Toast.fire({
         title: "註冊成功請登入",
         icon: "success",
@@ -82,10 +82,12 @@ export default function SignUpPage () {
       return;
     // signup fail
     } 
+    
     Toast.fire({
-        title: data.message,
-        icon: "error",
-      });
+      title: data.response.data.message,
+      icon: "error",
+    });
+
   }
 
   return (

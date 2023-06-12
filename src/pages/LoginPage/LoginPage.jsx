@@ -35,7 +35,7 @@ export default function LoginPage () {
     });
     // login success
     if (data.success) {
-      localStorage.setItem("token", data.data.token);
+      localStorage.setItem("token", data.token);
       Toast.fire({
         title: "登入成功",
         icon: "success",

@@ -15,8 +15,8 @@ export default function CurrentUser({userInfo}) {
     const account = userInfo.account
     const userId = userInfo.id;
     const introduction = userInfo.introduction
-    const followerCount = userInfo.Follower_Count
-    const followingCount = userInfo.Following_Count
+    const followerCount = userInfo.followerCount
+    const followingCount = userInfo.followingCount
     const coverImg = userInfo.coverPhoto
     // const isFollowed = userInfo.isFollowed
 

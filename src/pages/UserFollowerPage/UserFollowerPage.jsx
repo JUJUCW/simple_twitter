@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header.jsx';
 import styles from './UserFollowerPage.module.scss';
@@ -11,11 +11,11 @@ import {getUserFollowers} from '../../api/user.js'
 
 export default function UserFollowerPage() {
     const [users, setUsers] = useState([]);
-
+    const URL = useParams();
   useEffect(() => {
     const getUserFollower = async () => {
         try {
-            const data = await getUserFollowers();
+            const data = await getUserFollowers(URL.UserId);
             if (data.status === 'error') {
                 console.log(data.message);
                 return;
@@ -29,20 +29,18 @@ export default function UserFollowerPage() {
         }
         }
         getUserFollower();
-    }, []);
+    }, [URL.UserId]);
 
     const followerList = users.map((user) => {
         return (
         <FollowTypeCard
-            key={user.id}
+            key={user.followingId}
+            userId={user.followingId}
             avatar={user.avatar}
             name={user.name}
-            coverPhoto={user.coverPhoto}
             account={user.account}
-            followerCount={user.followerCounts}
-            followingCount={user.followingCounts}
-            tweetCount={user.tweetCounts}
-            likeCount={user.likeCounts}
+            introduction={user.introduction}
+            isFollowed={user.isFollowed}
         />
         );
     });

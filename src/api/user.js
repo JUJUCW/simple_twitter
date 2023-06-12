@@ -10,7 +10,7 @@ export const userLogin = async ({ account, password }) => {
             password,
         });
 
-        const { token, role } = data.data;
+        const { token, role } = data;
 
         if (token && role === 'user') {
             return { success: true, ...data };
@@ -28,33 +28,6 @@ export const userLogin = async ({ account, password }) => {
   }
 }
 
-//admin login
-
-export const adminLogin = async ({ account, password }) => {
-  try {
-    const {data} = await axios.post(`${baseURL}/signin`, {
-      account, password
-    })
-
-    const { token, role } = data.data;
-
-    if ( token && role === "admin") {
-      return { success: true, ...data }
-    }
-    if ( token && role === "user") {
-      Toast.fire({
-      title: "帳號不存在！",
-      icon: "error"
-      })
-    }
-    
-    return data
-
-  } catch (error) {
-    console.error('[Login Failed]:', error)
-    return error
-  }
-}
 
 // user signup
 
@@ -79,13 +52,6 @@ export const userSignup = async ({
     return error
   }
 };
-
-
-
-
-
-
-
 
 
 // get user profile
@@ -187,7 +153,7 @@ export const getUserFollowers = async(userId) => {
   }
 }
 
-// get user followers
+// get user followings
 
 export const getUserFollowings = async(userId) => {
   try{

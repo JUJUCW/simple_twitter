@@ -6,7 +6,7 @@ import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
 
-import {adminLogin} from '../../api/user.js'
+import {adminLogin} from '../../api/admin.js'
 
 import styles from './AdminLoginPage.module.scss'
 
@@ -36,7 +36,7 @@ export default function AdminLoginPage () {
     });
     // login success
     if (data.success) {
-      localStorage.setItem("token", data.data.token);
+      localStorage.setItem("token", data.token);
       Toast.fire({
         title: "登入成功",
         icon: "success",

@@ -14,9 +14,9 @@ import styles from './UserEditModal.module.scss';
 
 export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverImg, oriIntroduction, oriAvatar}) {
   const [coverPhoto, setCoverPhoto] = useState(oriCoverImg)
-  const [upCoverPhoto, setUpCoverPhoto] = useState(oriCoverImg)
+  const [upCoverPhoto, setUpCoverPhoto] = useState(coverPhoto)
   const [avatar, setAvatar] = useState(oriAvatar)
-  const [upAvatar, setUpAvatar] = useState(oriAvatar)
+  const [upAvatar, setUpAvatar] = useState(avatar)
   const [name, setName] = useState(oriName);
   const [introduction, setIntroduction] = useState(oriIntroduction);
 

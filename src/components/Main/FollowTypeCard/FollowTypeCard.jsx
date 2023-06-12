@@ -3,8 +3,14 @@ import Button from 'components/Button/Button';
 import styles from './FollowTypeCard.module.scss';
 import logo from 'assets/icons/logo_gray.png';
 
-export default function FollowTypeCard() {
-    const [isClicked, setIsClicked] = useState(false);
+export default function FollowTypeCard(props) {
+            // const userId=props.userId
+            const avatar=props.avatar
+            const name=props.name
+            // const account=props.account
+            const introduction=props.introduction
+            const isFollowed=props.isFollowed
+    const [isClicked, setIsClicked] = useState(isFollowed);
     const handleClick = () => {
         setIsClicked(!isClicked);
     };
@@ -12,8 +18,8 @@ export default function FollowTypeCard() {
         <div className={styles.container}>
             <div className={styles.user}>
                 <div className={styles.userInfo}>
-                    <img src={logo} alt="" className={styles.avatar} />
-                    <div className={styles.userName}>Apple</div>
+                    <img src={avatar||logo} alt="" className={styles.avatar} />
+                    <div className={styles.userName}>{name}</div>
                 </div>
                 <div className={styles.btn} onClick={handleClick}>
                     {isClicked ? (
@@ -25,8 +31,7 @@ export default function FollowTypeCard() {
             </div>
 
             <div className={styles.tweetContent}>
-                Nulla Lorem mollit cupidatat irure. Laborum magna nulla duis ullamco cillum dolor. Voluptate
-                exercitation incididunt aliquip deserunt reprehenderit elit laborum.
+                {introduction}
             </div>
         </div>
     );
