@@ -44,8 +44,6 @@ export default function SingleTweet({ props }) {
                 await postTweetUnlike(tweetId);
                 setShowLiked(false);
                 setLikeCounts(likedCount - 1);
-                
-
             } else {
                 await postTweetLike(tweetId);
                 setShowLiked(true);
@@ -67,17 +65,16 @@ export default function SingleTweet({ props }) {
                     <div className={styles.userInfoAccount}>@{account}</div>
                 </div>
             </div>
-
             <div className={styles.tweetContent}>{description}</div>
             <span className={styles.time}>&#xb7;{getRelativeTime(createdAt)}</span>
             <div className={styles.line}></div>
             <div className={styles.likeReplyBox}>
-                <Link className={styles.routeLink} to={`/`}>
+                {/* <Link className={styles.routeLink} to={`/`}> */}
                     <div className={styles.counts}>
                         <span className={styles.replyCount}>{replyCount}&nbsp;</span>
                         <span className={styles.count}>回覆</span>
                     </div>
-                </Link>
+                {/* </Link> */}
                 {/* <Link className={styles.routeLink}
                     // to={`/`}
                 > */}
