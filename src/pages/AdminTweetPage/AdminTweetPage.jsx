@@ -3,12 +3,22 @@ import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header.jsx'
 import AdminTweetItem from '../../components/AdminTweetItem/AdminTweetItem.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
-import { adminGetAllTweets } from '../../api/admin.js'
+import { adminGetAllTweets, deleteTweet } from '../../api/admin.js'
 import styles from './AdminTweetPage.module.scss'
 
 export default function AdminTweetPage () {
   const [tweets, setTweets] = useState([]);
-    
+  
+  const handleDeleteTweet = async (id) => {
+    try {
+      await deleteTweet(id)
+      setTweets((preTweets) => {
+        return preTweets.filter((tweet) => tweet.id !== id);
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
     useEffect(() => {
     const adminGetAllTweet = async () => {
@@ -33,12 +43,13 @@ export default function AdminTweetPage () {
         return (
         <AdminTweetItem
             key={tweet.id}
+            tweetId={tweet.id}
             avatar={tweet.User.avatar}
             userName={tweet.User.name}
             account={tweet.User.account}
             createdAt={tweet.createdAt}
             description={tweet.description}
-           
+            onClick={handleDeleteTweet}
         />
         );
     });

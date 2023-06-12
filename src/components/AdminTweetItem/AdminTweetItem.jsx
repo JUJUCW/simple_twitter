@@ -5,11 +5,13 @@ import admin_delete from '../../assets/icons/admin/admin_delete.png'
 import { getRelativeTime } from '../../utility/helper.js';
 
 export default function AdminTweetItem (props) {
+            const tweetId=props.tweetId
             const avatar=props.avatar
             const userName=props.userName
             const account=props.account
             const createdAt=props.createdAt
             const description=props.description
+            const handleDeleteTweet=props.onClick
     return (
         <div className={styles.container}>
             <div className={styles.avatar}>
@@ -25,7 +27,8 @@ export default function AdminTweetItem (props) {
                     {description}
                 </div>
             </div>
-            <div className={styles.adminDelete}>
+            <div className={styles.adminDelete}
+            onClick={()=>handleDeleteTweet?.(tweetId)}>
               <img className={styles.deleteImg} src={admin_delete} alt="admin_delete" />
             </div>
         </div>

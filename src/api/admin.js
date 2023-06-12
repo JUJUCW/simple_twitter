@@ -20,7 +20,22 @@ export const adminGetAllUsers = async() => {
     console.log(data)
     return data
   } catch (error) {
-    console.log('[Get user tweets Failed]:', error)
+    console.error('[Get user tweets Failed]:', error)
     return error
   }
 }
+
+// delete tweet
+
+export const deleteTweet = async (tweetId) => {
+  try {
+    const { data } = await apiHelper.delete(
+      `/admin/tweets/${tweetId}`
+    );
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error("[Delete tweet failed]:", error);
+    return error
+  }
+};
