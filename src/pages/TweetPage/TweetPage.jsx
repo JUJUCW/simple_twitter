@@ -15,8 +15,8 @@ import { getTweet } from 'api/tweet';
 
 export default function TweetPage() {
     const param = useParams();
-    const [tweet, setTweet] = useState({});
-    const [user, setUser] = useState({});
+    const [tweet, setTweet] = useState('');
+    // const [user, setUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     // const [replies, setReplies] = useState([]);
 
@@ -30,10 +30,11 @@ export default function TweetPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await getTweet(param.tweetId);
-                const data = res.data;
+                const data = await getTweet(param.tweetId);
+                console.log(data)
+                console.log(data.User.name)
                 setTweet(data);
-                setUser(data.User);
+                
             } catch (error) {
                 throw new Error(error);
             }
@@ -41,7 +42,6 @@ export default function TweetPage() {
 
         fetchData();
     }, [param.tweetId]);
-
     // useEffect(() => {
     //     const fetchReplies = async () => {
     //         try {
@@ -56,7 +56,6 @@ export default function TweetPage() {
 
     //     fetchReplies();
     // }, []);
-
     return (
         <div className={styles.container}>
             {/* <div className={styles.navBarContainer}> */}
@@ -65,7 +64,7 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-                    <SingleTweet props={tweet} onClick={handleOpenModal} userName={user.name} />
+                    {tweet && <SingleTweet  tweetInfo={tweet}/>}
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}
