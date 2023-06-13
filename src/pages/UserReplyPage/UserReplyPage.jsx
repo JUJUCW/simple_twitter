@@ -87,11 +87,11 @@ export default function UserReplyPage() {
                         <CurrentUser userInfo={userProfile}/>
 
                         <div className={styles.userToggleMenu}>
-                          <Link to="/userPage">
+                          <Link to={`/user/${URL.UserId}/tweet`}>
                             <UserToggleMenu linkName="推文"  />
                           </Link>
                             <UserToggleMenu linkName="回覆" isActive/>
-                          <Link to="/userLike">
+                          <Link to={`/user/${URL.UserId}/like`}>
                             <UserToggleMenu linkName="喜歡的內容" />
                           </Link>
                             

@@ -53,7 +53,7 @@ export default function UserFollowingPage() {
                 <MainContainer>
                     <Header title="John Doe" arrow tweetCount="25" />
                     <div className={styles.userToggleMenu}>
-                      <Link to="/follower">
+                      <Link to={`/user/${URL.UserId}/follower`}>
                         <UserToggleMenu linkName="追隨者" />
                       </Link> 
                         <UserToggleMenu linkName="正在追蹤" isActive />

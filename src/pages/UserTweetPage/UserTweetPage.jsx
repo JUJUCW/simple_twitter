@@ -89,10 +89,10 @@ export default function UserTweetPage() {
 
                     <div className={styles.userToggleMenu}>
                         <UserToggleMenu linkName="推文" isActive />
-                        <Link to="/userReply">
+                        <Link to={`/user/${URL.UserId}/reply`}>
                             <UserToggleMenu linkName="回覆" />
                         </Link>
-                        <Link to="/userLike">
+                        <Link to={`/user/${URL.UserId}/like`}>
                             <UserToggleMenu linkName="喜歡的內容" />
                         </Link>
                     </div>
