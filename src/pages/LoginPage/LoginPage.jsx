@@ -1,17 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
 import {Toast} from '../../utility/helper.js'
-import {userLogin} from '../../api/user.js'
+import { useAuth } from '../../context/AuthContext.jsx'
 
 import styles from './LoginPage.module.scss'
 
 export default function LoginPage () {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const handleClick = async () => {
@@ -29,18 +30,16 @@ export default function LoginPage () {
       });
       return;
     }
-    const data = await userLogin({
+    const success = await login({
       account,
       password,
     });
     // login success
-    if (data.success) {
-      localStorage.setItem("token", data.token);
+    if (success) {
       Toast.fire({
         title: "登入成功",
         icon: "success",
       });
-      navigate("/main");
       return;
     // login fail
     } 
@@ -49,6 +48,12 @@ export default function LoginPage () {
         icon: "error",
       });
   }
+
+    useEffect(() => {
+      if (isAuthenticated) {
+        navigate('/main');
+      }
+    }, [navigate, isAuthenticated]);
 
   return (
     <AuthPageContainer title='登入 Alphitter'>
