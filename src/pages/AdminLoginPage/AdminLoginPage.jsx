@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { Toast} from '../../utility/helper.js'
 
@@ -6,13 +6,14 @@ import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
 
-import {adminLogin} from '../../api/admin.js'
-
+// import {adminLogin} from '../../api/admin.js'
+import { useAuth } from '../../context/AuthContext.jsx'
 import styles from './AdminLoginPage.module.scss'
 
 export default function AdminLoginPage () {
   const [account, setAccount] = useState("");
   const [password, setPassword] = useState("");
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const handleClick = async () => {
@@ -30,18 +31,17 @@ export default function AdminLoginPage () {
       });
       return;
     }
-    const data = await adminLogin({
+    const success = await login({
       account,
       password,
+      role:"admin"
     });
     // login success
-    if (data.success) {
-      localStorage.setItem("token", data.token);
+    if (success) {
       Toast.fire({
         title: "登入成功",
         icon: "success",
       });
-      navigate("/admin/tweets");
       return;
     // login fail
     } 
@@ -50,6 +50,11 @@ export default function AdminLoginPage () {
         icon: "error",
       });
   }
+  useEffect(() => {
+      if (isAuthenticated) {
+        navigate('/admin/tweets');
+      }
+    }, [navigate, isAuthenticated]);
 
   return (
     <AuthPageContainer title='後台登入'>

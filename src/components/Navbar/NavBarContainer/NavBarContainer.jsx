@@ -12,7 +12,7 @@ import tweetIcon from '../../../assets/icons/nav/nav_btn.png'
 
 export default function NavBarContainer({ role, page }) {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { logout } = useAuth();
+    const { logout, currentUser } = useAuth();
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
@@ -39,7 +39,7 @@ export default function NavBarContainer({ role, page }) {
                                         <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
                                     </div>
 
-                                    <NavLink to="/userPage">
+                                    <NavLink to={`/user/${currentUser?.id}/tweet`}>
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 
@@ -58,7 +58,7 @@ export default function NavBarContainer({ role, page }) {
                                         <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
                                     </div>
 
-                                    <NavLink to="/userPage">
+                                    <NavLink to={`/user/${currentUser?.id}/tweet`}>
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" isActive />
                                     </NavLink>
 
@@ -77,7 +77,7 @@ export default function NavBarContainer({ role, page }) {
                                         <img className={styles.tweetIcon} src={tweetIcon} alt="tweetIcon" onClick={handleOpenModal}/>
                                     </div>
 
-                                    <NavLink to="/userPage">
+                                    <NavLink to={`/user/${currentUser?.id}/tweet`}>
                                         <NavItem iconStyle={'iconUser'} altName="user" title="個人資料" />
                                     </NavLink>
 

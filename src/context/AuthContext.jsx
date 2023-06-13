@@ -2,7 +2,7 @@ import { adminLogin } from '../api/admin.js'
 import { userLogin/*, getUser*/ } from '../api/user.js'
 import * as jwt from 'jsonwebtoken'
 import { useEffect, useState, createContext, useContext } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { useLocation } from 'react-router'
 
 const defaultAuthContext = {
   isAuthenticated: false, 
@@ -13,7 +13,6 @@ const defaultAuthContext = {
 const AuthContext = createContext(defaultAuthContext)
 export const useAuth = () => useContext(AuthContext);
 export function AuthContextProvider({ children }) {
-  const navigate = useNavigate()
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [payload, setPayload] = useState(null)
   const { pathname } = useLocation()
@@ -39,18 +38,10 @@ export function AuthContextProvider({ children }) {
       if (tempPayload) {
         setPayload(tempPayload);
       }
-      // const { data } = await getUser(temPayload.id)
-      // if (data) {
-      //   setIsAuthenticated(true)
-      //   setPayload(data)
-      // } else {
-      //   console.error(message)
-      //   setIsAuthenticated(false)
-      //   setPayload(null)
-      // }
+    
     }
     checkToken()
-  }, [pathname, navigate])
+  }, [pathname])
 
   function logout() {
     localStorage.removeItem('token')
@@ -69,11 +60,12 @@ export function AuthContextProvider({ children }) {
       setIsAuthenticated(true)
       setPayload(tempPayload)
       localStorage.setItem('token', token)
+      return success 
     } else {
       setIsAuthenticated(false)
       setPayload(null)
     }
-    return success 
+    
   }
   return (
     <AuthContext.Provider
