@@ -4,10 +4,14 @@ import Header from '../../components/Header/Header.jsx'
 import AdminTweetItem from '../../components/AdminTweetItem/AdminTweetItem.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
 import { adminGetAllTweets, deleteTweet } from '../../api/admin.js'
+import { useAuth } from '../../context/AuthContext.jsx'
+import { useNavigate } from 'react-router-dom';
 import styles from './AdminTweetPage.module.scss'
 
 export default function AdminTweetPage () {
   const [tweets, setTweets] = useState([]);
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   
   const handleDeleteTweet = async (id) => {
     try {
@@ -43,6 +47,12 @@ export default function AdminTweetPage () {
         }
         adminGetAllTweet();
     }, []);
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/admin/login');
+        }
+    }, [navigate, isAuthenticated]);
 
     const tweetList = tweets.map((tweet) => {
         return (

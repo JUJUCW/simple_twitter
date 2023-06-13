@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import {  useParams, useNavigate } from 'react-router-dom';
+
 import styles from './TweetPage.module.scss';
 import MainContainer from 'components/Main/MainContainer/MainContainer';
 import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
@@ -8,15 +9,18 @@ import Header from 'components/Header/Header';
 import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 import ReplyItem from 'components/Main/ReplyItem/ReplyItem';
-
+import { useAuth } from '../../context/AuthContext.jsx'
 import { getTweet, getTweetReplies } from 'api/tweet';
 
 export default function TweetPage() {
     const param = useParams();
-    const [tweet, setTweet] = useState({});
+    const [tweet, setTweet] = useState('');
     const [user, setUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
     const [replies, setReplies] = useState([]);
+
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -29,10 +33,14 @@ export default function TweetPage() {
         const fetchTweet = async () => {
             try {
                 const data = await getTweet(param.tweetId);
+
                 if (data.id) {
                     setTweet(data);
                     setUser(data.User);
                 }
+                // console.log(data)
+                // console.log(data.User.name)
+                setTweet(data);
             } catch (error) {
                 throw new Error(error);
             }
@@ -51,6 +59,7 @@ export default function TweetPage() {
         fetchReplies();
     }, [param.tweetId]);
 
+
     const repliesList = replies.map((reply) => {
         return (
             <ReplyItem
@@ -64,6 +73,11 @@ export default function TweetPage() {
             />
         );
     });
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/login');
+        }
+    }, [navigate, isAuthenticated]);
 
     return (
         <div className={styles.container}>
@@ -73,6 +87,7 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
+
                     {tweet && <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />}
                     {repliesList}
                 </MainContainer>

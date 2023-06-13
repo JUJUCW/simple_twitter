@@ -106,18 +106,22 @@ export const getTopTenUsers = async () => {
 
 // setting user profile
 export const setUserProfile = async (formData, userId) => {
-    try {
-        const { data } = await apiHelper.put(`/users/${userId}`, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        });
-        if (data.status === 'success') return data;
-        return data;
-    } catch (error) {
-        console.log('[Set user profile Failed]:', error);
-        return error;
-    }
+
+  try {
+    const {data} = await apiHelper.put(`/users/${userId}`,
+      formData ,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
+    return data
+  } catch (error) {
+    console.log("[Set user profile Failed]:", error);
+    return error
+  }
+
 };
 
 // get user followers
@@ -133,13 +137,41 @@ export const getUserFollowers = async (userId) => {
 };
 
 // get user followings
-export const getUserFollowings = async (userId) => {
-    try {
-        const { data } = await apiHelper.get(`/users/${userId}/followings`);
-        console.log(data);
-        return data;
-    } catch (error) {
-        console.error('[Get user followings Failed]:', error);
-        return error;
-    }
+
+
+export const getUserFollowings = async(userId) => {
+  try{
+    const{data} = await apiHelper.get(`/users/${userId}/followings`)
+    // console.log(data)
+    return data
+  } catch (error) {
+    console.error('[Get user followings Failed]:', error)
+    return error
+  }
+}
+
+// setting user account
+
+export const setUserAccount = async (
+      name,
+      account,
+      email,
+      password,
+      checkPassword, 
+      userId) => {
+  try {
+    const {data} = await apiHelper.put(`/users/${userId}/account`, {
+      name,
+      account,
+      email,
+      password,
+      checkPassword,
+    });
+    return data
+  } catch (error) {
+    console.log("[Set user account Failed]:", error);
+    return error
+  }
 };
+
+

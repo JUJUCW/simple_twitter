@@ -11,11 +11,14 @@ import TweetInput from 'components/Main/TweetInput/TweetInput';
 // import TweetList from '../../components/Main/TweetList/TweetList.jsx'
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 // import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
-
+import { useAuth } from '../../context/AuthContext.jsx'
 import { getAllTweets } from '../../api/tweet.js';
+import { useNavigate } from 'react-router-dom';
 
 export default function MainPage() {
+    const { isAuthenticated } = useAuth();
     const [tweets, setTweets] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getAllTweet = async () => {
@@ -54,6 +57,12 @@ export default function MainPage() {
             />
         );
     });
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/login');
+        }
+    }, [navigate, isAuthenticated]);
 
     return (
         <div className={styles.container}>
