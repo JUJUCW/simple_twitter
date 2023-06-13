@@ -5,7 +5,7 @@
 // import reply from 'api/reply.js';
 
 // export default function Reply() {
-//     const [atweet, setATweet] = useState({});
+//     const [aTweet, setATweet] = useState({});
 //     const [replies, setReplies] = useState([]);
 //     const param = useParams();
 //     const navigate = useNavigate();
