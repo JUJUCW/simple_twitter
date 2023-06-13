@@ -73,7 +73,7 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-                    <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />
+                    {tweet && <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />}
                     {repliesList}
                 </MainContainer>
             </div>
