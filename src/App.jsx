@@ -15,7 +15,7 @@ import AdminTweetPage from './pages/AdminTweetPage/AdminTweetPage.jsx';
 import UserReplyPage from './pages/UserReplyPage/UserReplyPage.jsx';
 import UserLikePage from './pages/UserLikePage/UserLikePage.jsx';
 import TweetPage from 'pages/TweetPage/TweetPage';
-import { AuthContextProvider } from "./context/AuthContext.jsx";
+import { AuthContextProvider } from './context/AuthContext.jsx';
 
 const basename = process.env.PUBLIC_URL;
 export default function App() {
@@ -37,6 +37,7 @@ export default function App() {
                         <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
                         <Route path="user/:UserId/following" element={<UserFollowingPage />} />
                         <Route path="tweets/:tweetId" element={<TweetPage />} />
+                        <Route path="Tweets/:tweetId/replies" element={<TweetPage />} />
                         <Route path="*" element={<HomePage />} />
                     </Routes>
                 </AuthContextProvider>

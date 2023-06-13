@@ -13,16 +13,21 @@
 //     border-bottom: 1px solid #e6ecf0;
 // }
 
-.avatar{
+.avatar {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
+
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
-.avatarImg {
-    width: 100%;
-}
+
 .infoContainer {
     display: flex;
     flex-direction: column;
@@ -52,7 +57,7 @@
 .iconLike {
     display: flex;
     align-items: center;
-    color: #6C757D;
+    color: #6c757d;
 }
 .iconReply,
 .iconLike {

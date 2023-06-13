@@ -1,4 +1,3 @@
-// import axios from 'axios'
 import { /*Toast,*/ /*baseURL,*/ apiHelper } from '../utility/helper.js';
 
 // get all tweets
@@ -13,7 +12,8 @@ export const getAllTweets = async () => {
 };
 export const getTweet = async (TweetId) => {
     try {
-        const {data} = await apiHelper.get(`/tweets/${TweetId}`);
+        const { data } = await apiHelper.get(`/tweets/${TweetId}`);
+
         return data;
     } catch (error) {
         console.error('[getTweet Failed]:', error);
@@ -22,8 +22,7 @@ export const getTweet = async (TweetId) => {
 };
 export const getTweetReplies = async (TweetId) => {
     try {
-        const { data } = await apiHelper.get(`/tweets/${TweetId}/replies`, {});
-        // console.log(data);
+        const { data } = await apiHelper.get(`/tweets/${TweetId}/replies`);
         return data;
     } catch (error) {
         console.error('[getTweetReplies Failed]:', error);

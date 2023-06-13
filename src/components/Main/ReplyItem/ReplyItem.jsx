@@ -1,14 +1,18 @@
 import styles from './ReplyItem.module.scss';
 import { getRelativeTime } from '../../../utility/helper.js';
+
 export default function ReplyItem(props) {
     const avatar = props.avatar;
     const account = props.account;
     const userName = props.name;
     const createdAt = props.createdAt;
-    // const tweetId=props.tweetId
+
+    // const tweetId=props.id
     // const userId=props.UserId
-    const tweetAccount=props.tweetAccount
+    // const tweetAccount = props.tweetAccount;
+
     const comment = props.comment;
+
     return (
         <div className={styles.modalContainer}>
             <div className={styles.tweet}>
@@ -24,7 +28,8 @@ export default function ReplyItem(props) {
                     </div>
                     <div className={styles.replyAddress}>
                         <span className={styles.replyWord}>回覆給</span>
-                        <span className={styles.replyAccount}> @{tweetAccount}</span>
+
+                        <span className={styles.replyAccount}> @apple</span>
                     </div>
                     <div className={styles.tweetContent}>{comment}</div>
                 </div>

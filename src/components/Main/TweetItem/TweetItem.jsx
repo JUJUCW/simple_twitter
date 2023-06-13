@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import clsx from 'clsx';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReplyModal from '../../Modal/ReplyModal/ReplyModal.jsx';
 import styles from './TweetItem.module.scss';
 import replyIcon from '../../../assets/icons/tweet/tweet_reply.png';
@@ -11,7 +11,7 @@ import { postTweetUnlike, postTweetLike } from '../../../api/like.js';
 
 export default function TweetItem(props) {
     const tweetId = props.tweetId;
-    // const userId = props.userId;
+    const userId = props.UserId;
     const userName = props.userName;
     const account = props.account;
     const avatar = props.avatar;
@@ -35,31 +35,30 @@ export default function TweetItem(props) {
     };
 
     const handleLike = async () => {
-    try {
-        if (showLiked === true) {
-            await postTweetUnlike(tweetId);
-            setShowLiked(false);
-            setLikeCount(likedCount - 1);
-        } else {
-            await postTweetLike(tweetId);
-            setShowLiked(true);
-            setLikeCount(likedCount + 1);
+        try {
+            if (showLiked === true) {
+                await postTweetUnlike(tweetId);
+                setShowLiked(false);
+                setLikeCount(likedCount - 1);
+            } else {
+                await postTweetLike(tweetId);
+                setShowLiked(true);
+                setLikeCount(likedCount + 1);
+            }
+        } catch (error) {
+            console.log('操作失敗', error);
         }
-    } catch (error) {
-        console.log('操作失敗', error);
-    }
-};
+    };
 
-    
     return (
         <div className={styles.container}>
-            {/* <Link to={`/${userId}/tweet`}> */}
+            <Link to={`user/${userId}/tweet`}>
             <div className={styles.avatar}>
                 <img className={styles.avatarImg} src={avatar} alt="avatar" />
             </div>
-            {/* </Link> */}
+            </Link>
             <div className={styles.infoContainer}>
-                {/* <Link to={`/${userId}/tweet`}> */}
+                <Link to={`/tweets/${tweetId}`}>
                 <div className={styles.userInfo}>
                     <h5 className={styles.name}>{userName}</h5>
                     <span className={styles.account}>@{account}</span>
@@ -68,7 +67,7 @@ export default function TweetItem(props) {
                 {/* </Link> */}
                 {/* <Link to={`/${tweetId}`}> */}
                 <div className={styles.tweetContent}>{description}</div>
-                {/* </Link> */}
+                </Link>
 
                 <div className={styles.icons}>
                     <div className={styles.iconReply}>
@@ -86,7 +85,7 @@ export default function TweetItem(props) {
                     </div>
                 </div>
             </div>
-            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} props={props} />}
         </div>
     );
 }
