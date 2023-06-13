@@ -1,4 +1,34 @@
-import { apiHelper } from '../utility/helper.js'
+import axios from 'axios';
+import { Toast, baseURL, apiHelper } from '../utility/helper.js';
+
+//admin login
+
+export const adminLogin = async ({ account, password }) => {
+  try {
+    const {data} = await axios.post(`${baseURL}/admin/signin`, {
+      account, password
+    })
+
+    const { token, role } = data;
+
+    if ( token && role === "admin") {
+      return { success: true, ...data }
+    }
+    if ( token && role === "user") {
+      Toast.fire({
+      title: "帳號不存在！",
+      icon: "error"
+      })
+    }
+    
+    return data
+
+  } catch (error) {
+    console.error('[Login Failed]:', error)
+    return error
+  }
+}
+
 
 // get admin all tweets 
 export const adminGetAllTweets = async () => {
@@ -20,7 +50,22 @@ export const adminGetAllUsers = async() => {
     console.log(data)
     return data
   } catch (error) {
-    console.log('[Get user tweets Failed]:', error)
+    console.error('[Get user tweets Failed]:', error)
     return error
   }
 }
+
+// delete tweet
+
+export const deleteTweet = async (tweetId) => {
+  try {
+    const { data } = await apiHelper.delete(
+      `/admin/tweets/${tweetId}`
+    );
+    console.log(data)
+    return data
+  } catch (error) {
+    console.error("[Delete tweet failed]:", error);
+    return error
+  }
+};

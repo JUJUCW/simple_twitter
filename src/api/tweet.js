@@ -73,8 +73,8 @@ import { /*Toast,*/ /*baseURL,*/ apiHelper } from '../utility/helper.js';
 // get all tweets
 export const getAllTweets = async () => {
     try {
-        const { res } = await apiHelper.get(`/tweets`);
-        return res;
+        const { data } = await apiHelper.get(`/tweets`);
+        return data;
     } catch (error) {
         console.error('[getAllTweets Failed]:', error);
         return error;

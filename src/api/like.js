@@ -1,4 +1,4 @@
-import { apiHelper } from 'utility/helper';
+import { apiHelper } from '../utility/helper.js';
 
 export const postTweetLike = async (TweetId) => {
     try {

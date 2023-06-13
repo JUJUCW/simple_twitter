@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
-
+import {userSignup} from '../../api/user.js'
+import {Toast} from '../../utility/helper.js'
 import styles from './SignUpPage.module.scss'
 
 export default function SignUpPage () {
@@ -12,6 +13,82 @@ export default function SignUpPage () {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleClick = async () => {
+    if (account.trim().length === 0) {
+      Toast.fire({
+        title: "請輸入帳號!",
+        icon: "error",
+      });
+      return;
+    }
+    if (name.trim().length === 0) {
+      Toast.fire({
+        title: "請輸入名稱!",
+        icon: "error",
+      });
+      return;
+    }
+    if (email.trim().length === 0) {
+      Toast.fire({
+        title: "請輸入email!",
+        icon: "error",
+      });
+      return;
+    }
+    if (password.trim().length === 0) {
+      Toast.fire({
+        title: "請輸入密碼!",
+        icon: "error",
+      });
+      return;
+    }
+    if (checkPassword.trim().length === 0) {
+      Toast.fire({
+        title: "請輸入確認密碼!",
+        icon: "error",
+      });
+      return;
+    }
+    if (checkPassword !== password) {
+      Toast.fire({
+        title: "密碼與確認密碼不一致!",
+        icon: "error",
+      });
+      return;
+    }
+    if (!email.includes("@")) {
+      Toast.fire({
+        title: "email格式不正確!",
+        icon: "error",
+      });
+      return;
+    }
+    const data = await userSignup({
+      name,
+      account,
+      email,
+      password,
+      checkPassword,
+    });
+    // signup success
+    if (data==="註冊成功") {
+      Toast.fire({
+        title: "註冊成功請登入",
+        icon: "success",
+      });
+      navigate("/login");
+      return;
+    // signup fail
+    } 
+    
+    Toast.fire({
+      title: data.response.data.message,
+      icon: "error",
+    });
+
+  }
 
   return (
     <AuthPageContainer title='建立你的帳號'>
@@ -30,8 +107,8 @@ export default function SignUpPage () {
       <AuthInput label='密碼確認' type='password' value={checkPassword} placeholder='請再次輸入密碼' onChange={(checkPasswordInputValue) => setCheckPassword(checkPasswordInputValue)}
       notification='字數超出上限!' wordsLimit={20}
       />
-      <Button title='註冊' size='large' isAction></Button>
-      <div className={styles.link}>
+      <Button title='註冊' size='large' isAction onClick={handleClick}></Button>
+      <div className={styles.link} >
         <Link to="/login">
           <span className={styles.span}>取消</span>
         </Link>

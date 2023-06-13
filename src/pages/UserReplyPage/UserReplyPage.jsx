@@ -61,13 +61,13 @@ export default function UserReplyPage() {
         return (
         <ReplyItem
             key={reply.id}
-            avatar={reply.avatar}
-            account={reply.account}
-            name={reply.name}
+            avatar={reply.User.avatar}
+            account={reply.User.account}
+            name={reply.User.name}
             createdAt={reply.createdAt}
-            tweetId={reply.Tweet.id}
-            userId={reply.UserId}
-            tweetAccount={reply.Tweet.account}
+            tweetId={reply.TweetId}
+            userId={reply.User.id}
+            tweetAccount={reply.Tweet.User.account}
             comment={reply.comment}
             // updatedAt={tweet.updatedAt}
         />

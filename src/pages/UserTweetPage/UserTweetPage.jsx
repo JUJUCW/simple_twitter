@@ -65,11 +65,11 @@ export default function UserTweetPage() {
                 key={tweet.id}
                 tweetId={tweet.id}
                 userId={tweet.UserId}
-                userName={tweet.name}
-                account={tweet.account}
-                avatar={tweet.avatar}
+                userName={tweet.User.name}
+                account={tweet.User.account}
+                avatar={tweet.User.avatar}
                 description={tweet.description}
-                likedCount={tweet.likedCount}
+                likedCount={tweet.likeCount}
                 replyCount={tweet.replyCount}
                 isLiked={tweet.isLiked}
                 createdAt={tweet.createdAt}

@@ -61,17 +61,17 @@ export default function UserLikePage() {
     const likeTweetList = userLikes.map((tweet) => {
         return (
         <TweetItem
-            key={tweet.id}
+            key={tweet.TweetId}
             tweetId={tweet.TweetId}
-            userId={userProfile.id}
-            userName={tweet.tweet_user_data.name}
-            account={tweet.tweet_user_data.account}
-            avatar={tweet.tweet_user_data.avatar}
-            description={tweet.description}
-            likedCount={tweet.liked_Count}
-            replyCount={tweet.reply_Count}
+            userId={tweet.Tweet.UserId}
+            userName={tweet.Tweet.User.name}
+            account={tweet.Tweet.User.account}
+            avatar={tweet.Tweet.User.avatar}
+            description={tweet.Tweet.description}
+            likedCount={tweet.Tweet.likeCount}
+            replyCount={tweet.Tweet.replyCount}
             isLiked={tweet.isLiked}
-            // createdAt={tweet.createdAt}
+            createdAt={tweet.createdAt}
             // updatedAt={tweet.updatedAt}
         />
         );

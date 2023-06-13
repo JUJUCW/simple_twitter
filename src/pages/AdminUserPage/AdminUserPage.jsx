@@ -35,10 +35,10 @@ export default function AdminUserPage () {
             name={user.name}
             coverPhoto={user.coverPhoto}
             account={user.account}
-            followerCount={user.followerCounts}
-            followingCount={user.followingCounts}
-            tweetCount={user.tweetCounts}
-            likeCount={user.likeCounts}
+            followerCount={user.followerCount}
+            followingCount={user.followingCount}
+            tweetCount={user.tweetCount}
+            likeCount={user.likedCount}
         />
         );
     });

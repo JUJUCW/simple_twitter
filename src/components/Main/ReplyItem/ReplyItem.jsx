@@ -5,6 +5,11 @@ export default function ReplyItem(props) {
     const account = props.account;
     const userName = props.name;
     const createdAt = props.createdAt;
+
+    // const tweetId=props.tweetId
+    // const userId=props.UserId
+    const tweetAccount = props.tweetAccount;
+
     const comment = props.comment;
 
     return (
@@ -22,7 +27,8 @@ export default function ReplyItem(props) {
                     </div>
                     <div className={styles.replyAddress}>
                         <span className={styles.replyWord}>回覆給</span>
-                        <span className={styles.replyAccount}> @{userName}</span>
+
+                        <span className={styles.replyAccount}> @{tweetAccount}</span>
                     </div>
                     <div className={styles.tweetContent}>{comment}</div>
                 </div>
