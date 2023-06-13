@@ -153,12 +153,12 @@ export const getUserFollowings = async(userId) => {
 // setting user account
 
 export const setUserAccount = async (
-      name,
+      {name,
       account,
       email,
       password,
       checkPassword, 
-      userId) => {
+      userId}) => {
   try {
     const {data} = await apiHelper.put(`/users/${userId}/account`, {
       name,
