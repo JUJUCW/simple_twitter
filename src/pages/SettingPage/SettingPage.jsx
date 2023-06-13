@@ -12,12 +12,16 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SettingPage () {
   const { currentUser, isAuthenticated } = useAuth();
+  console.log(currentUser)
+  const userId = currentUser.id
+  console.log(userId)
+  const navigate = useNavigate();
   const [account, setAccount] = useState(currentUser.account);
   const [name, setName] = useState(currentUser.name);
   const [email, setEmail] = useState(currentUser.email);
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
-  const navigate = useNavigate();
+  
   
 
   const handleClick = async () => {
@@ -62,9 +66,9 @@ export default function SettingPage () {
       email,
       password,
       checkPassword,
-      userId: currentUser.id,
+      userId
     });
-    
+    console.log(data)
     if (data.status==="error") {
       Toast.fire({
         title: data.message,

@@ -182,6 +182,7 @@ export const setUserAccount = async (
       password,
       checkPassword,
     });
+    console.log(data)
     return data
   } catch (error) {
     console.log("[Set user account Failed]:", error);

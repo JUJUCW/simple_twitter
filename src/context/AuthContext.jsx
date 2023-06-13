@@ -22,14 +22,14 @@ export function AuthContextProvider({ children }) {
   useEffect(() => {
     const checkToken = async () => {
       // get token
-      const authToken = localStorage.getItem('token')
-      if (!authToken) {
+      const token = localStorage.getItem('token')
+      if (!token) {
         setIsAuthenticated(false)
         setPayload(null)
         return
       }
       // decode token, and get currentUser data
-      const tempPayload = jwt.decode(authToken)
+      const tempPayload = jwt.decode(token)
       if (!tempPayload) {
         setIsAuthenticated(false)
         setPayload(null)

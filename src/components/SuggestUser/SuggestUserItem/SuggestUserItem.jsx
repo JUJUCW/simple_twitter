@@ -40,7 +40,10 @@ export default function SuggestUserItem(props) {
         <>
             <div className={styles.userItem}>
                 <div className={styles.container}>
-                    <img className={styles.userAvatar} src={avatar||logo} alt="avatar" />
+                    <div className={styles.avatarContainer}>
+                        <img className={styles.userAvatar} src={avatar||logo} alt="avatar" />
+                    </div>
+                    
                     <div className={styles.userInfo}>
                         {/* When text becomes too long, it automatically turns into "..."" */}
                         <p className={styles.userInfoName}>{name}</p>

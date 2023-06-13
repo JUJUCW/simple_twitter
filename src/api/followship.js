@@ -11,7 +11,7 @@ export const followUser = async (UserId) => {
     } catch (error) {
         console.error(error);
         Toast.fire({
-            title: error.response.data.message,
+            title: "不能追隨自己",
             icon: "error",
         });
         return error;

@@ -29,21 +29,28 @@
         align-items: center;
         /*box model*/
         height: 50px;
-
-        .avatar {
+        .avatarContainer {
             /*display*/
             margin-right: 8px;
             /*box model*/
             height: 50px;
             width: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .avatar {
+            height: 100%;
         }
     }
     .tweetContent {
         /*display*/
         padding: 0px 29px 0 82px;
         /*box model*/
+        height: 78px;
         line-height: 26px;
         /*other*/
+        text-overflow: ellipsis;
         @include mixin.font-setting(16px, 400, color.$gray-10);
     }
 }
