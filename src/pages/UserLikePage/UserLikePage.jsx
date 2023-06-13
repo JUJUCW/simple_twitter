@@ -28,7 +28,7 @@ export default function UserLikePage() {
             if (data) {
                 // update data
                 setUserProfile(data);
-                console.log(data)
+                // console.log(data)
             }
         } catch (error) {
             console.log('獲取使用者資料失敗', error);
@@ -48,7 +48,7 @@ export default function UserLikePage() {
             if (data) {
                 // update data
                 setUserLikes(data);
-                console.log(data)
+                // console.log(data)
             }
         } catch (error) {
             console.log('獲取使用者推文失敗', error);

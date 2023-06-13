@@ -11,7 +11,7 @@ import likeIcon from 'assets/icons/tweet/tweet_like.png';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
 export default function SingleTweet( props
-    // , userParam
+    , userParam
 ) {
     // const [isClicked, setIsClicked] = useState(false);
     // const handleClick = () => {
@@ -28,12 +28,15 @@ export default function SingleTweet( props
     };
     const TweetId = props.id;
 
-    const userName = props.User.name;
-    const account = props.User.account;
-    const avatar = props.User.avatar;
+    const userName = userParam.name;
+    const account = userParam.account;
+    const avatar = userParam.avatar;
     const description = props.description;
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
+
+    
+
     // const handleOpenModal = props.onClick;
     const [showLiked, setShowLiked] = useState(props.isLiked);
     const [likedCounts, setLikeCounts] = useState(props.likedCount);

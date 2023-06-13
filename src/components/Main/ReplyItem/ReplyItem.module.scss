@@ -47,6 +47,7 @@
                 /*box model*/
                 margin-left: 8px;
                 color: #657786;
+                @include mixin.font-setting(14px, 400, color.$secondary-color);
             }
         }
 
