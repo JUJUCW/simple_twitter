@@ -36,7 +36,7 @@ export default function App() {
                     <Route path="show" element={<ButtonShowCasePage />} />
                     <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
                     <Route path="user/:UserId/following" element={<UserFollowingPage />} />
-                    <Route path="tweets/:tweetId" element={<TweetPage />} />
+                    <Route path="Tweets/:tweetId" element={<TweetPage />} />
                     {/* <Route path="tweets/:TweetId/replies" element={<TweetPage />} /> */}
 
                     <Route path="*" element={<HomePage />} />

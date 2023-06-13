@@ -31,17 +31,15 @@ export default function TweetPage() {
                 const data = await getTweet(param.TweetId);
                 if (data.id) {
                     setTweet(data);
-                    // setUser(data.User);
-                    return;
+                    setUser(data.User);
                 }
-                
             } catch (error) {
                 throw new Error(error);
             }
         };
         const fetchReplies = async () => {
             try {
-                const replies = await getTweetReplies(param.TweetId);
+                const replies = await getTweetReplies(param.tweetId);
                 if (replies) {
                     setReplies(replies);
                 }
@@ -51,10 +49,8 @@ export default function TweetPage() {
         };
         fetchTweet();
         fetchReplies();
-        
     }, [param.TweetId]);
 
-    
     const repliesList = replies.map((reply) => {
         return (
             <ReplyItem
@@ -77,9 +73,7 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-                    <SingleTweet props={tweet}
-                        // userParam={user}
-                        onClick={handleOpenModal} />
+                    <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />
                     {repliesList}
                 </MainContainer>
             </div>
