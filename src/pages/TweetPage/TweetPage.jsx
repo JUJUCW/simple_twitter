@@ -28,7 +28,7 @@ export default function TweetPage() {
     useEffect(() => {
         const fetchTweet = async () => {
             try {
-                const data = await getTweet(param.TweetId);
+                const data = await getTweet(param.tweetId);
                 if (data.id) {
                     setTweet(data);
                     setUser(data.User);
@@ -49,7 +49,7 @@ export default function TweetPage() {
         };
         fetchTweet();
         fetchReplies();
-    }, [param.TweetId]);
+    }, [param.tweetId]);
 
     const repliesList = replies.map((reply) => {
         return (
