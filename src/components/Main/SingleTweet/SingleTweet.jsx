@@ -10,7 +10,7 @@ import likeIcon from 'assets/icons/tweet/tweet_like.png';
 // import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
-export default function SingleTweet(props) {
+export default function SingleTweet(tweet, userParam) {
     // const [isClicked, setIsClicked] = useState(false);
     // const handleClick = () => {
     //     setIsClicked(!isClicked);
@@ -25,19 +25,18 @@ export default function SingleTweet(props) {
         setIsModalOpen(false);
     };
 
-    const TweetId = props.props.id;
-    const userName = props.userParam.name;
-    const account = props.userParam.account;
-    const avatar = props.userParam.avatar;
-    const description = props.props.description;
-    const replyCount = props.props.replyCount;
-    const createdAt = props.props.createdAt;
-    const isLiked = props.props.isLiked;
-    const preLikedCount = props.props.likedCount;
-    // const handleOpenModal = props.onClick;
+    const TweetId = tweet.id;
+    
+    const userName = tweet.userParam.name;
+    const account = tweet.userParam.account;
+    const avatar = tweet.userParam.avatar;
+    const description = tweet.props.description;
+    const replyCount = tweet.props.replyCount;
+    const createdAt = tweet.props.createdAt;
+    const isLiked = tweet.props.isLiked;
+    const preLikedCount = tweet.props.likedCount;
     const [showLiked, setShowLiked] = useState(isLiked);
-    const [likedCounts, setLikeCounts] = useState(preLikedCount);
-
+    const [likedCount, setLikeCount] = useState(preLikedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
 
     const handleLike = async () => {
@@ -45,11 +44,11 @@ export default function SingleTweet(props) {
             if (showLiked === true) {
                 await postTweetUnlike(TweetId);
                 setShowLiked(false);
-                setLikeCounts(likedCounts - 1);
+                setLikeCount(likedCount - 1);
             } else {
                 await postTweetLike(TweetId);
                 setShowLiked(true);
-                setLikeCounts(likedCounts + 1);
+                setLikeCount(likedCount + 1);
             }
         } catch (error) {
             console.log('操作失敗', error);
@@ -80,7 +79,7 @@ export default function SingleTweet(props) {
                     // to={`/`}
                 > */}
                 <div className={styles.likeCount}>
-                    {likedCounts}&nbsp;
+                    {likedCount}&nbsp;
                     <span className={styles.like}>喜歡次數</span>
                 </div>
                 {/* </Link> */}
@@ -91,7 +90,7 @@ export default function SingleTweet(props) {
                     <img className={styles.replyBtn} src={replyIcon} alt="reply button" />
                 </div>
 
-                <div className={styles.iconLike} onClick={() => handleLike(showLiked)}>
+                <div className={styles.iconLike} onClick={handleLike}>
                     <div className={styles.cursor}>
                         <img className={likeClassName} src={likeIcon} alt="like button" />
                     </div>
