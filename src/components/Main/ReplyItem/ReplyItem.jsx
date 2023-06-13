@@ -17,7 +17,10 @@ export default function ReplyItem(props) {
         <div className={styles.modalContainer}>
             <div className={styles.tweet}>
                 <div className={styles.left}>
-                    <img className={styles.tweetAvatar} src={avatar} alt="logo_gray" />
+                    <div className={styles.avatarContainer}>
+                        <img className={styles.tweetAvatar} src={avatar} alt="logo_gray" />
+                    </div>
+                    
                 </div>
                 <div className={styles.right}>
                     <div className={styles.tweetUserInfo}>

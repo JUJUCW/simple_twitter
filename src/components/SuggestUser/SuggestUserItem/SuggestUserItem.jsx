@@ -39,14 +39,18 @@ export default function SuggestUserItem(props) {
     return (
         <>
             <div className={styles.userItem}>
+
                 <Link to={`user/${userId}/tweet`}>
                     <div className={styles.container}>
-                        <img className={styles.userAvatar} src={avatar || logo} alt="avatar" />
+                        <div className={styles.avatarContainer}>
+                        <img className={styles.userAvatar} src={avatar||logo} alt="avatar" />
+                        </div>
                         <div className={styles.userInfo}>
                             {/* When text becomes too long, it automatically turns into "..."" */}
                             <p className={styles.userInfoName}>{name}</p>
                             <p className={styles.userInfoAccount}>@{account}</p>
                         </div>
+
                     </div>
                 </Link>
                 <div className={styles.btn} onClick={handleClick}>

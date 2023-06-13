@@ -18,7 +18,10 @@ export default function FollowTypeCard(props) {
         <div className={styles.container}>
             <div className={styles.user}>
                 <div className={styles.userInfo}>
-                    <img src={avatar||logo} alt="" className={styles.avatar} />
+                    <div className={styles.avatarContainer}>
+                        <img src={avatar||logo} alt="" className={styles.avatar} />
+                    </div>
+                    
                     <div className={styles.userName}>{name}</div>
                 </div>
                 <div className={styles.btn} onClick={handleClick}>

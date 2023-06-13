@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import {  NavLink } from 'react-router-dom';
 import NavItem from '../NavItem/NavItem.jsx';
 import Button from '../../Button/Button.jsx';
 import TweetModal from '../../../components/Modal/TweetModal/TweetModal.jsx';
@@ -23,9 +23,7 @@ export default function NavBarContainer({ role, page }) {
     return (
         <>
             <div className={styles.navBarContainer}>
-                <Link to="/homePage">
                     <img className={styles.img} src={logo} alt="logo" />
-                </Link>
                 <div className={styles.main}>
                     {role === 'user' && (
                         <>
