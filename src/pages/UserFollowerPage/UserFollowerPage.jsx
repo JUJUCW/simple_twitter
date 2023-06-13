@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header.jsx';
 import styles from './UserFollowerPage.module.scss';
@@ -8,11 +8,15 @@ import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
 import {getUserFollowers} from '../../api/user.js'
+import { useAuth } from '../../context/AuthContext.jsx'
 
 export default function UserFollowerPage() {
     const [users, setUsers] = useState([]);
     const URL = useParams();
-  useEffect(() => {
+    const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
     const getUserFollower = async () => {
         try {
             const data = await getUserFollowers(URL.UserId);
@@ -45,6 +49,11 @@ export default function UserFollowerPage() {
         );
     });
 
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/login');
+        }
+    }, [navigate, isAuthenticated]);
 
     return (
         <div className={styles.container}>

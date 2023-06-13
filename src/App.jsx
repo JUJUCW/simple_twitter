@@ -14,7 +14,6 @@ import AdminUserPage from './pages/AdminUserPage/AdminUserPage.jsx';
 import AdminTweetPage from './pages/AdminTweetPage/AdminTweetPage.jsx';
 import UserReplyPage from './pages/UserReplyPage/UserReplyPage.jsx';
 import UserLikePage from './pages/UserLikePage/UserLikePage.jsx';
-import ButtonShowCasePage from './pages/ButtonShowCasePage/ButtonShowCasePage.jsx';
 import TweetPage from 'pages/TweetPage/TweetPage';
 import { AuthContextProvider } from "./context/AuthContext.jsx";
 
@@ -35,7 +34,6 @@ export default function App() {
                         <Route path="setting" element={<SettingPage />} />
                         <Route path="admin/users" element={<AdminUserPage />} />
                         <Route path="admin/tweets" element={<AdminTweetPage />} />
-                        <Route path="show" element={<ButtonShowCasePage />} />
                         <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
                         <Route path="user/:UserId/following" element={<UserFollowingPage />} />
                         <Route path="tweets/:tweetId" element={<TweetPage />} />

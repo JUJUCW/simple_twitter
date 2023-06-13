@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
 
@@ -12,12 +12,16 @@ import { getUser, getUserTweets } from '../../api/user.js';
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import Header from '../../components/Header/Header.jsx';
+import { useAuth } from '../../context/AuthContext.jsx'
+
 import styles from './UserTweetPage.module.scss';
 
 export default function UserTweetPage() {
     const URL = useParams();
     const [userProfile, setUserProfile] = useState('');
     const [userTweets, setUserTweets] = useState([]);
+    const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getUserInfo = async () => {
@@ -77,6 +81,12 @@ export default function UserTweetPage() {
             />
         );
     });
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/login');
+        }
+    }, [navigate, isAuthenticated]);
 
     return (
         <div className={styles.container}>

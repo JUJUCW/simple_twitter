@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Header from '../../components/Header/Header.jsx'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
@@ -8,14 +8,16 @@ import { setUserAccount } from '../../api/user.js'
 import { Toast } from '../../utility/helper.js'
 import styles from './SettingPage.module.scss'
 import { useAuth } from '../../context/AuthContext.jsx'
+import { useNavigate } from 'react-router-dom';
 
 export default function SettingPage () {
-  const { currentUser } = useAuth();
+  const { currentUser, isAuthenticated } = useAuth();
   const [account, setAccount] = useState(currentUser.account);
   const [name, setName] = useState(currentUser.name);
   const [email, setEmail] = useState(currentUser.email);
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
+  const navigate = useNavigate();
   
 
   const handleClick = async () => {
@@ -75,6 +77,12 @@ export default function SettingPage () {
         icon: "success",
       });
   }
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/login');
+        }
+    }, [navigate, isAuthenticated]);
 
 
   return (

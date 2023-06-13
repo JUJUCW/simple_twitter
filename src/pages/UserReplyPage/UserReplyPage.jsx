@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
@@ -9,6 +9,7 @@ import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx';
 // import ReplyList from '../../components/Main/ReplyList/ReplyList.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import Header from '../../components/Header/Header.jsx';
+import { useAuth } from '../../context/AuthContext.jsx'
 import styles from './UserReplyPage.module.scss';
 
 export default function UserReplyPage() {
@@ -16,6 +17,8 @@ export default function UserReplyPage() {
   const URL = useParams();
   const[userReplies, setUserReplies] = useState([])
   const [userProfile, setUserProfile] = useState('')
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
     useEffect(() => {
     const getUserInfo = async () => {
@@ -73,6 +76,12 @@ export default function UserReplyPage() {
         />
         );
     });
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/login');
+        }
+    }, [navigate, isAuthenticated]);
 
 
     return (

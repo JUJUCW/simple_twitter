@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import Header from '../../components/Header/Header.jsx';
 import styles from './UserFollowingPage.module.scss';
@@ -7,12 +7,15 @@ import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
-
+import { useAuth } from '../../context/AuthContext.jsx'
 import { getUserFollowings } from '../../api/user.js'
 
 export default function UserFollowingPage() {
     const [users, setUsers] = useState([]);
     const URL = useParams();
+    const { isAuthenticated } = useAuth();
+    const navigate = useNavigate();
+
     useEffect(() => {
     const getUserFollowing = async () => {
         try {
@@ -45,6 +48,12 @@ export default function UserFollowingPage() {
         />
         );
     });
+
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/login');
+        }
+    }, [navigate, isAuthenticated]);
 
     return (
         <div className={styles.container}>
