@@ -1,4 +1,4 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 import clsx from 'clsx';
 import { Toast } from '../../../utility/helper.js';
 import { postReply } from 'api/reply.js';
@@ -6,24 +6,20 @@ import Button from '../../Button/Button.jsx';
 import { getRelativeTime } from 'utility/helper.js';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png';
 import styles from './ReplyModal.module.scss';
-// import TweetItem from 'components/Main/TweetItem/TweetItem.jsx';
 
 export default function ReplyModal({ handleCloseModal, props }) {
     const [textInput, setTextInput] = useState('');
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
-    const TweetId = props.TweetId;
-    // console.log(TweetId)
-    // const userId = props.userId;
+    const TweetId = props.tweetId;
     const userName = props.userName;
     const account = props.account;
     const avatar = props.avatar;
     const description = props.description;
     const createdAt = props.createdAt;
 
-  const handlePostReply = async () => {
-      
+    const handlePostReply = async () => {
         if (textInput.trim().length === 0) {
             setTextInput('');
             Toast.fire({
@@ -34,8 +30,6 @@ export default function ReplyModal({ handleCloseModal, props }) {
         }
         if (textInput.length > 140) return;
         try {
-        //   console.log('tweetId', TweetId);
-          // const tweetId = Number(localStorage.getItem('tweetId'));
             const res = await postReply(textInput.trim(), TweetId);
 
             if (res.id) {
