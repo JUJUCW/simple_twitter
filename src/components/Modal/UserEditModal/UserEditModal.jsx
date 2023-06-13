@@ -50,18 +50,19 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
     console.log(formData)
 
     const data = await setUserProfile(formData ,id)
-    if (data.status==="success") {
-      Toast.fire({
-        title: "修改個人資料成功",
-        icon: "success",
-      });
-    }
     if (data.status==="error") {
       Toast.fire({
         title: "修改個人資料失敗",
         icon: "error",
       });
+      return
     }
+    
+    Toast.fire({
+      title: "修改個人資料成功",
+      icon: "success",
+    });
+    
   }
 
     return (
