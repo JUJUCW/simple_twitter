@@ -3,10 +3,14 @@ import { adminGetAllUsers } from '../../api/admin.js'
 import Header from '../../components/Header/Header.jsx'
 import AdminUserCard from '../../components/AdminUserCard/AdminUserCard.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
+import { useAuth } from '../../context/AuthContext.jsx'
+import { useNavigate } from 'react-router-dom';
 import styles from './AdminUserPage.module.scss'
 
 export default function AdminUserPage () {
   const [users, setUsers] = useState([]);
+  const { isAuthenticated } = useAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const adminGetAllUser = async () => {
@@ -43,7 +47,11 @@ export default function AdminUserPage () {
         );
     });
 
-
+    useEffect(() => {
+        if (!isAuthenticated) {
+        navigate('/admin/login');
+        }
+    }, [navigate, isAuthenticated]);
 
   return (
     <div className={styles.adminContainer}>

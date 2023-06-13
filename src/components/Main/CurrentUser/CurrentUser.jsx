@@ -59,13 +59,13 @@ export default function CurrentUser({userInfo}) {
                            {introduction}
                         </div>
                         <div className={styles.follows}>
-                            <Link className={styles.routeLink} to={`/follower`}>
+                            <Link className={styles.routeLink} to={`/user/${userId}/follower`}>
                                 <div className={styles.followsFollower}>
                                     <span className={styles.followsCount}>{followingCount||0}位</span>
                                     <span className={styles.followsType}>跟隨中</span>
                                 </div>
                             </Link>
-                            <Link className={styles.routeLink} to={`/following`}>
+                            <Link className={styles.routeLink} to={`/user/${userId}/following`}>
                                 <div className={styles.followingFollower}>
                                     <span className={styles.followingCount}>{followerCount||0}位</span>
                                     <span className={styles.followingType}>跟隨者</span>

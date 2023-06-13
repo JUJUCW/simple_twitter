@@ -10,11 +10,7 @@ import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
-export default function SingleTweet({ props }) {
-    // const [isClicked, setIsClicked] = useState(false);
-    // const handleClick = () => {
-    //     setIsClicked(!isClicked);
-    // };
+export default function SingleTweet({tweetInfo}) {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -24,16 +20,18 @@ export default function SingleTweet({ props }) {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
-    const tweetId = props.id;
-    const userName = 'User' in props ? props.User.name : '';
-    const account = 'User' in props ? props.User.account : '';
-    const avatar = 'User' in props ? props.User.avatar : '';
-    const description = props.description;
-    const replyCount = props.replyCount;
-    const createdAt = props.createdAt;
+    const tweetId = tweetInfo.id;
+    const userName = tweetInfo.User.name;
+    const account = tweetInfo.User.account;
+    const avatar = tweetInfo.User.avatar;
+    const description = tweetInfo.description;
+    const replyCount = tweetInfo.replyCount;
+    const createdAt = tweetInfo.createdAt;
+    const isLiked = tweetInfo.isLiked
+    const preLikedCount = tweetInfo.likedCount
     // const handleOpenModal = props.onClick;
-    const [showLiked, setShowLiked] = useState(props.isLiked);
-    const [likedCount, setLikeCount] = useState(props.likedCount);
+    const [showLiked, setShowLiked] = useState(isLiked);
+    const [likedCount, setLikeCount] = useState(preLikedCount);
 
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
 

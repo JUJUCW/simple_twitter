@@ -132,7 +132,6 @@ export const setUserProfile = async (formData, userId) => {
         },
       }
     );
-    if (data.status === 'success') return data
     return data
   } catch (error) {
     console.log("[Set user profile Failed]:", error);
@@ -166,5 +165,28 @@ export const getUserFollowings = async(userId) => {
   }
 }
 
+// setting user account
+
+export const setUserAccount = async (
+      name,
+      account,
+      email,
+      password,
+      checkPassword, 
+      userId) => {
+  try {
+    const {data} = await apiHelper.put(`/users/${userId}/account`, {
+      name,
+      account,
+      email,
+      password,
+      checkPassword,
+    });
+    return data
+  } catch (error) {
+    console.log("[Set user account Failed]:", error);
+    return error
+  }
+};
 
 

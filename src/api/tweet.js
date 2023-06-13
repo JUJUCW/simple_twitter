@@ -13,8 +13,8 @@ export const getAllTweets = async () => {
 };
 export const getTweet = async (TweetId) => {
     try {
-        const res = await apiHelper.get(`/tweets/${TweetId}`);
-        return res;
+        const {data} = await apiHelper.get(`/tweets/${TweetId}`);
+        return data;
     } catch (error) {
         console.error('[getTweet Failed]:', error);
         return error;
