@@ -1,7 +1,7 @@
 // import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import clsx from 'clsx';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReplyModal from '../../Modal/ReplyModal/ReplyModal.jsx';
 import styles from './TweetItem.module.scss';
 import replyIcon from '../../../assets/icons/tweet/tweet_reply.png';
@@ -58,13 +58,13 @@ export default function TweetItem(props) {
             </div>
             {/* </Link> */}
             <div className={styles.infoContainer}>
-                {/* <Link to={`/${userId}/tweet`}> */}
+                <Link to={`/tweets/${tweetId}`}>
                 <div className={styles.userInfo}>
                     <h5 className={styles.name}>{userName}</h5>
                     <span className={styles.account}>@{account}</span>
                     <span className={styles.tweetTime}>&#xb7;{getRelativeTime(createdAt)}</span>
                 </div>
-                {/* </Link> */}
+                </Link>
                 {/* <Link to={`/${tweetId}`}> */}
                 <div className={styles.tweetContent}>{description}</div>
                 {/* </Link> */}

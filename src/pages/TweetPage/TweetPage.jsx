@@ -1,23 +1,3 @@
-
-//     return (
-//         <div className={styles.container}>
-//             {/* <div className={styles.navBarContainer}> */}
-//             <NavBarContainer role="user" page="main" />
-//             {/* </div> */}
-//             <div className={styles.mainContainer}>
-//                 <MainContainer>
-//                     <Header title="推文" arrow />
-//                     <SingleTweet props={tweet} onClick={handleOpenModal} userName={user.name} />
-//                     {/* {repliesList} */}
-//                 </MainContainer>
-//             </div>
-//             {/* <div className={styles.suggestFollowContainer}> */}
-//             <SuggestUserContainer />
-//             {/* </div> */}
-//             {isModalOpen}
-//         </div>
-//     );
-// }
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './TweetPage.module.scss';
@@ -49,11 +29,12 @@ export default function TweetPage() {
         const fetchTweet = async () => {
             try {
                 const data = await getTweet(param.TweetId);
-
-                if (data && data.User) {
+                if (data.id) {
                     setTweet(data);
-                    setUser(data.User);
+                    // setUser(data.User);
+                    return;
                 }
+                
             } catch (error) {
                 throw new Error(error);
             }
@@ -68,22 +49,26 @@ export default function TweetPage() {
                 throw new Error(error);
             }
         };
-        fetchReplies();
         fetchTweet();
+        fetchReplies();
+        
     }, [param.TweetId]);
 
-
+    
     const repliesList = replies.map((reply) => {
         return (
             <ReplyItem
+                key={reply.id}
                 avatar={reply.User.avatar}
                 account={reply.User.account}
                 userName={reply.User.name}
                 createdAt={reply.createdAt}
                 comment={reply.comment}
+                tweetAccount={reply.repliesAccount}
             />
         );
     });
+
     return (
         <div className={styles.container}>
             {/* <div className={styles.navBarContainer}> */}
@@ -92,7 +77,9 @@ export default function TweetPage() {
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-                    <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />
+                    <SingleTweet props={tweet}
+                        // userParam={user}
+                        onClick={handleOpenModal} />
                     {repliesList}
                 </MainContainer>
             </div>

@@ -60,7 +60,7 @@ export const getUser = async (userId) => {
 export const getUserTweets = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/tweets`);
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.log('[Get user tweets Failed]:', error);
@@ -84,7 +84,7 @@ export const getUserReplies = async (userId) => {
 export const getUserLikes = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/likes`);
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.log('[Get user likes Failed]:', error);
@@ -96,7 +96,7 @@ export const getUserLikes = async (userId) => {
 export const getTopTenUsers = async () => {
     try {
         const { data } = await apiHelper.get(`/users/topTen`);
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.error('[Get top ten users Failed]:', error);

@@ -10,7 +10,9 @@ import likeIcon from 'assets/icons/tweet/tweet_like.png';
 // import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
 import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
-export default function SingleTweet({ props, userParam }) {
+export default function SingleTweet( props
+    // , userParam
+) {
     // const [isClicked, setIsClicked] = useState(false);
     // const handleClick = () => {
     //     setIsClicked(!isClicked);
@@ -26,9 +28,9 @@ export default function SingleTweet({ props, userParam }) {
     };
     const TweetId = props.id;
 
-    const userName = userParam.name;
-    const account = userParam.account;
-    const avatar = userParam.avatar;
+    const userName = props.User.name;
+    const account = props.User.account;
+    const avatar = props.User.avatar;
     const description = props.description;
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
