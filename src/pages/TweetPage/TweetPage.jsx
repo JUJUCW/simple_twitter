@@ -2,15 +2,16 @@ import React, { useEffect, useState } from 'react';
 import {  useParams, useNavigate } from 'react-router-dom';
 
 import styles from './TweetPage.module.scss';
-import MainContainer from 'components/Main/MainContainer/MainContainer';
-import NavBarContainer from 'components/Navbar/NavBarContainer/NavBarContainer';
-import SuggestUserContainer from 'components/SuggestUser/SuggestUserContainer/SuggestUserContainer';
-import Header from 'components/Header/Header';
-import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
-import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
-import ReplyItem from 'components/Main/ReplyItem/ReplyItem';
+import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
+import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
+import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
+import Header from '../../components/Header/Header.jsx';
+import SingleTweet from '../../components/Main/SingleTweet/SingleTweet.jsx';
+import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
+import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
-import { getTweet, getTweetReplies } from 'api/tweet';
+import { getTweet } from '../../api/tweet.js';
+import { getTweetReplies } from '../../api/reply.js'
 
 export default function TweetPage() {
     const param = useParams();
@@ -45,17 +46,21 @@ export default function TweetPage() {
                 throw new Error(error);
             }
         };
+        fetchTweet();
+    }, [param.tweetId]);
+
+    useEffect(() => {
+        
         const fetchReplies = async () => {
             try {
-                const replies = await getTweetReplies(param.tweetId);
-                if (replies) {
-                    setReplies(replies);
+                const data = await getTweetReplies(param.tweetId);
+                if (data) {
+                    setReplies(data);
                 }
             } catch (error) {
                 throw new Error(error);
             }
         };
-        fetchTweet();
         fetchReplies();
     }, [param.tweetId]);
 
@@ -89,7 +94,7 @@ export default function TweetPage() {
                     <Header title="推文" arrow />
 
                     {tweet && <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />}
-                    {repliesList}
+                    {replies && repliesList}
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}
