@@ -107,7 +107,10 @@ export default function UserLikePage() {
                           </Link>                
                             <UserToggleMenu linkName="喜歡的內容" isActive/>
                         </div>
-                        {likeTweetList}
+                        <div className={styles.tweetList}>
+                            {likeTweetList}
+                        </div>
+                        
                         
                     </div>
                 </MainContainer>

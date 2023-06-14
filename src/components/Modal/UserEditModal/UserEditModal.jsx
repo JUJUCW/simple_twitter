@@ -7,19 +7,19 @@ import { setUserProfile } from '../../../api/user.js'
 import { Toast } from '../../../utility/helper.js'
 import { useDataStatus } from '../../../context/DataContext.jsx'
 import bgImg from '../../../assets/images/default_background.png';
-// import logo from '../../../assets/icons/logo_gray.png';
+import logo from '../../../assets/icons/logo_gray.png';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png'
 import modal_upload from '../../../assets/icons/modal/modal_upload.png'
 import modal_cancel from '../../../assets/icons/modal/modal_cancel.png'
 import styles from './UserEditModal.module.scss';
 
 export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverImg, oriIntroduction, oriAvatar}) {
-  const [coverPhoto, setCoverPhoto] = useState(oriCoverImg)
+  const [coverPhoto, setCoverPhoto] = useState(oriCoverImg||bgImg)
   const [upCoverPhoto, setUpCoverPhoto] = useState(coverPhoto)
-  const [avatar, setAvatar] = useState(oriAvatar)
+  const [avatar, setAvatar] = useState(oriAvatar||logo)
   const [upAvatar, setUpAvatar] = useState(avatar)
   const [name, setName] = useState(oriName);
-  const [introduction, setIntroduction] = useState(oriIntroduction);
+  const [introduction, setIntroduction] = useState(oriIntroduction||'');
   const {isDataUpdate, setIsDataUpdate } = useDataStatus();
 
   const handleImgChange = (e, type) => {

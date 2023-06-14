@@ -44,11 +44,13 @@ export default function SuggestUserItem(props) {
         <>
             <div className={styles.userItem}>
 
-                <Link to={`user/${userId}/tweet`}>
+                
                     <div className={styles.container}>
-                        <div className={styles.avatarContainer}>
-                            <img className={styles.userAvatar} src={avatar||logo} alt="avatar" />
-                        </div>
+                        <Link to={`/user/${userId}/tweet`}>
+                            <div className={styles.avatarContainer}>
+                                <img className={styles.userAvatar} src={avatar||logo} alt="avatar" />
+                            </div>
+                        </Link>
                         <div className={styles.userInfo}>
                             {/* When text becomes too long, it automatically turns into "..."" */}
                             <p className={styles.userInfoName}>{name}</p>
@@ -56,7 +58,7 @@ export default function SuggestUserItem(props) {
                         </div>
 
                     </div>
-                </Link>
+                
                 <div className={styles.btn} onClick={handleClick}>
                     {isClicked ? (
                         <Button title="正在跟隨" size="middle" isAction />
