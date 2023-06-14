@@ -95,7 +95,7 @@ export default function UserTweetPage() {
             <NavBarContainer role="user" page="userPage" />
             <div className={styles.navBarContainer}>
                 <MainContainer>
-                    <Header title={userProfile.name} arrow tweetCount="66" />
+                    <Header title={userProfile.name} arrow tweetCount />
 
                     {userProfile&&<CurrentUser userInfo={userProfile} />}
 

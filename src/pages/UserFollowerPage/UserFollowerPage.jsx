@@ -7,7 +7,7 @@ import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
-import {getUserFollowers} from '../../api/user.js'
+import {getUserFollowers, getUser} from '../../api/user.js'
 import { useAuth } from '../../context/AuthContext.jsx'
 import { useDataStatus } from '../../context/DataContext.jsx'
 
@@ -17,6 +17,7 @@ export default function UserFollowerPage() {
     const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
+    const [userProfile, setUserProfile] = useState('')
 
     useEffect(() => {
     const getUserFollower = async () => {
@@ -35,6 +36,26 @@ export default function UserFollowerPage() {
         }
         }
         getUserFollower();
+    }, [URL.UserId, isDataUpdate]);
+
+    useEffect(() => {
+        const getUserInfo = async () => {
+            try {
+                const data = await getUser(URL.UserId);
+                if (data.status === 'error') {
+                    console.log(data.message);
+                    return;
+                }
+                if (data) {
+                    // update data
+                    setUserProfile(data);
+                    console.log(data);
+                }
+            } catch (error) {
+                console.log('獲取使用者資料失敗', error);
+            }
+        };
+        getUserInfo();
     }, [URL.UserId, isDataUpdate]);
 
     const followerList = users.map((user) => {
@@ -61,7 +82,7 @@ export default function UserFollowerPage() {
         <div className={styles.container}>
             <NavBarContainer role="user" page="main" />       
                 <MainContainer>
-                    <Header title="John Doe" arrow tweetCount="25" />
+                    <Header title={userProfile.name} arrow tweetCount="25" />
                     <div className={styles.userToggleMenu}>
                         <UserToggleMenu linkName="追隨者" isActive />
                         <Link to={`/user/${URL.UserId}/following`}>

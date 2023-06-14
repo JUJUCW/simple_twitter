@@ -94,7 +94,7 @@ export default function UserLikePage() {
                 <NavBarContainer role="user" page="userPage" />
              
                 <MainContainer>
-                    <Header title={userProfile.name} arrow tweetCount="66" />
+                    <Header title={userProfile.name} arrow tweetCount />
                     <div className={styles.currentContainer}>
                         {userProfile&&<CurrentUser userInfo={userProfile} />}
 

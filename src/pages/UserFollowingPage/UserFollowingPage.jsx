@@ -8,7 +8,7 @@ import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
-import { getUserFollowings } from '../../api/user.js'
+import { getUserFollowings, getUser } from '../../api/user.js'
 import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function UserFollowingPage() {
@@ -17,6 +17,7 @@ export default function UserFollowingPage() {
     const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
+    const [userProfile, setUserProfile] = useState('')
 
     useEffect(() => {
     const getUserFollowing = async () => {
@@ -35,6 +36,26 @@ export default function UserFollowingPage() {
         }
         }
         getUserFollowing();
+    }, [URL.UserId, isDataUpdate]);
+
+    useEffect(() => {
+        const getUserInfo = async () => {
+            try {
+                const data = await getUser(URL.UserId);
+                if (data.status === 'error') {
+                    console.log(data.message);
+                    return;
+                }
+                if (data) {
+                    // update data
+                    setUserProfile(data);
+                    console.log(data);
+                }
+            } catch (error) {
+                console.log('獲取使用者資料失敗', error);
+            }
+        };
+        getUserInfo();
     }, [URL.UserId, isDataUpdate]);
 
     const followingList = users.map((user) => {
@@ -62,7 +83,7 @@ export default function UserFollowingPage() {
             <NavBarContainer role="user" page="main" />
 
                 <MainContainer>
-                    <Header title="John Doe" arrow tweetCount="25" />
+                    <Header title={userProfile.name} arrow tweetCount />
                     <div className={styles.userToggleMenu}>
                       <Link to={`/user/${URL.UserId}/follower`}>
                         <UserToggleMenu linkName="追隨者" />
