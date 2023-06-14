@@ -16,6 +16,7 @@ import UserReplyPage from './pages/UserReplyPage/UserReplyPage.jsx';
 import UserLikePage from './pages/UserLikePage/UserLikePage.jsx';
 import TweetPage from 'pages/TweetPage/TweetPage';
 import { AuthContextProvider } from './context/AuthContext.jsx';
+import { DataStatusProvider } from './context/DataContext.jsx'
 
 const basename = process.env.PUBLIC_URL;
 export default function App() {
@@ -23,23 +24,25 @@ export default function App() {
         <div className="app">
             <BrowserRouter basename={basename}>
                 <AuthContextProvider>
-                    <Routes>
-                        <Route path="login" element={<LoginPage />} />
-                        <Route path="signup" element={<SignUpPage />} />
-                        <Route path="main" element={<MainPage />} />
-                        <Route path="user/:UserId/tweet" element={<UserTweetPage />} />
-                        <Route path="user/:UserId/reply" element={<UserReplyPage />} />
-                        <Route path="user/:UserId/like" element={<UserLikePage />} />
-                        <Route path="admin/login" element={<AdminLoginPage />} />
-                        <Route path="setting" element={<SettingPage />} />
-                        <Route path="admin/users" element={<AdminUserPage />} />
-                        <Route path="admin/tweets" element={<AdminTweetPage />} />
-                        <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
-                        <Route path="user/:UserId/following" element={<UserFollowingPage />} />
-                        <Route path="tweets/:tweetId" element={<TweetPage />} />
-                        <Route path="Tweets/:tweetId/replies" element={<TweetPage />} />
-                        <Route path="*" element={<HomePage />} />
-                    </Routes>
+                    <DataStatusProvider>
+                        <Routes>
+                            <Route path="login" element={<LoginPage />} />
+                            <Route path="signup" element={<SignUpPage />} />
+                            <Route path="main" element={<MainPage />} />
+                            <Route path="user/:UserId/tweet" element={<UserTweetPage />} />
+                            <Route path="user/:UserId/reply" element={<UserReplyPage />} />
+                            <Route path="user/:UserId/like" element={<UserLikePage />} />
+                            <Route path="admin/login" element={<AdminLoginPage />} />
+                            <Route path="setting" element={<SettingPage />} />
+                            <Route path="admin/users" element={<AdminUserPage />} />
+                            <Route path="admin/tweets" element={<AdminTweetPage />} />
+                            <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
+                            <Route path="user/:UserId/following" element={<UserFollowingPage />} />
+                            <Route path="tweets/:tweetId" element={<TweetPage />} />
+                            <Route path="Tweets/:tweetId/replies" element={<TweetPage />} />
+                            <Route path="*" element={<HomePage />} />
+                        </Routes>
+                    </DataStatusProvider>
                 </AuthContextProvider>
             </BrowserRouter>
         </div>

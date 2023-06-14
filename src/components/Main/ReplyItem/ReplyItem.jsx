@@ -6,6 +6,7 @@ export default function ReplyItem(props) {
     const account = props.account;
     const userName = props.name;
     const createdAt = props.createdAt;
+    const tweetAccount=props.tweetAccount
 
     // const tweetId=props.id
     // const userId=props.UserId
@@ -15,12 +16,10 @@ export default function ReplyItem(props) {
 
     return (
         <div className={styles.modalContainer}>
-            <div className={styles.tweet}>
                 <div className={styles.left}>
                     <div className={styles.avatarContainer}>
                         <img className={styles.tweetAvatar} src={avatar} alt="logo_gray" />
                     </div>
-                    
                 </div>
                 <div className={styles.right}>
                     <div className={styles.tweetUserInfo}>
@@ -32,11 +31,10 @@ export default function ReplyItem(props) {
                     <div className={styles.replyAddress}>
                         <span className={styles.replyWord}>回覆給</span>
 
-                        <span className={styles.replyAccount}> @apple</span>
+                        <span className={styles.replyAccount}> @{tweetAccount}</span>
                     </div>
                     <div className={styles.tweetContent}>{comment}</div>
                 </div>
-            </div>
         </div>
     );
 }

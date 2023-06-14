@@ -11,7 +11,7 @@ import { postTweetUnlike, postTweetLike } from '../../../api/like.js';
 
 export default function TweetItem(props) {
     const tweetId = props.tweetId;
-    const userId = props.UserId;
+    const userId = props.userId;
     const userName = props.userName;
     const account = props.account;
     const avatar = props.avatar;
@@ -52,7 +52,7 @@ export default function TweetItem(props) {
 
     return (
         <div className={styles.container}>
-            <Link to={`user/${userId}/tweet`}>
+            <Link to={`/user/${userId}/tweet`}>
             <div className={styles.avatar}>
                 <img className={styles.avatarImg} src={avatar} alt="avatar" />
             </div>
@@ -85,7 +85,7 @@ export default function TweetItem(props) {
                     </div>
                 </div>
             </div>
-            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} props={props} />}
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} props={props}/>}
         </div>
     );
 }

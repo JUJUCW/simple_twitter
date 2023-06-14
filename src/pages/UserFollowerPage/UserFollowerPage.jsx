@@ -9,12 +9,14 @@ import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContai
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
 import {getUserFollowers} from '../../api/user.js'
 import { useAuth } from '../../context/AuthContext.jsx'
+import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function UserFollowerPage() {
     const [users, setUsers] = useState([]);
     const URL = useParams();
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
+    const { isDataUpdate } = useDataStatus();
 
     useEffect(() => {
     const getUserFollower = async () => {
@@ -33,7 +35,7 @@ export default function UserFollowerPage() {
         }
         }
         getUserFollower();
-    }, [URL.UserId]);
+    }, [URL.UserId, isDataUpdate]);
 
     const followerList = users.map((user) => {
         return (

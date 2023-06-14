@@ -10,6 +10,7 @@ import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.
 import Header from '../../components/Header/Header.jsx';
 import { getUser, getUserLikes } from '../../api/user.js'
 import { useAuth } from '../../context/AuthContext.jsx'
+import { useDataStatus } from '../../context/DataContext.jsx'
 import styles from './UserLikePage.module.scss';
 
 export default function UserLikePage() {
@@ -18,6 +19,7 @@ export default function UserLikePage() {
     const [userProfile, setUserProfile] = useState('')
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
+    const { isDataUpdate } = useDataStatus();
 
     useEffect(() => {
     const getUserInfo = async () => {
@@ -37,7 +39,7 @@ export default function UserLikePage() {
         }
         }
         getUserInfo();
-    }, [URL.UserId]);
+    }, [URL.UserId, isDataUpdate]);
 
     useEffect(() => {
     const getUserLike = async () => {
@@ -57,7 +59,7 @@ export default function UserLikePage() {
         }
         }
         getUserLike();
-    }, [URL.UserId]);
+    }, [URL.UserId, isDataUpdate]);
 
 
     const likeTweetList = userLikes.map((tweet) => {
@@ -94,7 +96,7 @@ export default function UserLikePage() {
                 <MainContainer>
                     <Header title={userProfile.name} arrow tweetCount="66" />
                     <div className={styles.currentContainer}>
-                        <CurrentUser userInfo={userProfile}/>
+                        {userProfile&&<CurrentUser userInfo={userProfile} />}
 
                         <div className={styles.userToggleMenu}>
                           <Link to={`/user/${URL.UserId}/tweet`}>
