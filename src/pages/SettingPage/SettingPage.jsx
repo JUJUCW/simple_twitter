@@ -13,8 +13,8 @@ import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function SettingPage () {
   const { currentUser, isAuthenticated } = useAuth();
-
-  const userId = currentUser.id
+  
+  const userId = currentUser && currentUser.id
 
   const navigate = useNavigate();
   const [account, setAccount] = useState("");
@@ -23,6 +23,7 @@ export default function SettingPage () {
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
   const { isDataUpdate, setIsDataUpdate } = useDataStatus();
+ 
   
   useEffect(() => {
         const getUserInfo = async () => {
@@ -113,12 +114,12 @@ export default function SettingPage () {
         }
     }, [navigate, isAuthenticated]);
 
-
+  
   return (
     <div className={styles.adminContainer}>
-      {currentUser && <NavBarContainer role='user'page='setting'/>}
+      <NavBarContainer role='user'page='setting'/>
       <div className={styles.middleContainer}>
-        { currentUser && <Header title='帳戶設定'/>}
+        <Header title='帳戶設定'/>
         <div className={styles.inputContainer}>
           {account &&<AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
           notification='字數超出上限!' wordsLimit={20}/>}
