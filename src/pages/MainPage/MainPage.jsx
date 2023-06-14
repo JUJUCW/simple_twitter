@@ -77,7 +77,7 @@ export default function MainPage() {
                     <TweetInput />
                     {/* <SingleTweet /> */}
 
-                    {tweetList}
+                    {tweets && tweetList}
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

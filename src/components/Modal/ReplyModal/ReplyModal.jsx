@@ -5,14 +5,19 @@ import { postReply } from 'api/reply.js';
 import Button from '../../Button/Button.jsx';
 import { getRelativeTime } from 'utility/helper.js';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png';
+import { useAuth } from "../../../context/AuthContext.jsx";
+import { useDataStatus } from '../../../context/DataContext.jsx'
 import styles from './ReplyModal.module.scss';
 
 export default function ReplyModal({ handleCloseModal, props }) {
     const [textInput, setTextInput] = useState('');
+    const { currentUser } = useAuth();
+    const {isDataUpdate, setIsDataUpdate } = useDataStatus();
+
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
-    const TweetId = props.tweetId;
+    const tweetId = props.tweetId;
     const userName = props.userName;
     const account = props.account;
     const avatar = props.avatar;
@@ -30,10 +35,11 @@ export default function ReplyModal({ handleCloseModal, props }) {
         }
         if (textInput.length > 140) return;
         try {
-            const res = await postReply(textInput.trim(), TweetId);
+            const res = await postReply(textInput.trim(), tweetId);
 
             if (res.id) {
                 setTextInput('');
+                setIsDataUpdate(!isDataUpdate)
                 Toast.fire({
                     title: '回覆發送成功',
                     icon: 'success',
@@ -84,7 +90,7 @@ export default function ReplyModal({ handleCloseModal, props }) {
                 </div>
                 <div className={styles.positionAnchor}>
                     <div className={styles.info}>
-                        <img className={styles.avatar} src={avatar} alt="avatar" />
+                        <img className={styles.avatar} src={currentUser.avatar} alt="avatar" />
 
                         <div className={styles.replyContainer}>
                             <textarea

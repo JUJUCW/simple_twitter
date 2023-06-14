@@ -12,6 +12,7 @@ import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
 import { getTweet } from '../../api/tweet.js';
 import { getTweetReplies } from '../../api/reply.js'
+import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function TweetPage() {
     const param = useParams();
@@ -21,6 +22,7 @@ export default function TweetPage() {
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
     const [replies, setReplies] = useState([]);
+    const { isDataUpdate } = useDataStatus();
 
 
     const handleOpenModal = () => {
@@ -47,7 +49,7 @@ export default function TweetPage() {
             }
         };
         fetchTweet();
-    }, [param.tweetId]);
+    }, [param.tweetId, isDataUpdate]);
 
     useEffect(() => {
         
@@ -62,7 +64,7 @@ export default function TweetPage() {
             }
         };
         fetchReplies();
-    }, [param.tweetId]);
+    }, [param.tweetId, isDataUpdate]);
 
 
     const repliesList = replies.map((reply) => {
