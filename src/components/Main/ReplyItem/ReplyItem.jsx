@@ -4,7 +4,7 @@ import { getRelativeTime } from '../../../utility/helper.js';
 export default function ReplyItem(props) {
     const avatar = props.avatar;
     const account = props.account;
-    const userName = props.userName;
+    const userName = props.name;
     const createdAt = props.createdAt;
     const tweetAccount=props.tweetAccount
 

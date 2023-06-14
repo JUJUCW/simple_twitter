@@ -8,28 +8,19 @@ import { postTweetUnlike, postTweetLike } from 'api/like.js';
 import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 import likeIcon from 'assets/icons/tweet/tweet_like.png';
 // import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
-import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
+// import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
 
-export default function SingleTweet(tweet) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+export default function SingleTweet({onClick, props, userParam}) {
 
-    const handleOpenModal = () => {
-        setIsModalOpen(true);
-    };
-
-    const handleCloseModal = () => {
-        setIsModalOpen(false);
-    };
-
-    const TweetId = tweet.id;
-    const userName = tweet.userParam.name;
-    const account = tweet.userParam.account;
-    const avatar = tweet.userParam.avatar;
-    const description = tweet.props.description;
-    const replyCount = tweet.props.replyCount;
-    const createdAt = tweet.props.createdAt;
-    const isLiked = tweet.props.isLiked;
-    const preLikedCount = tweet.props.likedCount;
+    const TweetId = props.id;
+    const userName =userParam.name;
+    const account =userParam.account;
+    const avatar =userParam.avatar;
+    const description = props.description;
+    const replyCount = props.replyCount;
+    const createdAt =props.createdAt;
+    const isLiked = props.isLiked;
+    const preLikedCount = props.likedCount;
     const [showLiked, setShowLiked] = useState(isLiked);
     const [likedCount, setLikeCount] = useState(preLikedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
@@ -83,7 +74,7 @@ export default function SingleTweet(tweet) {
             </div>
             <div className={styles.line}></div>
             <div className={styles.icons}>
-                <div className={styles.iconReply} onClick={handleOpenModal}>
+                <div className={styles.iconReply} onClick={onClick}>
                     <img className={styles.replyBtn} src={replyIcon} alt="reply button" />
                 </div>
 
@@ -93,8 +84,6 @@ export default function SingleTweet(tweet) {
                     </div>
                 </div>
             </div>
-            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} TweetId={TweetId} />}
-            <div className={styles.lineBottom}></div>
         </div>
     );
 }

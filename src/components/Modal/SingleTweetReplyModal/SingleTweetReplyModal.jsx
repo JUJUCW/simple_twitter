@@ -7,9 +7,9 @@ import { getRelativeTime } from 'utility/helper.js';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png';
 import { useAuth } from "../../../context/AuthContext.jsx";
 import { useDataStatus } from '../../../context/DataContext.jsx'
-import styles from './ReplyModal.module.scss';
+import styles from './SingleTweetReplyModal.module.scss';
 
-export default function ReplyModal({ handleCloseModal, props }) {
+export default function SingleTweetReplyModal({ handleCloseModal, props }) {
     const [textInput, setTextInput] = useState('');
     const { currentUser } = useAuth();
     const {isDataUpdate, setIsDataUpdate } = useDataStatus();
@@ -17,10 +17,10 @@ export default function ReplyModal({ handleCloseModal, props }) {
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
-    const tweetId = props.tweetId;
-    const userName = props.userName;
-    const account = props.account;
-    const avatar = props.avatar;
+    const tweetId = props.id;
+    const userName = props.User.name;
+    const account = props.User.account;
+    const avatar = props.User.avatar;
     const description = props.description;
     const createdAt = props.createdAt;
 

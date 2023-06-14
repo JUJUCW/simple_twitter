@@ -7,11 +7,12 @@ import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarConta
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import Header from '../../components/Header/Header.jsx';
 import SingleTweet from '../../components/Main/SingleTweet/SingleTweet.jsx';
-import ReplyModal from '../../components/Modal/ReplyModal/ReplyModal.jsx';
+import SingleTweetReplyModal from '../../components/Modal/SingleTweetReplyModal/SingleTweetReplyModal.jsx';
 import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
 import { getTweet } from '../../api/tweet.js';
 import { getTweetReplies } from '../../api/reply.js'
+import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function TweetPage() {
     const param = useParams();
@@ -21,6 +22,7 @@ export default function TweetPage() {
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
     const [replies, setReplies] = useState([]);
+    const { isDataUpdate } = useDataStatus();
 
 
     const handleOpenModal = () => {
@@ -47,7 +49,7 @@ export default function TweetPage() {
             }
         };
         fetchTweet();
-    }, [param.tweetId]);
+    }, [param.tweetId, isDataUpdate]);
 
     useEffect(() => {
         
@@ -62,7 +64,7 @@ export default function TweetPage() {
             }
         };
         fetchReplies();
-    }, [param.tweetId]);
+    }, [param.tweetId, isDataUpdate]);
 
 
     const repliesList = replies.map((reply) => {
@@ -71,7 +73,7 @@ export default function TweetPage() {
                 key={reply.id}
                 avatar={reply.User.avatar}
                 account={reply.User.account}
-                userName={reply.User.name}
+                name={reply.User.name}
                 createdAt={reply.createdAt}
                 comment={reply.comment}
                 tweetAccount={reply.repliesAccount}
@@ -100,7 +102,7 @@ export default function TweetPage() {
             {/* <div className={styles.suggestFollowContainer}> */}
             <SuggestUserContainer />
             {/* </div> */}
-            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} />}
+            {isModalOpen && <SingleTweetReplyModal handleCloseModal={handleCloseModal} props={tweet}/>}
         </div>
     );
 }

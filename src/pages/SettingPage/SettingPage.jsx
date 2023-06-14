@@ -9,6 +9,7 @@ import { Toast } from '../../utility/helper.js'
 import styles from './SettingPage.module.scss'
 import { useAuth } from '../../context/AuthContext.jsx'
 import { useNavigate } from 'react-router-dom';
+import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function SettingPage () {
   const { currentUser, isAuthenticated } = useAuth();
@@ -21,6 +22,7 @@ export default function SettingPage () {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
+  const { isDataUpdate, setIsDataUpdate } = useDataStatus();
   
   useEffect(() => {
         const getUserInfo = async () => {
@@ -42,7 +44,7 @@ export default function SettingPage () {
             }
         };
         getUserInfo();
-    }, [userId]);
+    }, [userId, isDataUpdate]);
 
   const handleClick = async () => {
     if (account.trim().length === 0) {
@@ -100,6 +102,7 @@ export default function SettingPage () {
         title: "修改成功",
         icon: "success",
       });
+    setIsDataUpdate(!isDataUpdate)
       // localStorage.removeItem('token')
       // navigate('/login');
   }

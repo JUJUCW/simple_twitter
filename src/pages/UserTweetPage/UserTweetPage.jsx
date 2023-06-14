@@ -13,6 +13,7 @@ import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import Header from '../../components/Header/Header.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
+import { useDataStatus } from '../../context/DataContext.jsx'
 
 import styles from './UserTweetPage.module.scss';
 
@@ -22,6 +23,7 @@ export default function UserTweetPage() {
     const [userTweets, setUserTweets] = useState([]);
     const { isAuthenticated } = useAuth();
     const navigate = useNavigate();
+    const { isDataUpdate } = useDataStatus();
 
     useEffect(() => {
         const getUserInfo = async () => {
@@ -41,7 +43,7 @@ export default function UserTweetPage() {
             }
         };
         getUserInfo();
-    }, [URL.UserId]);
+    }, [URL.UserId, isDataUpdate]);
 
     useEffect(() => {
         const getUserTweet = async () => {
@@ -61,7 +63,7 @@ export default function UserTweetPage() {
             }
         };
         getUserTweet();
-    }, [URL.UserId]);
+    }, [URL.UserId, isDataUpdate]);
 
     const tweetList = userTweets.map((tweet) => {
         return (
@@ -95,7 +97,7 @@ export default function UserTweetPage() {
                 <MainContainer>
                     <Header title={userProfile.name} arrow tweetCount="66" />
 
-                    <CurrentUser userInfo={userProfile} />
+                    {userProfile&&<CurrentUser userInfo={userProfile} />}
 
                     <div className={styles.userToggleMenu}>
                         <UserToggleMenu linkName="推文" isActive />
