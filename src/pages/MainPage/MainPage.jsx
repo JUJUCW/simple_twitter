@@ -14,11 +14,13 @@ import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
 import { getAllTweets } from '../../api/tweet.js';
 import { useNavigate } from 'react-router-dom';
+import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function MainPage() {
     const { isAuthenticated } = useAuth();
     const [tweets, setTweets] = useState([]);
     const navigate = useNavigate();
+    const { isDataUpdate } = useDataStatus();
 
     useEffect(() => {
         const getAllTweet = async () => {
@@ -37,7 +39,7 @@ export default function MainPage() {
             }
         };
         getAllTweet();
-    }, []);
+    }, [isDataUpdate]);
 
     const tweetList = tweets.map((tweet) => {
         return (
