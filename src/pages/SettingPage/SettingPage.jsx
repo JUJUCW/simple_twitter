@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function SettingPage () {
-  const { currentUser, isAuthenticated } = useAuth();
+  const { currentUser, isAuthenticated, isAuthChecked } = useAuth();
   
   const userId = currentUser && currentUser.id
 
@@ -109,10 +109,10 @@ export default function SettingPage () {
   }
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
   
   return (

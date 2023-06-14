@@ -17,7 +17,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function MainPage() {
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, isAuthChecked } = useAuth();
     const [tweets, setTweets] = useState([]);
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
@@ -61,10 +61,10 @@ export default function MainPage() {
     });
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
     return (
         <div className={styles.container}>

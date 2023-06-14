@@ -17,7 +17,7 @@ export default function UserLikePage() {
     const URL = useParams();
     const[userLikes, setUserLikes] = useState([])
     const [userProfile, setUserProfile] = useState('')
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
 
@@ -82,10 +82,10 @@ export default function UserLikePage() {
     });
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
     return (
         <>

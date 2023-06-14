@@ -14,7 +14,7 @@ import { useDataStatus } from '../../context/DataContext.jsx'
 export default function UserFollowingPage() {
     const [users, setUsers] = useState([]);
     const URL = useParams();
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
 
@@ -52,10 +52,10 @@ export default function UserFollowingPage() {
     });
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
     return (
         <div className={styles.container}>
