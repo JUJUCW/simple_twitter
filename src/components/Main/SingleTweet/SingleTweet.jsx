@@ -57,20 +57,17 @@ export default function SingleTweet({onClick, props, userParam}) {
             <span className={styles.time}>{fullTime}</span>
             <div className={styles.line}></div>
             <div className={styles.likeReplyBox}>
-                {/* <Link className={styles.routeLink} to={`/`}> */}
+                
                 <div className={styles.counts}>
                     <span className={styles.replyCount}>{replyCount}&nbsp;</span>
                     <span className={styles.count}>回覆</span>
                 </div>
-                {/* </Link> */}
-                {/* <Link className={styles.routeLink}
-                    // to={`/`}
-                > */}
+              
                 <div className={styles.likeCount}>
                     {likedCount}&nbsp;
                     <span className={styles.like}>喜歡次數</span>
                 </div>
-                {/* </Link> */}
+               
             </div>
             <div className={styles.line}></div>
             <div className={styles.icons}>
