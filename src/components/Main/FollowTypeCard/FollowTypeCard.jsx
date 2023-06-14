@@ -4,6 +4,7 @@ import styles from './FollowTypeCard.module.scss';
 import logo from 'assets/icons/logo_gray.png';
 import { useDataStatus } from '../../../context/DataContext.jsx'
 import { followUser, unFollowUser } from '../../../api/followship.js';
+import { Link } from 'react-router-dom';
 
 export default function FollowTypeCard(props) {
             const userId=props.userId
@@ -44,9 +45,11 @@ export default function FollowTypeCard(props) {
         <div className={styles.container}>
             <div className={styles.user}>
                 <div className={styles.userInfo}>
-                    <div className={styles.avatarContainer}>
+                    <Link to={`/user/${userId}/tweet`}>
+                        <div className={styles.avatarContainer}>
                         <img src={avatar||logo} alt="" className={styles.avatar} />
                     </div>
+                    </Link>
                     
                     <div className={styles.userName}>{name}</div>
                 </div>

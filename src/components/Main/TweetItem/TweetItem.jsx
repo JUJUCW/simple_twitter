@@ -18,10 +18,12 @@ export default function TweetItem(props) {
     const description = props.description;
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
+    const isLiked = props.isLiked
+    const preLikedCount = props.likedCount
     // const updatedAt = props.updatedAt;
 
-    const [showLiked, setShowLiked] = useState(props.isLiked);
-    const [likedCount, setLikeCount] = useState(props.likedCount);
+    const [showLiked, setShowLiked] = useState(isLiked);
+    const [likedCount, setLikeCount] = useState(preLikedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,8 +66,6 @@ export default function TweetItem(props) {
                     <span className={styles.account}>@{account}</span>
                     <span className={styles.tweetTime}>&#xb7;{getRelativeTime(createdAt)}</span>
                 </div>
-                {/* </Link> */}
-                {/* <Link to={`/${tweetId}`}> */}
                 <div className={styles.tweetContent}>{description}</div>
                 </Link>
 
@@ -78,7 +78,7 @@ export default function TweetItem(props) {
                     </div>
                     <div className={styles.iconLike}>
                         <div className={styles.cursor} onClick={handleLike}>
-                            <img className={likeClassName} src={likeIcon} alt="like button" />
+                            {props &&<img className={likeClassName} src={likeIcon} alt="like button" />}
                         </div>
 
                         <span>{likedCount}</span>
