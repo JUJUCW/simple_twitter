@@ -116,9 +116,9 @@ export default function SettingPage () {
 
   return (
     <div className={styles.adminContainer}>
-      <NavBarContainer role='user'page='setting'/>
+      {currentUser && <NavBarContainer role='user'page='setting'/>}
       <div className={styles.middleContainer}>
-        <Header title='帳戶設定'/>
+        { currentUser && <Header title='帳戶設定'/>}
         <div className={styles.inputContainer}>
           {account &&<AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
           notification='字數超出上限!' wordsLimit={20}/>}
