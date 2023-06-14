@@ -61,9 +61,12 @@
     .icons {
         /*display*/
         display: flex;
-        margin: 19px 0 19px 16px;
+        align-items: center;
+        padding: 10px 19px;
+        border-bottom: 1px solid color.$assistant-gray;
         .iconReply {
             margin-right: 128px;
+            cursor: pointer;
         }
         .replyBtn,
         .likeBtn {
@@ -101,4 +104,6 @@
         @include mixin.font-setting(19px, 400, color.$secondary-color);
     }
 }
-
+.cursor {
+    cursor: pointer;
+}
