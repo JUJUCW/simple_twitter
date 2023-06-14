@@ -40,7 +40,7 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
   };
 
   const handleCancelImg = () => {
-    setCoverPhoto(bgImg);
+    setCoverPhoto(oriCoverImg);
   }
 
   const handleSubmit = async() => {

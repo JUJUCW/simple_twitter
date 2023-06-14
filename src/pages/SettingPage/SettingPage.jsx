@@ -12,9 +12,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function SettingPage () {
-  const { currentUser, isAuthenticated } = useAuth();
-
-  const userId = currentUser.id
+  const { currentUser, isAuthenticated, isAuthChecked } = useAuth();
+  
+  const userId = currentUser && currentUser.id
 
   const navigate = useNavigate();
   const [account, setAccount] = useState("");
@@ -23,6 +23,7 @@ export default function SettingPage () {
   const [password, setPassword] = useState("");
   const [checkPassword, setCheckPassword] = useState("");
   const { isDataUpdate, setIsDataUpdate } = useDataStatus();
+ 
   
   useEffect(() => {
         const getUserInfo = async () => {
@@ -108,12 +109,12 @@ export default function SettingPage () {
   }
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
-
+  
   return (
     <div className={styles.adminContainer}>
       <NavBarContainer role='user'page='setting'/>
