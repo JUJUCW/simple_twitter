@@ -1,5 +1,6 @@
 import styles from './ReplyItem.module.scss';
 import { getRelativeTime } from '../../../utility/helper.js';
+import { Link } from 'react-router-dom';
 
 export default function ReplyItem(props) {
     const avatar = props.avatar;
@@ -9,7 +10,7 @@ export default function ReplyItem(props) {
     const tweetAccount=props.tweetAccount
 
     // const tweetId=props.id
-    // const userId=props.UserId
+    const userId=props.userId
     // const tweetAccount = props.tweetAccount;
 
     const comment = props.comment;
@@ -17,9 +18,11 @@ export default function ReplyItem(props) {
     return (
         <div className={styles.modalContainer}>
                 <div className={styles.left}>
-                    <div className={styles.avatarContainer}>
-                        <img className={styles.tweetAvatar} src={avatar} alt="logo_gray" />
-                    </div>
+                    <Link to={`/user/${userId}/tweet`}>
+                        <div className={styles.avatarContainer}>
+                            <img className={styles.tweetAvatar} src={avatar} alt="avatar" />
+                         </div>
+                    </Link>
                 </div>
                 <div className={styles.right}>
                     <div className={styles.tweetUserInfo}>

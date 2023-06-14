@@ -71,6 +71,7 @@ export default function TweetPage() {
         return (
             <ReplyItem
                 key={reply.id}
+                userId={reply.User.id}
                 avatar={reply.User.avatar}
                 account={reply.User.account}
                 name={reply.User.name}

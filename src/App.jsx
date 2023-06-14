@@ -39,7 +39,6 @@ export default function App() {
                             <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
                             <Route path="user/:UserId/following" element={<UserFollowingPage />} />
                             <Route path="tweets/:tweetId" element={<TweetPage />} />
-                            <Route path="Tweets/:tweetId/replies" element={<TweetPage />} />
                             <Route path="*" element={<HomePage />} />
                         </Routes>
                     </DataStatusProvider>

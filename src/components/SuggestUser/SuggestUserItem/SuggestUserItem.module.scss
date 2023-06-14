@@ -21,7 +21,9 @@
         margin-right: 8px;
         overflow: hidden;
         .userAvatar {
+            width: 100%;
             height: 100%;
+            object-fit: cover;
         }
     }
     
