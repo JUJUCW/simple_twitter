@@ -66,7 +66,7 @@ export default function CurrentUser({userInfo}) {
                 <div className={styles.userInfoAvatar}>
                     <img src={avatar} alt="avatar" className={styles.img} />
                 </div>
-                {userId !== currentUser.id ? (
+                {userId !== currentUser?.id ? (
                 <div className={styles.btnContainer}>
                     <div className={styles.msgIcon}>
                         <img src={msg} alt="msg" className={styles.msgImg} />

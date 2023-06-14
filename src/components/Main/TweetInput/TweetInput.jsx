@@ -56,7 +56,7 @@ export default function TweetInput() {
 
     return (
         <div className={styles.modalContainer}>
-            <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} >
+            <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} value={textInput} >
             </textarea>
             <div className={styles.info}>
                 <div className={styles.avatarContainer}>

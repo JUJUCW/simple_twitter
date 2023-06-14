@@ -19,7 +19,7 @@ export default function TweetPage() {
     const [tweet, setTweet] = useState('');
     const [user, setUser] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const [replies, setReplies] = useState([]);
     const { isDataUpdate } = useDataStatus();
@@ -82,10 +82,10 @@ export default function TweetPage() {
         );
     });
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
     return (
         <div className={styles.container}>
