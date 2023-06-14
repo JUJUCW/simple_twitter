@@ -4,86 +4,69 @@
 .modalContainer {
     /*display*/
     display: flex;
-    flex-direction: column;
     /*box model*/
-
+    border-bottom: 1px solid #e6ecf0;
+    padding: 16px 23px;
+  }
+.left {
+    /*display*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*box model*/
     margin-right: 10px;
     .avatarContainer {
       /*box model*/
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        overflow: hidden;
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      overflow: hidden;
     }
     .tweetAvatar {
-      height: 100%;
-    }
-  }
-
-
-.tweet {
-    /*display*/
-    display: flex;
-    /*box model*/
-    margin: 0px 30px 0 15px;
-
-    .left {
-        /*display*/
-        display: flex;
-        flex-direction: column;
-        align-items: center;
         /*box model*/
-        margin-right: 10px;
-
-        .tweetAvatar {
-            /*box model*/
-            height: 50px;
-            width: 50px;
-            border-radius: 50px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-    }
-
-    .right {
-        /*display*/
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 8px;
-        font-size: 16px;
-
-        .tweetUserInfo {
-            .tweetUserAccount {
-                /*box model*/
-                margin-left: 8px;
-                color: #657786;
-                @include mixin.font-setting(14px, 400, color.$secondary-color);
-            }
-        }
-
-        .tweetContent {
-            /*box model*/
-            height: 100%;
-            margin: 9px 0;
-            line-height: 26px;
-        }
-
-        .replyAddress {
-            /*box model*/
-            margin: 20px 0 8px 0;
-            font-size: 13px;
-
-            .replyWord {
-                /*other*/
-                color: #657786;
-            }
-
-            .replyAccount {
-                /*other*/
-                color: color.$brand-color;
-
-            }
-        }
+        height: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 }
+
+.right {
+  /*display*/
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  font-size: 16px;
+
+  .tweetUserInfo {
+    .tweetUserAccount {
+        /*box model*/
+        margin-left: 8px;
+        color: #657786;
+        @include mixin.font-setting(14px, 400, color.$secondary-color);
+    }
+  }
+  .tweetContent {
+      /*box model*/
+      height: 100%;
+      margin: 9px 0;
+      line-height: 26px;
+  }
+  .replyAddress {
+      /*box model*/
+      margin: 15px 0 8px 0;
+      font-size: 13px;
+
+      .replyWord {
+          /*other*/
+          color: #657786;
+      }
+
+      .replyAccount {
+          /*other*/
+          color: color.$brand-color;
+
+      }
+  }
+}
+

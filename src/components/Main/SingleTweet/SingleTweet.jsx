@@ -1,7 +1,7 @@
 import styles from './SingleTweet.module.scss';
 import { useState } from 'react';
 import clsx from 'clsx';
-import { getRelativeTime } from 'utility/helper.js';
+import { getFullTime } from 'utility/helper.js';
 import { postTweetUnlike, postTweetLike } from 'api/like.js';
 
 // import { Link } from 'react-router-dom';
@@ -33,6 +33,7 @@ export default function SingleTweet(tweet) {
     const [showLiked, setShowLiked] = useState(isLiked);
     const [likedCount, setLikeCount] = useState(preLikedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
+    const fullTime = getFullTime(createdAt)
 
     const handleLike = async () => {
         try {
@@ -61,7 +62,8 @@ export default function SingleTweet(tweet) {
                 </div>
             </div>
             <div className={styles.tweetContent}>{description}</div>
-            <span className={styles.time}>&#xb7;{getRelativeTime(createdAt)}</span>
+            
+            <span className={styles.time}>{fullTime}</span>
             <div className={styles.line}></div>
             <div className={styles.likeReplyBox}>
                 {/* <Link className={styles.routeLink} to={`/`}> */}

@@ -70,3 +70,19 @@ export const getRelativeTime = (createdAt) => {
         return (formattedTimeDiff += seconds + '秒前');
     }
 };
+
+export const getFullTime = (createdAt) => {
+    if (!createdAt) return;
+    const dateObj = new Date(createdAt);
+    const year = dateObj.getFullYear();
+    const month = dateObj.getMonth() + 1;
+    const day = dateObj.getDate();
+    const hour = dateObj.getHours();
+    const minute = dateObj.getMinutes();
+
+     return (
+      <div>
+        {hour}:{minute}&#xb7;{year}年{month}月{day}日
+      </div>
+    );
+}
