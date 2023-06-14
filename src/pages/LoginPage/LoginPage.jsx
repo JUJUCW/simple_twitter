@@ -61,7 +61,7 @@ export default function LoginPage() {
                 handleClick();
             }
         };
-        window.addEventListener('keydown', keyDownHandler);
+        document.addEventListener('keydown', keyDownHandler);
         return () => {
             document.removeEventListener('keydown', keyDownHandler);
         };
