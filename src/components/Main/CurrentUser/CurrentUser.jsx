@@ -6,14 +6,13 @@ import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
 import msg from '../../../assets/icons/user/user_msg.png';
 import notify from '../../../assets/icons/user/user_notfi.png';
 import { useAuth } from '../../../context/AuthContext.jsx'
-
+import { followUser, unFollowUser } from '../../../api/followship.js';
+import { useDataStatus } from '../../../context/DataContext.jsx'
 // import bgImg from '../../../assets/images/default_background.png';
 // import logo from '../../../assets/icons/logo_gray.png';
 import styles from './CurrentUser.module.scss';
 
 export default function CurrentUser({userInfo}) {
-    const { currentUser } = useAuth();
-    const [isModalOpen, setIsModalOpen] = useState(false);
     const avatar = userInfo.avatar
     const name = userInfo.name
     const account = userInfo.account
@@ -22,7 +21,11 @@ export default function CurrentUser({userInfo}) {
     const followerCount = userInfo.followerCount
     const followingCount = userInfo.followingCount
     const coverImg = userInfo.coverPhoto
-    // const isFollowed = userInfo.isFollowed
+    const isFollowed = userInfo.isFollowed
+    const { currentUser } = useAuth();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isClicked, setIsClicked] = useState(isFollowed);
+    const {isDataUpdate, setIsDataUpdate } = useDataStatus();
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -31,7 +34,28 @@ export default function CurrentUser({userInfo}) {
         setIsModalOpen(false);
     };
 
-
+    const handleClick = async () => {
+        try {
+            if (isClicked === false) {
+                const data = await followUser(userId);
+                if (data.followingId) {
+                    // console.log(data.followingId);
+                    setIsClicked(true);
+                    setIsDataUpdate(!isDataUpdate)
+                }
+            }
+            if (isClicked === true) {
+                const data = await unFollowUser(userId);
+                if (data.followingId) {
+                    // console.log(data.followingId);
+                    setIsClicked(false);
+                    setIsDataUpdate(!isDataUpdate)
+                }
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    };
 
     return (
         <div className={styles.container}>
@@ -50,8 +74,12 @@ export default function CurrentUser({userInfo}) {
                     <div className={styles.notifyIcon}>
                         <img src={notify} alt="" className={styles.notifyImg} />
                     </div>
-                    <div className={styles.btnContainer}>
-                        <Button title="正在跟隨" size="middle" isAction />
+                    <div className={styles.btnContainer} onClick={handleClick}>
+                        {isClicked ? (
+                            <Button title="正在跟隨" size="middle" isAction />
+                        ) : (
+                            <Button title="跟隨" size="small" />
+                        )}
                     </div>
                 </div>
                 ) : (

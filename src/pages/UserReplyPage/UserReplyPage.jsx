@@ -95,7 +95,7 @@ export default function UserReplyPage() {
                 <MainContainer>
                     <Header title={userProfile.name} arrow tweetCount="66" />
                     
-                        <CurrentUser userInfo={userProfile}/>
+                        {userProfile&&<CurrentUser userInfo={userProfile} />}
 
                         <div className={styles.userToggleMenu}>
                           <Link to={`/user/${URL.UserId}/tweet`}>

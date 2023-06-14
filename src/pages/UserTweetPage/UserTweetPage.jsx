@@ -97,7 +97,7 @@ export default function UserTweetPage() {
                 <MainContainer>
                     <Header title={userProfile.name} arrow tweetCount="66" />
 
-                    <CurrentUser userInfo={userProfile} />
+                    {userProfile&&<CurrentUser userInfo={userProfile} />}
 
                     <div className={styles.userToggleMenu}>
                         <UserToggleMenu linkName="推文" isActive />
