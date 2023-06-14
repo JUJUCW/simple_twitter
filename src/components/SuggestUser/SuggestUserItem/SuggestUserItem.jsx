@@ -6,6 +6,7 @@ import styles from './SuggestUserItem.module.scss';
 import Button from '../../Button/Button.jsx';
 import logo from '../../../assets/icons/logo.png';
 import { Link } from 'react-router-dom';
+import { useDataStatus } from '../../../context/DataContext.jsx'
 
 export default function SuggestUserItem(props) {
     const avatar = props.avatar;
@@ -14,6 +15,7 @@ export default function SuggestUserItem(props) {
     const userId = props.userId;
     const isFollowed = props.isFollowed;
     const [isClicked, setIsClicked] = useState(isFollowed);
+    const {isDataUpdate, setIsDataUpdate } = useDataStatus();
 
     const handleClick = async () => {
         try {
@@ -22,6 +24,7 @@ export default function SuggestUserItem(props) {
                 if (data.followingId) {
                     // console.log(data.followingId);
                     setIsClicked(true);
+                    setIsDataUpdate(!isDataUpdate)
                 }
             }
             if (isClicked === true) {
@@ -29,6 +32,7 @@ export default function SuggestUserItem(props) {
                 if (data.followingId) {
                     // console.log(data.followingId);
                     setIsClicked(false);
+                    setIsDataUpdate(!isDataUpdate)
                 }
             }
         } catch (error) {
