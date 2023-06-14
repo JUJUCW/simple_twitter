@@ -44,6 +44,13 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
   }
 
   const handleSubmit = async() => {
+    if (name.trim().length === 0) {
+      Toast.fire({
+        title: "請輸入名稱!",
+        icon: "error",
+      });
+      return;
+    }
     const formData = new FormData();
           formData.append("coverPhoto", upCoverPhoto);
           formData.append("avatar", upAvatar);

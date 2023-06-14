@@ -12,11 +12,12 @@
   height: 50px;
   border-radius: 50%;
   overflow: hidden;
+  .avatarImg {
+      height: 100%;
+    }
 }
 
-.avatarImg {
-  width: 100%;
-}
+
 
 .infoContainer {
   display: flex;
