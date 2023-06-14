@@ -1,5 +1,7 @@
 # Simple_twitter Project
 
+## [github page]( https://jujucw.github.io/simple_twitter/)
+
 這是一個簡化版的 Twitter 專案，用於分享與其他使用者互動。
 
 ## 功能特點
@@ -46,5 +48,5 @@ control + C
 ```
 
 ## 專案開發人員
-### 前端： [Hank]() [Ju](https://github.com/JUJUCW)
+### 前端： [Hank](https://github.com/HankHsuABoo) [Ju](https://github.com/JUJUCW)
 ### 後端： [YGJ]() [忠全]()
