@@ -10,6 +10,7 @@ import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import Header from '../../components/Header/Header.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
+import { useDataStatus } from '../../context/DataContext.jsx'
 import styles from './UserReplyPage.module.scss';
 
 export default function UserReplyPage() {
@@ -19,6 +20,7 @@ export default function UserReplyPage() {
   const [userProfile, setUserProfile] = useState('')
   const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
+  const { isDataUpdate } = useDataStatus();
 
     useEffect(() => {
     const getUserInfo = async () => {
@@ -38,7 +40,7 @@ export default function UserReplyPage() {
         }
         }
         getUserInfo();
-    }, [URL.UserId]);
+    }, [URL.UserId, isDataUpdate]);
 
     useEffect(() => {
     const getUserReply = async () => {
@@ -58,7 +60,7 @@ export default function UserReplyPage() {
         }
         }
         getUserReply();
-    }, [URL.UserId]);
+    }, [URL.UserId, isDataUpdate]);
 
     const replyList = userReplies.map((reply) => {
         return (

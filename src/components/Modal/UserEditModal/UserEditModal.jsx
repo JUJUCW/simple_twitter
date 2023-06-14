@@ -5,6 +5,7 @@ import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
 import EditInput from '../../EditInput/EditInput.jsx'
 import { setUserProfile } from '../../../api/user.js'
 import { Toast } from '../../../utility/helper.js'
+import { useDataStatus } from '../../../context/DataContext.jsx'
 import bgImg from '../../../assets/images/default_background.png';
 // import logo from '../../../assets/icons/logo_gray.png';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png'
@@ -19,6 +20,7 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
   const [upAvatar, setUpAvatar] = useState(avatar)
   const [name, setName] = useState(oriName);
   const [introduction, setIntroduction] = useState(oriIntroduction);
+  const {isDataUpdate, setIsDataUpdate } = useDataStatus();
 
   const handleImgChange = (e, type) => {
     if (!e.target.files[0]) {
@@ -62,7 +64,7 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
       title: "修改個人資料成功",
       icon: "success",
     });
-    
+    setIsDataUpdate(!isDataUpdate)
   }
 
     return (
