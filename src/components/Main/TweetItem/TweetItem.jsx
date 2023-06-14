@@ -52,7 +52,7 @@ export default function TweetItem(props) {
 
     return (
         <div className={styles.container}>
-            <Link to={`user/${userId}/tweet`}>
+            <Link to={`/user/${userId}/tweet`}>
             <div className={styles.avatar}>
                 <img className={styles.avatarImg} src={avatar} alt="avatar" />
             </div>

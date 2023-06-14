@@ -3,12 +3,16 @@ import { useState } from 'react';
 // import Header from '../../Header/Header.jsx';
 import Button from '../../Button/Button.jsx';
 import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
+import msg from '../../../assets/icons/user/user_msg.png';
+import notify from '../../../assets/icons/user/user_notfi.png';
+import { useAuth } from '../../../context/AuthContext.jsx'
 
 // import bgImg from '../../../assets/images/default_background.png';
 // import logo from '../../../assets/icons/logo_gray.png';
 import styles from './CurrentUser.module.scss';
 
 export default function CurrentUser({userInfo}) {
+    const { currentUser } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const avatar = userInfo.avatar
     const name = userInfo.name
@@ -31,51 +35,56 @@ export default function CurrentUser({userInfo}) {
 
     return (
         <div className={styles.container}>
-            {/* 改參數帶入後再刪掉 Header */}
-            {/* <div className={styles.header}>
-                <Header title="John Doe" arrow tweetCount="25" />
-            </div> */}
-            <div className={styles.container_scroll}>
-                <div className={styles.userCard}>
-                    <div className={styles.cover}>
-                        <img src={coverImg} alt="cover" className={styles.bgImg} />
+            <div className={styles.userCard}>
+                <div className={styles.cover}>
+                    <img src={coverImg} alt="cover" className={styles.bgImg} />
+                </div>
+                <div className={styles.userInfoAvatar}>
+                    <img src={avatar} alt="avatar" className={styles.img} />
+                </div>
+                {userId !== currentUser.id ? (
+                <div className={styles.btnContainer}>
+                    <div className={styles.msgIcon}>
+                        <img src={msg} alt="msg" className={styles.msgImg} />
                     </div>
-                    <div className={styles.userInfo}>
-                        <div className={styles.userInfoAvatar}>
-                            <img src={avatar} alt="avatar" className={styles.img} />
-                        </div>
-                        <div className={styles.userInfoCard}>
-                            <div className={styles.userInfoName}>{name}</div>
-                            <div className={styles.userInfoAccount}>@{account}</div>
-                        </div>
+                    <div className={styles.notifyIcon}>
+                        <img src={notify} alt="" className={styles.notifyImg} />
                     </div>
-                    {/* <div className={styles.btnEdit}> */}
                     <div className={styles.btnContainer}>
-                        <Button title="編輯個人資料" size="edit" onClick={handleOpenModal}/>
-                        {/* </div> */}
-                    </div>
-                    <div className={styles.userDescription}>
-                        <div className={styles.descriptionContext}>
-                           {introduction}
-                        </div>
-                        <div className={styles.follows}>
-                            <Link className={styles.routeLink} to={`/user/${userId}/follower`}>
-                                <div className={styles.followsFollower}>
-                                    <span className={styles.followsCount}>{followingCount||0}位</span>
-                                    <span className={styles.followsType}>跟隨中</span>
-                                </div>
-                            </Link>
-                            <Link className={styles.routeLink} to={`/user/${userId}/following`}>
-                                <div className={styles.followingFollower}>
-                                    <span className={styles.followingCount}>{followerCount||0}位</span>
-                                    <span className={styles.followingType}>跟隨者</span>
-                                </div>
-                            </Link>
-                        </div>
+                        <Button title="正在跟隨" size="middle" isAction />
                     </div>
                 </div>
-                {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal} id={userId} oriName={name} oriIntroduction={introduction} oriAvatar={avatar} oriCoverImg={coverImg}/>}
+                ) : (
+                    <div className={styles.btnContainer}>
+                        <Button title="編輯個人資料" size="edit" onClick={handleOpenModal} />
+                    </div>
+                )}
+                <div className={styles.userInfoCard}>
+                    <div className={styles.userInfoName}>{name}</div>
+                    <div className={styles.userInfoAccount}>@{account}</div>
+                </div>
+
+                <div className={styles.userDescription}>
+                    <div className={styles.descriptionContext}>
+                        {introduction}
+                    </div>
+                    <div className={styles.follows}>
+                        <Link className={styles.routeLink} to={`/user/${userId}/following`}>
+                            <div className={styles.followsFollower}>
+                                <span className={styles.followsCount}>{followingCount||0}位</span>
+                                <span className={styles.followsType}>跟隨中</span>
+                            </div>
+                        </Link>
+                        <Link className={styles.routeLink} to={`/user/${userId}/follower`}>
+                            <div className={styles.followingFollower}>
+                                <span className={styles.followingCount}>{followerCount||0}位</span>
+                                <span className={styles.followingType}>跟隨者</span>
+                            </div>
+                        </Link>
+                    </div>
+                </div>
             </div>
+            {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal} id={userId} oriName={name} oriIntroduction={introduction} oriAvatar={avatar} oriCoverImg={coverImg}/>}
         </div>
     );
 }
