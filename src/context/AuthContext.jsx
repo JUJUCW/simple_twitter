@@ -14,6 +14,7 @@ const AuthContext = createContext(defaultAuthContext)
 export const useAuth = () => useContext(AuthContext);
 export function AuthContextProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
   const [payload, setPayload] = useState(null)
   const { pathname } = useLocation()
   
@@ -47,6 +48,7 @@ export function AuthContextProvider({ children }) {
     localStorage.removeItem('token')
     setIsAuthenticated(false)
     setPayload(null)
+    setIsAuthChecked(true)
   }
 
   async function login(data) {
@@ -59,6 +61,7 @@ export function AuthContextProvider({ children }) {
     if (tempPayload) {
       setIsAuthenticated(true)
       setPayload(tempPayload)
+      
       localStorage.setItem('token', token)
       return success 
     } else {
@@ -71,6 +74,7 @@ export function AuthContextProvider({ children }) {
     <AuthContext.Provider
       value={{
         isAuthenticated,
+        isAuthChecked,
         currentUser: payload,
         login,
         logout,

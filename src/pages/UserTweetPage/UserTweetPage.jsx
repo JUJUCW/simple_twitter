@@ -21,7 +21,7 @@ export default function UserTweetPage() {
     const URL = useParams();
     const [userProfile, setUserProfile] = useState('');
     const [userTweets, setUserTweets] = useState([]);
-    const { isAuthenticated } = useAuth();
+    const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
 
@@ -85,17 +85,17 @@ export default function UserTweetPage() {
     });
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
     return (
         <div className={styles.container}>
             <NavBarContainer role="user" page="userPage" />
             <div className={styles.navBarContainer}>
                 <MainContainer>
-                    <Header title={userProfile.name} arrow tweetCount="66" />
+                    <Header title={userProfile.name} arrow tweetCount />
 
                     {userProfile&&<CurrentUser userInfo={userProfile} />}
 

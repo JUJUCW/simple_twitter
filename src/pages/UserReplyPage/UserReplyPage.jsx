@@ -18,7 +18,7 @@ export default function UserReplyPage() {
   const URL = useParams();
   const[userReplies, setUserReplies] = useState([])
   const [userProfile, setUserProfile] = useState('')
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isAuthChecked } = useAuth();
   const navigate = useNavigate();
   const { isDataUpdate } = useDataStatus();
 
@@ -80,10 +80,10 @@ export default function UserReplyPage() {
     });
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
 
     return (
@@ -93,7 +93,7 @@ export default function UserReplyPage() {
                 <NavBarContainer role="user" page="userPage" />
              
                 <MainContainer>
-                    <Header title={userProfile.name} arrow tweetCount="66" />
+                    <Header title={userProfile.name} arrow tweetCount />
                     
                         {userProfile&&<CurrentUser userInfo={userProfile} />}
 
