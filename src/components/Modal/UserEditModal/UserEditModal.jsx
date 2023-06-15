@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import Button from '../../Button/Button.jsx';
 import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
@@ -46,27 +46,27 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
   }
 
   const handleSubmit = async() => {
-    if (introduction.trim().length > 160) {
-      Toast.fire({
-        title: "字數超出上限!",
-        icon: "error",
-      });
-      return;
-    }
-    if (name.trim().length > 50) {
-      Toast.fire({
-        title: "字數超出上限!",
-        icon: "error",
-      });
-      return;
-    }
-    if (name.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入名稱!",
-        icon: "error",
-      });
-      return;
-    }
+    // if (introduction.trim().length > 160) {
+    //   Toast.fire({
+    //     title: "字數超出上限!",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
+    // if (name.trim().length > 50) {
+    //   Toast.fire({
+    //     title: "字數超出上限!",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
+    // if (name.trim().length === 0) {
+    //   Toast.fire({
+    //     title: "請輸入名稱!",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
     // const formData = new FormData();
     //       formData.append("coverPhoto", upCoverPhoto);
     //       formData.append("avatar", upAvatar);
@@ -87,9 +87,26 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
     //   title: "修改個人資料成功",
     //   icon: "success",
     // });
+    if (!isValid) {
+      Toast.fire({
+        title: "請確認名稱及自我介紹字數",
+        icon: "error",
+      });
+      return
+    } 
     updateUser({upCoverPhoto, upAvatar, name, introduction, id})
     setIsDataUpdate(!isDataUpdate)
   }
+
+  const isValid = useMemo(()=> {
+    if (!name || name.length > 50) {
+      return false
+    }
+    if (introduction.length > 160) {
+      return false
+    }
+    return true
+  }, [introduction, name])
 
     return (
       <div className={styles.modalOverlay}>
