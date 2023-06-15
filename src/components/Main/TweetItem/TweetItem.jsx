@@ -18,8 +18,8 @@ export default function TweetItem(props) {
     const description = props.description;
     const replyCount = props.replyCount;
     const createdAt = props.createdAt;
-    const isLiked = props.isLiked
-    const preLikedCount = props.likedCount
+    const isLiked = props.isLiked;
+    const preLikedCount = props.likedCount;
     // const updatedAt = props.updatedAt;
 
     const [showLiked, setShowLiked] = useState(isLiked);
@@ -54,38 +54,45 @@ export default function TweetItem(props) {
 
     return (
         <div className={styles.container}>
-            <Link to={`/user/${userId}/tweet`}>
-            <div className={styles.avatar}>
-                <img className={styles.avatarImg} src={avatar} alt="avatar" />
-            </div>
-            </Link>
-            <div className={styles.infoContainer}>
-                <Link to={`/tweets/${tweetId}`}>
-                <div className={styles.userInfo}>
-                    <h5 className={styles.name}>{userName}</h5>
-                    <span className={styles.account}>@{account}</span>
-                    <span className={styles.tweetTime}>&#xb7;{getRelativeTime(createdAt)}</span>
-                </div>
-                <div className={styles.tweetContent}>{description}</div>
+            <div className={styles.tweetContainer}>
+                <Link to={`/user/${userId}/tweet`}>
+                    <div className={styles.left}>
+                        <div className={styles.avatar}>
+                            <img className={styles.avatarImg} src={avatar} alt="avatar" />
+                        </div>
+                    </div>
                 </Link>
+                <div className={styles.right}>
+                    <Link to={`/user/${userId}/tweet`}>
+                        <div className={styles.info}>
+                            <div className={styles.name}>{userName}</div>
 
-                <div className={styles.icons}>
-                    <div className={styles.iconReply}>
-                        <div className={styles.cursor} onClick={handleOpenModal}>
-                            <img className={styles.replyBtn} src={replyIcon} alt="reply button" />
+                            <span className={styles.account}>@{account}</span>
+                            <span className={styles.tweetTime}>&#xb7;{getRelativeTime(createdAt)}</span>
                         </div>
-                        <span>{replyCount}</span>
-                    </div>
-                    <div className={styles.iconLike}>
-                        <div className={styles.cursor} onClick={handleLike}>
-                            {props &&<img className={likeClassName} src={likeIcon} alt="like button" />}
-                        </div>
+                    </Link>
+                    <Link to={`/tweets/${tweetId}`}>
+                        <div className={styles.tweetContent}>{description}</div>
+                    </Link>
 
-                        <span>{likedCount}</span>
+                    <div className={styles.icons}>
+                        <div className={styles.iconReply}>
+                            <div className={styles.cursor} onClick={handleOpenModal}>
+                                <img className={styles.replyBtn} src={replyIcon} alt="reply button" />
+                            </div>
+                            <span>{replyCount}</span>
+                        </div>
+                        <div className={styles.iconLike}>
+                            <div className={styles.cursor} onClick={handleLike}>
+                                {props && <img className={likeClassName} src={likeIcon} alt="like button" />}
+                            </div>
+
+                            <span>{likedCount}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} props={props}/>}
+            {isModalOpen && <ReplyModal handleCloseModal={handleCloseModal} props={props} />}
         </div>
     );
 }
