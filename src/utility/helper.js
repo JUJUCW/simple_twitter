@@ -7,9 +7,6 @@ const axiosInstance = axios.create({ baseURL });
 axiosInstance.interceptors.request.use(
     (config) => {
         const token = localStorage.getItem('token');
-        // const token =
-        //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsIm5hbWUiOiJ1c2VyMSIsImFjY291bnQiOiJ1c2VyMSIsImVtYWlsIjoidXNlcjFAZXhhbXBsZS5jb20iLCJhdmF0YXIiOiJodHRwczovL2ltZ3VyLmNvbS81T0w1d0p0LnBuZyIsImNvdmVyUGhvdG8iOiJodHRwczovL2ltZ3VyLmNvbS9oSjRKOWduLnBuZyIsImludHJvZHVjdGlvbiI6IkVuaW0gZXggZXN0IGNvbnNlcXV1bnR1ciBpdXN0byBhcGVyaWFtIGVzc2Ugdm9sdXB0YXRlbSB2b2x1cHRhdGVtLiIsInJvbGUiOiJ1c2VyIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wOVQwMDo0NjowNy4wMDBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wOVQwMDo0NjowNy4wMDBaIiwiaWF0IjoxNjg2MjcxNTgwLCJleHAiOjE2ODg4NjM1ODB9.k1xCPXRv0fGIu4B0nEbYYzNJ6drGRn6D6dRR8AFn1yw';
-
         // If the token exists, bring in headers.
         if (token) {
             config.headers['Authorization'] = `Bearer ${token}`;
@@ -80,9 +77,9 @@ export const getFullTime = (createdAt) => {
     const hour = dateObj.getHours();
     const minute = dateObj.getMinutes();
 
-     return (
-      <div>
-        {hour}:{minute}&#xb7;{year}年{month}月{day}日
-      </div>
+    return (
+        <div>
+            {hour}:{minute}&#xb7;{year}年{month}月{day}日
+        </div>
     );
-}
+};

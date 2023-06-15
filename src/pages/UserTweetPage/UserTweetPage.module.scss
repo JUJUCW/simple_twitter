@@ -1,65 +1,22 @@
 @use '../../assets/styles/color' as color;
 
 .container {
+    /*display*/
     height: 100vh;
     overflow: hidden;
-    // margin: 0 auto;
     display: flex;
     justify-content: center;
-    // width: 90%;
-    // gap: 24px;
-    // max-width: 992px;
+    .userToggleMenu {
+        /*box model*/
+        width: 100%;
+        /*display*/
+        display: flex;
+        
+    }
+    .tweetList {
+        /*display*/
+        height: 100vh;
+        overflow-y: scroll;
+        padding-bottom: 600px;
+    }
 }
-// .navBarContainer {
-//     height: 100vh;
-//     overflow-y: scroll;
-// }
-// .currentContainer {
-//     overflow: hidden;
-//     overflow-y: scroll;
-// }
-// .mainContainer {
-//     flex: 1;
-//     overflow: hidden;
-//     border: 1px solid color.$assistant-gray;
-// }
-
-// .suggestFollowContainer {
-//     display: block;
-//     width: 296px;
-//     padding: 16px 0;
-// }
-.userToggleMenu {
-    display: flex;
-    width: 100%;
-}
-
-.tweetList {
-    height: 100vh;
-    overflow-y: scroll;
-    padding-bottom: 600px;
-}
-// .tweetItemList {
-//     height: 100vh;
-//     overflow: hidden;
-// }
-
-// @media screen and (max-width: 1200px) {
-//     .container {
-//         width: 80%;
-//     }
-
-//     .navBarContainer {
-//         width: 180px;
-//     }
-
-//     .mainContainer {
-//         flex: 1;
-//     }
-
-//     .suggestFollowContainer {
-//         display: block;
-//         width: 273px;
-//         margin-top: 16px;
-//     }
-// }

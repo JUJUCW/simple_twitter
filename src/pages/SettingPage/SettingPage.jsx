@@ -15,7 +15,6 @@ export default function SettingPage () {
   const { logout, currentUser, isAuthenticated, isAuthChecked } = useAuth();
   
   const userId = currentUser && currentUser.id
-console.log(userId);
   const navigate = useNavigate();
   const [account, setAccount] = useState("");
   const [name, setName] = useState("");
@@ -38,7 +37,7 @@ console.log(userId);
                     setAccount(data.account);
                     setName(data.name)
                     setEmail(data.email)
-                    console.log(data);
+                    // console.log(data);
                 }
             } catch (error) {
                 console.log('獲取使用者資料失敗', error);

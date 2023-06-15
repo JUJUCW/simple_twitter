@@ -2,66 +2,14 @@
 
 .container {
     height: 100vh;
-    // margin: 0 auto;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     overflow: hidden;
-
-    // width: 90%;
-    // gap: 24px;
-    // max-width: 992px;
 }
 
-// .navBarContainer {
-//     // width: 178px;
-//     // display: block;
-//     // border: 1px solid red;
-
-// }
 .navBarContainer {
     padding-bottom: 250px;
     height: 100vh;
     overflow-y: scroll;
 }
-
-// ::-webkit-scrollbar {
-//     width: 15px;
-// }
-// ::-webkit-scrollbar-thumb {
-//     border-radius: 50px;
-//     background-color: rgba(0, 0, 0, 0.1);
-// }
-
-// .mainContainer {
-//     flex: 1;
-//     overflow: hidden;
-//     border: 1px solid color.$assistant-gray;
-
-// }
-
-// .suggestFollowContainer {
-//     display: block;
-//     width: 296px;
-//     padding: 16px 0;
-//     // border: 1px solid pink;
-// }
-
-// @media screen and (max-width: 1200px) {
-//     .container {
-//         width: 80%;
-//     }
-
-//     .navBarContainer {
-//         width: 180px;
-//     }
-
-//     .mainContainer {
-//         flex: 1;
-//     }
-
-//     .suggestFollowContainer {
-//         display: block;
-//         width: 273px;
-//         margin-top: 16px;
-//     }
-// }

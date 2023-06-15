@@ -1,9 +1,6 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
-
-// import OtherUser from '../../components/Main/OtherUser/OtherUser.jsx'
-
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
@@ -12,8 +9,8 @@ import { getUser, getUserTweets } from '../../api/user.js';
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import Header from '../../components/Header/Header.jsx';
-import { useAuth } from '../../context/AuthContext.jsx'
-import { useDataStatus } from '../../context/DataContext.jsx'
+import { useAuth } from '../../context/AuthContext.jsx';
+import { useDataStatus } from '../../context/DataContext.jsx';
 
 import styles from './UserTweetPage.module.scss';
 
@@ -36,7 +33,7 @@ export default function UserTweetPage() {
                 if (data) {
                     // update data
                     setUserProfile(data);
-                    console.log(data);
+                    // console.log(data);
                 }
             } catch (error) {
                 console.log('獲取使用者資料失敗', error);
@@ -56,7 +53,7 @@ export default function UserTweetPage() {
                 if (data) {
                     // update data
                     setUserTweets(data);
-                    console.log(data);
+                    // console.log(data);
                 }
             } catch (error) {
                 console.log('獲取使用者推文失敗', error);
@@ -86,7 +83,7 @@ export default function UserTweetPage() {
 
     useEffect(() => {
         if (!isAuthenticated && isAuthChecked) {
-        navigate('/login');
+            navigate('/login');
         }
     }, [navigate, isAuthenticated, isAuthChecked]);
 
@@ -96,9 +93,7 @@ export default function UserTweetPage() {
             <div className={styles.navBarContainer}>
                 <MainContainer>
                     <Header title={userProfile.name} arrow tweetCount />
-
-                    {userProfile&&<CurrentUser userInfo={userProfile} />}
-
+                    {userProfile && <CurrentUser userInfo={userProfile} />}
                     <div className={styles.userToggleMenu}>
                         <UserToggleMenu linkName="推文" isActive />
                         <Link to={`/user/${URL.UserId}/reply`}>
@@ -111,7 +106,6 @@ export default function UserTweetPage() {
                     <div className={styles.tweetList}>{tweetList}</div>
                 </MainContainer>
             </div>
-
             <SuggestUserContainer />
         </div>
     );

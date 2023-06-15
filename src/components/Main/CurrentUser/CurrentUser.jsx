@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-// import Header from '../../Header/Header.jsx';
 import Button from '../../Button/Button.jsx';
 import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
 import msg from '../../../assets/icons/user/user_msg.png';
@@ -8,8 +7,6 @@ import notify from '../../../assets/icons/user/user_notfi.png';
 import { useAuth } from '../../../context/AuthContext.jsx'
 import { followUser, unFollowUser } from '../../../api/followship.js';
 import { useDataStatus } from '../../../context/DataContext.jsx'
-// import bgImg from '../../../assets/images/default_background.png';
-// import logo from '../../../assets/icons/logo_gray.png';
 import styles from './CurrentUser.module.scss';
 
 export default function CurrentUser({userInfo}) {
@@ -39,7 +36,6 @@ export default function CurrentUser({userInfo}) {
             if (isClicked === false) {
                 const data = await followUser(userId);
                 if (data.followingId) {
-                    // console.log(data.followingId);
                     setIsClicked(true);
                     setIsDataUpdate(!isDataUpdate)
                 }
@@ -47,7 +43,6 @@ export default function CurrentUser({userInfo}) {
             if (isClicked === true) {
                 const data = await unFollowUser(userId);
                 if (data.followingId) {
-                    // console.log(data.followingId);
                     setIsClicked(false);
                     setIsDataUpdate(!isDataUpdate)
                 }

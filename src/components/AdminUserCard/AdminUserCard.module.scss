@@ -1,116 +1,113 @@
 .cardContainer {
-  /*box model*/
-  height: 314px;
-  width: 210px;
-  border-radius: 10px;
-  /*other*/
-  background-color: #f6f7f8;
+    /*box model*/
+    height: 314px;
+    width: 210px;
+    border-radius: 10px;
+    /*other*/
+    background-color: #f6f7f8;
 }
 .imgContainer {
-  /*display*/
-  display: flex;
-  justify-content: center;
-  position: relative;
-  /*box model*/
-  height:140px;
-  .coverImg {
+    /*display*/
+    display: flex;
+    justify-content: center;
+    position: relative;
     /*box model*/
-    width: 100%;
-    height: 100%;
-    border-radius: 10px 10px 0 0;
-    /*other*/
-    object-fit: cover;
-  }
+    height: 140px;
+    .coverImg {
+        /*box model*/
+        width: 100%;
+        height: 100%;
+        border-radius: 10px 10px 0 0;
+        /*other*/
+        object-fit: cover;
+    }
 }
 
 .avatarContainer {
-  /*display*/
-  position: absolute;
-  top: 64px;
-  /*box model*/
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 3px solid white;
-
-  
+    /*display*/
+    position: absolute;
+    top: 64px;
+    /*box model*/
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid white;
 }
 .avatar {
-  /*box model*/
-  width: 100%;
-  height: 100%;
-  /*other*/
-  object-fit: cover;
-
+    /*box model*/
+    width: 100%;
+    height: 100%;
+    /*other*/
+    object-fit: cover;
 }
 
 .infoContainer {
-  /*display*/
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /*box model*/
-  margin: 32px 24px 24px 24px ;
-  .name {
+    /*display*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     /*box model*/
-    font-size: 16px;
-    height: 26px;
-  }
+    margin: 32px 24px 24px 24px;
+    .name {
+        /*box model*/
+        font-size: 16px;
+        height: 26px;
+    }
 
-  .account {
-    /*box model*/
-    height: 22px;
-    /*other*/
-    font-size: 14px;
-    font-weight: 400;
-    color: #6c757d;
-  }
+    .account {
+        /*box model*/
+        height: 22px;
+        /*other*/
+        font-size: 14px;
+        font-weight: 400;
+        color: #6c757d;
+    }
 }
 
 .counts {
-  /*display*/
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /*box model*/
-  margin-top: 8px;
-  width: 100%;
-  height: 26px;
-  .icon {
+    /*display*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     /*box model*/
-    width: 24px;
-    height: 22px;
-  }
+    margin-top: 8px;
+    width: 100%;
+    height: 26px;
+    .icon {
+        /*box model*/
+        width: 24px;
+        height: 22px;
+    }
 
-  .number {
-    /*other*/
-    font-size: 16px;
-  }
+    .number {
+        /*other*/
+        font-size: 16px;
+    }
 }
 
 .follows {
-  /*display*/
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  /*box model*/
-  margin-top: 8px;
-  height: 22px;
-  width: 100%;
-  .followCount,
-  .followInfo {
-    /*other*/
-    font-size: 14px;
-  }
-
-  .followInfo {
-    /*other*/
-    color: #6c757d;
-  }
-
-  .break {
+    /*display*/
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     /*box model*/
-    width: 8px;
-  }
+    margin-top: 8px;
+    height: 22px;
+    width: 100%;
+    .followCount,
+    .followInfo {
+        /*other*/
+        font-size: 14px;
+    }
+
+    .followInfo {
+        /*other*/
+        color: #6c757d;
+    }
+
+    .break {
+        /*box model*/
+        width: 8px;
+    }
 }

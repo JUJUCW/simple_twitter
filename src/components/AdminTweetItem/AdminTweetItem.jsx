@@ -1,5 +1,3 @@
-
-
 import styles from './AdminTweetItem.module.scss';
 import admin_delete from '../../assets/icons/admin/admin_delete.png'
 import { getRelativeTime } from '../../utility/helper.js';
