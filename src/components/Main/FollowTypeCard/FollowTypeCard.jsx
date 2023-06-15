@@ -7,12 +7,12 @@ import { followUser, unFollowUser } from '../../../api/followship.js';
 import { Link } from 'react-router-dom';
 
 export default function FollowTypeCard(props) {
-            const userId=props.userId
-            const avatar=props.avatar
-            const name=props.name
+            const userId=props&&props.userId
+            const avatar=props&&props.avatar
+            const name=props&&props.name
             // const account=props.account
-            const introduction=props.introduction
-            const isFollowed=props.isFollowed
+            const introduction=props&&props.introduction
+            const isFollowed=props&&props.isFollowed
     const [isClicked, setIsClicked] = useState(isFollowed);
     const {isDataUpdate, setIsDataUpdate } = useDataStatus();
 
