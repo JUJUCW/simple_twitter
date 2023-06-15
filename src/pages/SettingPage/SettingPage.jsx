@@ -34,9 +34,9 @@ export default function SettingPage () {
                 }
                 if (data) {
                     // update data
-                    setAccount(data.account);
-                    setName(data.name)
-                    setEmail(data.email)
+                    await setAccount(data.account);
+                    await setName(data.name)
+                    await setEmail(data.email)
                     // console.log(data);
                 }
             } catch (error) {
