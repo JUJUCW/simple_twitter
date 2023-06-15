@@ -43,15 +43,15 @@ export default function FollowTypeCard(props) {
     return (
         <div className={styles.container}>
             <div className={styles.user}>
-                <div className={styles.userInfo}>
-                    <Link to={`/user/${userId}/tweet`}>
+                <Link to={`/user/${userId}/tweet`}>
+                    <div className={styles.userInfo}>
                         <div className={styles.avatarContainer}>
                             <img src={avatar || logo} alt="" className={styles.avatar} />
                         </div>
-                    </Link>
 
-                    <div className={styles.userName}>{name}</div>
-                </div>
+                        <div className={styles.userName}>{name}</div>
+                    </div>
+                </Link>
                 <div className={styles.btn} onClick={handleClick}>
                     {isClicked ? (
                         <Button title="正在跟隨" size="middle" isAction />
