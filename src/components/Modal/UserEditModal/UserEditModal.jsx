@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 import Button from '../../Button/Button.jsx';
 import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
-import EditInput from '../../EditInput/EditInput.jsx'
-import { setUserProfile } from '../../../api/user.js'
+import EditInput from '../../EditInput/EditInput.jsx';
+import useChangeProfile from '../../../hooks/useChangeProfile.js';
+// import { setUserProfile } from '../../../api/user.js';
 import { Toast } from '../../../utility/helper.js'
 import { useDataStatus } from '../../../context/DataContext.jsx'
 import bgImg from '../../../assets/images/default_background.png';
@@ -21,72 +22,91 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
   const [name, setName] = useState(oriName);
   const [introduction, setIntroduction] = useState(oriIntroduction||'');
   const {isDataUpdate, setIsDataUpdate } = useDataStatus();
+  const {isUpdating, updateUser} = useChangeProfile()
 
   const handleImgChange = (e, type) => {
     if (!e.target.files[0]) {
       return;
     }
+    if (isUpdating) return
     const selectedFile = e.target.files[0];
     const objectUrl = URL.createObjectURL(selectedFile);
     if (type === "cover") {
       setUpCoverPhoto(selectedFile)
-      console.log(selectedFile)
       setCoverPhoto(objectUrl);
     } else if (type === "avatar") {
       setUpAvatar(selectedFile)
-      console.log(selectedFile)
       setAvatar(objectUrl);
     }
   };
 
   const handleCancelImg = () => {
+    if (isUpdating) return
     setCoverPhoto(oriCoverImg);
   }
 
   const handleSubmit = async() => {
-    if (introduction.trim().length > 160) {
-      Toast.fire({
-        title: "字數超出上限!",
-        icon: "error",
-      });
-      return;
-    }
-    if (name.trim().length > 50) {
-      Toast.fire({
-        title: "字數超出上限!",
-        icon: "error",
-      });
-      return;
-    }
-    if (name.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入名稱!",
-        icon: "error",
-      });
-      return;
-    }
-    const formData = new FormData();
-          formData.append("coverPhoto", upCoverPhoto);
-          formData.append("avatar", upAvatar);
-          formData.append("name", name);
-          formData.append("introduction", introduction);
-    console.log(formData)
+    // if (introduction.trim().length > 160) {
+    //   Toast.fire({
+    //     title: "字數超出上限!",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
+    // if (name.trim().length > 50) {
+    //   Toast.fire({
+    //     title: "字數超出上限!",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
+    // if (name.trim().length === 0) {
+    //   Toast.fire({
+    //     title: "請輸入名稱!",
+    //     icon: "error",
+    //   });
+    //   return;
+    // }
+    // const formData = new FormData();
+    //       formData.append("coverPhoto", upCoverPhoto);
+    //       formData.append("avatar", upAvatar);
+    //       formData.append("name", name);
+    //       formData.append("introduction", introduction);
+    // console.log(formData)
 
-    const data = await setUserProfile(formData ,id)
-    if (data.status==="error") {
+    // const data = await setUserProfile(formData ,id)
+    // if (data.status==="error") {
+    //   Toast.fire({
+    //     title: "修改個人資料失敗",
+    //     icon: "error",
+    //   });
+    //   return
+    // }
+    
+    // Toast.fire({
+    //   title: "修改個人資料成功",
+    //   icon: "success",
+    // });
+    if (!isValid) {
       Toast.fire({
-        title: "修改個人資料失敗",
+        title: "請確認名稱及自我介紹字數",
         icon: "error",
       });
       return
-    }
-    
-    Toast.fire({
-      title: "修改個人資料成功",
-      icon: "success",
-    });
+    } 
+    updateUser({upCoverPhoto, upAvatar, name, introduction, id})
     setIsDataUpdate(!isDataUpdate)
   }
+
+  const isValid = useMemo(()=> {
+    if (!name || name.length > 50) {
+      return false
+    }
+    if (introduction.length > 160) {
+      return false
+    }
+    return true
+  }, [introduction, name])
 
     return (
       <div className={styles.modalOverlay}>
