@@ -90,7 +90,9 @@ export default function UserFollowingPage() {
                       </Link> 
                         <UserToggleMenu linkName="正在追蹤" isActive />
                     </div>
-                    {followingList}
+                    <div className={styles.navBarContainer}>
+                        {followingList}
+                    </div>
                 </MainContainer>
    
             <SuggestUserContainer />

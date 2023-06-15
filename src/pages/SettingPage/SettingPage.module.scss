@@ -27,3 +27,31 @@
 .placeHolder {
   width: 273px;
 }
+ 
+.rwdBtn {
+  margin: 24px 16px;
+  display: none;
+}
+.span {
+  /*box model*/
+  
+  border-bottom: 1px solid #0062ff;
+  /*other*/
+  color: #0062ff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 991px) {
+  .placeHolder {
+      display: none;
+    }
+  .middleContainer {
+    /*box model*/
+    width: 375px;
+    border: none;
+  }
+  .rwdBtn {
+    display: flex;
+  }
+}

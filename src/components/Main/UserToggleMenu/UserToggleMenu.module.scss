@@ -3,7 +3,6 @@
 
 .toggleMenu {
     margin-top: 16px;
-    width: 100%;
     display: flex;
     gap: 16px;
     cursor: pointer;
@@ -15,7 +14,7 @@
     justify-content: center;
     align-items: center;
     /*box model*/
-    width: 130px;
+    
     height: 52px;
     border-bottom: 2px solid color.$brand-color;
     /*other*/
@@ -41,4 +40,10 @@
 .navLink:hover {
     border-bottom: 2px solid color.$brand-color;
     @include mixin.font-setting(15px, 700, color.$brand-color);
+}
+
+@media screen and (max-width: 991px) {
+    .toggleMenu {
+       width: 90px; 
+    }
 }
