@@ -1,6 +1,6 @@
 # Simple_twitter Project
 
-## [Simple Twitter]( https://jujucw.github.io/simple_twitter/)
+## [github page Simple Twitter]( https://jujucw.github.io/simple_twitter/)
 ![project](https://github.com/JUJUCW/simple_twitter/assets/97511253/47449db8-0ef8-4b25-a123-99b86beaf607)
 
 這是一個簡化版的 Twitter ，用於分享與和其他使用者互動。
@@ -16,8 +16,10 @@
 * 使用者可以關注和取消關注其他使用者
 * 使用者可以編輯和更新自己的個人資料
 
+
 ## 環境建置
 
+* react @18.2.0
 * sweet alert @11.6.4
 * react-router-dom @6.4.1
 * axios @0.27.2
@@ -32,7 +34,11 @@
 ### 開啟終端機(Terminal)並到存放專案本機位置並執行:
 
 ```
-https://github.com/JUJUCW/simple_twitter.git
+git clone https://github.com/JUJUCW/simple_twitter.git
+```
+### 進入專案資料夾
+```
+cd simple_twitter
 ```
 
 ### 安裝套件
@@ -42,6 +48,11 @@ npm install
 ### 啟動專案
 ```
 npm start
+```
+
+### 開啟
+```
+在瀏覽器中打開 http://localhost:3000 
 ```
 ### 退出專案
 ```
