@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Button from '../../Button/Button.jsx';
 import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
 import EditInput from '../../EditInput/EditInput.jsx'
@@ -30,11 +29,11 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
     const objectUrl = URL.createObjectURL(selectedFile);
     if (type === "cover") {
       setUpCoverPhoto(selectedFile)
-      console.log(selectedFile)
+      // console.log(selectedFile)
       setCoverPhoto(objectUrl);
     } else if (type === "avatar") {
       setUpAvatar(selectedFile)
-      console.log(selectedFile)
+      // console.log(selectedFile)
       setAvatar(objectUrl);
     }
   };
@@ -70,7 +69,7 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
           formData.append("avatar", upAvatar);
           formData.append("name", name);
           formData.append("introduction", introduction);
-    console.log(formData)
+    // console.log(formData)
 
     const data = await setUserProfile(formData ,id)
     if (data.status==="error") {

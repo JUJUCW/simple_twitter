@@ -54,7 +54,7 @@ export default function LoginPage() {
             navigate('/main');
         }
         const keyDownHandler = (event) => {
-            console.log('User pressed: ', event.key);
+            // console.log('User pressed: ', event.key);
 
             if (event.key === 'Enter') {
                 event.preventDefault();

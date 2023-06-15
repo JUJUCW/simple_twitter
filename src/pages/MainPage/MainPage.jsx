@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react';
-
 import styles from './MainPage.module.scss';
-
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import Header from '../../components/Header/Header.jsx';
-// import TweetInput from '../../components/Main/TweetInput/TweetInput.jsx';
 import TweetInput from 'components/Main/TweetInput/TweetInput';
-// import TweetList from '../../components/Main/TweetList/TweetList.jsx'
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
-// import SingleTweet from 'components/Main/SingleTweet/SingleTweet';
-import { useAuth } from '../../context/AuthContext.jsx'
+import { useAuth } from '../../context/AuthContext.jsx';
 import { getAllTweets } from '../../api/tweet.js';
 import { useNavigate } from 'react-router-dom';
-import { useDataStatus } from '../../context/DataContext.jsx'
+import { useDataStatus } from '../../context/DataContext.jsx';
 
 export default function MainPage() {
     const { isAuthenticated, isAuthChecked } = useAuth();
@@ -55,35 +50,27 @@ export default function MainPage() {
                 replyCount={tweet.replyCount}
                 isLiked={tweet.isLiked}
                 createdAt={tweet.createdAt}
-                // updatedAt={tweet.updatedAt}
             />
         );
     });
 
     useEffect(() => {
         if (!isAuthenticated && isAuthChecked) {
-        navigate('/login');
+            navigate('/login');
         }
     }, [navigate, isAuthenticated, isAuthChecked]);
 
     return (
         <div className={styles.container}>
-            {/* <div className={styles.navBarContainer}> */}
             <NavBarContainer role="user" page="main" />
-            {/* </div> */}
-            
-                <MainContainer>
-                    <Header title="首頁" />
-                    <TweetInput />
-                    {/* <SingleTweet /> */}
-                <div className={styles.navBarContainer}>
-                    {tweets && tweetList}
-                </div>
-                </MainContainer>
-            
-            {/* <div className={styles.suggestFollowContainer}> */}
+
+            <MainContainer>
+                <Header title="首頁" />
+                <TweetInput />
+                <div className={styles.navBarContainer}>{tweets && tweetList}</div>
+            </MainContainer>
+
             <SuggestUserContainer />
-            {/* </div> */}
         </div>
     );
 }

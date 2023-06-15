@@ -89,23 +89,17 @@ export default function TweetPage() {
 
     return (
         <div className={styles.container}>
-            {/* <div className={styles.navBarContainer}> */}
             <NavBarContainer role="user" page="main" />
-            {/* </div> */}
             <div className={styles.mainContainer}>
                 <MainContainer>
                     <Header title="推文" arrow />
-
                     {tweet && <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />}
                     <div className={styles.listContainer}>
                         {replies && repliesList}
                     </div>
-                    
                 </MainContainer>
             </div>
-            {/* <div className={styles.suggestFollowContainer}> */}
             <SuggestUserContainer />
-            {/* </div> */}
             {isModalOpen && <SingleTweetReplyModal handleCloseModal={handleCloseModal} props={tweet}/>}
         </div>
     );

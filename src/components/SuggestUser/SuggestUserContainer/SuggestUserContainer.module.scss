@@ -25,11 +25,9 @@
     margin-left: 24px;
     /*other*/
     line-height: 100%;
-    // @include mixin.font-setting(24px, 700, color.$gray-10);
+    
 }
-// .line {
-//     border-bottom: 1px solid #e6ecf0;
-// }
+
 
 .suggestUserCard {
     /*display*/
@@ -40,7 +38,6 @@
     // overflow-y: scroll;
     // overflow-x: hidden;
 }
-
 
 @media screen and (max-width: 991px) {
     .suggestFollowContainer {

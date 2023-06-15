@@ -10,7 +10,6 @@ export default function FollowTypeCard(props) {
     const userId = props && props.userId;
     const avatar = props && props.avatar;
     const name = props && props.name;
-    // const account=props.account
     const introduction = props && props.introduction;
     const isFollowed = props && props.isFollowed;
 
@@ -22,7 +21,6 @@ export default function FollowTypeCard(props) {
             if (isClicked === false) {
                 const data = await followUser(userId);
                 if (data.followingId) {
-                    // console.log(data.followingId);
                     setIsClicked(true);
                     setIsDataUpdate(!isDataUpdate);
                 }
@@ -30,7 +28,6 @@ export default function FollowTypeCard(props) {
             if (isClicked === true) {
                 const data = await unFollowUser(userId);
                 if (data.followingId) {
-                    // console.log(data.followingId);
                     setIsClicked(false);
                     setIsDataUpdate(!isDataUpdate);
                 }

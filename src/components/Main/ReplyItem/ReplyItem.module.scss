@@ -38,6 +38,7 @@
   font-size: 16px;
 
   .tweetUserInfo {
+    @include mixin.font-setting(16px, 700, color.$gray-10);
     .tweetUserAccount {
         /*box model*/
         margin-left: 8px;

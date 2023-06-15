@@ -49,7 +49,7 @@ export default function UserFollowerPage() {
                 if (data) {
                     // update data
                     setUserProfile(data);
-                    console.log(data);
+                    // console.log(data);
                 }
             } catch (error) {
                 console.log('獲取使用者資料失敗', error);
@@ -82,11 +82,7 @@ export default function UserFollowerPage() {
         <div className={styles.container}>
             <NavBarContainer role="user" page="main" />       
                 <MainContainer>
-
-                 
-
                     <Header title={userProfile.name} arrow tweetCount="25" />
-
                     <div className={styles.userToggleMenu}>
                         <UserToggleMenu linkName="追隨者" isActive />
                         <Link to={`/user/${URL.UserId}/following`}>

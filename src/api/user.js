@@ -72,7 +72,7 @@ export const getUserTweets = async (userId) => {
 export const getUserReplies = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/replied_tweets`);
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.log('[Get user replies Failed]:', error);
@@ -128,7 +128,7 @@ export const setUserProfile = async (formData, userId) => {
 export const getUserFollowers = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/followers`);
-        console.log(data);
+        // console.log(data);
         return data;
     } catch (error) {
         console.error('[Get user followers Failed]:', error);
@@ -167,7 +167,7 @@ export const setUserAccount = async (
       password,
       checkPassword,
     });
-    console.log(data)
+    // console.log(data)
     return data
   } catch (error) {
     console.log("[Set user account Failed]:", error);

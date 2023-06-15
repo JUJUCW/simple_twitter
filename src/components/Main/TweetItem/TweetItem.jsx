@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
@@ -20,7 +19,6 @@ export default function TweetItem(props) {
     const createdAt = props.createdAt;
     const isLiked = props.isLiked;
     const preLikedCount = props.likedCount;
-    // const updatedAt = props.updatedAt;
 
     const [showLiked, setShowLiked] = useState(isLiked);
     const [likedCount, setLikeCount] = useState(preLikedCount);
@@ -66,7 +64,6 @@ export default function TweetItem(props) {
                     <Link to={`/user/${userId}/tweet`}>
                         <div className={styles.info}>
                             <div className={styles.name}>{userName}</div>
-
                             <span className={styles.account}>@{account}</span>
                             <span className={styles.tweetTime}>&#xb7;{getRelativeTime(createdAt)}</span>
                         </div>
@@ -74,7 +71,6 @@ export default function TweetItem(props) {
                     <Link to={`/tweets/${tweetId}`}>
                         <div className={styles.tweetContent}>{description}</div>
                     </Link>
-
                     <div className={styles.icons}>
                         <div className={styles.iconReply}>
                             <div className={styles.cursor} onClick={handleOpenModal}>
@@ -86,7 +82,6 @@ export default function TweetItem(props) {
                             <div className={styles.cursor} onClick={handleLike}>
                                 {props && <img className={likeClassName} src={likeIcon} alt="like button" />}
                             </div>
-
                             <span>{likedCount}</span>
                         </div>
                     </div>
