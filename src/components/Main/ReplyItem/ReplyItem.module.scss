@@ -47,7 +47,6 @@
   }
   .tweetContent {
       /*box model*/
-      height: 100%;
       margin: 9px 0;
       line-height: 26px;
   }
@@ -64,7 +63,6 @@
       .replyAccount {
           /*other*/
           color: color.$brand-color;
-
       }
   }
 }
