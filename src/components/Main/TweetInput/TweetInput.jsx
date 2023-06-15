@@ -56,21 +56,18 @@ export default function TweetInput() {
 
     return (
         <div className={styles.modalContainer}>
-            <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} value={textInput} >
-            </textarea>
-            <div className={styles.info}>
-                <div className={styles.avatarContainer}>
-                  <img className={styles.avatar} src={currentUser?.avatar||logo_gray} alt="avatar" />
-                </div>
-                <span className={styles.placeHolder}>有什麼新鮮事？</span>
+            <div className={styles.avatarContainer}>
+              <img className={styles.avatar} src={currentUser?.avatar||logo_gray} alt="avatar" />
             </div>
+            <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} value={textInput} placeholder="有什麼新鮮事？">
+            </textarea>
+            
             <div className={styles.footer}>
                 <span className={warningClassName}>字數不可超過 140 字</span>
           
                 <div className={styles.btn}>
                     <Button title='推文' size='small' isAction onClick={handlePostTweet}></Button>
                 </div>
-                
             </div>
         </div>
        

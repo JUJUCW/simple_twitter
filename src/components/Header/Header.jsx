@@ -25,10 +25,12 @@ export default function Header({ title, arrow, tweetCount }) {
             ) : arrow ? (
                 <div>
                     <div className={styles.container}>
-                        <div className={styles.arrow}>
+                        <Link to="/main">
+                            <div className={styles.arrow}>
                             <img src={arrowIcon} alt="arrow" />
                         </div>
-
+                        </Link>
+                
                         <div>
                             <h4 className={styles.title}>{title}</h4>
                         </div>

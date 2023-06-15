@@ -5,42 +5,25 @@
 .modalContainer {
     /*display*/
     display: flex;
-    flex-direction: column;
     position: relative;
     /*box model*/
     height: 136px;
     width: 100%;
+    padding: 16px 25px;
     border-bottom: 10px solid color.$assistant-gray;
 }
 
-.info {
-    /*display*/
-    position: absolute;
-    top: 16px;
-    left: 26px;
-    display: flex;
-    align-items: center;
-    z-index: 1;
-    .avatarContainer {
-        /*box model*/
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        overflow: hidden;
-        .avatar {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-    }
-    
-
-    .placeHolder {
-        /*box model*/
-        margin-left: 8px;
-        /*other*/
-        font-size: 16px;
-        color: color.$secondary-color;
+.avatarContainer {
+    /*box model*/
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+   
+    .avatar {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -48,10 +31,11 @@
     all: unset;
     word-wrap: break-word;
     /*box model*/
-    height: 245px;
-    margin: 20px;
+    flex: 1;
     line-height: 30px;
-    z-index: 2;
+    margin-left: 8px;
+    margin-right: 90px;
+
     &:focus+.info {
         display: none;
     }
@@ -96,9 +80,7 @@
             display: flex;
         }
     }
-    .btn {
-        z-index: 2;
-    }
+    
 }
 
 // .tweetInputContainer {

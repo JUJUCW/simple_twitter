@@ -74,7 +74,7 @@ export default function CurrentUser({userInfo}) {
                     <div className={styles.notifyIcon}>
                         <img src={notify} alt="" className={styles.notifyImg} />
                     </div>
-                    <div className={styles.btnContainer} onClick={handleClick}>
+                    <div onClick={handleClick}>
                         {isClicked ? (
                             <Button title="正在跟隨" size="middle" isAction />
                         ) : (

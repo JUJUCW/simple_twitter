@@ -56,6 +56,9 @@ export default function TweetModal ({ handleCloseModal }) {
           <div className={styles.modalEsc} onClick={()=>handleCloseModal()}>
             <img  className={styles.modalEscImg} src={modal_esc} alt="modal esc" />
           </div>
+          <div className={styles.headerBtn}>
+            <Button title='推文' size='small' isAction onClick={handlePostTweet}></Button>
+          </div>
         </div>
         <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} >
         </textarea>
