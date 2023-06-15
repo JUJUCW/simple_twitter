@@ -3,27 +3,26 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { getFullTime } from 'utility/helper.js';
 import { postTweetUnlike, postTweetLike } from 'api/like.js';
-import Button from '../../../components/Button/Button.jsx'
-
 import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 import likeIcon from 'assets/icons/tweet/tweet_like.png';
+import { Link } from 'react-router-dom';
+import Button from '../../../components/Button/Button.jsx';
 
-
-export default function SingleTweet({onClick, props, userParam}) {
-
+export default function SingleTweet({ onClick, props, userParam }) {
     const TweetId = props.id;
-    const userName =userParam.name;
-    const account =userParam.account;
-    const avatar =userParam.avatar;
+    const userId = props.UserId;
+    const userName = userParam.name;
+    const account = userParam.account;
+    const avatar = userParam.avatar;
     const description = props.description;
     const replyCount = props.replyCount;
-    const createdAt =props.createdAt;
+    const createdAt = props.createdAt;
     const isLiked = props.isLiked;
     const preLikedCount = props.likedCount;
     const [showLiked, setShowLiked] = useState(isLiked);
     const [likedCount, setLikeCount] = useState(preLikedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
-    const fullTime = getFullTime(createdAt)
+    const fullTime = getFullTime(createdAt);
 
     const handleLike = async () => {
         try {
@@ -42,31 +41,31 @@ export default function SingleTweet({onClick, props, userParam}) {
     };
     return (
         <div className={styles.tweet}>
-            <div className={styles.userInfo}>
-                <div className={styles.userInfoAvatar}>
-                    <img src={avatar} alt="avatar" className={styles.tweetAvatar} />
+            <Link to={`/user/${userId}/tweet`}>
+                <div className={styles.userInfo}>
+                    <div className={styles.userInfoAvatar}>
+                        <img src={avatar} alt="avatar" className={styles.tweetAvatar} />
+                    </div>
+                    <div className={styles.userInfoCard}>
+                        <div className={styles.userInfoName}>{userName}</div>
+                        <div className={styles.userInfoAccount}>@{account}</div>
+                    </div>
                 </div>
-                <div className={styles.userInfoCard}>
-                    <div className={styles.userInfoName}>{userName}</div>
-                    <div className={styles.userInfoAccount}>@{account}</div>
-                </div>
-            </div>
+            </Link>
             <div className={styles.tweetContent}>{description}</div>
-            
+
             <span className={styles.time}>{fullTime}</span>
             <div className={styles.line}></div>
             <div className={styles.likeReplyBox}>
-                
                 <div className={styles.counts}>
                     <span className={styles.replyCount}>{replyCount}&nbsp;</span>
                     <span className={styles.count}>回覆</span>
                 </div>
-              
+
                 <div className={styles.likeCount}>
                     {likedCount}&nbsp;
                     <span className={styles.like}>喜歡次數</span>
                 </div>
-               
             </div>
             <div className={styles.line}></div>
             <div className={styles.icons}>
@@ -85,7 +84,7 @@ export default function SingleTweet({onClick, props, userParam}) {
                     <img src={avatar} alt="avatar" className={styles.tweetAvatar} />
                 </div>
                 <h5 className={styles.rwdTitle}>推你的回覆</h5>
-                <Button title="回覆" size="small" isAction ></Button>
+                <Button title="回覆" size="small" isAction></Button>
             </div>
         </div>
     );
