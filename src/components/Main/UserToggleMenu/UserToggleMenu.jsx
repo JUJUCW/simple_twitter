@@ -7,10 +7,8 @@ export default function UserToggleMenu({ isActive, linkName }) {
 const titleClasses = clsx(styles.navLink, { [styles.active]: isActive })
 
     return (
-        <div className={styles.container}>
-            <div className={styles.toggleMenu}>
-                <div className={titleClasses}>{linkName}</div>
-            </div> 
-        </div>
+        <div className={styles.toggleMenu}>
+            <div className={titleClasses}>{linkName}</div>
+        </div> 
     );
 }

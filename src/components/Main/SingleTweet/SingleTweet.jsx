@@ -3,12 +3,11 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { getFullTime } from 'utility/helper.js';
 import { postTweetUnlike, postTweetLike } from 'api/like.js';
+import Button from '../../../components/Button/Button.jsx'
 
-// import { Link } from 'react-router-dom';
 import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 import likeIcon from 'assets/icons/tweet/tweet_like.png';
-// import likeIconAction from 'assets/icons/tweet/tweet_like_action.png';
-// import ReplyModal from 'components/Modal/ReplyModal/ReplyModal';
+
 
 export default function SingleTweet({onClick, props, userParam}) {
 
@@ -80,6 +79,13 @@ export default function SingleTweet({onClick, props, userParam}) {
                         <img className={likeClassName} src={likeIcon} alt="like button" />
                     </div>
                 </div>
+            </div>
+            <div className={styles.rwdSection} onClick={onClick}>
+                <div className={styles.userInfoAvatar}>
+                    <img src={avatar} alt="avatar" className={styles.tweetAvatar} />
+                </div>
+                <h5 className={styles.rwdTitle}>推你的回覆</h5>
+                <Button title="回覆" size="small" isAction ></Button>
             </div>
         </div>
     );

@@ -12,10 +12,10 @@ import { useNavigate } from 'react-router-dom';
 import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function SettingPage () {
-  const { currentUser, isAuthenticated, isAuthChecked } = useAuth();
+  const { logout, currentUser, isAuthenticated, isAuthChecked } = useAuth();
   
   const userId = currentUser && currentUser.id
-
+console.log(userId);
   const navigate = useNavigate();
   const [account, setAccount] = useState("");
   const [name, setName] = useState("");
@@ -104,8 +104,6 @@ export default function SettingPage () {
         icon: "success",
       });
     setIsDataUpdate(!isDataUpdate)
-      // localStorage.removeItem('token')
-      // navigate('/login');
   }
 
     useEffect(() => {
@@ -121,13 +119,12 @@ export default function SettingPage () {
       <div className={styles.middleContainer}>
         <Header title='帳戶設定'/>
         <div className={styles.inputContainer}>
-          <AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
-          notification='字數超出上限!' wordsLimit={20}/>
-          <AuthInput label='名稱' value={name} placeholder='請輸入使用者名稱' onChange={(nameInputValue) => setName(nameInputValue)}
-          notification='字數超出上限!' wordsLimit={20}/>
-          <AuthInput label='Email' value={email} placeholder='請輸入Email' onChange={(emailInputValue) => setEmail(emailInputValue)}
-          notification='字數超出上限!' wordsLimit={20}/>
-          
+          {account && <AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
+          notification='字數超出上限!' wordsLimit={20}/>}
+          {name && <AuthInput label='名稱' value={name} placeholder='請輸入使用者名稱' onChange={(nameInputValue) => setName(nameInputValue)}
+          notification='字數超出上限!' wordsLimit={20}/>}
+          {email && <AuthInput label='Email' value={email} placeholder='請輸入Email' onChange={(emailInputValue) => setEmail(emailInputValue)}
+          notification='字數超出上限!' wordsLimit={20}/>}
           <AuthInput label='密碼' type='password' value={password} placeholder='請設定密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
           notification='字數超出上限!' wordsLimit={20}
           />
@@ -135,6 +132,9 @@ export default function SettingPage () {
           notification='字數超出上限!' wordsLimit={20}
           />
           <Button title='儲存' size='small' isAction onClick={handleClick}></Button>
+          <div className={styles.rwdBtn} onClick={()=>logout()}>
+            <span className={styles.span}>登出</span>
+          </div>
         </div>
       </div>
       <div className={styles.placeHolder}></div>

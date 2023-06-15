@@ -61,8 +61,8 @@ export default function UserFollowerPage() {
     const followerList = users.map((user) => {
         return (
         <FollowTypeCard
-            key={user.followingId}
-            userId={user.followingId}
+            key={user.followerId}
+            userId={user.followerId}
             avatar={user.avatar}
             name={user.name}
             account={user.account}
