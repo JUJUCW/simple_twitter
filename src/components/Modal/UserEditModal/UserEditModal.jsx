@@ -44,6 +44,20 @@ export default function UserEditModal ({handleCloseModal, id, oriName, oriCoverI
   }
 
   const handleSubmit = async() => {
+    if (introduction.trim().length > 160) {
+      Toast.fire({
+        title: "字數超出上限!",
+        icon: "error",
+      });
+      return;
+    }
+    if (name.trim().length > 50) {
+      Toast.fire({
+        title: "字數超出上限!",
+        icon: "error",
+      });
+      return;
+    }
     if (name.trim().length === 0) {
       Toast.fire({
         title: "請輸入名稱!",

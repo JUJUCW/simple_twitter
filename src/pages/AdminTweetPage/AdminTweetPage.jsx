@@ -10,7 +10,7 @@ import styles from './AdminTweetPage.module.scss'
 
 export default function AdminTweetPage () {
   const [tweets, setTweets] = useState([]);
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isAuthChecked } = useAuth();
   const navigate = useNavigate();
   
   const handleDeleteTweet = async (id) => {
@@ -49,10 +49,10 @@ export default function AdminTweetPage () {
     }, []);
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/admin/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
     const tweetList = tweets.map((tweet) => {
         return (

@@ -9,7 +9,7 @@ import styles from './AdminUserPage.module.scss'
 
 export default function AdminUserPage () {
   const [users, setUsers] = useState([]);
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isAuthChecked } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -48,10 +48,10 @@ export default function AdminUserPage () {
     });
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && isAuthChecked) {
         navigate('/admin/login');
         }
-    }, [navigate, isAuthenticated]);
+    }, [navigate, isAuthenticated, isAuthChecked]);
 
   return (
     <div className={styles.adminContainer}>

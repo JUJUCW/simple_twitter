@@ -119,12 +119,12 @@ console.log(userId);
       <div className={styles.middleContainer}>
         <Header title='帳戶設定'/>
         <div className={styles.inputContainer}>
-          {account && <AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
-          notification='字數超出上限!' wordsLimit={20}/>}
-          {name && <AuthInput label='名稱' value={name} placeholder='請輸入使用者名稱' onChange={(nameInputValue) => setName(nameInputValue)}
-          notification='字數超出上限!' wordsLimit={20}/>}
-          {email && <AuthInput label='Email' value={email} placeholder='請輸入Email' onChange={(emailInputValue) => setEmail(emailInputValue)}
-          notification='字數超出上限!' wordsLimit={20}/>}
+          <AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
+          notification='字數超出上限!' wordsLimit={20}/>
+          <AuthInput label='名稱' value={name} placeholder='請輸入使用者名稱' onChange={(nameInputValue) => setName(nameInputValue)}
+          notification='字數超出上限!' wordsLimit={20}/>
+          <AuthInput label='Email' value={email} placeholder='請輸入Email' onChange={(emailInputValue) => setEmail(emailInputValue)}
+          notification='字數超出上限!' wordsLimit={20}/>
           <AuthInput label='密碼' type='password' value={password} placeholder='請設定密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
           notification='字數超出上限!' wordsLimit={20}
           />
