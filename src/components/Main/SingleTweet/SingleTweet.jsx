@@ -6,6 +6,7 @@ import { postTweetUnlike, postTweetLike } from 'api/like.js';
 import replyIcon from 'assets/icons/tweet/tweet_reply.png';
 import likeIcon from 'assets/icons/tweet/tweet_like.png';
 import { Link } from 'react-router-dom';
+import Button from '../../../components/Button/Button.jsx';
 
 export default function SingleTweet({ onClick, props, userParam }) {
     const TweetId = props.id;
@@ -77,6 +78,13 @@ export default function SingleTweet({ onClick, props, userParam }) {
                         <img className={likeClassName} src={likeIcon} alt="like button" />
                     </div>
                 </div>
+            </div>
+            <div className={styles.rwdSection} onClick={onClick}>
+                <div className={styles.userInfoAvatar}>
+                    <img src={avatar} alt="avatar" className={styles.tweetAvatar} />
+                </div>
+                <h5 className={styles.rwdTitle}>推你的回覆</h5>
+                <Button title="回覆" size="small" isAction></Button>
             </div>
         </div>
     );

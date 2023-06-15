@@ -16,7 +16,6 @@
   display: flex;
   flex-direction: column;
   /*box model*/
-  height: Auto;
   width: 634px;
   margin: 56px auto;
   border-radius: 14px;
@@ -28,6 +27,7 @@
   /*display*/
   display: flex;
   align-items: center;
+  justify-content: space-between;
   /*box model*/
   height: 56px;
   width: 100%;
@@ -49,39 +49,18 @@
   display: flex;
   /*box model*/
   margin: 15px 15px 0 15px;
-  height: 100%;
 
   .left {
     /*display*/
     display: flex;
     flex-direction: column;
     align-items: center;
-
     /*box model*/
-    margin-right: 10px;
-    height: 100%;
-
-    .avatar {
-      /*box model*/
-      height: 50px;
-      width: 50px;
-      border-radius: 50%;
-
-      img {
-        /*box model*/
-        height: 100%;
-        width: 100%;
-
-      }
-
-      ;
-    }
-
     .line {
       /*box model*/
-      height: 10%;
+      flex: 1;
       border: 1px solid #CCD6DD;
-      margin: 5px 0 10px 0;
+      margin: 5px 5px 5px 0;
     }
   }
 
@@ -89,7 +68,7 @@
     /*display*/
     display: flex;
     flex-direction: column;
-    margin-bottom: 10px;
+    margin: 10px 0;
     font-size: 15px;
 
     .tweetUserInfo {
@@ -139,15 +118,7 @@
   left: 15px;
   display: flex;
   align-items: center;
-  z-index: 1;
-
-  .avatar {
-    /*box model*/
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
+  
 
   .placeHolder {
     /*box model*/
@@ -212,5 +183,39 @@
     &.active {
       display: flex;
     }
+  }
+}
+.avatarContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+}
+
+.avatar {
+  /*box model*/
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.rwdBtnContainer {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .modalContainer { 
+    width: 375px;
+    height: 881px;
+  }
+  .positionAnchor {
+    flex: 1;
+  }
+  .btnContainer {
+    display: none;
+  }
+  .rwdBtnContainer {
+    display: flex;
+    margin: 17px 24px ;
   }
 }

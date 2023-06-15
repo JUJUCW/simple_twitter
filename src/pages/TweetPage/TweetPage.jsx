@@ -97,7 +97,10 @@ export default function TweetPage() {
                     <Header title="推文" arrow />
 
                     {tweet && <SingleTweet props={tweet} userParam={user} onClick={handleOpenModal} />}
-                    {replies && repliesList}
+                    <div className={styles.listContainer}>
+                        {replies && repliesList}
+                    </div>
+                    
                 </MainContainer>
             </div>
             {/* <div className={styles.suggestFollowContainer}> */}

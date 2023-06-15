@@ -66,10 +66,15 @@ export default function ReplyModal({ handleCloseModal, props }) {
                     <div onClick={handleCloseModal}>
                         <img className={styles.modalEsc} src={modal_esc} alt="modal esc" />
                     </div>
+                    <div className={styles.rwdBtnContainer}>
+                        <Button title="回覆" size="small" isAction onClick={handlePostReply}></Button> 
+                    </div>
                 </div>
                 <div className={styles.tweet}>
                     <div className={styles.left}>
-                        <img className={styles.avatar} src={avatar} alt="avatar" />
+                        <div className={styles.avatarContainer}>
+                            <img className={styles.avatar} src={avatar} alt="avatar" />
+                        </div>
                         <span className={styles.line}></span>
                     </div>
                     <div className={styles.right}>
@@ -78,7 +83,7 @@ export default function ReplyModal({ handleCloseModal, props }) {
                             <span className={styles.tweetUserAccount}>
                                 @{account}
                                 &#xb7;
-                                <span className={styles.time}>&#xb7;{getRelativeTime(createdAt)}</span>
+                                <span className={styles.time}>{getRelativeTime(createdAt)}</span>
                             </span>
                         </div>
                         <div className={styles.tweetContent}>{description}</div>
@@ -90,8 +95,9 @@ export default function ReplyModal({ handleCloseModal, props }) {
                 </div>
                 <div className={styles.positionAnchor}>
                     <div className={styles.info}>
-                        <img className={styles.avatar} src={currentUser.avatar} alt="avatar" />
-
+                        <div className={styles.avatarContainer}>
+                            <img className={styles.avatar} src={currentUser.avatar} alt="avatar" />
+                        </div>
                         <div className={styles.replyContainer}>
                             <textarea
                                 className={bodyClassName}
@@ -104,7 +110,9 @@ export default function ReplyModal({ handleCloseModal, props }) {
                     <div className={styles.footer}>
                         <span className={warningClassName}>字數不可超過 140 字</span>
                         <span className={headsUpClassName}>內容不可為空白</span>
-                        <Button title="回覆" size="small" isAction onClick={handlePostReply}></Button>
+                        <div className={styles.btnContainer}>
+                           <Button title="回覆" size="small" isAction onClick={handlePostReply}></Button> 
+                        </div>
                     </div>
                 </div>
             </div>

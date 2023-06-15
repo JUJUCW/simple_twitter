@@ -71,15 +71,16 @@ export default function MainPage() {
             {/* <div className={styles.navBarContainer}> */}
             <NavBarContainer role="user" page="main" />
             {/* </div> */}
-            <div className={styles.navBarContainer}>
+            
                 <MainContainer>
                     <Header title="首頁" />
                     <TweetInput />
                     {/* <SingleTweet /> */}
-
+                <div className={styles.navBarContainer}>
                     {tweets && tweetList}
+                </div>
                 </MainContainer>
-            </div>
+            
             {/* <div className={styles.suggestFollowContainer}> */}
             <SuggestUserContainer />
             {/* </div> */}

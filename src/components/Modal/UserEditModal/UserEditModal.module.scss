@@ -145,3 +145,17 @@
 .fileInput {
   display: none;
 }
+
+@media screen and (max-width: 991px) {
+  .container {
+      width: 375px;
+      height: 881px;
+    }
+  .upload {
+    left: 150px;
+  }
+
+  .cancel {
+    left: 208px;
+  }
+}
