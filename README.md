@@ -1,6 +1,6 @@
 # Simple_twitter Project
 
-![project](https://github.com/JUJUCW/simple_twitter/assets/97511253/47449db8-0ef8-4b25-a123-99b86beaf607)
+![project](https://github.com/JUJUCW/simple_twitter/assets/97511253/18b193ec-3cfd-4d5f-8bf0-8622a3b375ac)
 
 這是一個簡化版的 Twitter ，用於分享與和其他使用者互動。
 
@@ -49,7 +49,6 @@ npm install
 ```
 npm start
 ```
-
 ### 開啟
 ```
 在瀏覽器中打開 http://localhost:3000 
