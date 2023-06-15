@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Simple_twitter Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Simple Twitter]( https://jujucw.github.io/simple_twitter/)
+![project](https://github.com/JUJUCW/simple_twitter/assets/97511253/47449db8-0ef8-4b25-a123-99b86beaf607)
 
-## Available Scripts
+這是一個簡化版的 Twitter ，用於分享與和其他使用者互動。
 
-In the project directory, you can run:
+## 功能特點
 
-### `npm start`
+* 使用者可以註冊新帳號、登入和登出
+* 使用者可以發布推文（限制 140 字內）
+* 使用者可以回覆推文
+* 使用者可以按讚和取消按讚推文
+* 使用者可以瀏覽其他使用者的推文和個人資料
+* 使用者可以在首頁上查看最新的推文
+* 使用者可以關注和取消關注其他使用者
+* 使用者可以編輯和更新自己的個人資料
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 環境建置
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* sweet alert @11.6.4
+* react-router-dom @6.4.1
+* axios @0.27.2
+* sass @1.26.7
+* clsx @1.2.1
+* node	14.16.0
+* 後端 API：自行設計
+* 資料庫：自行設計
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 安裝和執行
+### 開啟終端機(Terminal)並到存放專案本機位置並執行:
 
-### `npm run build`
+```
+https://github.com/JUJUCW/simple_twitter.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 安裝套件
+```
+npm install
+```
+### 啟動專案
+```
+npm start
+```
+### 退出專案
+```
+control + C
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 專案開發人員
+### 前端： [Hank](https://github.com/HankHsuABoo), [Ju](https://github.com/JUJUCW)
+### 後端： [YGJ](https://github.com/etandmouse), [忠全](https://github.com/popojk)

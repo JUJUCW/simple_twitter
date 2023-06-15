@@ -83,7 +83,9 @@ export default function UserFollowingPage() {
             <NavBarContainer role="user" page="main" />
 
                 <MainContainer>
+
                     <Header title={userProfile.name} arrow tweetCount />
+
                     <div className={styles.userToggleMenu}>
                       <Link to={`/user/${URL.UserId}/follower`}>
                         <UserToggleMenu linkName="追隨者" />
