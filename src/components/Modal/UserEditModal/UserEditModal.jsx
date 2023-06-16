@@ -66,8 +66,15 @@ export default function UserEditModal({ handleCloseModal, id, oriName, oriCoverI
         return true;
     }, [introduction, name]);
 
+    const handleCloseModalAtBg = (e) => {
+        if (isUpdating) return;
+        if (e.target.classList.contains(styles.modalOverlay)) {
+            handleCloseModal()
+        }
+    }
+
     return (
-        <div className={styles.modalOverlay}>
+        <div className={styles.modalOverlay} onClick={handleCloseModalAtBg}>
             <div className={styles.container}>
                 <div className={styles.header}>
                     <div className={styles.left}>

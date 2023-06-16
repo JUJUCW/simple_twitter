@@ -12,7 +12,7 @@ export default function EditInput ({ label, type, value, placeholder, onChange, 
         <textarea
           className={inputClassName}
           type={type || 'text'}
-          value={value}
+          value={value ?? ''}
           placeholder={placeholder}
           onChange={(event) => onChange?.(event.target.value)}
         />

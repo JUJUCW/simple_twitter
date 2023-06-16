@@ -53,6 +53,7 @@ export default function AdminLoginPage () {
         title: "帳號不存在",
         icon: "error",
       });
+    await setPassword("")
   }
 
   useEffect(() => {

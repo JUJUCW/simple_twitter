@@ -7,8 +7,7 @@ import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx
 
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
-import Header from '../../components/Header/Header.jsx';
-import { getUser, getUserLikes } from '../../api/user.js';
+import { getUserLikes } from '../../api/user.js';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { useDataStatus } from '../../context/DataContext.jsx';
 import styles from './UserLikePage.module.scss';
@@ -16,30 +15,9 @@ import styles from './UserLikePage.module.scss';
 export default function UserLikePage() {
     const URL = useParams();
     const [userLikes, setUserLikes] = useState([]);
-    const [userProfile, setUserProfile] = useState('');
     const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
-
-    useEffect(() => {
-        const getUserInfo = async () => {
-            try {
-                const data = await getUser(URL.UserId);
-                if (data.status === 'error') {
-                    console.log(data.message);
-                    return;
-                }
-                if (data) {
-                    // update data
-                    setUserProfile(data);
-                    // console.log(data)
-                }
-            } catch (error) {
-                console.log('獲取使用者資料失敗', error);
-            }
-        };
-        getUserInfo();
-    }, [URL.UserId, isDataUpdate]);
 
     useEffect(() => {
         const getUserLike = async () => {
@@ -89,23 +67,18 @@ export default function UserLikePage() {
         <>
             <div className={styles.container}>
                 <NavBarContainer role="user" page="userPage" />
-
                 <MainContainer>
-                    <Header title={userProfile.name} arrow tweetCount />
-                    <div className={styles.currentContainer}>
-                        {userProfile && <CurrentUser userInfo={userProfile} />}
-
-                        <div className={styles.userToggleMenu}>
-                            <Link to={`/user/${URL.UserId}/tweet`}>
-                                <UserToggleMenu linkName="推文" />
-                            </Link>
-                            <Link to={`/user/${URL.UserId}/reply`}>
-                                <UserToggleMenu linkName="回覆" />
-                            </Link>
-                            <UserToggleMenu linkName="喜歡的內容" isActive />
-                        </div>
-                        <div className={styles.tweetList}>{likeTweetList}</div>
+                    <CurrentUser />
+                    <div className={styles.userToggleMenu}>
+                        <Link to={`/user/${URL.UserId}/tweet`}>
+                            <UserToggleMenu linkName="推文" />
+                        </Link>
+                        <Link to={`/user/${URL.UserId}/reply`}>
+                            <UserToggleMenu linkName="回覆" />
+                        </Link>
+                        <UserToggleMenu linkName="喜歡的內容" isActive />
                     </div>
+                    <div className={styles.tweetList}>{likeTweetList}</div>
                 </MainContainer>
 
                 <SuggestUserContainer />

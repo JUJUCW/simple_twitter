@@ -20,3 +20,10 @@
     padding-bottom: 200px;
     overflow-y: scroll;
 }
+
+@media screen and (max-width: 991px) {
+    .navBarContainer {
+        padding-bottom: 550px;
+        overflow-y: scroll;
+    }
+}

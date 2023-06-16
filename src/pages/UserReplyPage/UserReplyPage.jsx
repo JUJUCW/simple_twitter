@@ -4,11 +4,10 @@ import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
-import { getUser, getUserReplies } from '../../api/user.js';
+import { getUserReplies } from '../../api/user.js';
 import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx';
-// import ReplyList from '../../components/Main/ReplyList/ReplyList.jsx';
+
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
-import Header from '../../components/Header/Header.jsx';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { useDataStatus } from '../../context/DataContext.jsx';
 import styles from './UserReplyPage.module.scss';
@@ -16,30 +15,9 @@ import styles from './UserReplyPage.module.scss';
 export default function UserReplyPage() {
     const URL = useParams();
     const [userReplies, setUserReplies] = useState([]);
-    const [userProfile, setUserProfile] = useState('');
     const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
-
-    useEffect(() => {
-        const getUserInfo = async () => {
-            try {
-                const data = await getUser(URL.UserId);
-                if (data.status === 'error') {
-                    console.log(data.message);
-                    return;
-                }
-                if (data) {
-                    // update data
-                    setUserProfile(data);
-                    // console.log(data);
-                }
-            } catch (error) {
-                console.log('獲取使用者資料失敗', error);
-            }
-        };
-        getUserInfo();
-    }, [URL.UserId, isDataUpdate]);
 
     useEffect(() => {
         const getUserReply = async () => {
@@ -88,8 +66,7 @@ export default function UserReplyPage() {
             <div className={styles.container}>
                 <NavBarContainer role="user" page="userPage" />
                 <MainContainer>
-                    <Header title={userProfile.name} arrow tweetCount />
-                    {userProfile && <CurrentUser userInfo={userProfile} />}
+                    <CurrentUser />
                     <div className={styles.userToggleMenu}>
                         <Link to={`/user/${URL.UserId}/tweet`}>
                             <UserToggleMenu linkName="推文" />
