@@ -94,19 +94,19 @@ export default function ReplyModal({ handleCloseModal, props }) {
                     </div>
                 </div>
                 <div className={styles.positionAnchor}>
-                    <div className={styles.info}>
-                        <div className={styles.avatarContainer}>
-                            <img className={styles.avatar} src={currentUser.avatar} alt="avatar" />
-                        </div>
-                        <div className={styles.replyContainer}>
-                            <textarea
-                                className={bodyClassName}
-                                onChange={(event) => setTextInput(event.target.value)}
-                                placeholder="推你的回覆"
-                                value={textInput}
-                            />
-                        </div>
+                   
+                    <div className={styles.downAvatarContainer}>
+                        <img className={styles.avatar} src={currentUser.avatar} alt="avatar" />
                     </div>
+                  
+                    <textarea
+                        className={bodyClassName}
+                        onChange={(event) => setTextInput(event.target.value)}
+                        placeholder="推你的回覆"
+                        value={textInput}
+                    />
+                   
+                   
                     <div className={styles.footer}>
                         <span className={warningClassName}>字數不可超過 140 字</span>
                         <span className={headsUpClassName}>內容不可為空白</span>
