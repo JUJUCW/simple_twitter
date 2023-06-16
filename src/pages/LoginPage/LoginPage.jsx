@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx';
@@ -15,17 +15,20 @@ export default function LoginPage() {
     const { login, isAuthenticated } = useAuth();
     const navigate = useNavigate();
 
-    const handleClick = useCallback(async () => {
-        if (account.trim().length === 0) {
-            Toast.fire({
-                title: '請輸入帳號!',
-                icon: 'error',
-            });
-            return;
+    const isValid = useMemo(() => {
+        if (!account || account.length > 50) {
+            return false;
         }
-        if (password.trim().length === 0) {
+        if (!password || password.length > 50) {
+            return false;
+        }
+        return true;
+    }, [account, password]);
+
+    const handleClick = useCallback(async () => {
+        if (!isValid) {
             Toast.fire({
-                title: '請輸入密碼!',
+                title: '請確認帳號密碼!',
                 icon: 'error',
             });
             return;
@@ -47,7 +50,7 @@ export default function LoginPage() {
             title: '帳號不存在',
             icon: 'error',
         });
-    }, [account, password, login]);
+    }, [account, password, login, isValid]);
 
     useEffect(() => {
         if (isAuthenticated) {
@@ -67,6 +70,9 @@ export default function LoginPage() {
         };
     }, [handleClick, navigate, isAuthenticated]);
 
+    
+
+
     return (
         <AuthPageContainer title="登入 Alphitter">
             <AuthInput
@@ -75,7 +81,7 @@ export default function LoginPage() {
                 placeholder="請輸入帳號"
                 onChange={(accountInputValue) => setAccount(accountInputValue)}
                 notification="字數超出上限!"
-                wordsLimit={20}
+                wordsLimit={50}
             />
             <AuthInput
                 label="密碼"
@@ -83,7 +89,7 @@ export default function LoginPage() {
                 placeholder="請輸入密碼"
                 onChange={(passwordInputValue) => setPassword(passwordInputValue)}
                 notification="字數超出上限!"
-                wordsLimit={20}
+                wordsLimit={50}
                 type="password"
                 // onInputKeyDown={handleInputKeyDown}
             />

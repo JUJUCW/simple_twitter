@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import Header from '../../components/Header/Header.jsx'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
@@ -46,42 +46,34 @@ export default function SettingPage () {
         getUserInfo();
     }, [userId, isDataUpdate]);
 
+  const isValid = useMemo(() => {
+    if (!account || account.length > 50) {
+        return false;
+    }
+    if (!name || name.length > 50) {
+        return false;
+    }
+    if (!email || email.length > 100 || !email.includes("@")) {
+        return false;
+    }
+    if (password.length > 50) {
+        return false;
+    }
+    if (checkPassword.length > 50 ||checkPassword !== password) {
+        return false;
+    }
+    return true;
+  }, [account, name, email, password, checkPassword]);
+
   const handleClick = async () => {
-    if (account.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入帳號!",
-        icon: "error",
-      });
-      return;
+    if (!isValid) {
+        Toast.fire({
+            title: '請填入正確資訊!',
+            icon: 'error',
+        });
+        return;
     }
-    if (name.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入名稱!",
-        icon: "error",
-      });
-      return;
-    }
-    if (email.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入email!",
-        icon: "error",
-      });
-      return;
-    }
-    if (checkPassword !== password) {
-      Toast.fire({
-        title: "密碼與確認密碼不一致!",
-        icon: "error",
-      });
-      return;
-    }
-    if (!email.includes("@")) {
-      Toast.fire({
-        title: "email格式不正確!",
-        icon: "error",
-      });
-      return;
-    }
+   
     const data = await setUserAccount({
       name,
       account,
@@ -98,11 +90,13 @@ export default function SettingPage () {
       });
       return;
     } 
-    Toast.fire({
+    if (data.status==="操作成功") {
+      Toast.fire({
         title: "修改成功",
         icon: "success",
       });
-    setIsDataUpdate(!isDataUpdate)
+    }
+    await setIsDataUpdate(!isDataUpdate)
   }
 
     useEffect(() => {
