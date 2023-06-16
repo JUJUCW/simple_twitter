@@ -43,13 +43,14 @@ export default function LoginPage() {
                 title: '登入成功',
                 icon: 'success',
             });
-            return;
-            // login fail
+            return;  
         }
+        // login fail
         Toast.fire({
             title: '帳號不存在',
             icon: 'error',
         });
+        await setPassword("")
     }, [account, password, login, isValid]);
 
     useEffect(() => {

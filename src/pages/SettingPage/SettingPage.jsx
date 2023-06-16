@@ -90,7 +90,7 @@ export default function SettingPage () {
       });
       return;
     } 
-    if (data.status==="操作成功") {
+    if (data==="操作成功") {
       Toast.fire({
         title: "修改成功",
         icon: "success",
