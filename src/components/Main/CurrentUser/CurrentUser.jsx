@@ -1,28 +1,49 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Button from '../../Button/Button.jsx';
+import Header from "../../../components/Header/Header.jsx"
 import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
 import msg from '../../../assets/icons/user/user_msg.png';
 import notify from '../../../assets/icons/user/user_notfi.png';
 import { useAuth } from '../../../context/AuthContext.jsx'
+import { getUser } from '../../../api/user.js'
 import { followUser, unFollowUser } from '../../../api/followship.js';
 import { useDataStatus } from '../../../context/DataContext.jsx'
 import styles from './CurrentUser.module.scss';
 
-export default function CurrentUser({userInfo}) {
-    const avatar = userInfo.avatar
-    const name = userInfo.name
-    const account = userInfo.account
-    const userId = userInfo.id;
-    const introduction = userInfo.introduction
-    const followerCount = userInfo.followerCount
-    const followingCount = userInfo.followingCount
-    const coverImg = userInfo.coverPhoto
-    const isFollowed = userInfo.isFollowed
+export default function CurrentUser() {
+    const [userProfile, setUserProfile] = useState('');
+    const URL = useParams();
+    const userId = userProfile?.id;
+    const isFollowed = userProfile?.isFollowed
     const { currentUser } = useAuth();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isClicked, setIsClicked] = useState(isFollowed);
     const {isDataUpdate, setIsDataUpdate } = useDataStatus();
+    
+    
+    
+    useEffect(() => {
+        const getUserInfo = async () => {
+            try {
+                const data = await getUser(URL.UserId);
+                if (data.status === 'error') {
+                    console.log(data.message);
+                    return;
+                }
+                if (data) {
+                    // update data
+                    await setUserProfile(data);
+                    await setIsClicked (data.isFollowed)
+                    // console.log(data);
+                }
+            } catch (error) {
+                console.log('獲取使用者資料失敗', error);
+            }
+        };
+        getUserInfo();
+    }, [URL.UserId, isDataUpdate]);
+
 
     const handleOpenModal = () => {
         setIsModalOpen(true);
@@ -36,15 +57,15 @@ export default function CurrentUser({userInfo}) {
             if (isClicked === false) {
                 const data = await followUser(userId);
                 if (data.followingId) {
-                    setIsClicked(true);
-                    setIsDataUpdate(!isDataUpdate)
+                    await setIsClicked(true);
+                    await setIsDataUpdate(!isDataUpdate)
                 }
             }
             if (isClicked === true) {
                 const data = await unFollowUser(userId);
                 if (data.followingId) {
-                    setIsClicked(false);
-                    setIsDataUpdate(!isDataUpdate)
+                    await setIsClicked(false);
+                    await setIsDataUpdate(!isDataUpdate)
                 }
             }
         } catch (error) {
@@ -54,12 +75,13 @@ export default function CurrentUser({userInfo}) {
 
     return (
         <div className={styles.container}>
+            <Header title={userProfile?.name} arrow tweetCount />
             <div className={styles.userCard}>
                 <div className={styles.cover}>
-                    <img src={coverImg} alt="cover" className={styles.bgImg} />
+                    <img src={userProfile?.coverPhoto} alt="cover" className={styles.bgImg} />
                 </div>
                 <div className={styles.userInfoAvatar}>
-                    <img src={avatar} alt="avatar" className={styles.img} />
+                    <img src={userProfile?.avatar} alt="avatar" className={styles.img} />
                 </div>
                 {userId !== currentUser?.id ? (
                 <div className={styles.btnContainer}>
@@ -75,6 +97,7 @@ export default function CurrentUser({userInfo}) {
                         ) : (
                             <Button title="跟隨" size="small" />
                         )}
+                        
                     </div>
                 </div>
                 ) : (
@@ -83,31 +106,31 @@ export default function CurrentUser({userInfo}) {
                     </div>
                 )}
                 <div className={styles.userInfoCard}>
-                    <div className={styles.userInfoName}>{name}</div>
-                    <div className={styles.userInfoAccount}>@{account}</div>
+                    <div className={styles.userInfoName}>{userProfile?.name}</div>
+                    <div className={styles.userInfoAccount}>@{userProfile?.account}</div>
                 </div>
 
                 <div className={styles.userDescription}>
                     <div className={styles.descriptionContext}>
-                        {introduction}
+                        {userProfile?.introduction}
                     </div>
                     <div className={styles.follows}>
                         <Link className={styles.routeLink} to={`/user/${userId}/following`}>
                             <div className={styles.followsFollower}>
-                                <span className={styles.followsCount}>{followingCount||0}位</span>
+                                <span className={styles.followsCount}>{userProfile?.followingCount||0}位</span>
                                 <span className={styles.followsType}>跟隨中</span>
                             </div>
                         </Link>
                         <Link className={styles.routeLink} to={`/user/${userId}/follower`}>
                             <div className={styles.followingFollower}>
-                                <span className={styles.followingCount}>{followerCount||0}位</span>
+                                <span className={styles.followingCount}>{userProfile?.followerCount||0}位</span>
                                 <span className={styles.followingType}>跟隨者</span>
                             </div>
                         </Link>
                     </div>
                 </div>
             </div>
-            {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal} id={userId} oriName={name} oriIntroduction={introduction} oriAvatar={avatar} oriCoverImg={coverImg}/>}
+            {isModalOpen && <UserEditModal handleCloseModal={handleCloseModal} id={userId} oriName={userProfile?.name} oriIntroduction={userProfile?.introduction} oriAvatar={userProfile?.avatar} oriCoverImg={userProfile?.coverPhoto}/>}
         </div>
     );
 }
