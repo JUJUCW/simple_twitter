@@ -27,6 +27,7 @@ export default function SettingPage () {
   useEffect(() => {
         const getUserInfo = async () => {
             try {
+              if(userId){
                 const data = await getUser(userId);
                 if (data.status === 'error') {
                     console.log(data.message);
@@ -39,6 +40,7 @@ export default function SettingPage () {
                     await setEmail(data.email)
                     // console.log(data);
                 }
+              }
             } catch (error) {
                 console.log('獲取使用者資料失敗', error);
             }

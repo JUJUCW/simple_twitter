@@ -12,7 +12,7 @@ export default function AuthInput ({ label, type, value, placeholder, onChange, 
         <input
           className={inputClassName}
           type={type || 'text'}
-          value={value}
+          value={value ?? ''}
           placeholder={placeholder}
           onChange={(event) => onChange?.(event.target.value)}
         />
