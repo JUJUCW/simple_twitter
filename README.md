@@ -1,6 +1,6 @@
 # Simple_twitter Project
 
-![project](https://github.com/JUJUCW/simple_twitter/assets/97511253/47449db8-0ef8-4b25-a123-99b86beaf607)
+![project](https://github.com/JUJUCW/simple_twitter/assets/97511253/1bc91515-7cd2-48a0-82d5-9aed1c50ebdb)
 
 這是一個簡化版的 Twitter ，用於分享與和其他使用者互動。
 
@@ -25,10 +25,8 @@
 * sass @1.26.7
 * clsx @1.2.1
 * node	14.16.0
-* 後端 API：自行設計
-* 資料庫：自行設計
 
-## [github page Simple Twitter]( https://jujucw.github.io/simple_twitter/)
+## DEMO 網頁 [github page Simple Twitter]( https://jujucw.github.io/simple_twitter/)
 
 ## 安裝和執行
 ### 開啟終端機(Terminal)並到存放專案本機位置並執行:
@@ -49,11 +47,11 @@ npm install
 ```
 npm start
 ```
-
 ### 開啟
 ```
-在瀏覽器中打開 http://localhost:3000 
+在瀏覽器中打開 http://localhost:3000/sample_twitter
 ```
+如無自動開啟可由網頁輸入以上網址
 ### 退出專案
 ```
 control + C
