@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import { Toast } from '../../../utility/helper.js';
-import { postReply } from 'api/reply.js';
+import usePostReply from '../../../hooks/usePostReply.js'
 import Button from '../../Button/Button.jsx';
 import { getRelativeTime } from 'utility/helper.js';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png';
@@ -10,13 +10,15 @@ import { useDataStatus } from '../../../context/DataContext.jsx'
 import styles from './ReplyModal.module.scss';
 
 export default function ReplyModal({ handleCloseModal, props }) {
-    const [textInput, setTextInput] = useState('');
+    const [ textInput, setTextInput ] = useState('');
     const { currentUser } = useAuth();
-    const {isDataUpdate, setIsDataUpdate } = useDataStatus();
+    const { isDataUpdate, setIsDataUpdate } = useDataStatus();
+    const { postReplyHook } = usePostReply()
 
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
+    
     const tweetId = props.tweetId;
     const userName = props.userName;
     const account = props.account;
@@ -34,29 +36,9 @@ export default function ReplyModal({ handleCloseModal, props }) {
             return;
         }
         if (textInput.length > 140) return;
-        try {
-            const res = await postReply(textInput.trim(), tweetId);
-
-            if (res.id) {
-                setTextInput('');
-                setIsDataUpdate(!isDataUpdate)
-                Toast.fire({
-                    title: '回覆發送成功',
-                    icon: 'success',
-                });
-            } else {
-                Toast.fire({
-                    title: '回覆發送失敗',
-                    icon: 'error',
-                });
-            }
-        } catch (error) {
-            console.error(error);
-            Toast.fire({
-                title: '回覆發送失敗',
-                icon: 'error',
-            });
-        }
+        await postReplyHook (textInput, tweetId)
+        await setTextInput('');
+        await setIsDataUpdate(!isDataUpdate)
     };
 
     return (

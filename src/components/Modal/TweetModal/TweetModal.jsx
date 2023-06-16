@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { Toast } from '../../../utility/helper.js'
 import { useAuth } from "../../../context/AuthContext.jsx";
 import Button from '../../Button/Button.jsx'
-import { postTweet } from '../../../api/tweet.js'
+import usePostTweet from '../../../hooks/usePostTweet.js'
 import { useDataStatus } from '../../../context/DataContext.jsx'
 import modal_esc from '../../../assets/icons/modal/modal_esc.png'
 import logo_gray from '../../../assets/icons/logo_gray.png'
@@ -12,7 +12,9 @@ import styles from './TweetModal.module.scss'
 export default function TweetModal ({ handleCloseModal }) {
   const [textInput, setTextInput] = useState('')
   const {isDataUpdate, setIsDataUpdate } = useDataStatus();
-   const { currentUser } = useAuth();
+  const { currentUser } = useAuth();
+  const { postTweetHook } = usePostTweet()
+
   const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 })
   const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 })
   const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 })
@@ -20,33 +22,18 @@ export default function TweetModal ({ handleCloseModal }) {
   const handlePostTweet = async () => {
     if (textInput.trim().length === 0) {
       setTextInput("")
+      Toast.fire({
+          title: '內容不可為空白',
+          icon: 'error',
+      });
       return
     }
     if (textInput.length > 140) return
+    await postTweetHook(textInput)
+    await setTextInput("");
+    await setIsDataUpdate(!isDataUpdate)
+    await handleCloseModal()
 
-    try {
-      const res = await postTweet(textInput.trim());
-        if (res.id) {
-          setTextInput("");
-          setIsDataUpdate(!isDataUpdate)
-          handleCloseModal()
-          Toast.fire({
-            title: "推文發送成功",
-            icon: "success",
-          });
-        } else {
-          Toast.fire({
-            title: "推文發送失敗",
-            icon: "error",
-          });
-        }
-        } catch (error) {
-          console.error(error);
-          Toast.fire({
-            title: "推文發送失敗",
-            icon: "error",
-          });
-        }
   }
 
   return (
@@ -60,7 +47,7 @@ export default function TweetModal ({ handleCloseModal }) {
             <Button title='推文' size='small' isAction onClick={handlePostTweet}></Button>
           </div>
         </div>
-        <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} >
+        <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} value={textInput}>
         </textarea>
         <div className={styles.info}>
           <div className={styles.avatarContainer}>
