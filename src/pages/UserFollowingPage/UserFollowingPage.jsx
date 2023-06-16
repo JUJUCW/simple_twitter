@@ -1,14 +1,14 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Header from '../../components/Header/Header.jsx';
 import styles from './UserFollowingPage.module.scss';
+import UserForFollowPage from '../../components/Main/UserForFollowPage/UserForFollowPage.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
 import { useAuth } from '../../context/AuthContext.jsx'
-import { getUserFollowings, getUser } from '../../api/user.js'
+import { getUserFollowings } from '../../api/user.js'
 import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function UserFollowingPage() {
@@ -17,7 +17,6 @@ export default function UserFollowingPage() {
     const { isAuthenticated, isAuthChecked } = useAuth();
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
-    const [userProfile, setUserProfile] = useState('')
 
     useEffect(() => {
     const getUserFollowing = async () => {
@@ -38,25 +37,6 @@ export default function UserFollowingPage() {
         getUserFollowing();
     }, [URL.UserId, isDataUpdate]);
 
-    useEffect(() => {
-        const getUserInfo = async () => {
-            try {
-                const data = await getUser(URL.UserId);
-                if (data.status === 'error') {
-                    console.log(data.message);
-                    return;
-                }
-                if (data) {
-                    // update data
-                    setUserProfile(data);
-                    // console.log(data);
-                }
-            } catch (error) {
-                console.log('獲取使用者資料失敗', error);
-            }
-        };
-        getUserInfo();
-    }, [URL.UserId, isDataUpdate]);
 
     const followingList = users.map((user) => {
         return (
@@ -82,7 +62,7 @@ export default function UserFollowingPage() {
         <div className={styles.container}>
             <NavBarContainer role="user" page="main" />
                 <MainContainer>
-                    <Header title={userProfile.name} arrow tweetCount />
+                    <UserForFollowPage/>
                     <div className={styles.userToggleMenu}>
                       <Link to={`/user/${URL.UserId}/follower`}>
                         <UserToggleMenu linkName="追隨者" />

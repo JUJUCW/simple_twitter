@@ -9,9 +9,9 @@ import { useAuth } from '../../../context/AuthContext.jsx'
 import { getUser } from '../../../api/user.js'
 import { followUser, unFollowUser } from '../../../api/followship.js';
 import { useDataStatus } from '../../../context/DataContext.jsx'
-import styles from './CurrentUser.module.scss';
+import styles from './UserForFollowPage.module.scss';
 
-export default function CurrentUser() {
+export default function UserForFollowPage () {
     const [userProfile, setUserProfile] = useState('');
     const URL = useParams();
     const userId = userProfile?.id;

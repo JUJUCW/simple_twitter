@@ -13,7 +13,7 @@ export default function TweetModal ({ handleCloseModal }) {
   const [textInput, setTextInput] = useState('')
   const {isDataUpdate, setIsDataUpdate } = useDataStatus();
   const { currentUser } = useAuth();
-  const { postTweetHook } = usePostTweet()
+  const { isUpdating, postTweetHook } = usePostTweet()
 
   const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 })
   const headsUpClassName = clsx(styles.headsUp, { [styles.active]: textInput.length === 0 })
@@ -36,8 +36,15 @@ export default function TweetModal ({ handleCloseModal }) {
 
   }
 
+  const handleCloseModalAtBg = (e) => {
+    if (isUpdating) return
+    if (e.target.classList.contains(styles.modalOverlay)) {
+        handleCloseModal()
+    }
+  }
+
   return (
-    <div className={styles.modalOverlay}>
+    <div className={styles.modalOverlay} onClick={handleCloseModalAtBg}>
       <div className={styles.modalContainer}>
         <div className={styles.header} >
           <div className={styles.modalEsc} onClick={()=>handleCloseModal()}>
