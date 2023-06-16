@@ -100,27 +100,9 @@
 .positionAnchor {
   /*display*/
   position: relative;
-  padding: 20px;
+  padding: 20px 40px 55px 70px;
   height: 245px;
-}
-
-.info {
-  /*display*/
-  position: absolute;
-  top: 0px;
-  left: 15px;
-  display: flex;
-  align-items: center;
-  z-index: 1;
-
   
-  .placeHolder {
-    /*box model*/
-    margin-left: 8px;
-    /*other*/
-    font-size: 16px;
-    color: color.$secondary-color;
-  }
 }
 
 .body {
@@ -182,6 +164,18 @@
   margin-right: 10px;
   overflow: hidden;
 }
+
+.downAvatarContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  left: 15px;
+}
+
 .avatar {
   /*box model*/
   height: 100%;

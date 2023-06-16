@@ -21,7 +21,7 @@ export default function AuthInput ({ label, type, value, placeholder, onChange, 
         <div className={noteClassName}>
           {notification}
         </div>
-        <span className={countClassName}>{value.length}/{wordsLimit}</span>
+        <span className={countClassName}>{(value || '').length}/{wordsLimit}</span>
       </div>
     </>
   )

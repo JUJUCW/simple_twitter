@@ -3,7 +3,6 @@ import Button from '../../Button/Button.jsx';
 import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
 import EditInput from '../../EditInput/EditInput.jsx';
 import useChangeProfile from '../../../hooks/useChangeProfile.js';
-// import { setUserProfile } from '../../../api/user.js';
 import { Toast } from '../../../utility/helper.js';
 import { useDataStatus } from '../../../context/DataContext.jsx';
 import bgImg from '../../../assets/images/default_background.png';
@@ -46,47 +45,6 @@ export default function UserEditModal({ handleCloseModal, id, oriName, oriCoverI
     };
 
     const handleSubmit = async () => {
-        // if (introduction.trim().length > 160) {
-        //   Toast.fire({
-        //     title: "字數超出上限!",
-        //     icon: "error",
-        //   });
-        //   return;
-        // }
-        // if (name.trim().length > 50) {
-        //   Toast.fire({
-        //     title: "字數超出上限!",
-        //     icon: "error",
-        //   });
-        //   return;
-        // }
-        // if (name.trim().length === 0) {
-        //   Toast.fire({
-        //     title: "請輸入名稱!",
-        //     icon: "error",
-        //   });
-        //   return;
-        // }
-        // const formData = new FormData();
-        //       formData.append("coverPhoto", upCoverPhoto);
-        //       formData.append("avatar", upAvatar);
-        //       formData.append("name", name);
-        //       formData.append("introduction", introduction);
-        // console.log(formData)
-
-        // const data = await setUserProfile(formData ,id)
-        // if (data.status==="error") {
-        //   Toast.fire({
-        //     title: "修改個人資料失敗",
-        //     icon: "error",
-        //   });
-        //   return
-        // }
-
-        // Toast.fire({
-        //   title: "修改個人資料成功",
-        //   icon: "success",
-        // });
         if (!isValid) {
             Toast.fire({
                 title: '請確認名稱及自我介紹字數',
@@ -94,8 +52,8 @@ export default function UserEditModal({ handleCloseModal, id, oriName, oriCoverI
             });
             return;
         }
-        updateUser({ upCoverPhoto, upAvatar, name, introduction, id });
-        setIsDataUpdate(!isDataUpdate);
+        await updateUser({ upCoverPhoto, upAvatar, name, introduction, id });
+        await setIsDataUpdate(!isDataUpdate);
     };
 
     const isValid = useMemo(() => {

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import { Toast} from '../../utility/helper.js'
 
@@ -6,7 +6,6 @@ import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
 
-// import {adminLogin} from '../../api/admin.js'
 import { useAuth } from '../../context/AuthContext.jsx'
 import styles from './AdminLoginPage.module.scss'
 
@@ -16,21 +15,26 @@ export default function AdminLoginPage () {
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
+  const isValid = useMemo(() => {
+        if (!account || account.length > 50) {
+            return false;
+        }
+        if (!password || password.length > 50) {
+            return false;
+        }
+        return true;
+    }, [account, password]);
+
   const handleClick = async () => {
-    if (account.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入帳號!",
-        icon: "error",
-      });
-      return;
+
+    if (!isValid) {
+        Toast.fire({
+            title: '請確認帳號密碼!',
+            icon: 'error',
+        });
+        return;
     }
-    if (password.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入密碼!",
-        icon: "error",
-      });
-      return;
-    }
+    
     const success = await login({
       account,
       password,
@@ -50,6 +54,7 @@ export default function AdminLoginPage () {
         icon: "error",
       });
   }
+
   useEffect(() => {
       if (isAuthenticated) {
         navigate('/admin/tweets');
@@ -59,10 +64,10 @@ export default function AdminLoginPage () {
   return (
     <AuthPageContainer title='後台登入'>
       <AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
-      notification='字數超出上限!' wordsLimit={20}
+      notification='字數超出上限!' wordsLimit={50}
       />
       <AuthInput label='密碼' type='password' value={password} placeholder='請輸入密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
-      notification='字數超出上限!' wordsLimit={20}
+      notification='字數超出上限!' wordsLimit={50}
       />
       <Button title='登入' size='large' isAction onClick={handleClick}></Button>
       <div className={styles.link}>

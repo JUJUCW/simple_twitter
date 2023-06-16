@@ -35,21 +35,3 @@ export const postTweet = async (description) => {
         return error;
     }
 };
-
-// const axiosInstance = axios.create({
-//   baseURL: baseURL,
-// })
-
-// // add token to every request
-// axiosInstance.interceptors.request.use(
-//   (config) => {
-//     const token = localStorage.getItem('authToken');
-//     if (token) {
-//       config.headers['Authorization'] = `Bearer ${token}`;
-//     }
-//     return config;
-//   },
-//   (error) => {
-//     console.error(error);
-//   },
-// );
