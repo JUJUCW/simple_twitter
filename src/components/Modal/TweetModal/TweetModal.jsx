@@ -63,7 +63,9 @@ export default function TweetModal ({ handleCloseModal }) {
         <textarea className={bodyClassName} onChange={(event) => setTextInput(event.target.value)} >
         </textarea>
         <div className={styles.info}>
-          <img className={styles.avatar} src={currentUser.avatar||logo_gray} alt="avatar" />
+          <div className={styles.avatarContainer}>
+            <img className={styles.avatar} src={currentUser.avatar||logo_gray} alt="avatar" />
+          </div>
           <span className={styles.placeHolder}>有什麼新鮮事？</span>
         </div>
         <div className={styles.footer}>

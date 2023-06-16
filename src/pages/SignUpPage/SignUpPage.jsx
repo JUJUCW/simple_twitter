@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import {Link, useNavigate} from 'react-router-dom'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
@@ -15,55 +15,32 @@ export default function SignUpPage () {
   const [checkPassword, setCheckPassword] = useState("");
   const navigate = useNavigate();
 
+  const isValid = useMemo(() => {
+    if (!account || account.length > 50) {
+        return false;
+    }
+    if (!name || name.length > 50) {
+        return false;
+    }
+    if (!email || email.length > 100 || !email.includes("@")) {
+        return false;
+    }
+    if (!password || password.length > 50) {
+        return false;
+    }
+    if (!checkPassword || checkPassword.length > 50 ||checkPassword !== password) {
+        return false;
+    }
+    return true;
+  }, [account, name, email, password, checkPassword]);
+
   const handleClick = async () => {
-    if (account.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入帳號!",
-        icon: "error",
-      });
-      return;
-    }
-    if (name.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入名稱!",
-        icon: "error",
-      });
-      return;
-    }
-    if (email.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入email!",
-        icon: "error",
-      });
-      return;
-    }
-    if (password.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入密碼!",
-        icon: "error",
-      });
-      return;
-    }
-    if (checkPassword.trim().length === 0) {
-      Toast.fire({
-        title: "請輸入確認密碼!",
-        icon: "error",
-      });
-      return;
-    }
-    if (checkPassword !== password) {
-      Toast.fire({
-        title: "密碼與確認密碼不一致!",
-        icon: "error",
-      });
-      return;
-    }
-    if (!email.includes("@")) {
-      Toast.fire({
-        title: "email格式不正確!",
-        icon: "error",
-      });
-      return;
+    if (!isValid) {
+        Toast.fire({
+            title: '請填入正確資訊!',
+            icon: 'error',
+        });
+        return;
     }
     const data = await userSignup({
       name,
@@ -93,19 +70,19 @@ export default function SignUpPage () {
   return (
     <AuthPageContainer title='建立你的帳號'>
       <AuthInput label='帳號' value={account} placeholder='請輸入帳號' onChange={(accountInputValue) => setAccount(accountInputValue)}
-      notification='字數超出上限!' wordsLimit={20}
+      notification='字數超出上限!' wordsLimit={50}
       />
       <AuthInput label='名稱' value={name} placeholder='請輸入使用者名稱' onChange={(nameInputValue) => setName(nameInputValue)}
-      notification='字數超出上限!' wordsLimit={20}
+      notification='字數超出上限!' wordsLimit={50}
       />
       <AuthInput label='Email' value={email} placeholder='請輸入Email' onChange={(emailInputValue) => setEmail(emailInputValue)}
-      notification='字數超出上限!' wordsLimit={20}
+      notification='字數超出上限!' wordsLimit={100}
       />
       <AuthInput label='密碼' type='password' value={password} placeholder='請設定密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
-      notification='字數超出上限!' wordsLimit={20}
+      notification='字數超出上限!' wordsLimit={50}
       />
       <AuthInput label='密碼確認' type='password' value={checkPassword} placeholder='請再次輸入密碼' onChange={(checkPasswordInputValue) => setCheckPassword(checkPasswordInputValue)}
-      notification='字數超出上限!' wordsLimit={20}
+      notification='字數超出上限!' wordsLimit={50}
       />
       <Button title='註冊' size='large' isAction onClick={handleClick}></Button>
       <div className={styles.link} >

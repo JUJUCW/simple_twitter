@@ -49,7 +49,7 @@
   display: flex;
   /*box model*/
   margin: 15px 15px 0 15px;
-
+  
   .left {
     /*display*/
     display: flex;
@@ -70,7 +70,7 @@
     flex-direction: column;
     margin: 10px 0;
     font-size: 15px;
-
+    
     .tweetUserInfo {
       .tweetUserAccount {
         /*box model*/
@@ -107,35 +107,19 @@
 .positionAnchor {
   /*display*/
   position: relative;
-  padding: 20px;
+  padding: 20px 40px 55px 70px;
   height: 245px;
-}
-
-.info {
-  /*display*/
-  position: absolute;
-  top: 0px;
-  left: 15px;
-  display: flex;
-  align-items: center;
   
-
-  .placeHolder {
-    /*box model*/
-    margin-left: 8px;
-    /*other*/
-    font-size: 16px;
-    color: color.$secondary-color;
-  }
 }
 
 .body {
   all: unset;
   word-wrap: break-word;
   /*box model*/
-  height: 100%;
   width: 100%;
+  height: 100%;
   line-height: 30px;
+
   // border: 1px solid #000;
 
   &:focus+.info {
@@ -191,6 +175,16 @@
   border-radius: 50%;
   margin-right: 10px;
   overflow: hidden;
+}
+.downAvatarContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  overflow: hidden;
+  position:absolute;
+  top: 0px;
+  left: 15px;
 }
 
 .avatar {

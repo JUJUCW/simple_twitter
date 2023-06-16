@@ -1,6 +1,8 @@
 # Simple_twitter Project
 
+
 ![project](https://github.com/JUJUCW/simple_twitter/assets/97511253/1bc91515-7cd2-48a0-82d5-9aed1c50ebdb)
+
 
 這是一個簡化版的 Twitter ，用於分享與和其他使用者互動。
 

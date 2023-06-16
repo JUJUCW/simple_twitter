@@ -1,5 +1,5 @@
 import './App.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter , Route, Routes } from 'react-router-dom';
 
 import HomePage from 'pages/HomePage';
 import MainPage from './pages/MainPage/MainPage.jsx';
@@ -18,11 +18,11 @@ import TweetPage from 'pages/TweetPage/TweetPage';
 import { AuthContextProvider } from './context/AuthContext.jsx';
 import { DataStatusProvider } from './context/DataContext.jsx'
 
-const basename = process.env.PUBLIC_URL;
+// const basename = process.env.PUBLIC_URL;
 export default function App() {
     return (
         <div className="app">
-            <BrowserRouter basename={basename}>
+            <HashRouter >
                 <AuthContextProvider>
                     <DataStatusProvider>
                         <Routes>
@@ -39,11 +39,11 @@ export default function App() {
                             <Route path="user/:UserId/follower" element={<UserFollowerPage />} />
                             <Route path="user/:UserId/following" element={<UserFollowingPage />} />
                             <Route path="tweets/:tweetId" element={<TweetPage />} />
-                            <Route path="*" element={<HomePage />} />
+                            <Route path="/" element={<HomePage />} />
                         </Routes>
                     </DataStatusProvider>
                 </AuthContextProvider>
-            </BrowserRouter>
+            </HashRouter>
         </div>
     );
 }

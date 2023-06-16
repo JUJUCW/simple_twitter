@@ -171,6 +171,10 @@ export const setUserAccount = async (
     return data
   } catch (error) {
     console.log("[Set user account Failed]:", error);
+    Toast.fire({
+        title: error.response.data.message,
+        icon: 'error',
+    });
     return error
   }
 };
