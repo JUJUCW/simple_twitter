@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { Toast } from '../../../utility/helper.js';
 import { useAuth } from '../../../context/AuthContext.jsx';
-import { postTweet } from '../../../api/tweet.js';
+import usePostTweet from '../../../hooks/usePostTweet.js'
 import { useDataStatus } from '../../../context/DataContext.jsx';
 import { getUser } from '../../../api/user.js';
 import styles from './TweetInput.module.scss';
@@ -10,11 +10,13 @@ import Button from '../../Button/Button.jsx';
 import logo_gray from '../../../assets/icons/logo_gray.png';
 
 export default function TweetInput() {
-    const [textInput, setTextInput] = useState('');
+    const [ textInput, setTextInput ] = useState('');
     const { isDataUpdate, setIsDataUpdate } = useDataStatus();
     const { currentUser } = useAuth();
-    const [userProfile, setUserProfile] = useState('');
+    const [ userProfile, setUserProfile ] = useState('');
+    const { postTweetHook } = usePostTweet()
     const userId = currentUser && currentUser.id
+
     const warningClassName = clsx(styles.waring, { [styles.active]: textInput.length > 140 });
     const bodyClassName = clsx(styles.body, { [styles.active]: textInput.length > 0 });
 
@@ -48,29 +50,10 @@ export default function TweetInput() {
             return;
         }
         if (textInput.length > 140) return;
+        await postTweetHook(textInput)
+        await setTextInput("");
+        await setIsDataUpdate(!isDataUpdate)
 
-        try {
-            const res = await postTweet(textInput.trim());
-            if (res.id) {
-                setTextInput('');
-                setIsDataUpdate(!isDataUpdate);
-                Toast.fire({
-                    title: '推文發送成功',
-                    icon: 'success',
-                });
-            } else {
-                Toast.fire({
-                    title: '推文發送失敗',
-                    icon: 'error',
-                });
-            }
-        } catch (error) {
-            console.error(error);
-            Toast.fire({
-                title: '推文發送失敗',
-                icon: 'error',
-            });
-        }
     };
 
     return (
