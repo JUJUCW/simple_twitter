@@ -75,7 +75,7 @@ export default function CurrentUser() {
 
     return (
         <div className={styles.container}>
-            <Header title={userProfile?.name} arrow tweetCount />
+            <Header title={userProfile?.name} arrow tweetCount UserId={userId}/>
             <div className={styles.userCard}>
                 <div className={styles.cover}>
                     <img src={userProfile?.coverPhoto} alt="cover" className={styles.bgImg} />
