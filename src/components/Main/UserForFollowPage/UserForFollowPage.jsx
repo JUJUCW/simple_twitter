@@ -26,7 +26,8 @@ export default function UserForFollowPage () {
     useEffect(() => {
         const getUserInfo = async () => {
             try {
-                const data = await getUser(URL.UserId);
+                if(URL.UserId) {
+                    const data = await getUser(URL.UserId);
                 if (data.status === 'error') {
                     console.log(data.message);
                     return;
@@ -36,6 +37,7 @@ export default function UserForFollowPage () {
                     await setUserProfile(data);
                     await setIsClicked (data.isFollowed)
                     // console.log(data);
+                }
                 }
             } catch (error) {
                 console.log('獲取使用者資料失敗', error);
