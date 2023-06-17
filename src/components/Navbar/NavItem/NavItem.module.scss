@@ -49,6 +49,15 @@
     }
 }
 
+.iconUser {
+    content: url('../../../assets/icons/nav/nav_user.png');
+    height: 100%;
+    display: block;
+    cursor: pointer;
+    &.activeIcon {
+        content: url('../../../assets/icons/nav/nav_user_action.png');
+    }
+}
 
 .iconUser {
     content: url('../../../assets/icons/nav/nav_user.png');
@@ -60,16 +69,14 @@
     }
 }
 
-
-
-.iconSetting {
-    content: url('../../../assets/icons/nav/nav_set.png');
+.iconLogout {
+    content: url('../../../assets/icons/nav/nav_signout.png');
     height: 100%;
     display: block;
     cursor: pointer;
 
     &.activeIcon {
-        content: url('../../../assets/icons/nav/nav_set_action.png');
+        content: url('../../../assets/icons/nav/nav_signout_action.png');
     }
 }
 @media screen and (max-width: 991px) {
@@ -77,4 +84,3 @@
         display: none;
     }
 }
-

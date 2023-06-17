@@ -12,9 +12,11 @@ export default function AdminTweetItem (props) {
             const handleDeleteTweet=props.onClick
     return (
         <div className={styles.container}>
+<div className={styles.left}>
             <div className={styles.avatar}>
                 <img className={styles.avatarImg} src={avatar} alt="avatar" />
             </div>
+</div>
             <div className={styles.infoContainer}>
                 <div className={styles.userInfo}>
                     <h5 className={styles.name}>{userName}</h5>
