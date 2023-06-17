@@ -12,15 +12,17 @@ export default function Header({ title, arrow, tweetCount, UserId }) {
     useEffect(() => {
         const getUserInfo = async () => {
             try {
-                const data = await getUser(UserId);
-                if (data.status === 'error') {
-                    console.log(data.message);
-                    return;
-                }
-                if (data) {
-                    // update data
-                    await setUserProfile(data);
-                    // console.log(data);
+                if (UserId) {
+                    const data = await getUser(UserId);
+                    if (data.status === 'error') {
+                        console.log(data.message);
+                        return;
+                    }
+                    if (data) {
+                        // update data
+                        await setUserProfile(data);
+                        // console.log(data);
+                    }
                 }
             } catch (error) {
                 console.log('獲取使用者資料失敗', error);

@@ -1,0 +1,62 @@
+@use '../../../assets/styles/color' as color;
+@use '../../../assets/styles/mixin';
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+}
+
+.modalContainer {
+  /*display*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*box model*/
+  width: 327px;
+  padding: 20px;
+  margin: 250px auto;
+  border-radius: 14px;
+  background-color: white;
+  border: 1px solid color.$assistant-gray;
+}
+
+
+.tweet {
+  /*display*/
+  display: flex;
+  margin: 10px 0;
+  align-items: center;
+  /*box model*/
+}
+.tweetContent {
+  /*box model*/
+  line-height: 22px;
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.avatarContainer {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+.avatar {
+  /*box model*/
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.btnContainer {
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
