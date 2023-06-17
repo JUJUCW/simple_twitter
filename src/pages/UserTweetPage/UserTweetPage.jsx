@@ -1,28 +1,24 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { getUserTweets } from '../../api/user.js';
+import { useAuth } from '../../context/AuthContext.jsx';
+import { useDataStatus } from '../../context/DataContext.jsx';
+import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
+import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
-import { getUserTweets } from '../../api/user.js';
-
-import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
-import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
-import { useAuth } from '../../context/AuthContext.jsx';
-import { useDataStatus } from '../../context/DataContext.jsx';
 
 import styles from './UserTweetPage.module.scss';
 
 export default function UserTweetPage() {
     const URL = useParams();
-    
-    const [userTweets, setUserTweets] = useState([]);
+    const [ userTweets, setUserTweets ] = useState([]);
     const { isAuthenticated, isAuthChecked } = useAuth();
-    const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
-
+    const navigate = useNavigate();
     
-
     useEffect(() => {
         const getUserTweet = async () => {
             try {

@@ -34,7 +34,6 @@ export const adminLogin = async ({ account, password }) => {
 export const adminGetAllTweets = async () => {
   try{
     const {data} = await apiHelper.get(`/admin/tweets`)
-    // console.log(data)
     return data
   } catch (error) {
     console.error('[Admin get all tweets Failed]:', error)
@@ -47,7 +46,6 @@ export const adminGetAllTweets = async () => {
 export const adminGetAllUsers = async() => {
   try{
     const{data} = await apiHelper.get(`/admin/users`)
-    // console.log(data)
     return data
   } catch (error) {
     console.error('[Get user tweets Failed]:', error)
@@ -62,7 +60,6 @@ export const deleteTweet = async (tweetId) => {
     const { data } = await apiHelper.delete(
       `/admin/tweets/${tweetId}`
     );
-    // console.log(data)
     return data
   } catch (error) {
     console.error("[Delete tweet failed]:", error);

@@ -21,6 +21,7 @@
     overflow: hidden;
    
     .avatar {
+        /*box model*/
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -47,11 +48,11 @@
 .footer {
     /*display*/
     position: absolute;
-    bottom: 16px;
-    right: 16px;
     display: flex;
     align-items: center;
-
+    /*box model*/
+    bottom: 16px;
+    right: 16px;
     .waring {
         /*display*/
         display: none;

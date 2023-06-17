@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {  useParams, useNavigate } from 'react-router-dom';
-
-import styles from './TweetPage.module.scss';
+import { useAuth } from '../../context/AuthContext.jsx'
+import { getTweet } from '../../api/tweet.js';
+import { getTweetReplies } from '../../api/reply.js'
+import { useDataStatus } from '../../context/DataContext.jsx'
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
@@ -9,21 +11,18 @@ import Header from '../../components/Header/Header.jsx';
 import SingleTweet from '../../components/Main/SingleTweet/SingleTweet.jsx';
 import SingleTweetReplyModal from '../../components/Modal/SingleTweetReplyModal/SingleTweetReplyModal.jsx';
 import ReplyItem from '../../components/Main/ReplyItem/ReplyItem.jsx';
-import { useAuth } from '../../context/AuthContext.jsx'
-import { getTweet } from '../../api/tweet.js';
-import { getTweetReplies } from '../../api/reply.js'
-import { useDataStatus } from '../../context/DataContext.jsx'
+
+import styles from './TweetPage.module.scss';
 
 export default function TweetPage() {
     const param = useParams();
-    const [tweet, setTweet] = useState('');
-    const [user, setUser] = useState({});
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [ tweet, setTweet ] = useState('');
+    const [ user, setUser ] = useState({});
+    const [ isModalOpen, setIsModalOpen ] = useState(false);
     const { isAuthenticated, isAuthChecked } = useAuth();
-    const navigate = useNavigate();
-    const [replies, setReplies] = useState([]);
+    const [ replies, setReplies ] = useState([]);
     const { isDataUpdate } = useDataStatus();
-
+    const navigate = useNavigate();
 
     const handleOpenModal = () => {
         setIsModalOpen(true);

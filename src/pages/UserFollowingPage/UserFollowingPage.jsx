@@ -1,38 +1,39 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import styles from './UserFollowingPage.module.scss';
+import { useAuth } from '../../context/AuthContext.jsx'
+import { getUserFollowings } from '../../api/user.js'
+import { useDataStatus } from '../../context/DataContext.jsx'
 import UserForFollowPage from '../../components/Main/UserForFollowPage/UserForFollowPage.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
-import { useAuth } from '../../context/AuthContext.jsx'
-import { getUserFollowings } from '../../api/user.js'
-import { useDataStatus } from '../../context/DataContext.jsx'
+
+import styles from './UserFollowingPage.module.scss';
 
 export default function UserFollowingPage() {
-    const [users, setUsers] = useState([]);
     const URL = useParams();
+    const [ users, setUsers ] = useState([]);
     const { isAuthenticated, isAuthChecked } = useAuth();
-    const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
+    const navigate = useNavigate();
 
     useEffect(() => {
-    const getUserFollowing = async () => {
-        try {
-            const data = await getUserFollowings(URL.UserId);
-            if (data.status === 'error') {
-                console.log(data.message);
-                return;
+        const getUserFollowing = async () => {
+            try {
+                const data = await getUserFollowings(URL.UserId);
+                if (data.status === 'error') {
+                    console.log(data.message);
+                    return;
+                }
+                if (data) {
+                    // update data
+                    setUsers(data);
+                }
+            } catch (error) {
+                console.log('獲取正在跟隨者失敗', error);
             }
-            if (data) {
-                // update data
-                setUsers(data);
-            }
-        } catch (error) {
-            console.log('獲取正在跟隨者失敗', error);
-        }
         }
         getUserFollowing();
     }, [URL.UserId, isDataUpdate]);

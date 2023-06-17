@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { adminGetAllUsers } from '../../api/admin.js'
+import { useAuth } from '../../context/AuthContext.jsx'
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header/Header.jsx'
 import AdminUserCard from '../../components/AdminUserCard/AdminUserCard.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
-import { useAuth } from '../../context/AuthContext.jsx'
-import { useNavigate } from 'react-router-dom';
+
 import styles from './AdminUserPage.module.scss'
 
 export default function AdminUserPage () {

@@ -1,18 +1,19 @@
 import { useState, useMemo } from 'react';
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { userSignup } from '../../api/user.js'
+import { Toast } from '../../utility/helper.js'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
-import {userSignup} from '../../api/user.js'
-import {Toast} from '../../utility/helper.js'
+
 import styles from './SignUpPage.module.scss'
 
 export default function SignUpPage () {
-  const [account, setAccount] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [checkPassword, setCheckPassword] = useState("");
+  const [ account, setAccount ] = useState("");
+  const [ name, setName ] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ checkPassword, setCheckPassword ] = useState("");
   const navigate = useNavigate();
 
   const isValid = useMemo(() => {

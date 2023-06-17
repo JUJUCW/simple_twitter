@@ -1,23 +1,23 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { getUserLikes } from '../../api/user.js';
+import { useAuth } from '../../context/AuthContext.jsx';
+import { useDataStatus } from '../../context/DataContext.jsx';
 import CurrentUser from '../../components/Main/CurrentUser/CurrentUser.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
-
 import TweetItem from '../../components/Main/TweetItem/TweetItem.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
-import { getUserLikes } from '../../api/user.js';
-import { useAuth } from '../../context/AuthContext.jsx';
-import { useDataStatus } from '../../context/DataContext.jsx';
+
 import styles from './UserLikePage.module.scss';
 
 export default function UserLikePage() {
     const URL = useParams();
-    const [userLikes, setUserLikes] = useState([]);
+    const [ userLikes, setUserLikes ] = useState([]);
     const { isAuthenticated, isAuthChecked } = useAuth();
-    const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const getUserLike = async () => {
@@ -30,7 +30,6 @@ export default function UserLikePage() {
                 if (data) {
                     // update data
                     setUserLikes(data);
-                    // console.log(data)
                 }
             } catch (error) {
                 console.log('獲取使用者推文失敗', error);

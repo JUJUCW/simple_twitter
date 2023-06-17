@@ -1,10 +1,11 @@
 import { useState, useMemo } from 'react';
+import { Toast } from '../../../utility/helper.js';
+import { useDataStatus } from '../../../context/DataContext.jsx';
 import Button from '../../Button/Button.jsx';
 import AuthInput from '../../Auth/AuthInput/AuthInput.jsx';
 import EditInput from '../../EditInput/EditInput.jsx';
 import useChangeProfile from '../../../hooks/useChangeProfile.js';
-import { Toast } from '../../../utility/helper.js';
-import { useDataStatus } from '../../../context/DataContext.jsx';
+
 import bgImg from '../../../assets/images/default_background.png';
 import logo from '../../../assets/icons/logo_gray.png';
 import modal_esc from '../../../assets/icons/modal/modal_esc.png';

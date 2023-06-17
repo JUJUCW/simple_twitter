@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react';
-
 import { followUser, unFollowUser } from '../../../api/followship.js';
-// import {Toast} from '../../../utility/helper.js'
-import styles from './SuggestUserItem.module.scss';
-import Button from '../../Button/Button.jsx';
-import logo from '../../../assets/icons/logo.png';
 import { Link } from 'react-router-dom';
 import { useDataStatus } from '../../../context/DataContext.jsx';
+import Button from '../../Button/Button.jsx';
+
+import logo from '../../../assets/icons/logo.png';
+import styles from './SuggestUserItem.module.scss';
 
 export default function SuggestUserItem(props) {
     const avatar = props.avatar;
@@ -14,6 +13,7 @@ export default function SuggestUserItem(props) {
     const account = props.account;
     const userId = props.userId;
     const isFollowed = props.isFollowed;
+    
     const [isClicked, setIsClicked] = useState(isFollowed);
     const { isDataUpdate, setIsDataUpdate } = useDataStatus();
 

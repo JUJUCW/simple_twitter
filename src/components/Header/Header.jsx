@@ -1,9 +1,10 @@
-import styles from './Header.module.scss';
-import arrowIcon from '../../assets/icons/arrow.png';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getUser } from '../../api/user.js'
 import { useDataStatus } from '../../context/DataContext.jsx'
+
+import arrowIcon from '../../assets/icons/arrow.png';
+import styles from './Header.module.scss';
 
 export default function Header({ title, arrow, tweetCount, UserId }) {
     const [ userProfile, setUserProfile] = useState('');
@@ -21,7 +22,6 @@ export default function Header({ title, arrow, tweetCount, UserId }) {
                     if (data) {
                         // update data
                         await setUserProfile(data);
-                        // console.log(data);
                     }
                 }
             } catch (error) {

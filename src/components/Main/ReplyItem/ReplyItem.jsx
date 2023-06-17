@@ -1,6 +1,7 @@
-import styles from './ReplyItem.module.scss';
 import { getRelativeTime } from '../../../utility/helper.js';
 import { Link } from 'react-router-dom';
+
+import styles from './ReplyItem.module.scss';
 
 export default function ReplyItem(props) {
     const avatar = props.avatar;
@@ -9,7 +10,6 @@ export default function ReplyItem(props) {
     const createdAt = props.createdAt;
     const tweetAccount = props.tweetAccount;
     const userId = props.userId;
-
     const comment = props.comment;
 
     return (

@@ -27,3 +27,9 @@
   overflow-y: scroll;
   padding-bottom: 300px;
 }
+
+@media screen and (max-width: 991px) {
+  .cardContainer {
+  grid-template-columns: repeat(2, 210px);
+  }
+}

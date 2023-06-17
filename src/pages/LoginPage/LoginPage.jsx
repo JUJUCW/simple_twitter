@@ -1,11 +1,10 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { Toast } from '../../utility/helper.js';
+import { useAuth } from '../../context/AuthContext.jsx';
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx';
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx';
 import Button from '../../components/Button/Button.jsx';
-import { Toast } from '../../utility/helper.js';
-import { useAuth } from '../../context/AuthContext.jsx';
 
 import styles from './LoginPage.module.scss';
 

@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
-import clsx from 'clsx';
 import { Toast } from '../../../utility/helper.js';
 import { useAuth } from '../../../context/AuthContext.jsx';
-import usePostTweet from '../../../hooks/usePostTweet.js'
 import { useDataStatus } from '../../../context/DataContext.jsx';
 import { getUser } from '../../../api/user.js';
-import styles from './TweetInput.module.scss';
+import usePostTweet from '../../../hooks/usePostTweet.js'
+import clsx from 'clsx';
+
 import Button from '../../Button/Button.jsx';
 import logo_gray from '../../../assets/icons/logo_gray.png';
+import styles from './TweetInput.module.scss';
 
 export default function TweetInput() {
     const [ textInput, setTextInput ] = useState('');
