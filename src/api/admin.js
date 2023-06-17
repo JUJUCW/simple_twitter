@@ -47,7 +47,7 @@ export const adminGetAllTweets = async () => {
 export const adminGetAllUsers = async() => {
   try{
     const{data} = await apiHelper.get(`/admin/users`)
-    console.log(data)
+    // console.log(data)
     return data
   } catch (error) {
     console.error('[Get user tweets Failed]:', error)

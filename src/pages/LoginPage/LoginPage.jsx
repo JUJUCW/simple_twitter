@@ -43,14 +43,14 @@ export default function LoginPage() {
                 title: '登入成功',
                 icon: 'success',
             });
-            return;  
+            return;
         }
         // login fail
         Toast.fire({
             title: '帳號不存在',
             icon: 'error',
         });
-        await setPassword("")
+        await setPassword('');
     }, [account, password, login, isValid]);
 
     useEffect(() => {
@@ -70,9 +70,6 @@ export default function LoginPage() {
             document.removeEventListener('keydown', keyDownHandler);
         };
     }, [handleClick, navigate, isAuthenticated]);
-
-    
-
 
     return (
         <AuthPageContainer title="登入 Alphitter">
