@@ -2,8 +2,10 @@
 @use '../../../assets/styles/mixin';
 
 .toggleMenu {
-    margin-top: 16px;
+    /*display*/
     display: flex;
+    /*box model*/
+    margin-top: 16px;
     gap: 16px;
     cursor: pointer;
 }
@@ -14,7 +16,6 @@
     justify-content: center;
     align-items: center;
     /*box model*/
-
     height: 52px;
     border-bottom: 2px solid color.$brand-color;
     /*other*/
@@ -38,7 +39,9 @@
 }
 
 .navLink:hover {
+    /*box model*/
     border-bottom: 2px solid color.$brand-color;
+    /*other*/
     @include mixin.font-setting(15px, 700, color.$brand-color);
 }
 

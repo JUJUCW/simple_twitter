@@ -1,12 +1,11 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Toast } from '../../utility/helper.js';
-
+import { useAuth } from '../../context/AuthContext.jsx';
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx';
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx';
 import Button from '../../components/Button/Button.jsx';
 
-import { useAuth } from '../../context/AuthContext.jsx';
 import styles from './AdminLoginPage.module.scss';
 
 export default function AdminLoginPage() {
@@ -46,8 +45,8 @@ export default function AdminLoginPage() {
                 icon: 'success',
             });
             return;
-            // login fail
         }
+        // login fail
         Toast.fire({
             title: '帳號不存在',
             icon: 'error',

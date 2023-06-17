@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import clsx from 'clsx';
 import { Toast } from '../../../utility/helper.js';
-import usePostReply from '../../../hooks/usePostReply.js'
-import Button from '../../Button/Button.jsx';
-import { getRelativeTime } from 'utility/helper.js';
-import modal_esc from '../../../assets/icons/modal/modal_esc.png';
+import { getRelativeTime } from '../../../utility/helper.js';
 import { useAuth } from "../../../context/AuthContext.jsx";
 import { useDataStatus } from '../../../context/DataContext.jsx'
+import clsx from 'clsx';
+import usePostReply from '../../../hooks/usePostReply.js'
+import Button from '../../Button/Button.jsx';
+
+import modal_esc from '../../../assets/icons/modal/modal_esc.png';
 import styles from './ReplyModal.module.scss';
 
 export default function ReplyModal({ handleCloseModal, props }) {

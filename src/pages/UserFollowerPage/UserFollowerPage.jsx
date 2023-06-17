@@ -1,23 +1,23 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { getUserFollowers } from '../../api/user.js'
+import { useAuth } from '../../context/AuthContext.jsx'
+import { useDataStatus } from '../../context/DataContext.jsx'
 import UserForFollowPage from '../../components/Main/UserForFollowPage/UserForFollowPage.jsx'
-import styles from './UserFollowerPage.module.scss';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
 import UserToggleMenu from '../../components/Main/UserToggleMenu/UserToggleMenu.jsx';
 import SuggestUserContainer from '../../components/SuggestUser/SuggestUserContainer/SuggestUserContainer.jsx';
 import FollowTypeCard from '../../components/Main/FollowTypeCard/FollowTypeCard.jsx';
-import { getUserFollowers } from '../../api/user.js'
-import { useAuth } from '../../context/AuthContext.jsx'
-import { useDataStatus } from '../../context/DataContext.jsx'
+
+import styles from './UserFollowerPage.module.scss';
 
 export default function UserFollowerPage() {
-    const [users, setUsers] = useState([]);
     const URL = useParams();
+    const [ users, setUsers ] = useState([]);
     const { isAuthenticated, isAuthChecked } = useAuth();
-    const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
-  
+    const navigate = useNavigate();
 
     useEffect(() => {
     const getUserFollower = async () => {

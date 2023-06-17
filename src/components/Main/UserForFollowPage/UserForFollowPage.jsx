@@ -1,14 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Button from '../../Button/Button.jsx';
-import Header from "../../../components/Header/Header.jsx"
-import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
-import msg from '../../../assets/icons/user/user_msg.png';
-import notify from '../../../assets/icons/user/user_notfi.png';
 import { useAuth } from '../../../context/AuthContext.jsx'
 import { getUser } from '../../../api/user.js'
 import { followUser, unFollowUser } from '../../../api/followship.js';
 import { useDataStatus } from '../../../context/DataContext.jsx'
+import Header from "../../../components/Header/Header.jsx"
+import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
+
+import msg from '../../../assets/icons/user/user_msg.png';
+import notify from '../../../assets/icons/user/user_notfi.png';
+import Button from '../../Button/Button.jsx';
 import styles from './UserForFollowPage.module.scss';
 
 export default function UserForFollowPage () {
@@ -20,8 +21,6 @@ export default function UserForFollowPage () {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [isClicked, setIsClicked] = useState(isFollowed);
     const {isDataUpdate, setIsDataUpdate } = useDataStatus();
-    
-    
     
     useEffect(() => {
         const getUserInfo = async () => {
@@ -36,7 +35,6 @@ export default function UserForFollowPage () {
                     // update data
                     await setUserProfile(data);
                     await setIsClicked (data.isFollowed)
-                    // console.log(data);
                 }
                 }
             } catch (error) {

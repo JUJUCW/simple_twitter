@@ -1,7 +1,7 @@
 import './App.scss';
 import { HashRouter , Route, Routes } from 'react-router-dom';
 
-import HomePage from 'pages/HomePage';
+import HomePage from './pages/HomePage.jsx';
 import MainPage from './pages/MainPage/MainPage.jsx';
 import UserTweetPage from './pages/UserTweetPage/UserTweetPage.jsx';
 import UserFollowerPage from './pages/UserFollowerPage/UserFollowerPage';
@@ -14,7 +14,7 @@ import AdminUserPage from './pages/AdminUserPage/AdminUserPage.jsx';
 import AdminTweetPage from './pages/AdminTweetPage/AdminTweetPage.jsx';
 import UserReplyPage from './pages/UserReplyPage/UserReplyPage.jsx';
 import UserLikePage from './pages/UserLikePage/UserLikePage.jsx';
-import TweetPage from 'pages/TweetPage/TweetPage';
+import TweetPage from './pages/TweetPage/TweetPage.jsx';
 import { AuthContextProvider } from './context/AuthContext.jsx';
 import { DataStatusProvider } from './context/DataContext.jsx'
 

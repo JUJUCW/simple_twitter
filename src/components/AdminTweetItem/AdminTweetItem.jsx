@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import styles from './AdminTweetItem.module.scss';
-import admin_delete from '../../assets/icons/admin/admin_delete.png'
 import { getRelativeTime } from '../../utility/helper.js';
 import AdminDeleteModal from '../../components/Modal/AdminDeleteModal/AdminDeleteModal.jsx';
+
+import admin_delete from '../../assets/icons/admin/admin_delete.png'
+import styles from './AdminTweetItem.module.scss';
 
 export default function AdminTweetItem (props) {
     const tweetId=props.tweetId

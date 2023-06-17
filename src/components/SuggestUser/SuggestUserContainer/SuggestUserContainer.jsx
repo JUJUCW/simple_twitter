@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-
-import SuggestUserItem from '../SuggestUserItem/SuggestUserItem.jsx';
-import styles from './SuggestUserContainer.module.scss';
 import { getTopTenUsers } from '../../../api/user.js'
 import { useDataStatus } from '../../../context/DataContext.jsx';
+import SuggestUserItem from '../SuggestUserItem/SuggestUserItem.jsx';
+
+import styles from './SuggestUserContainer.module.scss';
 
 export default function SuggestUserContainer() {
     const [users, setUsers] = useState([]);
@@ -44,10 +44,8 @@ export default function SuggestUserContainer() {
     return (
         <div className={styles.suggestFollowContainer}>
             <h4 className={styles.suggestUserTitle}>推薦跟隨</h4>
-            {/* <div className={styles.line}></div> */}
             <div className={styles.suggestUserCard}>
                 {topUserList}
-              
             </div>
         </div>
     );

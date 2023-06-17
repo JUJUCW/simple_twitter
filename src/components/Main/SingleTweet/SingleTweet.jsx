@@ -1,12 +1,13 @@
-import styles from './SingleTweet.module.scss';
 import { useState } from 'react';
-import clsx from 'clsx';
-import { getFullTime } from 'utility/helper.js';
-import { postTweetUnlike, postTweetLike } from 'api/like.js';
-import replyIcon from 'assets/icons/tweet/tweet_reply.png';
-import likeIcon from 'assets/icons/tweet/tweet_like.png';
 import { Link } from 'react-router-dom';
+import { getFullTime } from '../../../utility/helper.js';
+import { postTweetUnlike, postTweetLike } from '../../../api/like.js';
+import clsx from 'clsx';
 import Button from '../../../components/Button/Button.jsx';
+
+import replyIcon from '../../../assets/icons/tweet/tweet_reply.png';
+import likeIcon from '../../../assets/icons/tweet/tweet_like.png';
+import styles from './SingleTweet.module.scss';
 
 export default function SingleTweet({ onClick, props, userParam }) {
     const TweetId = props.id;
@@ -19,6 +20,7 @@ export default function SingleTweet({ onClick, props, userParam }) {
     const createdAt = props.createdAt;
     const isLiked = props.isLiked;
     const preLikedCount = props.likedCount;
+
     const [showLiked, setShowLiked] = useState(isLiked);
     const [likedCount, setLikeCount] = useState(preLikedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
@@ -39,6 +41,7 @@ export default function SingleTweet({ onClick, props, userParam }) {
             console.log('操作失敗', error);
         }
     };
+    
     return (
         <div className={styles.tweet}>
             <Link to={`/user/${userId}/tweet`}>

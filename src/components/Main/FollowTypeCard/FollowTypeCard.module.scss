@@ -15,7 +15,6 @@
         /*display*/
         display: flex;
         justify-content: space-between;
-
         /*box model*/
         width: 100%;
     }
@@ -28,12 +27,11 @@
         /*box model*/
         height: 50px;
         .avatarContainer {
-            /*display*/
-            margin-right: 8px;
             /*box model*/
             height: 50px;
             width: 50px;
             border-radius: 50%;
+            margin-right: 8px;
             overflow: hidden;
             .avatar {
                 width: 100%;
@@ -45,11 +43,10 @@
         @include mixin.font-setting(16px, 700, color.$gray-10);
     }
     .tweetContent {
-        /*display*/
-        padding: 0px 29px 0 56px;
         /*box model*/
-        line-height: 26px;
+        padding: 0px 29px 0 56px;
         /*other*/
+        line-height: 26px;
         text-overflow: ellipsis;
         @include mixin.font-setting(16px, 400, color.$gray-10);
     }

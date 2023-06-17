@@ -158,6 +158,7 @@
 }
 
 .avatarContainer {
+  /*box model*/
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -166,11 +167,13 @@
 }
 
 .downAvatarContainer {
+  /*box model*/
   height: 50px;
   width: 50px;
   border-radius: 50%;
   margin-right: 10px;
   overflow: hidden;
+  /*display*/
   position: absolute;
   top: 0px;
   left: 15px;

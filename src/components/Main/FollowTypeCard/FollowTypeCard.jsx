@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import Button from 'components/Button/Button';
-import styles from './FollowTypeCard.module.scss';
-import logo from 'assets/icons/logo_gray.png';
 import { useDataStatus } from '../../../context/DataContext.jsx';
 import { followUser, unFollowUser } from '../../../api/followship.js';
 import { Link } from 'react-router-dom';
+import Button from '../../../components/Button/Button.jsx';
+
+import logo from '../../../assets/icons/logo_gray.png';
+import styles from './FollowTypeCard.module.scss';
 
 export default function FollowTypeCard(props) {
     const userId = props && props.userId;

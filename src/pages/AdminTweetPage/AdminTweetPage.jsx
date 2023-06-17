@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Toast } from '../../utility/helper.js'
-import Header from '../../components/Header/Header.jsx'
-import AdminTweetItem from '../../components/AdminTweetItem/AdminTweetItem.jsx'
-import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
 import { adminGetAllTweets, deleteTweet } from '../../api/admin.js'
 import { useAuth } from '../../context/AuthContext.jsx'
 import { useNavigate } from 'react-router-dom';
+import Header from '../../components/Header/Header.jsx'
+import AdminTweetItem from '../../components/AdminTweetItem/AdminTweetItem.jsx'
+import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
+
 import styles from './AdminTweetPage.module.scss'
 
 export default function AdminTweetPage () {
-  const [tweets, setTweets] = useState([]);
+  const [ tweets, setTweets ] = useState([]);
   const { isAuthenticated, isAuthChecked } = useAuth();
   const navigate = useNavigate();
   
