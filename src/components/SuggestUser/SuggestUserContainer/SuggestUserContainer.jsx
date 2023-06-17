@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import SuggestUserItem from '../SuggestUserItem/SuggestUserItem.jsx';
 import styles from './SuggestUserContainer.module.scss';
-import {getTopTenUsers} from '../../../api/user.js'
+import { getTopTenUsers } from '../../../api/user.js'
 import { useDataStatus } from '../../../context/DataContext.jsx';
 
 export default function SuggestUserContainer() {
