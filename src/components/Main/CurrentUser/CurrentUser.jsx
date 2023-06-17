@@ -26,16 +26,18 @@ export default function CurrentUser() {
     useEffect(() => {
         const getUserInfo = async () => {
             try {
-                const data = await getUser(URL.UserId);
-                if (data.status === 'error') {
-                    console.log(data.message);
-                    return;
-                }
-                if (data) {
-                    // update data
-                    await setUserProfile(data);
-                    await setIsClicked (data.isFollowed)
-                    // console.log(data);
+                if(URL.UserId) {
+                    const data = await getUser(URL.UserId);
+                    if (data.status === 'error') {
+                        console.log(data.message);
+                        return;
+                    }
+                    if (data) {
+                        // update data
+                        await setUserProfile(data);
+                        await setIsClicked (data.isFollowed)
+                        // console.log(data);
+                    }
                 }
             } catch (error) {
                 console.log('獲取使用者資料失敗', error);
