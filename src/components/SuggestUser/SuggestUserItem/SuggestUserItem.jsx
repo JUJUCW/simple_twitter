@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { followUser, unFollowUser } from '../../../api/followship.js';
 // import {Toast} from '../../../utility/helper.js'
@@ -39,6 +39,10 @@ export default function SuggestUserItem(props) {
             console.error(error);
         }
     };
+
+    useEffect(() => {
+        setIsClicked(isFollowed)
+    }, [isDataUpdate, isFollowed]);
 
     return (
         <>
