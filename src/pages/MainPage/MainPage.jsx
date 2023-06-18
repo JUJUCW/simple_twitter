@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext.jsx';
 import { getAllTweets } from '../../api/tweet.js';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useDataStatus } from '../../context/DataContext.jsx';
 import MainContainer from '../../components/Main/MainContainer/MainContainer.jsx';
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx';
@@ -17,6 +17,7 @@ export default function MainPage() {
     const [tweets, setTweets] = useState([]);
     const navigate = useNavigate();
     const { isDataUpdate } = useDataStatus();
+    const { pathname } = useLocation()
 
     useEffect(() => {
         const getAllTweet = async () => {
@@ -37,7 +38,7 @@ export default function MainPage() {
         getAllTweet();
     }, [isDataUpdate]);
 
-    const tweetList = tweets.map((tweet) => {
+    const tweetList = tweets.length > 0 ?tweets.map((tweet) => {
         return (
             <TweetItem
                 key={tweet.id}
@@ -53,13 +54,13 @@ export default function MainPage() {
                 createdAt={tweet.createdAt}
             />
         );
-    });
+    }): null;
 
     useEffect(() => {
         if (!isAuthenticated && isAuthChecked) {
             navigate('/login');
         }
-    }, [navigate, isAuthenticated, isAuthChecked]);
+    }, [pathname, navigate, isAuthenticated, isAuthChecked]);
 
     return (
         <div className={styles.container}>

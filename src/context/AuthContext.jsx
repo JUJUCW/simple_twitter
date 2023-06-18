@@ -26,6 +26,7 @@ export function AuthContextProvider({ children }) {
       const token = localStorage.getItem('token')
       if (!token) {
         setIsAuthenticated(false)
+        setIsAuthChecked(true)
         setPayload(null)
         return
       }
@@ -33,6 +34,7 @@ export function AuthContextProvider({ children }) {
       const tempPayload = jwt.decode(token)
       if (!tempPayload) {
         setIsAuthenticated(false)
+        setIsAuthChecked(true)
         setPayload(null)
         return
       }
