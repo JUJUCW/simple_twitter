@@ -59,16 +59,6 @@
     }
 }
 
-.iconUser {
-    content: url('../../../assets/icons/nav/nav_user.png');
-    height: 100%;
-    display: block;
-    cursor: pointer;
-    &.activeIcon {
-        content: url('../../../assets/icons/nav/nav_user_action.png');
-    }
-}
-
 .iconSetting {
     content: url('../../../assets/icons/nav/nav_set.png');
     height: 100%;
@@ -78,7 +68,6 @@
         content: url('../../../assets/icons/nav/nav_set_action.png');
     }
 }
-
 
 @media screen and (max-width: 991px) {
     .title {
