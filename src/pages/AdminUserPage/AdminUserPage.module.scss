@@ -1,29 +1,50 @@
 .adminContainer {
-  /*display*/
-  display: flex;
-  justify-content: center;
-  /*box model*/
-  max-width: 1200px;
-  margin: 0 auto;
-  height: 100vh;
-  overflow: hidden;
+    /*display*/
+    display: flex;
+    justify-content: center;
+    /*box model*/
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 100vh;
+    overflow: hidden;
 }
 
 .middleContainer {
-  /*box model*/
-  width: 100%;
-  // margin-left: 24px;
-  border-left: 1px solid#e6ecf0;
+    /*box model*/
+    width: 100%;
+    // margin-left: 24px;
+    border-left: 1px solid#e6ecf0;
 }
 
 .cardContainer {
-  /*display*/
-  display: grid;
-  grid-template-columns: repeat(4, 210px);
-  grid-gap: 16px;
-  /*box model*/
-  padding: 16px;
-  height: 100vh;
-  overflow-y: scroll;
-  padding-bottom: 300px;
+    /*display*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    /*box model*/
+    padding: 16px;
+    height: 100vh;
+    overflow-y: scroll;
+}
+@media (min-width: 400px) {
+    .cardContainer {
+        /*display*/
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        overflow-y: scroll;
+        /*box model*/
+        height: auto;
+        height: 100vh;
+    }
+}
+
+@media (min-width: 768px) {
+    .cardContainer {
+        /*display*/
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
+        overflow-y: scroll;
+        /*box model*/
+        height: auto;
+        height: 100vh;
+    }
 }

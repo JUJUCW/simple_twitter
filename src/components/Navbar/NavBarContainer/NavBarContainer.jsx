@@ -115,14 +115,6 @@ export default function NavBarContainer({ role, page }) {
                                     <NavLink to="/admin/users">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="使用者列表" />
                                     </NavLink>
-                                    <NavLink to="/admin/login">
-                                        <NavItem
-                                            iconStyle={'iconLogout'}
-                                            altName="log-out"
-                                            title="使用者列表"
-                                            onClick={() => logout()}
-                                        />
-                                    </NavLink>
                                 </>
                             )}
                             {page === 'adminuser' && (
@@ -133,15 +125,6 @@ export default function NavBarContainer({ role, page }) {
 
                                     <NavLink to="/admin/users">
                                         <NavItem iconStyle={'iconUser'} altName="user" title="使用者列表" isActive />
-                                    </NavLink>
-
-                                    <NavLink to="/admin/login">
-                                        <NavItem
-                                            iconStyle={'iconLogout'}
-                                            altName="log-out"
-                                            title="使用者列表"
-                                            onClick={() => logout()}
-                                        />
                                     </NavLink>
                                 </>
                             )}

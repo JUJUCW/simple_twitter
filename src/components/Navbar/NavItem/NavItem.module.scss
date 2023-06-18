@@ -69,16 +69,17 @@
     }
 }
 
-.iconLogout {
-    content: url('../../../assets/icons/nav/nav_signout.png');
+.iconSetting {
+    content: url('../../../assets/icons/nav/nav_set.png');
     height: 100%;
     display: block;
     cursor: pointer;
-
     &.activeIcon {
-        content: url('../../../assets/icons/nav/nav_signout_action.png');
+        content: url('../../../assets/icons/nav/nav_set_action.png');
     }
 }
+
+
 @media screen and (max-width: 991px) {
     .title {
         display: none;
