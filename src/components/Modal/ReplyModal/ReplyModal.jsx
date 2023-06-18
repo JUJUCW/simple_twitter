@@ -31,7 +31,7 @@ export default function ReplyModal({ handleCloseModal, props }) {
         if (textInput.trim().length === 0) {
             setTextInput('');
             Toast.fire({
-                title: '內容不可為空白',
+                title: '內容不可空白',
                 icon: 'error',
             });
             return;
@@ -99,7 +99,7 @@ export default function ReplyModal({ handleCloseModal, props }) {
                    
                     <div className={styles.footer}>
                         <span className={warningClassName}>字數不可超過 140 字</span>
-                        <span className={headsUpClassName}>內容不可為空白</span>
+                        <span className={headsUpClassName}>內容不可空白</span>
                         <div className={styles.btnContainer}>
                            <Button title="回覆" size="small" isAction onClick={handlePostReply}></Button> 
                         </div>

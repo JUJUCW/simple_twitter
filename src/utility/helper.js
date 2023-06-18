@@ -27,10 +27,6 @@ export const Toast = Swal.mixin({
     timerProgressBar: true,
 });
 
-// Toast.fire({
-//   icon: 'success',
-//   title: 'Signed in successfully'
-// })
 
 // get relative time
 export const getRelativeTime = (createdAt) => {
