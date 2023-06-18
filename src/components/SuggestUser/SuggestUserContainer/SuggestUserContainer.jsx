@@ -28,7 +28,7 @@ export default function SuggestUserContainer() {
         getTopTenUser();
     }, [isDataUpdate]);
 
-    const topUserList = users.map((user) => {
+    const topUserList = users.length > 0 ?users.map((user) => {
         return (
         <SuggestUserItem
             key={user.id}
@@ -39,7 +39,7 @@ export default function SuggestUserContainer() {
             isFollowed={user.isFollowed}
         />
         );
-    });
+    }): null;
 
     return (
         <div className={styles.suggestFollowContainer}>
