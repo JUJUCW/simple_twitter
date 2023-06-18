@@ -45,7 +45,7 @@ export default function TweetInput() {
         if (textInput.trim().length === 0) {
             setTextInput('');
             Toast.fire({
-                title: '內容不可為空白',
+                title: '內容不可空白',
                 icon: 'error',
             });
             return;
