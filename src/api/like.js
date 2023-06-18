@@ -1,5 +1,6 @@
 import { apiHelper } from '../utility/helper.js';
 
+// like user
 export const postTweetLike = async (TweetId) => {
     try {
         await apiHelper.post(`/tweets/${TweetId}/like`, {});
@@ -9,6 +10,8 @@ export const postTweetLike = async (TweetId) => {
     }
 };
 
+
+// unlike user
 export const postTweetUnlike = async (TweetId) => {
     try {
         await apiHelper.post(`/tweets/${TweetId}/unlike`, {});

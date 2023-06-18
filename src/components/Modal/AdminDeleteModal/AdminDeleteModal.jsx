@@ -9,7 +9,6 @@ export default function AdminDeleteModal ( props ) {
     const handleCloseModal = props&&props.handleCloseModal
     const handleDeleteTweet = props&&props.handleDeleteTweet
 
-
     const handleCloseModalAtBg = (e) => {
         // if (isUpdating) return
         if (e.target.classList.contains(styles.modalOverlay)) {

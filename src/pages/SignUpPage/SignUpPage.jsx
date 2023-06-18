@@ -1,18 +1,19 @@
 import { useState, useMemo } from 'react';
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { userSignup } from '../../api/user.js'
+import { Toast } from '../../utility/helper.js'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import AuthPageContainer from '../../components/Auth/AuthPageContainer/AuthPageContainer.jsx'
 import Button from '../../components/Button/Button.jsx'
-import {userSignup} from '../../api/user.js'
-import {Toast} from '../../utility/helper.js'
+
 import styles from './SignUpPage.module.scss'
 
 export default function SignUpPage () {
-  const [account, setAccount] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [checkPassword, setCheckPassword] = useState("");
+  const [ account, setAccount ] = useState("");
+  const [ name, setName ] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ checkPassword, setCheckPassword ] = useState("");
   const navigate = useNavigate();
 
   const isValid = useMemo(() => {
@@ -78,10 +79,10 @@ export default function SignUpPage () {
       <AuthInput label='Email' value={email} placeholder='請輸入Email' onChange={(emailInputValue) => setEmail(emailInputValue)}
       notification='字數超出上限!' wordsLimit={100}
       />
-      <AuthInput label='密碼' type='password' value={password} placeholder='請設定密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
+      <AuthInput label='密碼'  value={password} placeholder='請設定密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
       notification='字數超出上限!' wordsLimit={50}
       />
-      <AuthInput label='密碼確認' type='password' value={checkPassword} placeholder='請再次輸入密碼' onChange={(checkPasswordInputValue) => setCheckPassword(checkPasswordInputValue)}
+      <AuthInput label='密碼確認'  value={checkPassword} placeholder='請再次輸入密碼' onChange={(checkPasswordInputValue) => setCheckPassword(checkPasswordInputValue)}
       notification='字數超出上限!' wordsLimit={50}
       />
       <Button title='註冊' size='large' isAction onClick={handleClick}></Button>

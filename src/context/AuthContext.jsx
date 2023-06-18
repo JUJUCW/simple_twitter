@@ -1,5 +1,5 @@
 import { adminLogin } from '../api/admin.js'
-import { userLogin/*, getUser*/ } from '../api/user.js'
+import { userLogin } from '../api/user.js'
 import * as jwt from 'jsonwebtoken'
 import { useEffect, useState, createContext, useContext } from 'react'
 import { useLocation } from 'react-router'

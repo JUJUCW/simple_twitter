@@ -1,14 +1,15 @@
 import { Link, useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Button from '../../Button/Button.jsx';
-import Header from "../../../components/Header/Header.jsx"
-import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
-import msg from '../../../assets/icons/user/user_msg.png';
-import notify from '../../../assets/icons/user/user_notfi.png';
 import { useAuth } from '../../../context/AuthContext.jsx'
 import { getUser } from '../../../api/user.js'
 import { followUser, unFollowUser } from '../../../api/followship.js';
 import { useDataStatus } from '../../../context/DataContext.jsx'
+import Button from '../../Button/Button.jsx';
+import Header from "../../../components/Header/Header.jsx"
+import UserEditModal from '../../Modal/UserEditModal/UserEditModal.jsx';
+
+import msg from '../../../assets/icons/user/user_msg.png';
+import notify from '../../../assets/icons/user/user_notfi.png';
 import styles from './CurrentUser.module.scss';
 
 export default function CurrentUser() {

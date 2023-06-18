@@ -34,7 +34,9 @@
   /*display*/
   display: flex;
   flex-direction: column;
+  /*box model*/
   margin-bottom: 8px;
+  /*other*/
   font-size: 16px;
 
   .tweetUserInfo {
@@ -42,6 +44,7 @@
     .tweetUserAccount {
         /*box model*/
         margin-left: 8px;
+        /*other*/
         color: #657786;
         @include mixin.font-setting(14px, 400, color.$secondary-color);
     }
@@ -55,12 +58,10 @@
       /*box model*/
       margin: 15px 0 8px 0;
       font-size: 13px;
-
       .replyWord {
           /*other*/
           color: #657786;
       }
-
       .replyAccount {
           /*other*/
           color: color.$brand-color;

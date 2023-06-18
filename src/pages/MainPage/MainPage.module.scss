@@ -1,14 +1,18 @@
 @use '../../assets/styles/color' as color;
 
 .container {
+    /*box model*/
     height: 100vh;
     margin: 0 auto;
+    overflow: hidden;
+    /*display*/
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    
 }
 
 .navBarContainer {
+    /*box model*/
     padding-bottom: 250px;
     height: 100vh;
     overflow-y: scroll;

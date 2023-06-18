@@ -1,26 +1,25 @@
 import { useState, useEffect, useMemo } from 'react';
-
+import { setUserAccount, getUser } from '../../api/user.js'
+import { Toast } from '../../utility/helper.js'
+import { useAuth } from '../../context/AuthContext.jsx'
+import { useNavigate } from 'react-router-dom';
+import { useDataStatus } from '../../context/DataContext.jsx'
 import Header from '../../components/Header/Header.jsx'
 import AuthInput from '../../components/Auth/AuthInput/AuthInput.jsx'
 import Button from '../../components/Button/Button.jsx'
 import NavBarContainer from '../../components/Navbar/NavBarContainer/NavBarContainer.jsx'
-import { setUserAccount, getUser } from '../../api/user.js'
-import { Toast } from '../../utility/helper.js'
+
 import styles from './SettingPage.module.scss'
-import { useAuth } from '../../context/AuthContext.jsx'
-import { useNavigate } from 'react-router-dom';
-import { useDataStatus } from '../../context/DataContext.jsx'
 
 export default function SettingPage () {
   const { logout, currentUser, isAuthenticated, isAuthChecked } = useAuth();
-  
   const userId = currentUser && currentUser.id
   const navigate = useNavigate();
-  const [account, setAccount] = useState("");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [checkPassword, setCheckPassword] = useState("");
+  const [ account, setAccount ] = useState("");
+  const [ name, setName ] = useState("");
+  const [ email, setEmail ] = useState("");
+  const [ password, setPassword ] = useState("");
+  const [ checkPassword, setCheckPassword ] = useState("");
   const { isDataUpdate, setIsDataUpdate } = useDataStatus();
  
   

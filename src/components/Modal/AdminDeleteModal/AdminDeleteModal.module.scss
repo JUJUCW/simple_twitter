@@ -21,6 +21,7 @@
   padding: 20px;
   margin: 250px auto;
   border-radius: 14px;
+  /*other*/
   background-color: white;
   border: 1px solid color.$assistant-gray;
 }
@@ -29,9 +30,9 @@
 .tweet {
   /*display*/
   display: flex;
-  margin: 10px 0;
   align-items: center;
   /*box model*/
+  margin: 10px 0;
 }
 .tweetContent {
   /*box model*/
@@ -43,6 +44,7 @@
 }
 
 .avatarContainer {
+  /*box model*/
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -56,7 +58,9 @@
   object-fit: cover;
 }
 .btnContainer {
+  /*box model*/
   width: 200px;
+  /*display*/
   display: flex;
   justify-content: space-around;
 }

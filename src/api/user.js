@@ -60,7 +60,7 @@ export const getUser = async (userId) => {
 export const getUserTweets = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/tweets`);
-        // console.log(data);
+       
         return data;
     } catch (error) {
         console.log('[Get user tweets Failed]:', error);
@@ -72,7 +72,7 @@ export const getUserTweets = async (userId) => {
 export const getUserReplies = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/replied_tweets`);
-        // console.log(data);
+        
         return data;
     } catch (error) {
         console.log('[Get user replies Failed]:', error);
@@ -84,7 +84,7 @@ export const getUserReplies = async (userId) => {
 export const getUserLikes = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/likes`);
-        // console.log(data);
+        
         return data;
     } catch (error) {
         console.log('[Get user likes Failed]:', error);
@@ -96,7 +96,7 @@ export const getUserLikes = async (userId) => {
 export const getTopTenUsers = async () => {
     try {
         const { data } = await apiHelper.get(`/users/topTen`);
-        // console.log(data);
+        
         return data;
     } catch (error) {
         console.error('[Get top ten users Failed]:', error);
@@ -128,7 +128,7 @@ export const setUserProfile = async (formData, userId) => {
 export const getUserFollowers = async (userId) => {
     try {
         const { data } = await apiHelper.get(`/users/${userId}/followers`);
-        // console.log(data);
+       
         return data;
     } catch (error) {
         console.error('[Get user followers Failed]:', error);
@@ -142,7 +142,7 @@ export const getUserFollowers = async (userId) => {
 export const getUserFollowings = async(userId) => {
   try{
     const{data} = await apiHelper.get(`/users/${userId}/followings`)
-    // console.log(data)
+    
     return data
   } catch (error) {
     console.error('[Get user followings Failed]:', error)
@@ -167,7 +167,7 @@ export const setUserAccount = async (
       password,
       checkPassword,
     });
-    // console.log(data)
+   
     return data
   } catch (error) {
     console.log("[Set user account Failed]:", error);

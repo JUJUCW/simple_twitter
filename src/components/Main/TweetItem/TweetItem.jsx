@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import ReplyModal from '../../Modal/ReplyModal/ReplyModal.jsx';
-import styles from './TweetItem.module.scss';
-import replyIcon from '../../../assets/icons/tweet/tweet_reply.png';
-import likeIcon from '../../../assets/icons/tweet/tweet_like.png';
 import { getRelativeTime } from '../../../utility/helper.js';
 import { postTweetUnlike, postTweetLike } from '../../../api/like.js';
+import ReplyModal from '../../Modal/ReplyModal/ReplyModal.jsx';
+import clsx from 'clsx';
+
+import replyIcon from '../../../assets/icons/tweet/tweet_reply.png';
+import likeIcon from '../../../assets/icons/tweet/tweet_like.png';
+import styles from './TweetItem.module.scss';
 
 export default function TweetItem(props) {
     const tweetId = props.tweetId;
@@ -23,7 +24,6 @@ export default function TweetItem(props) {
     const [showLiked, setShowLiked] = useState(isLiked);
     const [likedCount, setLikeCount] = useState(preLikedCount);
     const likeClassName = clsx(styles.likeBtn, { [styles.active]: showLiked });
-
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpenModal = () => {

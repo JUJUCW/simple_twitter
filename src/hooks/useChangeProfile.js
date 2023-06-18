@@ -17,6 +17,7 @@ export default function useChangeProfile () {
             formData.append("name", user.name);
             formData.append("introduction", user.introduction);
       const data = await setUserProfile (formData, user.id)
+      
       if (data.status==="error") {
         Toast.fire({
             title: "修改個人資料失敗",

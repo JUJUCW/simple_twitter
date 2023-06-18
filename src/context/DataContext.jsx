@@ -8,7 +8,7 @@ const defaultDataStatusContext = {
 const DataStatusContext = createContext(defaultDataStatusContext);
 export const useDataStatus = () => useContext(DataStatusContext);
 
-//
+
 export function DataStatusProvider ({ children }) {
   const [isDataUpdate, setIsDataUpdate] = useState(false);
   

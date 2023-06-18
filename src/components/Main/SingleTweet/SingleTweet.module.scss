@@ -5,31 +5,29 @@
     /*display*/
     display: flex;
     flex-direction: column;
-    /*box model*/
-    
-
     .tweetContent {
-        /*box model*/
-        // height: 50%;
-        line-height: 36px;
         /*display*/
         margin: 0 15px;
+        /*box model*/
+        line-height: 36px;
         /*other*/
         @include mixin.font-setting(24px, 400, color.$gray-10);
     }
     .time {
         @include mixin.font-setting(14px, 400, color.$secondary-color);
-        /*display*/
+        /*box model*/
         margin: 16px 16px 8px;
     }
     .userInfo {
         /*display*/
         display: flex;
         flex-direction: row;
+        /*box model*/
         gap: 8px;
         margin: 16px 0 8px 16px;
     }
     .userInfoAvatar {
+        /*box model*/
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -45,19 +43,18 @@
         /*display*/
         display: flex;
         flex-direction: column;
+        /*box model*/
         gap: 8px;
     }
     .userInfoName {
         /*box model*/
         width: 200px;
-        /*display*/
         text-overflow: ellipsis;
         @include mixin.font-setting(16px, 700, color.$gray-10);
     }
     .userInfoAccount {
         /*box model*/
         width: 200px;
-        /*display*/
         text-overflow: ellipsis;
         @include mixin.font-setting(14px, 400, color.$secondary-color);
     }
@@ -65,9 +62,11 @@
         /*display*/
         display: flex;
         align-items: center;
+        /*box model*/
         padding: 10px 19px;
         border-bottom: 1px solid color.$assistant-gray;
         .iconReply {
+            /*box model*/
             margin-right: 128px;
             cursor: pointer;
         }
@@ -83,18 +82,19 @@
     }
 }
 .line {
-    /*display*/
+    /*box model*/
     border-bottom: 1px solid color.$assistant-gray;
     margin: 0 16px;
 }
 .lineBottom {
+    /*box model*/
     width: 100%;
-    /*display*/
     border-bottom: 1px solid color.$assistant-gray;
 }
 .likeReplyBox {
     /*display*/
     display: flex;
+    /*box model*/
     gap: 24px;
     margin: 16px 0 16px 16px;
 
@@ -111,9 +111,11 @@
     cursor: pointer;
 }
 .rwdSection {
+    /*display*/
     display: none;
     align-items: center;
     justify-content: space-between;
+    /*box model*/
     padding: 16px 23px;
     border-bottom: 1px solid color.$assistant-gray;
     cursor: pointer;

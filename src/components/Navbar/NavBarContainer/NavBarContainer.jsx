@@ -1,18 +1,21 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+
+import {  NavLink } from 'react-router-dom';
+import { useAuth } from '../../../context/AuthContext.jsx'
 import NavItem from '../NavItem/NavItem.jsx';
 import Button from '../../Button/Button.jsx';
 import TweetModal from '../../../components/Modal/TweetModal/TweetModal.jsx';
-import { useAuth } from '../../../context/AuthContext.jsx';
-import styles from './NavBarContainer.module.scss';
 
 import logo from '../../../assets/icons/logo.png';
 import logoutImg from '../../../assets/icons/nav/nav_signout.png';
-import tweetIcon from '../../../assets/icons/nav/nav_btn.png';
+import tweetIcon from '../../../assets/icons/nav/nav_btn.png'
+import styles from './NavBarContainer.module.scss';
+
 
 export default function NavBarContainer({ role, page }) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [ isModalOpen, setIsModalOpen ] = useState(false);
     const { logout, currentUser } = useAuth();
+
     const handleOpenModal = () => {
         setIsModalOpen(true);
     };
@@ -20,6 +23,7 @@ export default function NavBarContainer({ role, page }) {
     const handleCloseModal = () => {
         setIsModalOpen(false);
     };
+    
     return (
         <>
             <div className={styles.navBarContainer}>
