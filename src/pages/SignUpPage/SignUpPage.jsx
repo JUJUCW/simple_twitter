@@ -79,10 +79,10 @@ export default function SignUpPage () {
       <AuthInput label='Email' value={email} placeholder='請輸入Email' onChange={(emailInputValue) => setEmail(emailInputValue)}
       notification='字數超出上限!' wordsLimit={100}
       />
-      <AuthInput label='密碼' type='password' value={password} placeholder='請設定密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
+      <AuthInput label='密碼'  value={password} placeholder='請設定密碼' onChange={(passwordInputValue) => setPassword(passwordInputValue)}
       notification='字數超出上限!' wordsLimit={50}
       />
-      <AuthInput label='密碼確認' type='password' value={checkPassword} placeholder='請再次輸入密碼' onChange={(checkPasswordInputValue) => setCheckPassword(checkPasswordInputValue)}
+      <AuthInput label='密碼確認'  value={checkPassword} placeholder='請再次輸入密碼' onChange={(checkPasswordInputValue) => setCheckPassword(checkPasswordInputValue)}
       notification='字數超出上限!' wordsLimit={50}
       />
       <Button title='註冊' size='large' isAction onClick={handleClick}></Button>
