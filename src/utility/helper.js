@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Swal from 'sweetalert2';
-export const baseURL = 'https://fast-taiga-04604.herokuapp.com/api';
+export const baseURL = 'http://simple-twitter-api-env.eba-pzdjrmrq.ap-northeast-2.elasticbeanstalk.com/api';
 
 const axiosInstance = axios.create({ baseURL });
 
