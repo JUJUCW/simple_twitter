@@ -1,6 +1,6 @@
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { getUserTweets } from 'api/tweets.js';
+import { getUserTweets } from 'api/user';
 import { useAuth } from 'context/AuthContext.jsx';
 import { useDataStatus } from 'context/DataContext.jsx';
 import TweetItem from 'components/Main/TweetItem/TweetItem.jsx';
